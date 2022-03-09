@@ -1,3 +1,22 @@
+.rating-head{
+    color: #0795DF;
+    font-size: 1.125rem;
+}
+
+.rating-overview{
+    background-color: #DCF3FF;
+}
+
+.rating-overview .rating-star{
+    font-size: 1.5rem;
+}
+.rating-overview .rating-score{
+    font-size: 1.875rem;
+}
+.rating-overview .rating-score-out-of{
+    font-size: 1.125rem;
+}
+
 .categories{
     -webkit-box-flex: 0;
     -ms-flex: 0 1 auto;
@@ -7,10 +26,18 @@
         -ms-flex-direction: row;
             flex-direction: row;
 }
-.categories button:active{
+.categories #pick{
     color: #0795DF;
-    border: solid 1px #0795DF
+    border: solid 1px #0795DF;
 }
-.rating-overview{
-    background-color: #DCF3FF;
+.categories #nonPick{
+    color: #000;
+    border: solid 1px #000;
+}
+
+.rating-cmt-list .rating .rating-action{
+    font-size: 1.125rem;
+}
+.rating-cmt-list .rating{
+    border-bottom: solid 1px #adb5bd;
 }
