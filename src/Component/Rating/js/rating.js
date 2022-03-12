@@ -9,8 +9,20 @@ import listRating from "../dataRatingFake/dataProductRating.json";
 import Header from "../../Header/Js/Header";
 function Rating() {
     const [pick, setPick] = useState(0);
+    const [changePage, setChangePage] = useState(1);
     const handleClick = (props) => {
         setPick(props);
+    };
+    const handleChangePage = (index, maxIndex) => {
+        if (index === 0) {
+            if (changePage === 1) {return}
+            setChangePage(changePage - 1);
+        } else if (index === maxIndex) {
+            if (changePage === maxIndex - 1) {return}
+            setChangePage(changePage + 1);
+        } else {
+            setChangePage(index);
+        }
     };
     function starScore(props) {
         const divElement = [];
@@ -57,7 +69,7 @@ function Rating() {
     };
     const productRating = (item, index) => {
         return (
-            <div className="row bg-white rating" key={index}>
+            <div className="col-12 d-flex bg-white rating" key={index}>
                 <div className="col-1 rating-avatar">
                     <img
                         src={item.avatar}
@@ -98,7 +110,9 @@ function Rating() {
                                     ? "like"
                                     : "nonLike"
                             }
-                            onClick={() =>{alert("Liked, thank you.")}}
+                            onClick={() => {
+                                alert("Liked, thank you.");
+                            }}
                         >
                             <FontAwesomeIcon icon={faThumbsUp} />
                         </div>
@@ -112,7 +126,34 @@ function Rating() {
             </div>
         );
     };
-
+    function paginationRating(props) {
+        if (props.length !== 0) {
+            const countPage = Math.ceil(props.length / 5);
+            const listPage = [];
+            listPage.push("Prev");
+            for (let i = 0; i < countPage; i++) {
+                listPage.push(i + 1);
+            }
+            listPage.push("Next");
+            return listPage.map((item, index) => (
+                <li className="page-item" key={index}>
+                    <p
+                        className="btn rounded-0 border border-0 page-link"
+                        id={
+                            changePage === index &&
+                            changePage > 0 &&
+                            changePage < listPage.length - 1
+                                ? "change"
+                                : "nonChange"
+                        }
+                        onClick={() => handleChangePage(index, listPage.length - 1)}
+                    >
+                        {item}
+                    </p>
+                </li>
+            ));
+        }
+    }
     return (
         <div className="ratingComponent">
             <Header />
@@ -151,21 +192,7 @@ function Rating() {
                         </div>
                         <div className="pagination-product-rating">
                             <ul className="pagination justify-content-end">
-                                <li className="page-item">
-                                    <p className="page-link">Previous</p>
-                                </li>
-                                <li className="page-item">
-                                    <p className="page-link">1</p>
-                                </li>
-                                <li className="page-item">
-                                    <p className="page-link">2</p>
-                                </li>
-                                <li className="page-item">
-                                    <p className="page-link">3</p>
-                                </li>
-                                <li className="page-item">
-                                    <p className="page-link">Next</p>
-                                </li>
+                                {paginationRating(listRating)}
                             </ul>
                         </div>
                     </div>

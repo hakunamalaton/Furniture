@@ -44,3 +44,8 @@
 .rating-cmt-list .rating{
     border-top: solid 1px #adb5bd;
 }
+
+.pagination-product-rating #change{
+    color: white;
+    background-color:#0795DF;
+}
