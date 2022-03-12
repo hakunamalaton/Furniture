@@ -1,0 +1,12 @@
+[
+    { "title": "All", "value": 150 },
+    { "title": "5 Stars", "value": 50 },
+    { "title": "4 Stars", "value": 40 },
+    { "title": "3 Stars", "value": 30 },
+    { "title": "2 Stars", "value": 20 },
+    { "title": "1 Star", "value": 10 },
+    { "title": "Have comment", "value": 60 },
+    { "title": "Have image or video", "value": 90 }
+]
+
+

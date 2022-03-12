@@ -4,61 +4,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/fontawesome-free-solid";
 import { faThumbsUp } from "@fortawesome/fontawesome-free-solid";
+import listBtn from "../dataRatingFake/dataRatingCategory.json"
+import listRating from "../dataRatingFake/dataProductRating.json"
 function Rating() {
     const [pick, setPick] = useState(0);
     const [like, setLike] = useState(0);
-
-    const listBtn = [
-        { title: "All", value: 150 },
-        { title: "5 Stars", value: 50 },
-        { title: "4 Stars", value: 40 },
-        { title: "3 Stars", value: 30 },
-        { title: "2 Stars", value: 20 },
-        { title: "1 Star", value: 10 },
-        { title: "Have comment", value: 60 },
-        { title: "Have image or video", value: 90 },
-    ];
-    const listRating = [
-        {
-            avatar: "https://i.imgur.com/UikkLus.jpg?1",
-            name: "Lam Thanh Duong",
-            score: 5,
-            time: "2022-02-05 23:59 | Category: Ebony, size 2 meters",
-            description:
-                "Photos and videos are for the purpose of collecting coins only. But the item is also very beautiful, so buy it, everyone",
-            listImg: [
-                "https://i.imgur.com/5EtVc9Y.png",
-                "https://i.imgur.com/pkyKkCi.png",
-                "https://i.imgur.com/xgjF3lk.png",
-            ],
-        },
-        {
-            avatar: "https://i.imgur.com/UikkLus.jpg?1",
-            name: "Lam Thanh Duong",
-            score: 2,
-            time: "2022-02-05 23:59 | Category: Ebony, size 2 meters",
-            description:
-                "Photos and videos are for the purpose of collecting coins only. But the item is also very beautiful, so buy it, everyone",
-            listImg: [
-                "https://i.imgur.com/5EtVc9Y.png",
-                "https://i.imgur.com/pkyKkCi.png",
-                "https://i.imgur.com/xgjF3lk.png",
-            ],
-        },
-        {
-            avatar: "https://i.imgur.com/UikkLus.jpg?1",
-            name: "Lam Thanh Duong",
-            score: 3,
-            time: "2022-02-05 23:59 | Category: Ebony, size 2 meters",
-            description:
-                "Photos and videos are for the purpose of collecting coins only. But the item is also very beautiful, so buy it, everyone",
-            listImg: [
-                "https://i.imgur.com/5EtVc9Y.png",
-                "https://i.imgur.com/pkyKkCi.png",
-                "https://i.imgur.com/xgjF3lk.png",
-            ],
-        },
-    ];
     const handleClick = (props) => {
         setPick(props);
     };
@@ -153,6 +103,7 @@ function Rating() {
             </div>
         );
     };
+    
     return (
         <div className="container-fluid d-flex justify-content-center bg-warning">
             <div className="col-8 bg-white">
