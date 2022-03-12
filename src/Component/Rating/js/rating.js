@@ -4,16 +4,13 @@ import "bootstrap/dist/css/bootstrap.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/fontawesome-free-solid";
 import { faThumbsUp } from "@fortawesome/fontawesome-free-solid";
-import listBtn from "../dataRatingFake/dataRatingCategory.json"
-import listRating from "../dataRatingFake/dataProductRating.json"
+import listBtn from "../dataRatingFake/dataRatingCategory.json";
+import listRating from "../dataRatingFake/dataProductRating.json";
+import Header from "../../Header/Js/Header";
 function Rating() {
     const [pick, setPick] = useState(0);
-    const [like, setLike] = useState(0);
     const handleClick = (props) => {
         setPick(props);
-    };
-    const handleLike = (props) => {
-        setPick(1);
     };
     function starScore(props) {
         const divElement = [];
@@ -94,66 +91,83 @@ function Rating() {
                         })}
                     </div>
                     <div className="row rating-action align-items-center">
-                        <div className="btn text-secondary">
+                        <div
+                            className="btn"
+                            id={
+                                item.listLike.indexOf("Lam Thanh Duong") !== -1
+                                    ? "like"
+                                    : "nonLike"
+                            }
+                            onClick={() =>{alert("Liked, thank you.")}}
+                        >
                             <FontAwesomeIcon icon={faThumbsUp} />
                         </div>
-                        <div className="text-secondary">Useful ?</div>
+                        <div className="text-secondary">
+                            {item.listLike.indexOf("Lam Thanh Duong") !== -1
+                                ? item.listLike.length
+                                : "Useful ?"}
+                        </div>
                     </div>
                 </div>
             </div>
         );
     };
-    
+
     return (
-        <div className="container-fluid d-flex justify-content-center bg-warning">
-            <div className="col-8 bg-white">
-                <div className="container">
-                    <div className="row rating-head">
-                        <p>RATING PRODUCT</p>
-                    </div>
-                    <div className="row rating-overview py-4 border border-dark">
-                        <div className="col-4 text-warning d-flex align-items-center">
-                            <div className="col">
-                                <div className="row align-items-end justify-content-center">
-                                    <p className="rating-score">4,9</p>{" "}
-                                    <p className="rating-score-out-of"> / 5</p>
+        <div className="ratingComponent">
+            <Header />
+            <div className="container-fluid d-flex justify-content-center bg-warning">
+                <div className="col-8 bg-white">
+                    <div className="container">
+                        <div className="row rating-head">
+                            <h5>RATING PRODUCT</h5>
+                        </div>
+                        <div className="row rating-overview py-4 border border-dark">
+                            <div className="col-4 text-warning d-flex align-items-center">
+                                <div className="col">
+                                    <div className="row align-items-end justify-content-center">
+                                        <p className="rating-score">4,9</p>
+                                        <p className="rating-score-out-of">
+                                            / 5
+                                        </p>
+                                    </div>
+                                    <div className="row rating-star justify-content-center">
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                    </div>
                                 </div>
-                                <div className="row rating-star justify-content-center">
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
+                            </div>
+                            <div className="col-8">
+                                <div className="row categories">
+                                    {listBtn.map(categories)}
                                 </div>
                             </div>
                         </div>
-                        <div className="col-8">
-                            <div className="row categories">
-                                {listBtn.map(categories)}
-                            </div>
+                        <div className="row py-3 rating-cmt-list">
+                            {listRating.map(productRating)}
                         </div>
-                    </div>
-                    <div className="row py-3 rating-cmt-list">
-                        {listRating.map(productRating)}
-                    </div>
-                    <div className="pagination-product-rating">
-                        <ul className="pagination justify-content-end">
-                            <li className="page-item">
-                                <p className="page-link">Previous</p>
-                            </li>
-                            <li className="page-item">
-                                <p className="page-link">1</p>
-                            </li>
-                            <li className="page-item">
-                                <p className="page-link">2</p>
-                            </li>
-                            <li className="page-item">
-                                <p className="page-link">3</p>
-                            </li>
-                            <li className="page-item">
-                                <p className="page-link">Next</p>
-                            </li>
-                        </ul>
+                        <div className="pagination-product-rating">
+                            <ul className="pagination justify-content-end">
+                                <li className="page-item">
+                                    <p className="page-link">Previous</p>
+                                </li>
+                                <li className="page-item">
+                                    <p className="page-link">1</p>
+                                </li>
+                                <li className="page-item">
+                                    <p className="page-link">2</p>
+                                </li>
+                                <li className="page-item">
+                                    <p className="page-link">3</p>
+                                </li>
+                                <li className="page-item">
+                                    <p className="page-link">Next</p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

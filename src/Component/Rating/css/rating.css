@@ -38,6 +38,9 @@
 .rating-cmt-list .rating .rating-action{
     font-size: 1.125rem;
 }
+.rating-cmt-list .rating .rating-action #like{
+    color: #0795DF;
+}
 .rating-cmt-list .rating{
     border-top: solid 1px #adb5bd;
 }
