@@ -1,0 +1,18 @@
+.rating-popup-form{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    overflow: visible;
+
+}
+
+.rating-popup-form .custom-file-label::after{
+    display: none!important;
+}
+.rating-popup-form .rating-choose-score{
+    font-size: 2rem;
+}
+.rating-popup-form .rating-choose-score .icon-star-score:hover{
+    color: #ffc107;
+}

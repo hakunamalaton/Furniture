@@ -3,7 +3,7 @@ import "./App.css";
 import HomePage from "./HomePage";
 import Address from "./Component/Address/Js/Address";
 import Rating from "./Component/Rating/js/rating";
-import PopUpRating from "./Component/Rating/js/pop_up_rating";
+import PopUpRating from "./Component/Rating/js/popUpRating";
 
 function App() {
     return (
@@ -11,7 +11,7 @@ function App() {
             <Router>
                 <Switch>
                     <Route exact path="/" component={Rating} ></Route>
-                    <Route exact path="/pop-up-rating" component={PopUpRating} ></Route>
+                    <Route exact path="/pop_up_rating" component={PopUpRating} ></Route>
                 </Switch>
             </Router>
         </div>

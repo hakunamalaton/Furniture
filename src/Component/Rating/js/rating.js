@@ -1,23 +1,34 @@
 import { React, useState } from "react";
+import { Link } from "react-router-dom";
 import "../css/rating.css";
-import "bootstrap/dist/css/bootstrap.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/fontawesome-free-solid";
-import { faThumbsUp } from "@fortawesome/fontawesome-free-solid";
+import { faStar, faThumbsUp } from "@fortawesome/fontawesome-free-solid";
 import listBtn from "../dataRatingFake/dataRatingCategory.json";
 import listRating from "../dataRatingFake/dataProductRating.json";
 import Header from "../../Header/Js/Header";
 function Rating() {
-    const [pick, setPick] = useState(0);
     let listNumKindRating = [];
     listNumKindRating.push(listRating.length);
-    listNumKindRating.push(listRating.filter(r => r.score === 5).length);
-    listNumKindRating.push(listRating.filter(r => r.score === 4).length);
-    listNumKindRating.push(listRating.filter(r => r.score === 3).length);
-    listNumKindRating.push(listRating.filter(r => r.score === 2).length);
-    listNumKindRating.push(listRating.filter(r => r.score === 1).length);
-    listNumKindRating.push(listRating.filter(r => r.description !== "").length);
-    listNumKindRating.push(listRating.filter(r => r.listImg.length !== 0).length);
+    listNumKindRating.push(listRating.filter((r) => r.score === 5).length);
+    listNumKindRating.push(listRating.filter((r) => r.score === 4).length);
+    listNumKindRating.push(listRating.filter((r) => r.score === 3).length);
+    listNumKindRating.push(listRating.filter((r) => r.score === 2).length);
+    listNumKindRating.push(listRating.filter((r) => r.score === 1).length);
+    listNumKindRating.push(
+        listRating.filter((r) => r.description !== "").length
+    );
+    listNumKindRating.push(
+        listRating.filter((r) => r.listImg.length !== 0).length
+    );
+
+    let sumScore = 0;
+    for (let i = 0; i < listRating.length; i++){
+        sumScore += listRating[i].score;
+    }
+    let averageScore = Math.round((sumScore / listRating.length) * 100) / 100;
+
+    
+    const [pick, setPick] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [productRatings, setProductRatings] = useState(listRating);
     const countPage = 5;
@@ -26,36 +37,32 @@ function Rating() {
         setPick(props);
         if (props === 0) {
             setProductRatings(listRating);
+        } else if (props === 1) {
+            setProductRatings(listRating.filter((e) => e.score === 5));
+        } else if (props === 2) {
+            setProductRatings(listRating.filter((e) => e.score === 4));
+        } else if (props === 3) {
+            setProductRatings(listRating.filter((e) => e.score === 3));
+        } else if (props === 4) {
+            setProductRatings(listRating.filter((e) => e.score === 2));
+        } else if (props === 5) {
+            setProductRatings(listRating.filter((e) => e.score === 1));
+        } else if (props === 6) {
+            setProductRatings(listRating.filter((e) => e.description !== ""));
+        } else if (props === 7) {
+            setProductRatings(listRating.filter((e) => e.listImg.length !== 0));
         }
-        else if (props === 1) {
-            setProductRatings(listRating.filter(e => e.score === 5));
-        }
-        else if (props === 2) {
-            setProductRatings(listRating.filter(e => e.score === 4));
-        }
-        else if (props === 3) {
-            setProductRatings(listRating.filter(e => e.score === 3));
-        }
-        else if (props === 4) {
-            setProductRatings(listRating.filter(e => e.score === 2));
-        }
-        else if (props === 5) {
-            setProductRatings(listRating.filter(e => e.score === 1));
-        }
-        else if (props === 6) {
-            setProductRatings(listRating.filter(e => e.description !== ""));
-        }
-        else if (props === 7) {
-            setProductRatings(listRating.filter(e => e.listImg.length !== 0));
-        }
-        
     };
     const handleCurrentPage = (index, maxIndex) => {
         if (index === 0) {
-            if (currentPage === 1) {return}
+            if (currentPage === 1) {
+                return;
+            }
             setCurrentPage(currentPage - 1);
         } else if (index === maxIndex) {
-            if (currentPage === maxIndex - 1) {return}
+            if (currentPage === maxIndex - 1) {
+                return;
+            }
             setCurrentPage(currentPage + 1);
         } else {
             setCurrentPage(index);
@@ -65,6 +72,17 @@ function Rating() {
         const divElement = [];
         for (let i = 1; i <= props; i++) {
             divElement.push(<FontAwesomeIcon icon={faStar} />);
+        }
+        return divElement.map((item, index) => <div key={index}>{item}</div>);
+    }
+    function starAvgScore(props) {
+        const divElement = [];
+        let restScore = 5 - Math.ceil(props);
+        for (let i = 0; i < Math.ceil(props); i++) {
+            divElement.push(<FontAwesomeIcon icon={faStar} className="text-warning" />);
+        }
+        for (let i = 0; i < restScore; i++) {
+            divElement.push(<FontAwesomeIcon icon={faStar} className="text-secondary"/>);
         }
         return divElement.map((item, index) => <div key={index}>{item}</div>);
     }
@@ -183,7 +201,9 @@ function Rating() {
                                 ? "change"
                                 : "nonChange"
                         }
-                        onClick={() => handleCurrentPage(index, listPage.length - 1)}
+                        onClick={() =>
+                            handleCurrentPage(index, listPage.length - 1)
+                        }
                     >
                         {item}
                     </p>
@@ -197,6 +217,13 @@ function Rating() {
             <div className="container-fluid d-flex justify-content-center bg-warning">
                 <div className="col-8 bg-white">
                     <div className="container">
+                        <div className="row">
+                            <Link to="/pop_up_rating" className="col-2">
+                                <button className="btn btn-danger">
+                                    Add Review
+                                </button>
+                            </Link>
+                        </div>
                         <div className="row rating-head">
                             <h5>RATING PRODUCT</h5>
                         </div>
@@ -204,17 +231,13 @@ function Rating() {
                             <div className="col-4 text-warning d-flex align-items-center">
                                 <div className="col">
                                     <div className="row align-items-end justify-content-center">
-                                        <p className="rating-score">4,9</p>
+                                        <p className="rating-score">{averageScore}</p>
                                         <p className="rating-score-out-of">
                                             / 5
                                         </p>
                                     </div>
                                     <div className="row rating-star justify-content-center">
-                                        <FontAwesomeIcon icon={faStar} />
-                                        <FontAwesomeIcon icon={faStar} />
-                                        <FontAwesomeIcon icon={faStar} />
-                                        <FontAwesomeIcon icon={faStar} />
-                                        <FontAwesomeIcon icon={faStar} />
+                                        {starAvgScore(averageScore)}
                                     </div>
                                 </div>
                             </div>
@@ -225,7 +248,12 @@ function Rating() {
                             </div>
                         </div>
                         <div className="row py-3 rating-cmt-list">
-                            {productRatings.slice((currentPage - 1) * countPage, (currentPage * countPage)).map(productRating)}
+                            {productRatings
+                                .slice(
+                                    (currentPage - 1) * countPage,
+                                    currentPage * countPage
+                                )
+                                .map(productRating)}
                         </div>
                         <div className="pagination-product-rating">
                             <ul className="pagination justify-content-center">
