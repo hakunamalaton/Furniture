@@ -9,12 +9,46 @@ import listRating from "../dataRatingFake/dataProductRating.json";
 import Header from "../../Header/Js/Header";
 function Rating() {
     const [pick, setPick] = useState(0);
+    let listNumKindRating = [];
+    listNumKindRating.push(listRating.length);
+    listNumKindRating.push(listRating.filter(r => r.score === 5).length);
+    listNumKindRating.push(listRating.filter(r => r.score === 4).length);
+    listNumKindRating.push(listRating.filter(r => r.score === 3).length);
+    listNumKindRating.push(listRating.filter(r => r.score === 2).length);
+    listNumKindRating.push(listRating.filter(r => r.score === 1).length);
+    listNumKindRating.push(listRating.filter(r => r.description !== "").length);
+    listNumKindRating.push(listRating.filter(r => r.listImg.length !== 0).length);
     const [currentPage, setCurrentPage] = useState(1);
-
+    const [productRatings, setProductRatings] = useState(listRating);
     const countPage = 5;
 
     const handleClick = (props) => {
         setPick(props);
+        if (props === 0) {
+            setProductRatings(listRating);
+        }
+        else if (props === 1) {
+            setProductRatings(listRating.filter(e => e.score === 5));
+        }
+        else if (props === 2) {
+            setProductRatings(listRating.filter(e => e.score === 4));
+        }
+        else if (props === 3) {
+            setProductRatings(listRating.filter(e => e.score === 3));
+        }
+        else if (props === 4) {
+            setProductRatings(listRating.filter(e => e.score === 2));
+        }
+        else if (props === 5) {
+            setProductRatings(listRating.filter(e => e.score === 1));
+        }
+        else if (props === 6) {
+            setProductRatings(listRating.filter(e => e.description !== ""));
+        }
+        else if (props === 7) {
+            setProductRatings(listRating.filter(e => e.listImg.length !== 0));
+        }
+        
     };
     const handleCurrentPage = (index, maxIndex) => {
         if (index === 0) {
@@ -43,7 +77,7 @@ function Rating() {
                     id={pick === index ? "pick" : "nonPick"}
                     onClick={() => handleClick(index)}
                 >
-                    {item.title}
+                    {item}
                 </div>
             );
         } else if (index > 0 && index < 6) {
@@ -54,7 +88,7 @@ function Rating() {
                     id={pick === index ? "pick" : "nonPick"}
                     onClick={() => handleClick(index)}
                 >
-                    {item.title + " (" + item.value + ")"}
+                    {item + " (" + listNumKindRating[index] + ")"}
                 </div>
             );
         } else {
@@ -65,7 +99,7 @@ function Rating() {
                     id={pick === index ? "pick" : "nonPick"}
                     onClick={() => handleClick(index)}
                 >
-                    {item.title + " (" + item.value + ")"}
+                    {item + " (" + listNumKindRating[index] + ")"}
                 </div>
             );
         }
@@ -157,9 +191,6 @@ function Rating() {
             ));
         }
     }
-    function filterProductRating(props){
-        let subList = 2;
-    }
     return (
         <div className="ratingComponent">
             <Header />
@@ -194,11 +225,11 @@ function Rating() {
                             </div>
                         </div>
                         <div className="row py-3 rating-cmt-list">
-                            {listRating.slice((currentPage - 1) * countPage, (currentPage * countPage)).map(productRating)}
+                            {productRatings.slice((currentPage - 1) * countPage, (currentPage * countPage)).map(productRating)}
                         </div>
                         <div className="pagination-product-rating">
                             <ul className="pagination justify-content-center">
-                                {paginationRating(listRating)}
+                                {paginationRating(productRatings)}
                             </ul>
                         </div>
                     </div>
