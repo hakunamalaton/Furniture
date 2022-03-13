@@ -9,19 +9,22 @@ import listRating from "../dataRatingFake/dataProductRating.json";
 import Header from "../../Header/Js/Header";
 function Rating() {
     const [pick, setPick] = useState(0);
-    const [changePage, setChangePage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const countPage = 5;
+
     const handleClick = (props) => {
         setPick(props);
     };
-    const handleChangePage = (index, maxIndex) => {
+    const handleCurrentPage = (index, maxIndex) => {
         if (index === 0) {
-            if (changePage === 1) {return}
-            setChangePage(changePage - 1);
+            if (currentPage === 1) {return}
+            setCurrentPage(currentPage - 1);
         } else if (index === maxIndex) {
-            if (changePage === maxIndex - 1) {return}
-            setChangePage(changePage + 1);
+            if (currentPage === maxIndex - 1) {return}
+            setCurrentPage(currentPage + 1);
         } else {
-            setChangePage(index);
+            setCurrentPage(index);
         }
     };
     function starScore(props) {
@@ -70,14 +73,14 @@ function Rating() {
     const productRating = (item, index) => {
         return (
             <div className="col-12 d-flex bg-white rating" key={index}>
-                <div className="col-1 rating-avatar">
+                <div className="col-2 rating-avatar">
                     <img
                         src={item.avatar}
-                        className="img-fluid p-2 rounded-circle"
+                        className="img-fluid p-4 rounded-circle"
                         alt="img-reviewer"
                     />
                 </div>
-                <div className="col-11 rating-main">
+                <div className="col-10 p-2 rating-main">
                     <div className="row font-weight-bold rating-author-name">
                         {item.name}
                     </div>
@@ -140,19 +143,22 @@ function Rating() {
                     <p
                         className="btn rounded-0 border border-0 page-link"
                         id={
-                            changePage === index &&
-                            changePage > 0 &&
-                            changePage < listPage.length - 1
+                            currentPage === index &&
+                            currentPage > 0 &&
+                            currentPage < listPage.length - 1
                                 ? "change"
                                 : "nonChange"
                         }
-                        onClick={() => handleChangePage(index, listPage.length - 1)}
+                        onClick={() => handleCurrentPage(index, listPage.length - 1)}
                     >
                         {item}
                     </p>
                 </li>
             ));
         }
+    }
+    function filterProductRating(props){
+        let subList = 2;
     }
     return (
         <div className="ratingComponent">
@@ -188,10 +194,10 @@ function Rating() {
                             </div>
                         </div>
                         <div className="row py-3 rating-cmt-list">
-                            {listRating.map(productRating)}
+                            {listRating.slice((currentPage - 1) * countPage, (currentPage * countPage)).map(productRating)}
                         </div>
                         <div className="pagination-product-rating">
-                            <ul className="pagination justify-content-end">
+                            <ul className="pagination justify-content-center">
                                 {paginationRating(listRating)}
                             </ul>
                         </div>
