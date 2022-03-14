@@ -218,7 +218,7 @@ function Rating() {
     return (
         <div className="ratingComponent">
             <Header />
-            <div className="container-fluid d-flex justify-content-center bg-warning">
+            <div className="container-fluid rating-cpn-body d-flex justify-content-center">
                 <div className="col-8 bg-white">
                     <div className="container">
                         <div className="row rating-head">

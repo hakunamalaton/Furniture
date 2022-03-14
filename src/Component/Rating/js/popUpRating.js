@@ -7,8 +7,7 @@ function PopUpRating({ imageProduct, nameProduct, categoryProduct }) {
     const [currentScore, setCurrentScore] = useState(0);
     const [hoverScore, setHoverScore] = useState(undefined);
     const [popUp, setPopUp] = useState(false);
-    const [upImageFile, setUpImageFile] = useState(false);
-    const [upVideoFile, setUpVideoFile] = useState(false);
+
     function pickStarScore(props) {
         const start = Array(5).fill(0);
         return start.map((_, index) => (
@@ -45,26 +44,25 @@ function PopUpRating({ imageProduct, nameProduct, categoryProduct }) {
     const handleMouseLeave = () => {
         setHoverScore(undefined);
     };
-    function previewFileImg() {
-        var preview = document.querySelector("#img-up-rating-1");
-        document.querySelector("#img-up-rating-1").style.display = "block";
-        var file = document.querySelector("#inputImageFile").files[0];
-        var reader = new FileReader();
-        reader.onloadend = function () {
-            preview.src = reader.result;
-        };
-
-        if (file) {
-            reader.readAsDataURL(file);
-        } else {
-            preview.src = "";
+    function previewListImg() {
+        const file = document.querySelector("#inputImageFile").files;
+        for (let i = 0; i < file.length; i++) {
+            previewImg(i);
         }
+    }
+    function previewImg(index) {
+        const preview = document.querySelector("#img-up-rating-" + (index + 1));
+        var file = document.querySelector("#inputImageFile").files[index];
+        console.log(file);
+        let blobURL = URL.createObjectURL(file);
+        preview.style.display = "block";
+        preview.style.backgroundImage = "url(" + blobURL.toString() + ")";
     }
     function previewFileVideo() {
         let file = document.querySelector("#inputVideoFile").files[0];
-        let blobURL = URL.createObjectURL(file);
+        let videoURL = URL.createObjectURL(file);
         document.querySelector("video").style.display = "block";
-        document.querySelector("video").src = blobURL;
+        document.querySelector("video").src = videoURL;
     }
     return (
         <div className="popupRatingComponent">
@@ -122,7 +120,8 @@ function PopUpRating({ imageProduct, nameProduct, categoryProduct }) {
                                                     className="custom-file-input"
                                                     id="inputImageFile"
                                                     accept="image/png, image/jpeg, image/jpg"
-                                                    onChange={previewFileImg}
+                                                    multiple
+                                                    onChange={previewListImg}
                                                 />
                                                 <label
                                                     className="custom-file-label text-primary border-primary rounded-0"
@@ -153,29 +152,42 @@ function PopUpRating({ imageProduct, nameProduct, categoryProduct }) {
                                                 </label>
                                             </div>
                                             <div className="col-4 d-flex align-items-center">
-                                                <div className="row">(Max is 5-images and 1-video.)</div>
+                                                <div className="row">
+                                                    (Max is 5-images and
+                                                    1-video.)
+                                                </div>
                                             </div>
                                         </div>
                                         <div className="row previewFile pt-2">
-                                            <div className="col-2">
-                                                <img
-                                                    src=""
-                                                    alt="PreviewImage"
-                                                    id="img-up-rating-1"
-                                                    className="img-fluid"
-                                                    style={{display:"none"}}
-                                                />
-                                            </div>
-                                            <div className="col-2">
-                                                <video
-                                                    style={{display:"none"}}
-                                                    controls
-                                                    autoplay
-                                                >
-                                                    Your browser does not
-                                                    support the video tag.
-                                                </video>
-                                            </div>
+                                            {[0, 0, 0, 0, 0, 0].map(
+                                                (_, index) => {
+                                                    return index !== 5 ? (
+                                                        <div
+                                                            className="previewImage"
+                                                            id={
+                                                                "img-up-rating-" +
+                                                                (index + 1)
+                                                            }
+                                                            style={{
+                                                                display: "none",
+                                                            }}
+                                                        ></div>
+                                                    ) : (
+                                                        <video
+                                                            className="previewVideo m-1"
+                                                            style={{
+                                                                display: "none",
+                                                            }}
+                                                            controls
+                                                            autoPlay
+                                                        >
+                                                            Your browser does
+                                                            not support the
+                                                            video tag.
+                                                        </video>
+                                                    );
+                                                }
+                                            )}
                                         </div>
                                     </div>
                                 </div>

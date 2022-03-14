@@ -31,5 +31,15 @@
 }
 .popupRatingComponent .previewFile video {
     object-fit: cover!important;
-    max-width: 100%;
+    width: 54px;
+    height: 54px;
+    overflow: hidden;
+}
+.popupRatingComponent .previewFile .previewImage{
+    width: 54px;
+    height: 54px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
 }
