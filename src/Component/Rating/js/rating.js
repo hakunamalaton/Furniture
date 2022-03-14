@@ -1,11 +1,12 @@
 import { React, useState } from "react";
-import { Link } from "react-router-dom";
 import "../css/rating.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faThumbsUp } from "@fortawesome/fontawesome-free-solid";
 import listBtn from "../dataRatingFake/dataRatingCategory.json";
 import listRating from "../dataRatingFake/dataProductRating.json";
 import Header from "../../Header/Js/Header";
+import PopUpRating from "./popUpRating";
+
 function Rating() {
     let listNumKindRating = [];
     listNumKindRating.push(listRating.length);
@@ -22,12 +23,11 @@ function Rating() {
     );
 
     let sumScore = 0;
-    for (let i = 0; i < listRating.length; i++){
+    for (let i = 0; i < listRating.length; i++) {
         sumScore += listRating[i].score;
     }
     let averageScore = Math.round((sumScore / listRating.length) * 100) / 100;
 
-    
     const [pick, setPick] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [productRatings, setProductRatings] = useState(listRating);
@@ -79,10 +79,14 @@ function Rating() {
         const divElement = [];
         let restScore = 5 - Math.ceil(props);
         for (let i = 0; i < Math.ceil(props); i++) {
-            divElement.push(<FontAwesomeIcon icon={faStar} className="text-warning" />);
+            divElement.push(
+                <FontAwesomeIcon icon={faStar} className="text-warning" />
+            );
         }
         for (let i = 0; i < restScore; i++) {
-            divElement.push(<FontAwesomeIcon icon={faStar} className="text-secondary"/>);
+            divElement.push(
+                <FontAwesomeIcon icon={faStar} className="text-secondary" />
+            );
         }
         return divElement.map((item, index) => <div key={index}>{item}</div>);
     }
@@ -217,13 +221,6 @@ function Rating() {
             <div className="container-fluid d-flex justify-content-center bg-warning">
                 <div className="col-8 bg-white">
                     <div className="container">
-                        <div className="row">
-                            <Link to="/pop_up_rating" className="col-2">
-                                <button className="btn btn-danger">
-                                    Add Review
-                                </button>
-                            </Link>
-                        </div>
                         <div className="row rating-head">
                             <h5>RATING PRODUCT</h5>
                         </div>
@@ -231,7 +228,9 @@ function Rating() {
                             <div className="col-4 text-warning d-flex align-items-center">
                                 <div className="col">
                                     <div className="row align-items-end justify-content-center">
-                                        <p className="rating-score">{averageScore}</p>
+                                        <p className="rating-score">
+                                            {averageScore}
+                                        </p>
                                         <p className="rating-score-out-of">
                                             / 5
                                         </p>
@@ -263,6 +262,11 @@ function Rating() {
                     </div>
                 </div>
             </div>
+            <PopUpRating
+                imageProduct={"https://i.imgur.com/Q12CDlu.png"}
+                nameProduct={"Josie Upholstered Low Profile Platform Bed"}
+                categoryProduct={"Category: Light Gray, Full"}
+            ></PopUpRating>
         </div>
     );
 }
