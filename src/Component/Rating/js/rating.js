@@ -218,9 +218,8 @@ function Rating() {
     return (
         <div className="ratingComponent">
             <Header />
-            <div className="container-fluid rating-cpn-body d-flex justify-content-center">
-                <div className="col-8 bg-white">
-                    <div className="container">
+            <div className="container bg-white d-flex justify-content-center">
+                <div className="col-12">
                         <div className="row rating-head">
                             <h5>RATING PRODUCT</h5>
                         </div>
@@ -259,7 +258,7 @@ function Rating() {
                                 {paginationRating(productRatings)}
                             </ul>
                         </div>
-                    </div>
+                    
                 </div>
             </div>
             <Footer />

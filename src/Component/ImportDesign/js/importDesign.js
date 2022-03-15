@@ -2,6 +2,7 @@ import { React } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/fontawesome-free-solid";
 import Header from "../../Header/Js/Header";
+import Footer from "../../Footer/Js/Footer";
 import "../css/importDesign.css"
 function ImportDesign() {
     function previewListImg() {
@@ -87,6 +88,7 @@ function ImportDesign() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }
