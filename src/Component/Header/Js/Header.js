@@ -6,7 +6,7 @@ import "../Css/Header.css";
 
 const Header = () => {
     return (
-        <div className="header sticky-top">
+        <div className="header">
             <div className="container pt-1">
                 <div className="row sign_in_header justify-content-end mr-1">
                     <div className="d-flex text-light">
@@ -27,7 +27,7 @@ const Header = () => {
                         </div>
 
                         <h5 className="col-7 mb-0 d-none d-xl-block text-light">
-                            F R T N R STORE
+                            F R N T R STORE
                         </h5>
                     </div>
 
