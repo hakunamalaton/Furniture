@@ -5,7 +5,7 @@ import { faStar, faThumbsUp } from "@fortawesome/fontawesome-free-solid";
 import listBtn from "../dataRatingFake/dataRatingCategory.json";
 import listRating from "../dataRatingFake/dataProductRating.json";
 import Header from "../../Header/Js/Header";
-import PopUpRating from "./popUpRating";
+import Footer from "../../Footer/Js/Footer";
 
 function Rating() {
     let listNumKindRating = [];
@@ -262,11 +262,7 @@ function Rating() {
                     </div>
                 </div>
             </div>
-            <PopUpRating
-                imageProduct={"https://i.imgur.com/Q12CDlu.png"}
-                nameProduct={"Josie Upholstered Low Profile Platform Bed"}
-                categoryProduct={"Category: Light Gray, Full"}
-            ></PopUpRating>
+            <Footer />
         </div>
     );
 }

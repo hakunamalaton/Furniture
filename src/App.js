@@ -3,7 +3,6 @@ import "./App.css";
 import HomePage from "./HomePage";
 import Address from "./Component/Address/Js/Address";
 import Rating from "./Component/Rating/js/rating";
-import PopUpRating from "./Component/Rating/js/popUpRating";
 import ImportDesign from "./Component/ImportDesign/js/importDesign";
 
 function App() {
@@ -11,8 +10,9 @@ function App() {
         <Router>
             <div className="App">
                 <Switch>
-                    <Route exact path="/" component={ImportDesign}></Route>
                     <Route exact path="/" component={HomePage} />
+                    <Route exact path="/import-design" component={ImportDesign}/>
+                    <Route exact path="/rating" component={Rating}/>
                     <Route exact path="/address" component={Address} />
                 </Switch>
             </div>
