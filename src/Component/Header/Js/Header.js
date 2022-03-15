@@ -31,7 +31,7 @@ const Header = () => {
                                 aria-label="Search"
                             />
                             <button
-                                className="btn bg-primary text-light my-2 my-sm-0 position-absolute mr-sm-2"
+                                className="btn bg-light text-dark my-2 my-sm-0 position-absolute mr-sm-2"
                                 type="submit"
                             >
                                 Search

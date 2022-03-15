@@ -1,11 +1,11 @@
 import React from "react";
-import clock from "./Image/clock.png";
-import facebook from "./Image/facebook.png";
-import instagram from "./Image/instagram.png";
-import location from "./Image/location.png";
-import mail from "./Image/mail.png";
-import telephone from "./Image/telephone.png";
-import twitter from "./Image/twitter.png";
+import clock from "../Image/clock.png";
+import facebook from "../Image/facebook.png";
+import instagram from "../Image/instagram.png";
+import location from "../Image/location.png";
+import mail from "../Image/mail.png";
+import telephone from "../Image/telephone.png";
+import twitter from "../Image/twitter.png";
 
 const Footer = () => {
     return (
@@ -55,16 +55,23 @@ const Footer = () => {
                                 </button>
                             </form>
                         </div>
-                        <div className="mt-3">
+                        <div className="mt-3 connect">
                             <h4>CONNECT WITH US</h4>
-                            <img src={facebook} width="40px" alt="facebook" className="mr-3" />
-                            <img
-                                src={instagram}
-                                width="40px"
-                                alt="instagram"
-                                className="ml-3 mr-3"
-                            />
-                            <img src={twitter} width="40px" alt="twitter" className="ml-3" />
+                            <a href="#">
+                                <img src={facebook} width="30px" alt="facebook" className="mr-3" />
+                            </a>
+                            <a href="#">
+                                <img
+                                    src={instagram}
+                                    width="30px"
+                                    alt="instagram"
+                                    className="ml-3 mr-3"
+                                />
+                            </a>
+
+                            <a href="#">
+                                <img src={twitter} width="30px" alt="twitter" className="ml-3" />
+                            </a>
                         </div>
                     </div>
                 </div>

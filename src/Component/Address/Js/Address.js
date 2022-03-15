@@ -3,7 +3,7 @@ import { useState } from "react";
 import Header from "../../Header/Js/Header";
 import datas from "./address.json";
 import NewAddressModal from "./NewAddressModal";
-import Footer from "../../Footer/Footer";
+import Footer from "../../Footer/Js/Footer";
 
 const Address = () => {
     const size = { "font-size": "1.1rem" };
