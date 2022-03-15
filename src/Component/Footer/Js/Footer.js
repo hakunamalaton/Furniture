@@ -11,10 +11,10 @@ const Footer = () => {
     return (
         <div className="border-top border-dark">
             <div className="container">
-                <div className="footer d-flex justify-content-around pt-3 pb-3 row">
+                <div className="footer justify-content-around pt-2 pb-2 row">
                     <div className="col-xl">
                         <div>
-                            <h4>CONTACT US</h4>
+                            <h6>CONTACT US</h6>
                             <div>
                                 <img src={telephone} width="25px" alt="telephone" /> 012 345 6789
                             </div>
@@ -22,8 +22,8 @@ const Footer = () => {
                                 <img src={mail} width="25px" alt="mail" /> nhom4@gmail.com
                             </div>
                         </div>
-                        <div className="mt-4">
-                            <h4>VISIT OUR STORE</h4>
+                        <div className="mt-2">
+                            <h6>VISIT OUR STORE</h6>
                             <div>
                                 <img src={location} width="25px" alt="location" /> 246 Ly Thuong
                                 Kiet, Quan 10, Ho Chi Minh City, Viet Nam
@@ -32,14 +32,14 @@ const Footer = () => {
                                 <img src={clock} width="25px" height="25px" alt="clock" />{" "}
                                 <div className="pl-1">
                                     <p className="mb-1">Mon-Fri: 10am to 6pm</p>
-                                    <p>Sat-Sun: 11am to 5pm</p>
+                                    <p className="mb-0">Sat-Sun: 11am to 5pm</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="col-xl">
                         <div>
-                            <h4>FILL EMAIL FOR DEALS OR YOUR DESIGN</h4>
+                            <h6>FILL EMAIL FOR DEALS OR YOUR DESIGN</h6>
                             <form className="form-inline my-2 justify-content-end mt-2">
                                 <input
                                     className="form-control mr-sm-2 w-100"
@@ -55,8 +55,8 @@ const Footer = () => {
                                 </button>
                             </form>
                         </div>
-                        <div className="mt-5 connect">
-                            <h4>CONNECT WITH US</h4>
+                        <div className="mt-4 connect">
+                            <h6>CONNECT WITH US</h6>
                             <a href="#">
                                 <img src={facebook} width="30px" alt="facebook" className="mr-3" />
                             </a>
