@@ -54,9 +54,9 @@ const Header = () => {
                 </div>
 
                 <div className="row border-top border-light justify-content-md-start">
-                    <nav class="navbar navbar-expand-lg navbar-light p-0 m-1">
+                    <nav className="navbar navbar-expand-lg navbar-light p-0 m-1">
                         <button
-                            class="navbar-toggler"
+                            className="navbar-toggler"
                             type="button"
                             data-toggle="collapse"
                             data-target="#navbarSupportedContent"
@@ -69,45 +69,45 @@ const Header = () => {
                         </button>
 
                         <div
-                            class="collapse navbar-collapse"
+                            className="collapse navbar-collapse"
                             id="navbarSupportedContent"
                         >
-                            <ul class="navbar-nav align-items-center">
-                                <li class="nav-item active">
+                            <ul className="navbar-nav align-items-center">
+                                <li className="nav-item active">
                                     <a
-                                        class="nav-link text-light ml-md-5 mr-md-5"
+                                        className="nav-link text-light ml-md-5 mr-md-5"
                                         href="/table"
                                     >
                                         TABLE
                                     </a>
                                 </li>
-                                <li class="nav-item active">
+                                <li className="nav-item active">
                                     <a
-                                        class="nav-link text-light ml-md-5 mr-md-5"
+                                        className="nav-link text-light ml-md-5 mr-md-5"
                                         href="/desk"
                                     >
                                         DESK
                                     </a>
                                 </li>
-                                <li class="nav-item active">
+                                <li className="nav-item active">
                                     <a
-                                        class="nav-link text-light ml-md-5 mr-md-5"
+                                        className="nav-link text-light ml-md-5 mr-md-5"
                                         href="/chair"
                                     >
                                         CHAIR
                                     </a>
                                 </li>
-                                <li class="nav-item active">
+                                <li className="nav-item active">
                                     <a
-                                        class="nav-link text-light ml-md-5 mr-md-5"
+                                        className="nav-link text-light ml-md-5 mr-md-5"
                                         href="/bedding"
                                     >
                                         BEDDING
                                     </a>
                                 </li>
-                                <li class="nav-item active">
+                                <li className="nav-item active">
                                     <a
-                                        class="nav-link text-light ml-md-5"
+                                        className="nav-link text-light ml-md-5"
                                         href="/import-design"
                                     >
                                         CUSTOM DESIGN

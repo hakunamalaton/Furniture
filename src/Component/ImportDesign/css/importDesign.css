@@ -7,3 +7,17 @@
 .import-ds-form-header{
     color: #0795DF;
 }
+
+.import-ds-form .frame-import{
+    background-color: #C9ECFF;
+    height: 400px;
+}
+
+.import-ds-form .frame-import .previewImage{
+    width: 54px;
+    height: 54px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
