@@ -220,7 +220,7 @@ function Rating() {
             <Header />
             <div className="container bg-white d-flex justify-content-center">
                 <div className="col-12">
-                        <div className="row rating-head">
+                        <div className="row rating-head pt-2">
                             <h5>RATING PRODUCT</h5>
                         </div>
                         <div className="row rating-overview py-4 border border-dark">
