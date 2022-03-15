@@ -76,7 +76,7 @@ const Header = () => {
                                 <li class="nav-item active">
                                     <a
                                         class="nav-link text-light ml-md-5 mr-md-5"
-                                        href="#"
+                                        href="/table"
                                     >
                                         TABLE
                                     </a>
@@ -84,7 +84,7 @@ const Header = () => {
                                 <li class="nav-item active">
                                     <a
                                         class="nav-link text-light ml-md-5 mr-md-5"
-                                        href="#"
+                                        href="/desk"
                                     >
                                         DESK
                                     </a>
@@ -92,7 +92,7 @@ const Header = () => {
                                 <li class="nav-item active">
                                     <a
                                         class="nav-link text-light ml-md-5 mr-md-5"
-                                        href="#"
+                                        href="/chair"
                                     >
                                         CHAIR
                                     </a>
@@ -100,7 +100,7 @@ const Header = () => {
                                 <li class="nav-item active">
                                     <a
                                         class="nav-link text-light ml-md-5 mr-md-5"
-                                        href="#"
+                                        href="/bedding"
                                     >
                                         BEDDING
                                     </a>
@@ -108,7 +108,7 @@ const Header = () => {
                                 <li class="nav-item active">
                                     <a
                                         class="nav-link text-light ml-md-5"
-                                        href="#"
+                                        href="/import-design"
                                     >
                                         CUSTOM DESIGN
                                     </a>

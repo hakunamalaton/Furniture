@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <div className="border-top border-dark">
             <div className="container">
-                <div className="footer justify-content-around pt-2 pb-2 row">
+                <div className="footer d-flex justify-content-around pt-2 pb-1 row">
                     <div className="col-xl">
                         <div>
                             <h6>CONTACT US</h6>
@@ -55,12 +55,12 @@ const Footer = () => {
                                 </button>
                             </form>
                         </div>
-                        <div className="mt-4 connect">
+                        <div className="mt-2 mt-xl-4 connect">
                             <h6>CONNECT WITH US</h6>
-                            <a href="#">
+                            <a href="https://www.facebook.com/">
                                 <img src={facebook} width="30px" alt="facebook" className="mr-3" />
                             </a>
-                            <a href="#">
+                            <a href="https://www.instagram.com/">
                                 <img
                                     src={instagram}
                                     width="30px"
@@ -69,7 +69,7 @@ const Footer = () => {
                                 />
                             </a>
 
-                            <a href="#">
+                            <a href="https://twitter.com/">
                                 <img src={twitter} width="30px" alt="twitter" className="ml-3" />
                             </a>
                         </div>
