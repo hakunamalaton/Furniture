@@ -1,0 +1,9 @@
+.import-ds-form .custom-file-label::after{
+    display: none!important;
+}
+.import-ds-form {
+    background-color: #e5e5e5;
+}
+.import-ds-form-header{
+    color: #0795DF;
+}

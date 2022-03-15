@@ -10,11 +10,7 @@ function App() {
         <div className="App">
             <Router>
                 <Switch>
-                    <Route
-                        exact
-                        path="/"
-                        component={Rating}
-                    ></Route>
+                    <Route exact path="/" component={ImportDesign}></Route>
                 </Switch>
             </Router>
         </div>
