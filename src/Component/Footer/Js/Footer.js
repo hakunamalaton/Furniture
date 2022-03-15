@@ -22,7 +22,7 @@ const Footer = () => {
                                 <img src={mail} width="25px" alt="mail" /> nhom4@gmail.com
                             </div>
                         </div>
-                        <div className="mt-2">
+                        <div className="mt-4">
                             <h4>VISIT OUR STORE</h4>
                             <div>
                                 <img src={location} width="25px" alt="location" /> 246 Ly Thuong
@@ -55,7 +55,7 @@ const Footer = () => {
                                 </button>
                             </form>
                         </div>
-                        <div className="mt-3 connect">
+                        <div className="mt-5 connect">
                             <h4>CONNECT WITH US</h4>
                             <a href="#">
                                 <img src={facebook} width="30px" alt="facebook" className="mr-3" />

@@ -29,14 +29,15 @@ const Address = () => {
                 {/* First row: Title + Add new address button */}
                 <div className="row align-items-center d-flex justify-content-between">
                     <div className="col-md d-flex justify-content-center justify-content-md-start">
-                        <h3 className="text-primary">Your Address</h3>
+                        <h3 style={{ color: "#054c73" }}>Your Address</h3>
                     </div>
                     <div className="col-md-3 d-flex justify-content-md-end justify-content-center">
                         <button
                             type="button"
-                            className="btn btn-primary btn-block"
+                            className="btn btn-block text-light"
                             data-toggle="modal"
                             data-target="#myModal"
+                            style={{ "background-color": "#054c73" }}
                         >
                             Add new address
                         </button>
@@ -91,7 +92,11 @@ const Address = () => {
                         </p>
                     </div>
                     <div className="d-flex justify-content-end align-items-center mb-5">
-                        <button type="button" className="col-2 btn btn-primary">
+                        <button
+                            type="button"
+                            className="col-2 btn text-light"
+                            style={{ "background-color": "#054c73" }}
+                        >
                             OK
                         </button>
                     </div>
