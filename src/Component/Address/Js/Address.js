@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Header from "../../Header/Js/Header";
 import datas from "./address.json";
+import NewAddressModal from "./NewAddressModal";
 
 const Address = () => {
     const size = { "font-size": "1.1rem" };
@@ -30,9 +31,15 @@ const Address = () => {
                         <h3 className="text-primary">Your Address</h3>
                     </div>
                     <div className="col-md-3 d-flex justify-content-md-end justify-content-center">
-                        <button type="button" className="btn btn-primary btn-block">
+                        <button
+                            type="button"
+                            className="btn btn-primary btn-block"
+                            data-toggle="modal"
+                            data-target="#myModal"
+                        >
                             Add new address
                         </button>
+                        <NewAddressModal />
                     </div>
                 </div>
 
