@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## How to run back-end in your localhost? 
 
-Things you may want to cover:
+### Install ruby
+Just find on goodle install ruby for windows, mac or whatever OS you use.
 
-* Ruby version
+Check ruby version by command
+* ruby -v
 
-* System dependencies
+### Install rails
+After downloading ruby, simply use below command to install rails
+* gem install rails
 
-* Configuration
+### Run server
+You must change your directory to backend. After that, you must command:
+* rails server -p 8000 or rails s -p 8000
+This server is running on your local domain and on port 8000.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Open database
+You can use table plus to open sqlite3 for easy UI.
