@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
     if @user.present? && @user.authenticate(user_params[:password])
       cookies[@user.email.to_sym] = {
-          :value => @user.email,
+          :value => @user.id,
           :expires => Time.now + 1.hour,
           :domain => "http://localhost:3000"
       }
