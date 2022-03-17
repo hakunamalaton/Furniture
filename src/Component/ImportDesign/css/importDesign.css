@@ -1,7 +1,7 @@
 .import-ds-form .custom-file-label::after{
     display: none!important;
 }
-.importDesignComponent {
+.import-design-component {
     background-color: #e5e5e5;
 }
 .import-ds-form-header{

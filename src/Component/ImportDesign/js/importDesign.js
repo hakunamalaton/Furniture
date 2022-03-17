@@ -1,13 +1,10 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera, faPaperPlane } from "@fortawesome/fontawesome-free-solid";
 import Header from "../../Header/Js/Header";
 import Footer from "../../Footer/Js/Footer";
 import "../css/importDesign.css";
 function ImportDesign() {
-    const [listFileImg, setListFileImg] = useState(0);
-
-    function Submitted() {}
 
     function clearImgPreview() {
         const listFilePrev = document.querySelectorAll(".preview-img-import");
@@ -19,12 +16,11 @@ function ImportDesign() {
 
     function previewListImg() {
         clearImgPreview();
-        const file = document.querySelector("#inputImageFile").files;
-        //tempList = file;
+        const file = document.querySelector("#input-img-import").files;
         if (file.length === 0) {
             return;
         }
-        const previewContent = document.querySelector("#previewContent");
+        const previewContent = document.querySelector("#preview-content-import");
         previewContent.style.display = "none";
         for (let i = 0; i < file.length; i++) {
             previewImg(i);
@@ -32,8 +28,8 @@ function ImportDesign() {
     }
 
     function previewImg(index) {
-        const preview = document.querySelector("#img-up-import-" + (index + 1));
-        var file = document.querySelector("#inputImageFile").files[index];
+        const preview = document.querySelector("#img-import-upload" + (index + 1));
+        var file = document.querySelector("#input-img-import").files[index];
         let blobURL = URL.createObjectURL(file);
         preview.style.height = "calc(45px*2)";
         preview.style.width = "calc(45px*2)";
@@ -41,7 +37,7 @@ function ImportDesign() {
         preview.style.backgroundImage = "url(" + blobURL.toString() + ")";
     }
     return (
-        <div className="importDesignComponent">
+        <div className="import-design-component">
             <Header />
             <div className="container import-ds-form">
                 <div className="bg-white p-3">
@@ -51,7 +47,7 @@ function ImportDesign() {
                     <div className="row justify-content-center">
                         <div className="col-10 frame-import border border-secondary">
                             <h5
-                                id="previewContent"
+                                id="preview-content-import"
                                 className="d-flex justify-content-center"
                             >
                                 Your design...
@@ -63,7 +59,7 @@ function ImportDesign() {
                                         <div
                                             key={index}
                                             className={"m-2 preview-img-import"}
-                                            id={"img-up-import-" + (index + 1)}
+                                            id={"img-import-upload" + (index + 1)}
                                             style={{
                                                 display: "none",
                                             }}
@@ -82,14 +78,14 @@ function ImportDesign() {
                                             <input
                                                 type="file"
                                                 className="custom-file-input"
-                                                id="inputImageFile"
+                                                id="input-img-import"
                                                 accept="image/png, image/jpeg, image/jpg"
                                                 multiple
                                                 onChange={previewListImg}
                                             />
                                             <label
                                                 className="custom-file-label text-primary border-primary rounded-0"
-                                                htmlFor="inputImageFile"
+                                                htmlFor="input-img-import"
                                             >
                                                 <FontAwesomeIcon
                                                     icon={faCamera}

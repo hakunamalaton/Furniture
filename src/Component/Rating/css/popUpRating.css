@@ -29,13 +29,13 @@
 .rating-popup-form .rating-choose-score .icon-star-score:hover{
     font-size: 3rem;
 }
-.popupRatingComponent .previewFile video {
+.popup-rating-component .preview-video-rating{
     object-fit: cover!important;
     width: 54px;
     height: 54px;
     overflow: hidden;
 }
-.popupRatingComponent .previewFile .previewImage{
+.popup-rating-component .preview-img-rating{
     width: 54px;
     height: 54px;
     overflow: hidden;
