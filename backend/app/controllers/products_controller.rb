@@ -6,6 +6,46 @@ class ProductsController < ApplicationController
     render json: @product
   end
 
+  def display_product
+    type = params[:type] ? params[:type] : "all"
+    page = params[:page] ? params[:page].to_i : 0
+    limit = params[:limit] ? params[:limit].to_i : 0 
+    total = 0
+
+    if type != "all"
+      total = Product.where(category: type).count
+      @products = page == 0 ? Product.where(category: type).select(:id, :name, :image, :price) : \
+      Product.where(category: type).select(:id, :name, :image, :price).limit(limit).offset((page-1)*limit)
+    else
+      total = Product.count
+      @products = page == 0 ? Product.select(:id, :name, :image, :price) : \
+      Product.select(:id, :name, :image, :price).limit(limit).offset((page-1)*limit)
+    end 
+
+    
+    render json: {
+      data: @products,
+      total: total
+    }
+  end
+
+  def search
+    if params[:name] == nil
+      render json: {
+        code: 0,
+        message: "Please provide a name!"
+      }
+      return 
+    end
+    products_result = Product.where("name LIKE ?", "%" + params[:name] + "%")
+    total = products_result.length
+
+    render json: {
+      data: products_result,
+      total: total
+    }
+  end
+
   def show_ratings
     type = params[:type] ? params[:type] : "all"
     ratings = Rating.where(category: type).where(product_id: @product.id)
