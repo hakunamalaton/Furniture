@@ -21,7 +21,7 @@ const Header = () => {
                             <img className="img-fluid" src={logo} alt="logoimg" />
                         </div>
 
-                        <h5 className="col-7 mb-0 d-none d-xl-block text-light">F R T N R STORE</h5>
+                        <h5 className="col-7 mb-0 d-none d-xl-block text-light">F R N T R STORE</h5>
                     </div>
 
                     <div className="col-8 col-md-8 col-xl-7 align-self-center position-relative">

@@ -2,7 +2,7 @@ import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
 import "./App.css";
 import HomePage from "./HomePage";
 import Address from "./Component/Address/Js/Address";
-import Rating from "./Component/Rating/js/rating";
+import PageProduct from "./Component/PageProduct/js/pageProduct"
 import ImportDesign from "./Component/ImportDesign/js/importDesign";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
                 <Switch>
                     <Route exact path="/" component={HomePage} />
                     <Route exact path="/import-design" component={ImportDesign}/>
-                    <Route exact path="/rating" component={Rating}/>
+                    <Route exact path="/page-product" component={PageProduct} />
                     <Route exact path="/address" component={Address} />
                 </Switch>
             </div>

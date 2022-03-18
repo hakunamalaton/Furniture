@@ -4,8 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar} from "@fortawesome/fontawesome-free-solid";
 import listBtn from "../dataRatingFake/dataRatingCategory.json";
 import listRating from "../dataRatingFake/dataProductRating.json";
-import Header from "../../Header/Js/Header";
-import Footer from "../../Footer/Js/Footer";
 // import PopUpRating from "./popUpRating"
 function Rating() {
     let listNumKindRating = [];
@@ -197,8 +195,7 @@ function Rating() {
     }
     return (
         <div className="rating-component">
-            <Header />
-            <div className="container bg-white d-flex justify-content-center">
+            <div className="d-flex justify-content-center">
                 <div className="col-12">
                         <div className="row rating-head pt-2">
                             <h5>RATING PRODUCT</h5>
@@ -242,7 +239,6 @@ function Rating() {
                 </div>
             </div>
             {/* <PopUpRating image="https://i.imgur.com/Q12CDlu.png" name="Josie Upholstered Low Profile Platform Bed" category="Blue, Full"></PopUpRating> */}
-            <Footer />
         </div>
     );
 }

@@ -1,0 +1,17 @@
+.page-product-component {
+    background-color: #e5e5e5;
+}
+.page-product-component .carousel-control-prev-icon{
+    background-image: url("../img/left-arrow.png") !important;
+}
+.page-product-component .carousel-control-next-icon{
+    background-image: url("../img/right-arrow.png") !important;
+}
+.page-product-component .carousel-control-next-icon, .page-product-component .carousel-control-prev-icon {
+    height: 40px;
+    width: 40px;
+}
+.page-product-component .carousel-indicators{
+    margin-left: 5%;
+    margin-right: 5%;
+}
