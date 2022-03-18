@@ -10,10 +10,12 @@
     text-decoration: underline;
     cursor: pointer;
 }
-.header .icon-cart-shopping{
+.header .icon-cart-shopping {
     font-size: 1.85rem;
     cursor: pointer;
 }
-.navbar-light .navbar-toggler-icon{
+.navbar-light .navbar-toggler-icon {
     color: #fff;
+    top: 100px;
+    background-color: #054c73;
 }
