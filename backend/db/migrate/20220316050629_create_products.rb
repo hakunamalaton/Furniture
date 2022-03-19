@@ -13,6 +13,5 @@ class CreateProducts < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    rename_column :Product, :type, :category
   end
 end

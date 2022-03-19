@@ -6,6 +6,21 @@ class ProductsController < ApplicationController
     render json: @product
   end
 
+  def create
+    new_product = Product.new(product_params)
+    if new_product.save
+      render json: {
+        code: 0,
+        product: new_product
+      }
+    else
+      render json: {
+        code: 1,
+        message: new_product.errors.full_messages
+      }
+    end
+  end
+
   def display_product
     type = params[:type] ? params[:type] : "all"
     page = params[:page] ? params[:page].to_i : 0
@@ -80,5 +95,9 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find_by(id: params[:id])
+  end
+
+  def product_params
+    params.require(:product).permit(:name,:image,:description,:price,:third_party,:color,:size,:overview, :category)
   end
 end

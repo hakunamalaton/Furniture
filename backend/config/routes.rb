@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "/product/:id", to: "products#show"
   get "/product/:id/rating", to: "products#show_ratings" # ?type=
   post "/product/:id/rating", to: "products#create_ratings"
+  post "product/create", to: "products#create"
 
   get "/displayproduct", to: "products#display_product" # ?type= & page= & limit=
   get "/search", to: "products#search" #?name=

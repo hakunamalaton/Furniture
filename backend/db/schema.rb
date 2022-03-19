@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_16_133802) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_19_173145) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "addresses", force: :cascade do |t|
     t.string "city"
     t.string "district"
@@ -18,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_16_133802) do
     t.string "description"
     t.integer "price"
     t.string "phone_number"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
@@ -26,25 +29,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_16_133802) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.string "image"
+    t.string "image", array: true
     t.string "description"
     t.integer "price"
     t.string "third_party"
     t.string "color"
     t.string "size"
-    t.string "overview"
+    t.text "overview", array: true
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["overview"], name: "index_products_on_overview", using: :gin
   end
 
   create_table "ratings", force: :cascade do |t|
     t.string "title"
-    t.integer "user_id", null: false
-    t.integer "product_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
     t.string "description"
-    t.string "image"
-    t.string "video"
+    t.string "image", array: true
+    t.string "video", array: true
     t.string "category"
     t.integer "star"
     t.datetime "created_at", null: false
