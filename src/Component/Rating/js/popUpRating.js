@@ -1,8 +1,8 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faVideo, faCamera } from "@fortawesome/fontawesome-free-solid";
 import "../css/popUpRating.css";
+import { faCamera, faStar, faVideo } from "@fortawesome/free-solid-svg-icons";
 function PopUpRating({ image, name, category }) {
     const [currentScore, setCurrentScore] = useState(0);
     const [hoverScore, setHoverScore] = useState(undefined);
@@ -51,6 +51,7 @@ function PopUpRating({ image, name, category }) {
     };
     function resetPreviewImg(item, index) {
         item.style.display = "none";
+        item.key = index;
     };
     function previewListImg() {
         clearImgPreview();
@@ -87,12 +88,12 @@ function PopUpRating({ image, name, category }) {
             </div>
             <div className={popUp ? "open-popup-rating" : "close-popup-rating"}>
                 <div className="rating-popup-overlay"></div>
-                <div className="container rating-popup-form d-flex justify-content-center">
-                    <div className="col-11 bg-white p-3">
+                <div className="col-8 rating-popup-form d-flex justify-content-center">
+                    <div className="bg-white p-3">
                         <div className="row rating-popup-form-header">
                             <h5>RATING PRODUCT</h5>
                         </div>
-                        <div className="row rating-popup-form-product py-3">
+                        <div className="row rating-popup-form-product py-1">
                             <div className="col-2 product-img">
                                 <img
                                     src={image}
@@ -119,7 +120,7 @@ function PopUpRating({ image, name, category }) {
                                         type="content-cmt"
                                         className="form-control"
                                         id="content-cmt"
-                                        rows="4"
+                                        rows="3"
                                         placeholder="Please share more things you like about this product"
                                     />
                                 </div>
@@ -175,18 +176,20 @@ function PopUpRating({ image, name, category }) {
                                                 (_, index) => {
                                                     return index !== 5 ? (
                                                         <div
-                                                            className="preview-img-rating"
+                                                            className="m-1 preview-img-rating"
                                                             id={
                                                                 "img-rating-upload-" +
                                                                 (index + 1)
                                                             }
+                                                            key={index}
                                                             style={{
                                                                 display: "none",
                                                             }}
                                                         ></div>
                                                     ) : (
                                                         <video
-                                                            className="preview-video-rating m-1"
+                                                            className="preview-video-rating m-1 border border-dark"
+                                                            key={index}
                                                             style={{
                                                                 display: "none",
                                                             }}

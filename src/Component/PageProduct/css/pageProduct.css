@@ -15,3 +15,60 @@
     margin-left: 5%;
     margin-right: 5%;
 }
+
+.product-info .product-color .product-btn-color{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #054C73;
+}
+.product-info .product-size .product-btn-size{
+    border: 1px solid #054C73;
+    font-size: 0.75rem;
+}
+.product-info .product-size .product-btn-size p{
+    margin: 0;
+}
+
+.product-info .product-size .product-list-size{
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+}
+.product-info .row{
+    margin: 0!important;
+}
+.product-info #product-input-number{
+    border: 1px solid #054C73;
+    border-radius: 0;
+}
+.product-info .product-btn-decrease-number{
+    border: 1px solid #054C73;
+    border-right: 0;
+    border-radius: 50% 0px 0px 50%;
+}
+.product-info .product-btn-increase-number{
+    border: 1px solid #054C73;
+    border-left: 0;
+    border-radius: 0px 50% 50% 0px;
+}
+
+.product-info .product-btn-decrease-number:hover{
+    background-color: #C9ECFF;
+}
+.product-info .product-btn-increase-number:hover{
+    background-color: #C9ECFF;
+}
+
+.product-info .product-btn-add-to-cart{
+    color: #187EB4;
+    background-color: white;
+    border: 1px solid #187EB4;
+}
+.product-info .product-btn-buy-now{
+    color: white;
+    background-color: #187EB4;
+}

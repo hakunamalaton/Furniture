@@ -1,10 +1,10 @@
 import { React, useState } from "react";
 import "../css/rating.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar} from "@fortawesome/fontawesome-free-solid";
 import listBtn from "../dataRatingFake/dataRatingCategory.json";
 import listRating from "../dataRatingFake/dataProductRating.json";
-// import PopUpRating from "./popUpRating"
+import PopUpRating from "./popUpRating"
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 function Rating() {
     let listNumKindRating = [];
     listNumKindRating.push(listRating.length);
@@ -238,7 +238,7 @@ function Rating() {
                     
                 </div>
             </div>
-            {/* <PopUpRating image="https://i.imgur.com/Q12CDlu.png" name="Josie Upholstered Low Profile Platform Bed" category="Blue, Full"></PopUpRating> */}
+            <PopUpRating image="https://i.imgur.com/Q12CDlu.png" name="Josie Upholstered Low Profile Platform Bed" category="Blue, Full"></PopUpRating>
         </div>
     );
 }
