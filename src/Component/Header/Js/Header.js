@@ -18,11 +18,9 @@ const Header = () => {
                 </div> */}
                 <div className="row">
                     <div className="col-6 col-md-3 d-flex align-items-center">
-                        <div className="w-50">
+                        <div>
                             <img className="img-fluid" src={logo} alt="logoimg" />
                         </div>
-
-                        <h5 className="w-50 ml-2 mb-0 text-light">F R T N R STORE</h5>
                     </div>
                     <div className="d-none d-md-block col-md-7 align-self-center position-relative">
                         <SearchBar />
@@ -58,6 +56,11 @@ const Header = () => {
                                     <SearchBar />
                                 </div>
                                 <ul className="navbar-nav pl-3 pl-md-0 w-100 d-flex justify-content-around ">
+                                    <li className="nav-item active">
+                                        <a className="nav-link text-light" href="/table">
+                                            ALL
+                                        </a>
+                                    </li>
                                     <li className="nav-item active">
                                         <a className="nav-link text-light" href="/table">
                                             TABLE
