@@ -2,13 +2,12 @@ import React from "react";
 import logo from "../Image/Logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faShoppingCart, faUser } from "@fortawesome/fontawesome-free-solid";
-import user from "../Image/user.png";
 import "../Css/Header.css";
 import SearchBar from "./SearchBar";
 
 const Header = () => {
     return (
-        <div className="header sticky-top">
+        <div className="header">
             <div className="container pt-2">
                 {/* <div className="row sign_in_header justify-content-end mr-1">
                     <div className="d-flex text-light">
@@ -18,9 +17,7 @@ const Header = () => {
                 </div> */}
                 <div className="row">
                     <div className="col-6 col-md-3 d-flex align-items-center">
-                        <div>
-                            <img className="img-fluid" src={logo} alt="logoimg" />
-                        </div>
+                        <img className="w-75" src={logo} alt="logoimg" />
                     </div>
                     <div className="d-none d-md-block col-md-7 align-self-center position-relative">
                         <SearchBar />
@@ -49,7 +46,7 @@ const Header = () => {
                         <FontAwesomeIcon className="text-light" icon={faBars} />
                     </button>
 
-                    <div className=" w-100">
+                    <div className="w-100">
                         <nav className="navbar navbar-expand-md navbar-light p-0 m-1 w-100">
                             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div className="d-block d-md-none position-relative pl-2 pr-3">
