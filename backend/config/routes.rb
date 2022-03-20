@@ -16,4 +16,8 @@ Rails.application.routes.draw do
 
   get "/displayproduct", to: "products#display_product" # ?type= & page= & limit=
   get "/search", to: "products#search" #?name=
+
+  get "/orders", to: "orders#show"  #?id&status
+  patch "/orders/update/:id", to: "orders#update"
+  post "/orders/:user_id/create", to: "orders#create"
 end

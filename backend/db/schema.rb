@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_19_173145) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_20_095622) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +27,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_19_173145) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "status"
+    t.integer "total_price"
+    t.string "description"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "orders_products", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_orders_products_on_order_id"
+    t.index ["product_id"], name: "index_orders_products_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "image", array: true
@@ -39,6 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_19_173145) do
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "custom_design", default: false
     t.index ["overview"], name: "index_products_on_overview", using: :gin
   end
 
@@ -48,7 +69,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_19_173145) do
     t.bigint "product_id", null: false
     t.string "description"
     t.string "image", array: true
-    t.string "video", array: true
     t.string "category"
     t.integer "star"
     t.datetime "created_at", null: false
@@ -65,6 +85,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_19_173145) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "orders", "users"
+  add_foreign_key "orders_products", "orders"
+  add_foreign_key "orders_products", "products"
   add_foreign_key "ratings", "products"
   add_foreign_key "ratings", "users"
 end
