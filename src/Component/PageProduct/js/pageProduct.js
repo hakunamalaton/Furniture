@@ -4,18 +4,33 @@ import Footer from "../../Footer/Js/Footer";
 import Rating from "../../Rating/js/rating";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../css/pageProduct.css";
-import { faMinus, faPlus, faStar,faCartShopping  } from "@fortawesome/free-solid-svg-icons";
+import Product from "./dataFakeProduct.json";
+import {
+    faMinus,
+    faPlus,
+    faStar,
+    faCartShopping,
+} from "@fortawesome/free-solid-svg-icons";
 
 function PageProduct() {
     const [color, setColor] = useState("");
     const [pickColor, setPickColor] = useState(-1);
     const [pickSize, setPickSize] = useState(-1);
-    const handleColor = (props,index) => {
+    const [viewDescription, setViewDescription] = useState(false);
+    const [viewOverview, setViewOverview] = useState(false);
+    const handleViewDescription = () => {
+        setViewDescription(!viewDescription);
+    };
+    const handleViewOverview = () => {
+        setViewOverview(!viewOverview);
+    };
+
+    const handleColor = (props, index) => {
         setColor(props);
         setPickColor(index);
     };
     const [size, setSize] = useState("");
-    const handleSize = (props,index) => {
+    const handleSize = (props, index) => {
         setSize(props);
         setPickSize(index);
     };
@@ -41,6 +56,70 @@ function PageProduct() {
         }
         return divElement.map((item, index) => <div key={index}>{item}</div>);
     }
+    function thirdPartyProduct(props) {
+        const indexSeparator = props.indexOf("#");
+        const urlThirdParty = props.slice(indexSeparator + 1);
+        const nameThirdParty = props.slice(0, indexSeparator);
+        return (
+            <a
+                href={urlThirdParty}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pl-2 font-weight-bold text-dark"
+            >
+                {nameThirdParty}
+            </a>
+        );
+    }
+    const colorProduct = (item, index) => {
+        const indexSeparator = item.indexOf("#");
+        const codeColor = item.slice(indexSeparator);
+        const nameColor = item.slice(0, indexSeparator);
+        return (
+            <label className="btn p-0 m-1 rounded-0">
+                <input
+                    type="radio"
+                    name="color"
+                    key={index}
+                    id={"color" + (index + 1)}
+                    onClick={() => handleColor(nameColor, index)}
+                />{" "}
+                <div
+                    className="product-btn-color"
+                    style={{
+                        backgroundColor: codeColor,
+                        border: "3px solid white",
+                        outline: pickColor === index ? "solid black" : "none",
+                    }}
+                ></div>
+            </label>
+        );
+    };
+    const sizeProduct = (item, index) => {
+        const indexFirstSeparator = item.indexOf("#");
+        const subItem = item.slice(indexFirstSeparator + 1);
+        const nameSize = item.slice(0, indexFirstSeparator);
+        const indexSecondarySeparator = subItem.indexOf("#");
+        const size = subItem.slice(0, indexSecondarySeparator);
+        const weight = subItem.slice(indexSecondarySeparator + 1);
+        return (
+            <label className="btn p-0 m-1 rounded-0 col-5">
+                <input
+                    type="radio"
+                    name="size"
+                    key={index}
+                    id={"size" + (index + 1)}
+                    onClick={() => handleSize(nameSize, index)}
+                />{" "}
+                <div className="product-btn-size" style={{
+                        outline: pickSize === index ? "solid black" : "none",
+                    }}>
+                    <p>{size}</p>
+                    <p>{weight}</p>
+                </div>
+            </label>
+        );
+    };
     return (
         <div className="page-product-component">
             <Header />
@@ -183,28 +262,24 @@ function PageProduct() {
                     </div>
                     <div className="product-info col-6">
                         <div className="row product-name">
-                            <h5 className="font-weight-bold">
-                                Josie Upholstered Low Profile Platform Bed
-                            </h5>
+                            <h5 className="font-weight-bold">{Product.name}</h5>
                         </div>
                         <div className="row product-rating-score">
                             <div className="d-flex align-items-center">
-                                {starAvgScore(4.7)}
-                                <div className="text-warning pl-2">4.7</div>
+                                {starAvgScore(Product.rating)}
+                                <div className="text-warning pl-2">
+                                    {Product.rating}
+                                </div>
                                 <div className="product-num-previews pl-3">
-                                    (150 reviews)
+                                    ({Product.numReviews} reviews)
                                 </div>
                             </div>
                         </div>
                         <div className="row product-price font-weight-bold">
-                            <h4>$ 599.99</h4>
+                            <h4>$ {Product.price}</h4>
                         </div>
                         <div className="product-made-by row">
-                            Provide by{" "}
-                            <p className="pl-2 font-weight-bold">
-                                Carbono Design
-                            </p>
-                            .
+                            Provide by {thirdPartyProduct(Product.third_party)}.
                         </div>
                         <div className="row d-block product-color">
                             <div className="product-color-selected d-flex">
@@ -215,32 +290,7 @@ function PageProduct() {
                                 className="btn-group btn-group-toggle"
                                 data-toggle="buttons"
                             >
-                                <label className="btn p-0 m-1 rounded-0">
-                                    <input
-                                        type="radio"
-                                        name="color"
-                                        id="color1"
-                                        onClick={() =>
-                                            handleColor("Charcoal Gray")
-                                        }
-                                    />{" "}
-                                    <div
-                                        className="product-btn-color"
-                                        style={{ backgroundColor: "#36454F" }}
-                                    ></div>
-                                </label>
-                                <label className="btn p-0 m-1 rounded-0">
-                                    <input
-                                        type="radio"
-                                        name="color"
-                                        id="color2"
-                                        onClick={() => handleColor("Blue")}
-                                    />{" "}
-                                    <div
-                                        className="product-btn-color"
-                                        style={{ backgroundColor: "#000080" }}
-                                    ></div>
-                                </label>
+                                {Product.color.map(colorProduct)}
                             </div>
                         </div>
                         <div className="row d-block product-size">
@@ -249,45 +299,10 @@ function PageProduct() {
                                 {size ? ": " + size : ":"}
                             </div>
                             <div
-                                className="btn-group btn-group-toggle product-list-size row"
+                                className="btn-group btn-group-toggle product-list-size row justify-content-start"
                                 data-toggle="buttons"
                             >
-                                <label className="btn p-0 m-1 rounded-0 col-5">
-                                    <input
-                                        type="radio"
-                                        name="size"
-                                        id="size1"
-                                        onClick={() => handleSize("Full Size")}
-                                    />{" "}
-                                    <div className="product-btn-size">
-                                        <p>42.5'' H x 58.5'' W x 80.5'' L</p>
-                                        <p> 83.5 lb</p>
-                                    </div>
-                                </label>
-                                <label className="btn p-0 m-1 rounded-0 col-5">
-                                    <input
-                                        type="radio"
-                                        name="size"
-                                        id="size2"
-                                        onClick={() => handleSize("King Size")}
-                                    />{" "}
-                                    <div className="product-btn-size">
-                                        <p> 39.5'' H x 78.5'' W x 84.5'' L</p>
-                                        <p> 95.5 lb</p>
-                                    </div>
-                                </label>
-                                <label className="btn p-0 m-1 rounded-0 col-5">
-                                    <input
-                                        type="radio"
-                                        name="size"
-                                        id="size3"
-                                        onClick={() => handleSize("Queen Size")}
-                                    />{" "}
-                                    <div className="product-btn-size">
-                                        <p> 42.5'' H x 64.5'' W x 85.5'' L</p>
-                                        <p> 88 lb</p>
-                                    </div>
-                                </label>
+                                {Product.size.map(sizeProduct)}
                             </div>
                         </div>
                         <div className="row pt-2">
@@ -304,15 +319,15 @@ function PageProduct() {
                                 </button>
                                 <label
                                     className="sr-only"
-                                    for="product-input-number"
+                                    htmlFor="product-input-number"
                                 >
                                     Name
                                 </label>
                                 <input
                                     type="text"
-                                    class="form-control"
+                                    className="form-control"
                                     id="product-input-number"
-                                    value={num}
+                                    defaultValue={num}
                                 />
                                 <button
                                     type="button"
@@ -324,10 +339,10 @@ function PageProduct() {
                             </div>
                         </div>
                         <div className="row pt-2">
-                            <div className="col-5">
+                            <div className="">
                                 <button
                                     type="submit"
-                                    className="btn product-btn-add-to-cart"
+                                    className="btn product-btn-add-to-cart mr-2"
                                 >
                                     <FontAwesomeIcon
                                         icon={faCartShopping}
@@ -336,7 +351,7 @@ function PageProduct() {
                                     Add to Cart
                                 </button>
                             </div>
-                            <div className="col-4">
+                            <div className="">
                                 <button
                                     type="submit"
                                     className="btn product-btn-buy-now"
@@ -345,21 +360,64 @@ function PageProduct() {
                                 </button>
                             </div>
                         </div>
-                        <div className="row pt-2">
-                            <div className="font-weight-bold">Description: </div>
-                            <div className="row product-content-decription">
-                            You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!
+                        <div className=" pt-2">
+                            <div className="d-flex align-items-center justify-content-between">
+                                <div className="d-flex">
+                                    <div className="font-weight-bold pr-1">
+                                        Description:{" "}
+                                    </div>
+                                </div>
+                                <div
+                                    className="product-action-description p-0 flex-grow-1 justify-content-end d-flex"
+                                    onClick={handleViewDescription}
+                                >
+                                    <div className="btn btn-outline-primary">
+                                        {viewDescription
+                                            ? "Collapse"
+                                            : "View all"}
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                className="row product-content-description"
+                                style={
+                                    viewDescription
+                                        ? { display: "block" }
+                                        : { display: "none" }
+                                }
+                            >
+                                {Product.description}
                             </div>
                         </div>
                         <div className="d-block pt-2">
-                            <div className="font-weight-bold">Overview: </div>
-                            <div className="row product-content-overview">
-                            <ul>
-                                <li>Headboard Included</li>
-                                <li>Footboard Included</li>
-                                <li>Center Supports Included</li>
-                                <li>Warranty Length: 1 Year</li>
-                            </ul>
+                            <div className="d-flex align-items-center justify-content-between">
+                                <div className="d-flex">
+                                    <div className="font-weight-bold pr-1">
+                                        Overview:{" "}
+                                    </div>
+                                </div>
+                                <div
+                                    className="product-action-overview p-0 text-primary flex-grow-1 justify-content-end d-flex"
+                                    onClick={handleViewOverview}
+                                >
+                                    <div className="btn btn-outline-primary">
+                                        {viewOverview ? "Collapse" : "View all"}
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                className="row product-content-overview"
+                                style={
+                                    viewOverview
+                                        ? { display: "block" }
+                                        : { display: "none" }
+                                }
+                            >
+                                <ul>
+                                    {Product.overview.map((item, index) => (
+                                        <li key={index}>{item}</li>
+                                    ))}
+                                </ul>
                             </div>
                         </div>
                     </div>

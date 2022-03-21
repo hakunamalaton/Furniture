@@ -7,7 +7,7 @@ import SearchBar from "./SearchBar";
 
 const Header = () => {
     return (
-        <div className="header sticky-top">
+        <div className="header">
             <div className="container pt-2">
                 {/* <div className="row sign_in_header justify-content-end mr-1">
                     <div className="d-flex text-light">

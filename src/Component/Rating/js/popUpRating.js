@@ -71,12 +71,6 @@ function PopUpRating({ image, name, category }) {
         preview.style.display = "block";
         preview.style.backgroundImage = "url(" + blobURL.toString() + ")";
     }
-    function previewFileVideo() {
-        let file = document.querySelector("#input-video-rating").files[0];
-        let videoURL = URL.createObjectURL(file);
-        document.querySelector("video").style.display = "block";
-        document.querySelector("video").src = videoURL;
-    }
     return (
         <div className="popup-rating-component">
             <div className="row">
@@ -146,35 +140,16 @@ function PopUpRating({ image, name, category }) {
                                                     Add Images
                                                 </label>
                                             </div>
-                                            <div className="custom-file col-3 m-1 d-flex align-items-center">
-                                                <input
-                                                    type="file"
-                                                    className="custom-file-input"
-                                                    id="input-video-rating"
-                                                    accept="video/mp4,video/x-m4v,video/*"
-                                                    onChange={previewFileVideo}
-                                                />
-                                                <label
-                                                    className="custom-file-label text-primary border-primary rounded-0"
-                                                    htmlFor="input-video-rating"
-                                                >
-                                                    <FontAwesomeIcon
-                                                        icon={faVideo}
-                                                    />{" "}
-                                                    Add Video
-                                                </label>
-                                            </div>
-                                            <div className="col-4 d-flex align-items-center">
+                                            <div className="ml-2 col-4 d-flex align-items-center">
                                                 <div className="row">
-                                                    (Max is 5-images and
-                                                    1-video.)
+                                                    (Max is 6 images.)
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="row preview-file-rating pt-2">
                                             {[0, 0, 0, 0, 0, 0].map(
                                                 (_, index) => {
-                                                    return index !== 5 ? (
+                                                    return (
                                                         <div
                                                             className="m-1 preview-img-rating"
                                                             id={
@@ -186,20 +161,6 @@ function PopUpRating({ image, name, category }) {
                                                                 display: "none",
                                                             }}
                                                         ></div>
-                                                    ) : (
-                                                        <video
-                                                            className="preview-video-rating m-1 border border-dark"
-                                                            key={index}
-                                                            style={{
-                                                                display: "none",
-                                                            }}
-                                                            controls
-                                                            autoPlay
-                                                        >
-                                                            Your browser does
-                                                            not support the
-                                                            video tag.
-                                                        </video>
                                                     );
                                                 }
                                             )}
