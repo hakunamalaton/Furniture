@@ -17,9 +17,7 @@ const Header = () => {
                 </div> */}
                 <div className="row">
                     <div className="col-6 col-md-3 d-flex align-items-center">
-                        <div>
-                            <img className="img-fluid" src={logo} alt="logoimg" />
-                        </div>
+                        <img className="w-75" src={logo} alt="logoimg" />
                     </div>
                     <div className="d-none d-md-block col-md-7 align-self-center position-relative">
                         <SearchBar />
@@ -48,7 +46,7 @@ const Header = () => {
                         <FontAwesomeIcon className="text-light" icon={faBars} />
                     </button>
 
-                    <div className=" w-100">
+                    <div className="w-100">
                         <nav className="navbar navbar-expand-md navbar-light p-0 m-1 w-100">
                             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div className="d-block d-md-none position-relative pl-2 pr-3">
