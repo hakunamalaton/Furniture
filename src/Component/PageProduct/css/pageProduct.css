@@ -41,9 +41,10 @@
 .product-info .row{
     margin: 0!important;
 }
-.product-info #product-input-number{
+.product-info #product-input-quantity{
     border: 1px solid #054C73;
     border-radius: 0;
+    width: 50px;
 }
 .product-info .product-btn-decrease-number{
     border: 1px solid #054C73;
@@ -63,12 +64,21 @@
     background-color: #C9ECFF;
 }
 
-.product-info .product-btn-add-to-cart{
+.product-info .btn-add-to-cart{
     color: #187EB4;
     background-color: white;
     border: 1px solid #187EB4;
 }
-.product-info .product-btn-buy-now{
+.product-info .btn-buy-now{
     color: white;
     background-color: #187EB4;
+}
+
+@media only screen and (max-width: 320px){
+    .product-info .btn-add-to-cart .icon-cart{
+        display: none;
+    }
+    .product-info .product-num-previews {
+        padding-left: 0px !important;
+    }
 }

@@ -15,7 +15,6 @@ function App() {
                     <Route exact path="/" component={HomePage} />
                     <Route exact path="/import-design" component={ImportDesign}/>
                     <Route exact path="/page-product" component={PageProduct} />
-                    <Route exact path="/import-design" component={ImportDesign} />
                     <Route exact path="/rating" component={Rating} />
                     <Route exact path="/address" component={Address} />
                     <Route exact path="/mapbox" component={Mapbox} />
