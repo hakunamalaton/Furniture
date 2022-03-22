@@ -1,0 +1,21 @@
+.header {
+    background-color: #054c73;
+}
+
+.header .sign_in_header > div > p {
+    font-size: 16px;
+}
+
+.header .sign_in_header > div > p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.header .icon-cart-shopping {
+    font-size: 1.85rem;
+    cursor: pointer;
+}
+.navbar-light .navbar-toggler-icon {
+    color: #fff;
+    top: 100px;
+    background-color: #054c73;
+}
