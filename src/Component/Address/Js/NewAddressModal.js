@@ -12,7 +12,7 @@ const NewAddressModal = () => {
                         </button>
                     </div>
 
-                    <div className="modal-body">Modal body..</div>
+                    <div className="modal-body">Modal body...</div>
 
                     <div className="modal-footer">
                         <button type="button" className="btn btn-danger" data-dismiss="modal">

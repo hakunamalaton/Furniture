@@ -1,122 +1,148 @@
-import React, { useState, useEffect } from "react";
+import "mapbox-gl/dist/mapbox-gl.css";
+import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import axios from "axios";
-import Map, { Marker } from "react-map-gl";
-// import Geocoder from "react-mapbox-gl-geocoder";
+import React, { useState, useRef, useCallback } from "react";
+import MapGL, { FullscreenControl, GeolocateControl, Marker } from "react-map-gl";
+import Geocoder from "react-map-gl-geocoder";
 import location from "../Image/location.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCrosshairs } from "@fortawesome/fontawesome-free-solid";
 
+const MAPBOXACCESSTOKEN =
+    "pk.eyJ1IjoibG9uZ21haTEwNiIsImEiOiJjbDB4ajZ3cWwwOGxiM2lwajN2MG9kN2p1In0.4PE7Yoc48wF6IEmKGWT--Q";
 function Mapbox() {
     const [viewport, setViewport] = useState({
-        longitude: 106.7557953,
-        latitude: 10.851061,
-        zoom: 18,
+        longitude: 106.8053733958996,
+        latitude: 10.880560770336665,
+        zoom: 14,
     });
 
-    const addressdata = [
-        {
-            id: 2,
-            address: "số 20 đường trần quốc tuấn phường tứ hạ thị xã hương trà tỉnh thừa thiên huế",
-        },
-        {
-            id: 1,
-            address: "đường võ văn ngân phường linh chiểu thành phố thủ đức",
-        },
-    ];
+    const mapRef = useRef();
+    const handleViewportChange = useCallback((newViewport) => setViewport(newViewport), []);
 
-    const [addressMarker, setaddressMarker] = useState([]);
+    const handleGeocoderViewportChange = useCallback(
+        (newViewport) => {
+            const geocoderDefaultOverrides = { transitionDuration: 2000 };
 
-    useEffect(() => {
-        addressdata.map((address) => {
-            axios
-                .get(
-                    `https://api.mapbox.com/geocoding/v5/mapbox.places/${address.address}.json?access_token=pk.eyJ1IjoibG9uZ21haTEwNiIsImEiOiJjbDB4ajZ3cWwwOGxiM2lwajN2MG9kN2p1In0.4PE7Yoc48wF6IEmKGWT--Q`
-                )
-                .then(function (response) {
-                    console.log(response);
-                    setaddressMarker((addressMarker) => [
-                        ...addressMarker,
-                        {
-                            ...address,
-                            longitude: response.data.features[0].center[0],
-                            latitude: response.data.features[0].center[1],
-                        },
-                    ]);
-                });
-        });
-    }, []);
+            return handleViewportChange({
+                ...newViewport,
+                ...geocoderDefaultOverrides,
+            });
+        },
+        [handleViewportChange]
+    );
+
+    const [locateb, setLocateb] = useState();
+    // const [flag, setFlag] = useState(0);
+
+    //-----------------------------------------------------------------------------------------------------------
+
+    // const getlocate = (addre) => {
+    //     axios
+    //         .get(
+    //             `https://api.mapbox.com/geocoding/v5/mapbox.places/"${addre}".json?country=vn&access_token=${MAPBOXACCESSTOKEN}`
+    //         )
+    //         .then(function (response) {
+    //             setLocateb({
+    //                 longitude: response.data.features[0].center[0],
+    //                 latitude: response.data.features[0].center[1],
+    //             });
+    //             // setFlag(1);
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         });
+    // };
+
+    const checkDistance = (url) => {
+        axios
+            .get(url)
+            .then(function (response) {
+                console.log(response.data.routes[0].distance / 1000);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
+
+    const handleClick = (lng, lat) => {
+        checkDistance(
+            `https://api.mapbox.com/directions/v5/mapbox/driving/${lng},${lat};106.8053733958996,10.880560770336665,?geometries=geojson&access_token=${MAPBOXACCESSTOKEN}`
+        );
+        setLocateb({ longitude: lng, latitude: lat });
+    };
+
+    // useEffect(() => {
+    //     if (!flag) getlocate("số 1 đường võ văn ngân phường linh chiểu thành phố thủ đức");
+    // }, [flag]);
 
     return (
-        <Map
-            initialViewState={{ ...viewport }}
-            style={{ width: "100vw", height: "100vh" }}
-            mapStyle="mapbox://styles/mapbox/streets-v11"
-            onViewportChange={(viewport) => setViewport(viewport)}
-            mapboxAccessToken="pk.eyJ1IjoibG9uZ21haTEwNiIsImEiOiJjbDB4ajZ3cWwwOGxiM2lwajN2MG9kN2p1In0.4PE7Yoc48wF6IEmKGWT--Q"
-        >
-            {addressMarker.map((addressmk) => (
+        <div>
+            <MapGL
+                ref={mapRef}
+                {...viewport}
+                width="100vw"
+                height="100vh"
+                mapStyle="mapbox://styles/mapbox/streets-v11"
+                onViewportChange={handleViewportChange}
+                onNativeClick={(e) => {
+                    if (
+                        e.target.className !== "mapboxgl-ctrl-geocoder--input" &&
+                        e.target.className !== "mapboxgl-ctrl-icon"
+                    )
+                        handleClick(e.lngLat[0], e.lngLat[1]);
+                }}
+                mapboxApiAccessToken={MAPBOXACCESSTOKEN}
+                transitionDuration={20}
+            >
                 <Marker
-                    key={addressmk.id}
-                    longitude={addressmk.longitude}
-                    latitude={addressmk.latitude}
-                    mapboxAccessToken="pk.eyJ1IjoibG9uZ21haTEwNiIsImEiOiJjbDB4ajZ3cWwwOGxiM2lwajN2MG9kN2p1In0.4PE7Yoc48wF6IEmKGWT--Q"
+                    longitude={106.80618697610669}
+                    latitude={10.879752117974931}
+                    mapboxApiAccessToken={MAPBOXACCESSTOKEN}
+                    offsetLeft={-25}
+                    offsetTop={-40}
                 >
-                    <img
-                        src={location}
-                        alt="marker"
-                        style={{ height: 50, width: 50, cursor: "pointer" }}
-                    />
+                    <img src={location} alt="marker" style={{ height: 50, width: 50 }} />
                 </Marker>
-            ))}
-        </Map>
+                {locateb ? (
+                    <Marker
+                        longitude={locateb && locateb.longitude}
+                        latitude={locateb && locateb.latitude}
+                        draggable={true}
+                        mapboxApiAccessToken={MAPBOXACCESSTOKEN}
+                        onDragEnd={(e) => handleClick(e.lngLat[0], e.lngLat[1])}
+                        offsetLeft={-15}
+                        offsetTop={-25}
+                    >
+                        <FontAwesomeIcon
+                            icon={faCrosshairs}
+                            size="2x"
+                            color="rgb(192, 55, 55)"
+                            spin
+                        />
+                    </Marker>
+                ) : (
+                    <></>
+                )}
+                <Geocoder
+                    mapRef={mapRef}
+                    onViewportChange={handleGeocoderViewportChange}
+                    position="top-left"
+                    mapboxApiAccessToken={MAPBOXACCESSTOKEN}
+                    reverseGeocode={true}
+                    enableHighAccuracy={true}
+                />
+
+                <FullscreenControl style={{ right: 10, top: 10 }} />
+                <GeolocateControl
+                    style={{ right: 10, top: 50 }}
+                    positionOptions={{ enableHighAccuracy: true }}
+                    trackUserLocation={true}
+                    auto
+                />
+            </MapGL>
+        </div>
     );
 }
 
 export default Mapbox;
-
-// import "mapbox-gl/dist/mapbox-gl.css";
-// import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
-// import React, { useState, useRef, useCallback } from "react";
-// import Map from "react-map-gl";
-// import Geocoder from "react-map-gl-geocoder";
-
-// const MAPBOX_TOKEN =
-//     "pk.eyJ1IjoibG9uZ21haTEwNiIsImEiOiJjbDB4ajZ3cWwwOGxiM2lwajN2MG9kN2p1In0.4PE7Yoc48wF6IEmKGWT--Q";
-
-// const Mapbox = () => {
-//     const [viewport, setViewport] = useState({
-//         latitude: 37.7577,
-//         longitude: -122.4376,
-//         zoom: 8,
-//     });
-//     const mapRef = useRef();
-//     const handleViewportChange = useCallback((newViewport) => setViewport(newViewport), []);
-
-//     // if you are happy with Geocoder default settings, you can just use handleViewportChange directly
-//     const handleGeocoderViewportChange = useCallback(
-//         (newViewport) => {
-//             const geocoderDefaultOverrides = { transitionDuration: 1000 };
-
-//             return handleViewportChange({
-//                 ...newViewport,
-//                 ...geocoderDefaultOverrides,
-//             });
-//         },
-//         [handleViewportChange]
-//     );
-
-//     return (
-//         <div style={{ height: "100vh" }}>
-//             <Map
-//                 ref={mapRef}
-//                 {...viewport}
-//                 width="100%"
-//                 height="100%"
-//                 onViewportChange={handleViewportChange}
-//                 mapboxAccessToken={MAPBOX_TOKEN}
-//             >
-//                 <Geocoder />
-//             </Map>
-//         </div>
-//     );
-// };
-
-// export default Mapbox;
