@@ -18,13 +18,14 @@
     "react-datepicker": "^4.7.0",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
-    "react-map-gl": "^7.0.10",
+    "react-map-gl": "^5.2.3",
     "react-map-gl-geocoder": "^2.2.0",
     "react-paypal-button-v2": "^2.6.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.0",
     "react-step-progress-bar": "^1.0.3",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@mapbox/mapbox-gl-geocoder": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
