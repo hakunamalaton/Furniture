@@ -10,6 +10,7 @@ import OrderData from "./fakeOrderData.json";
 import AddressData from "./fakeAddressData.json";
 import AddressOnly from "./AddressOnly";
 import DateTime from "./DateTime";
+import Payment from "./Payment";
 import CurrentCart from "../../cart/js/CurrentCart";
 
 const OrderProcess = () => {
@@ -52,6 +53,7 @@ const OrderProcess = () => {
                 <CurrentCart step={step} cartState={cartState} setCartState={setCartState} buyerState={buyerState} setBuyerState={setBuyerState} statusState={statusState} setStatusState={setStatusState} priceState={priceState} setPriceState={setPriceState} />
                 <AddressOnly step={step} AddressData={AddressData} buyerState={buyerState} setBuyerState={setBuyerState} priceState={priceState} setPriceState={setPriceState} />
                 <DateTime step={step} cartState={cartState} setCartState={setCartState} buyerState={buyerState} setBuyerState={setBuyerState} statusState={statusState} setStatusState={setStatusState} priceState={priceState} setPriceState={setPriceState} />
+                <Payment step={step} cartState={cartState} setCartState={setCartState} buyerState={buyerState} setBuyerState={setBuyerState} statusState={statusState} setStatusState={setStatusState} priceState={priceState} setPriceState={setPriceState} />
             </div>
             <Footer />
         </div>

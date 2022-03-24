@@ -28,10 +28,10 @@ const Header = () => {
                             className="text-light icon-cart-shopping mr-4"
                             icon={faUser}
                         />
-                        <FontAwesomeIcon
+                        <a href="/order"><FontAwesomeIcon
                             className="text-light icon-cart-shopping"
                             icon={faShoppingCart}
-                        />
+                        /></a>
                     </div>
 
                     <button

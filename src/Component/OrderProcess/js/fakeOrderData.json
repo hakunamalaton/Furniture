@@ -45,12 +45,17 @@
         "tax_percent": 11.2,
         "tax": "",
         "shipping": "",
-        "final_price": 0
+        "shippingOption": "",
+        "shippingScale": 1,
+        "final_price": 0,
+        "deliveryDate": ""
     },
-    "deliveryInfo": {},
     "buyer": {
         "fullName": "",
         "address": {},
         "phoneNum": ""
+    },
+    "payment": {
+        "paymentOption": ""
     }
 }
