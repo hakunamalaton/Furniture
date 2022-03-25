@@ -5,16 +5,16 @@
 
 .column{
     display: flex;
-    margin-top: 50px;
+    margin-top: 4vw;
 }
 
 .columnsmall{
-    width: 30%;
-    margin-left: 100px;
+    width: 25%;
+    margin-left: 5vw;
 }
 
 .columnbig{
-    width: 70%;
+    width: 75%;
     display: flex;
     flex-wrap: wrap;
     margin-left: 50px;
@@ -23,7 +23,6 @@
 .column1{
     display: flex;
     width: 50%;
-
 }
 
 .fonts{
@@ -79,7 +78,6 @@
 
 .fonts6{
     color:rgba(75, 75, 75, 0.69);
-    padding-left: 1000px;
 }
 
 .pa{
@@ -90,7 +88,7 @@
   background-color: #054C73;
   border-radius: 50px;
   color: white;
-  width: 25vw;
+  width: 20vw;
   height: 3.9vw;
   padding: 1vw 2vw;
   display: inline-block;
@@ -118,12 +116,26 @@
 }
 
 .cart{
-    margin-top: 100px;
-    margin-left: 60px;
+    margin-top: 10vw;
+    margin-left: 3vw;
+}
+
+.tieude{
+    display: flex;
+}
+
+.tieude1{
+    display: flex;
+    width: 82%;
+}
+
+.tieude2{
+    width: 18%;
+    margin: auto;
 }
 
 .list{
-    padding-top: 20px;
+    padding-top: 2vw;
 }
 
 .list a{
@@ -131,7 +143,7 @@
 }
 
 .a1{
-    padding-left: 60px;
+    padding-left: 5vw;
     
 }
 
@@ -152,6 +164,9 @@
     float: left;
     width: 25%;
 }
+.clearfix-menu{
+    margin-top: 4vw;
+}
 
 .clearfix-menu::after {
     content: "";
@@ -162,7 +177,7 @@
 .pagination{
     font-family: IBM Plex Sans;
     font-weight: 600;
-    margin-top: 25px;
+    margin-top: 2vw;
     font-size: 1.3vw;
     justify-content: right;
     width: 98%;
@@ -187,7 +202,7 @@
 }
 
 .mail{
-    margin-top: 100px;
+    margin-top: 8vw;
 }
 
 .fonts7{
@@ -243,20 +258,247 @@
     font-weight: bolder;
 }
 
-@media only screen and (min-width: 769px) and (max-width: 1025px){
+.mobile{
+    display: none;
+}
+
+#rep1{
+    display: block;
+}
+
+#rep2{
+    display: none;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px){
     .columnsmall{
         margin: auto;
+        width: 30%;
     }
     .column{
         display: block;
     }
     .columnsmall .fonts{
         text-align: center;
+        font-size: 3.5vw;
     }
     .columnsmall .fonts1{
         text-align: center;
+        font-size: 2.5vw;
+    }
+    .tieude1{
+        width: 75%;
+    }
+    .tieude2{
+        width: 25%;  
     }
     .lienket{
         padding-left: 1.5vw;
+    }
+    .columnbig{
+        width: 60%;
+        display: flex;
+        margin: auto;
+    }
+    .column1{
+        width: 50%;
+        padding: 1.5vw;
+    }
+    .fonts2{
+        font-size: 2.5vw;
+    }
+    .content .fonts{
+        font-size: 3vw;
+    }
+    .content .fonts1{
+        font-size: 1.9vw;
+    }
+    .buton{
+        width: 25vw;
+        height: 5vw;
+    }
+    .cart{
+        margin: auto;
+        width: 70%;
+    }
+    .tab{
+        font-size: 3vw;
+        margin-top: 2vw;
+    }
+    .fonts4{
+        font-size: 2vw;
+    }
+    .fonts5{
+        font-size: 2vw;
+    }
+    .a1{
+        padding-left: 1.6vw;
+    }
+    .listsmall{
+        width: 80%;
+    }
+    .img-container-menu{
+        width: 50%;
+    }
+    .image-menu{
+        width: 92%;
+    }
+    .image3{
+        margin-bottom: 4vw;
+    }
+    .pagination{
+        font-size: 2vw;
+        margin-top: 0;
+    }
+    .pagination a {
+        padding:  1vw 2vw;
+    }
+    .fonts7{
+        font-size: 2.6vw;
+    }
+    .fonts8{
+        font-size: 2vw;
+    }
+    .add{
+        width: 55%;
+    }
+    .clearfix-menu{
+        margin-top: 0;
+    }
+    .padd{
+        margin-top: 7vw;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    .columnsmall{
+        margin: auto;
+        width: 60%;
+    }
+    .column{
+        display: block;
+    }
+    .columnsmall .fonts{
+        text-align: center;
+        font-size: 5vw;
+    }
+    .columnsmall .fonts1{
+        text-align: center;
+        font-size: 3.5vw;
+    }
+    .lienket{
+        padding-left: 5vw;
+    }
+    .columnbig{
+        width: 55%;
+        display: flex;
+        margin: auto;
+    }
+    .column1{
+        width: 100%;
+        padding: 1.5vw;
+    }
+    .fonts2{
+        font-size: 3.5vw;
+    }
+    .content .fonts{
+        font-size: 5vw;
+    }
+    .content .fonts1{
+        font-size: 3vw;
+    }
+    .buton{
+        height: 7vw;
+        padding: 3vw 2vw;
+        width: 50vw;
+        height: 10vw;
+    }
+    .tieude{
+        margin-top: 8vw;
+    }
+    .tieude1{
+        width: 70%;
+    }
+    .tieude2{
+        width: 35%;  
+    }
+    .ad{
+        display: none;
+    }
+    .square{
+        width: 5vw;
+        height: 5vw;
+    }
+    .mobile{
+        display: block;
+        width: 100%;
+        margin-left: 35vw;
+    }
+    .cart{
+        margin: auto;
+        width: 60%;
+    }
+    .tab{
+        font-size: 5vw;
+        margin-top: 3vw;
+    }
+    .fonts4{
+        font-size: 3vw;
+    }
+    .fonts5{
+        font-size: 3vw;
+    }
+    .a1{
+        padding-left: 3vw;
+    }
+    .listsmall{
+        width: 80%;
+    }
+    .img-container-menu{
+        width: 100%;
+    }
+    .image-menu{
+        width: 100%;
+    }
+    .image3{
+        margin-bottom: 10vw;
+    }
+    .y{
+        margin-bottom: 5vw;
+    }
+    .pagination{
+        font-size: 3vw;
+        margin-top: 0;
+    }
+    .pagination a {
+        padding:  1vw 2vw;
+    }
+    #rep1{
+        display: none;
+    }
+    #rep2{
+        display: block;
+    }
+    .fonts7{
+        font-size: 4.5vw;
+    }
+    .fonts8{
+        font-size: 3vw;
+    }
+    .add{
+        width: 100%;
+        height: auto;
+    }
+    .clearfix-menu{
+        margin-top: 0;
+    }
+    .padd{
+        margin-top: 10vw;
+    }
+    .x{
+        display: none;
+    }
+    .mail{
+        margin-top: 15vw;
     }
 }
