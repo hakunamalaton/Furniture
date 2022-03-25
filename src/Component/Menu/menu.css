@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
+
+.column{
+    display: flex;
+    margin-top: 50px;
+}
+
+.columnsmall{
+    width: 30%;
+    margin-left: 100px;
+}
+
+.columnbig{
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 50px;
+}
+
+.column1{
+    display: flex;
+    width: 50%;
+
+}
+
+.fonts{
+    font-family: Noto Serif;
+    color: #141F1F;
+    font-style: normal;
+    font-weight: bold;
+    text-align: left;
+    font-size: 2.5vw;
+    word-wrap: break-word;
+
+}
+
+.fonts1{
+    font-family: Poppins;
+    color: #141F1F;
+    font-style: normal;
+    font-weight: 400;
+    text-align: left;
+    font-size: 1.5vw;
+    word-wrap: break-word;
+
+}
+
+.fonts2{
+    font-family: Poppins;
+    color: white;
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.5vw;
+    word-wrap: break-word;
+}
+
+.fonts3{
+    font-family: Roboto;
+    color: #054C73;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.3vw;
+    word-wrap: break-word;
+}
+
+.fonts4{
+    font-size: 1.3vw;
+}
+
+.fonts5{
+    font-weight: 400;
+    font-size: 1.3vw;
+
+}
+
+.fonts6{
+    color:rgba(75, 75, 75, 0.69);
+    padding-left: 1000px;
+}
+
+.pa{
+    padding-right: 10px;
+}
+
+.buton{
+  background-color: #054C73;
+  border-radius: 50px;
+  color: white;
+  width: 25vw;
+  height: 3.9vw;
+  padding: 1vw 2vw;
+  display: inline-block;
+  margin: 2vw 1vw;
+}
+
+.lienket a{
+    text-decoration: none;
+    margin-top: 1.5vw;
+}
+.square{
+    background-color: #054C73;
+    border: none;
+    width: 3vw;
+    height: 3vw;
+}
+
+.content{
+    width: 90%;
+    margin-left: 2vw;
+}
+
+.ad{
+    padding-top: 30px;
+}
+
+.cart{
+    margin-top: 100px;
+    margin-left: 60px;
+}
+
+.list{
+    padding-top: 20px;
+}
+
+.list a{
+    text-decoration: none;
+}
+
+.a1{
+    padding-left: 60px;
+    
+}
+
+.list a:hover{
+    color: #054C73;
+}
+
+.listsmall{
+    float: left;
+    width: 85%;
+}
+
+.image-menu{
+    width: 85%;
+}
+
+.img-container-menu {
+    float: left;
+    width: 25%;
+}
+
+.clearfix-menu::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.pagination{
+    font-family: IBM Plex Sans;
+    font-weight: 600;
+    margin-top: 25px;
+    font-size: 1.3vw;
+    justify-content: right;
+    width: 98%;
+}
+
+.pagination a {
+    color: #054C73;
+    float: left;
+    padding:  1vw 1.5vw;
+    text-decoration: none;
+  }
+ 
+.pagination a.active {
+    background-color: #054C73;
+    color: white;
+    border-radius: 50%;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 50%;
+}
+
+.mail{
+    margin-top: 100px;
+}
+
+.fonts7{
+    font-family: Montserrat;
+    font-style: normal;
+    text-align: center;
+    color: #333333;
+    word-wrap: break-word;
+    font-weight: 700;
+    font-size: 2vw;
+}
+
+.fonts8{
+    font-family: Montserrat;
+    font-style: normal;
+    text-align: center;
+    color: #666666;
+    word-wrap: break-word;
+    font-weight: 400;
+    font-size: 1.3vw;
+}
+
+.add{
+    width: 25%;
+    height: 50px;
+}
+
+.form-add{
+    height: 50px;
+    border: 1px solid #011C42;
+    border-radius: 3px;
+}
+
+.btn1{
+    background-color: #054C73;
+}
+
+.btn-outline-secondary{
+    color: white;
+}
+
+.add-the-center{
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.add1{
+    color: white;
+    font-size: 0.9vw;
+    font-weight: bolder;
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1025px){
+    .columnsmall{
+        margin: auto;
+    }
+    .column{
+        display: block;
+    }
+    .columnsmall .fonts{
+        text-align: center;
+    }
+    .columnsmall .fonts1{
+        text-align: center;
+    }
+    .lienket{
+        padding-left: 1.5vw;
+    }
+}
