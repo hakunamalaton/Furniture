@@ -7,6 +7,8 @@ import PageProduct from "./Component/PageProduct/js/pageProduct"
 import Mapbox from "./Component/Address/Js/Mapbox";
 import Rating from "./Component/Rating/js/rating";
 import ImportDesign from "./Component/ImportDesign/js/importDesign";
+import Rating from "./Rating/js/rating";
+import Menu from "./Component/Menu/menu";
 
 function App() {
     return (
@@ -21,6 +23,10 @@ function App() {
                     <Route exact path="/order" component={OrderProcess} />
                     <Route exact path="/address" component={Address} />
                     <Route exact path="/mapbox" component={Mapbox} />
+                    <Route exact path="/homepage" component={HomePage} />
+                    <Route exact path="/address" component={Address} />
+                    <Route exact path="/rating" component={Rating} />
+                    <Route exact path="/menu" component={Menu} />
                 </Switch>
             </div>
         </Router>
