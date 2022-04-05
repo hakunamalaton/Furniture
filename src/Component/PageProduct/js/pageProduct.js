@@ -353,8 +353,8 @@ function PageProduct() {
                                 >
                                     <div className="btn btn-outline-primary">
                                         {viewDescription
-                                            ? "Collapse"
-                                            : "View all"}
+                                            ? "View less"
+                                            : "View more"}
                                     </div>
                                 </div>
                             </div>
@@ -381,7 +381,7 @@ function PageProduct() {
                                     onClick={handleViewOverview}
                                 >
                                     <div className="btn btn-outline-primary">
-                                        {viewOverview ? "Collapse" : "View all"}
+                                        {viewOverview ? "View less" : "View more"}
                                     </div>
                                 </div>
                             </div>
