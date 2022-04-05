@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../css/popUpRating.css";
-import { faCamera, faStar, faVideo } from "@fortawesome/free-solid-svg-icons";
+import { faCamera, faStar} from "@fortawesome/free-solid-svg-icons";
 function PopUpRating({ image, name, category }) {
     const [currentScore, setCurrentScore] = useState(0);
     const [hoverScore, setHoverScore] = useState(undefined);
