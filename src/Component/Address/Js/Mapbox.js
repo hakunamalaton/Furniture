@@ -16,7 +16,8 @@ import { faCrosshairs } from "@fortawesome/fontawesome-free-solid";
 
 const MAPBOXACCESSTOKEN =
     "pk.eyJ1IjoibG9uZ21haTEwNiIsImEiOiJjbDB4ajZ3cWwwOGxiM2lwajN2MG9kN2p1In0.4PE7Yoc48wF6IEmKGWT--Q";
-function Mapbox(parentAdd) {
+
+function Mapbox(props) {
     // Set initial viewport for Mapbox
     const [viewport, setViewport] = useState({
         longitude: 106.8053733958996,
@@ -41,7 +42,7 @@ function Mapbox(parentAdd) {
     //---------------------------------------------------------------------------------------------
 
     const [locateb, setLocateb] = useState();
-    // const [flag, setFlag] = useState(0);
+    const [fullScreenFlag, setFullScreenFlag] = useState(false);
 
     // Get Address from Coordinates Function
     const [choosenAdd, setChoosenAdd] = useState("");
@@ -85,7 +86,6 @@ function Mapbox(parentAdd) {
         axios
             .get(url)
             .then(function (response) {
-                console.log(response.data.routes[0].distance / 1000);
                 setDistance(response.data.routes[0].distance / 1000);
             })
             .catch(function (error) {
@@ -109,6 +109,10 @@ function Mapbox(parentAdd) {
         });
     };
 
+    useEffect(() => {
+        if (choosenAdd && distance) props.ParentcallbackFunction({ choosenAdd, distance });
+    }, [choosenAdd, distance, props]);
+
     return (
         <div>
             <MapGL
@@ -121,6 +125,9 @@ function Mapbox(parentAdd) {
                 onNativeClick={(e) => {
                     if (e.target.className === "overlays") {
                         handleClick(e.lngLat[0], e.lngLat[1]);
+                    }
+                    if (e.target.className === "mapboxgl-ctrl-icon") {
+                        setFullScreenFlag(!fullScreenFlag);
                     }
                 }}
                 mapboxApiAccessToken={MAPBOXACCESSTOKEN}
@@ -184,7 +191,7 @@ function Mapbox(parentAdd) {
                     Click me
                 </button>
 
-                {locateb ? (
+                {locateb && fullScreenFlag ? (
                     <Popup
                         className="font-weight-bold"
                         longitude={locateb && locateb.longitude}
@@ -193,7 +200,7 @@ function Mapbox(parentAdd) {
                         anchor="bottom"
                         offsetTop={-25}
                     >
-                        <div>{choosenAdd}</div>
+                        <div>{props.address ? props.address : choosenAdd}</div>
                         <div>{`Distance: ${distance.toFixed(2)} km`}</div>
                         <div>{`Price: ${10}$`}</div>
                     </Popup>
