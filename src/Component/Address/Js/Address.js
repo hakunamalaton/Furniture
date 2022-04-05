@@ -13,14 +13,6 @@ const Address = () => {
     const handleChange = (price) => {
         setTotalPrice(price);
     };
-    //     let prices = document.getElementsByTagName("input");
-    //     for (var i = 1; i < prices.length; i++) {
-    //         if (prices[i].checked) {
-    //             // total_price = prices[i].value;
-    //             alert(prices[i].value);
-    //         }
-    //     }
-    // };
 
     return (
         <>

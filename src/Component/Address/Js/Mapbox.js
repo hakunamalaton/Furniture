@@ -119,7 +119,7 @@ function Mapbox(props) {
                 ref={mapRef}
                 {...viewport}
                 width="100%"
-                height="40vh"
+                height="500px"
                 mapStyle="mapbox://styles/mapbox/streets-v11"
                 onViewportChange={handleViewportChange}
                 onNativeClick={(e) => {
