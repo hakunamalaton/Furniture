@@ -1,9 +1,43 @@
-.import-ds-form .custom-file-label::after{
-    display: none!important;
+.import-ds-form .custom-file-label::after {
+    display: none !important;
 }
-.import-ds-form {
+.import-design-component {
     background-color: #e5e5e5;
 }
-.import-ds-form-header{
-    color: #0795DF;
+.import-ds-form-header {
+    color: #0795df;
+}
+
+.import-ds-form .frame-import {
+    background-color: #c9ecff;
+    height: 470px;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    padding: 0;
+}
+.import-ds-form .frame-import::-webkit-scrollbar {
+    display: none;
+}
+
+.import-ds-form .frame-import .box-import {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.import-ds-form .frame-import .preview-img-import {
+    width: 215px;
+    height: 215px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    border: 1px solid black;
 }

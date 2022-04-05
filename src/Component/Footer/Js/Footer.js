@@ -9,8 +9,8 @@ import twitter from "../Image/twitter.png";
 
 const Footer = () => {
     return (
-        <div className="border-top border-dark">
-            <div className="container">
+        <div className="border-top bg-white border-dark">
+            <div className="container ">
                 <div className="footer d-flex justify-content-around pt-2 pb-1 row">
                     <div className="col-xl">
                         <div>

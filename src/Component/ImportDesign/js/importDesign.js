@@ -1,54 +1,97 @@
 import { React } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCamera } from "@fortawesome/fontawesome-free-solid";
 import Header from "../../Header/Js/Header";
-import "../css/importDesign.css"
+import Footer from "../../Footer/Js/Footer";
+import "../css/importDesign.css";
+import { faPaperPlane, faCamera } from "@fortawesome/free-solid-svg-icons";
 function ImportDesign() {
+    function clearImgPreview() {
+        const listFilePrev = document.querySelectorAll(".preview-img-import");
+        listFilePrev.forEach(resetPreviewImg);
+    }
+    function resetPreviewImg(item, index) {
+        item.style.display = "none";
+    }
+
     function previewListImg() {
-        const file = document.querySelector("#inputImageFile").files;
+        clearImgPreview();
+        const file = document.querySelector("#input-img-import").files;
+        if (file.length === 0) {
+            return;
+        }
+        const previewContent = document.querySelector(
+            "#preview-content-import"
+        );
+        console.log(previewContent);
+        previewContent.style.display = "none";
         for (let i = 0; i < file.length; i++) {
             previewImg(i);
         }
     }
+
     function previewImg(index) {
-        const preview = document.querySelector("#img-up-rating-" + (index + 1));
-        var file = document.querySelector("#inputImageFile").files[index];
-        console.log(file);
+        const preview = document.querySelector(
+            "#img-import-upload" + (index + 1)
+        );
+        var file = document.querySelector("#input-img-import").files[index];
         let blobURL = URL.createObjectURL(file);
         preview.style.display = "block";
         preview.style.backgroundImage = "url(" + blobURL.toString() + ")";
     }
     return (
-        <div className="importDesignComponent">
+        <div className="import-design-component">
             <Header />
-            <div className="container-fluid import-ds-form">
-                <div className="container d-flex justify-content-center">
-                    <div className="col-11 bg-white p-3">
-                        <div className="row import-ds-form-header p-2">
-                            <h5>IMPORT YOUR DESIGN</h5>
-                        </div>
-                        <div className="row frame-import justify-content-center">
-                            <div className="col-8 d-flex align-items-center justify-content-center border border-secondary">
-                                <h5>Your design...</h5>
+            <div className="container import-ds-form">
+                <div className="bg-white p-3">
+                    <div className="row import-ds-form-header p-2">
+                        <h5>IMPORT YOUR DESIGN</h5>
+                    </div>
+                    <div className="row justify-content-center">
+                        <div className="col-10 frame-import border border-secondary">
+                            <h5
+                                id="preview-content-import"
+                                className="justify-content-center"
+                                style={{ display: "flex" }}
+                            >
+                                Your design...
+                            </h5>
+                            <div className="row box-import m-1">
+                                {Array(100)
+                                    .fill(0)
+                                    .map((_, index) => (
+                                        <div
+                                            key={index}
+                                            className={"m-1 preview-img-import"}
+                                            id={
+                                                "img-import-upload" +
+                                                (index + 1)
+                                            }
+                                            style={{
+                                                display: "none",
+                                            }}
+                                        ></div>
+                                    ))}
                             </div>
                         </div>
-                        <div className="import-ds-form-body">
-                            <form>
-                                <div className="form-group">
-                                    <div className="input-group col-12 d-inline-block">
-                                        <div className="row">
-                                            <div className="custom-file col-3 m-1 d-flex align-items-center">
+                    </div>
+                    <div className="import-ds-form-body">
+                        <form>
+                            <div className="form-group d-inline">
+                                <div className="input-group">
+                                    <div className="row justify-content-center">
+                                        <div className="col-10 d-flex">
+                                            <div className="custom-file col-4 m-3 d-flex align-items-center">
                                                 <input
                                                     type="file"
                                                     className="custom-file-input"
-                                                    id="inputImageFile"
+                                                    id="input-img-import"
                                                     accept="image/png, image/jpeg, image/jpg"
                                                     multiple
                                                     onChange={previewListImg}
                                                 />
                                                 <label
                                                     className="custom-file-label text-primary border-primary rounded-0"
-                                                    htmlFor="inputImageFile"
+                                                    htmlFor="input-img-import"
                                                 >
                                                     <FontAwesomeIcon
                                                         icon={faCamera}
@@ -56,37 +99,33 @@ function ImportDesign() {
                                                     Add Images
                                                 </label>
                                             </div>
-                                            <div className="col-4 d-flex align-items-center">
+                                            <div className="d-flex align-items-center">
                                                 <div className="row">
-                                                    (You can import more than 1 file.)
+                                                    (You can import more than 1
+                                                    file.)
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="row previewFile pt-2">
-                                            {[0, 0, 0, 0, 0, 0].map(
-                                                (_, index) => {
-                                                    return (
-                                                        <div
-                                                            className="previewImage"
-                                                            id={
-                                                                "img-up-rating-" +
-                                                                (index + 1)
-                                                            }
-                                                            style={{
-                                                                display: "none",
-                                                            }}
-                                                        ></div>
-                                                    );
-                                                }
-                                            )}
-                                        </div>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                            <div className="row justify-content-center">
+                                <button
+                                    type="submit"
+                                    className="btn col-2 mt-2 btn-primary"
+                                >
+                                    <FontAwesomeIcon
+                                        className="text-white"
+                                        icon={faPaperPlane}
+                                    />{" "}
+                                    Send
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

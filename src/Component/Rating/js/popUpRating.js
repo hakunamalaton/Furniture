@@ -1,14 +1,14 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faVideo, faCamera } from "@fortawesome/fontawesome-free-solid";
 import "../css/popUpRating.css";
-function PopUpRating({ imageProduct, nameProduct, categoryProduct }) {
+import { faCamera, faStar, faVideo } from "@fortawesome/free-solid-svg-icons";
+function PopUpRating({ image, name, category }) {
     const [currentScore, setCurrentScore] = useState(0);
     const [hoverScore, setHoverScore] = useState(undefined);
     const [popUp, setPopUp] = useState(false);
 
-    function pickStarScore(props) {
+    function pickStarScore() {
         const start = Array(5).fill(0);
         return start.map((_, index) => (
             <FontAwesomeIcon
@@ -27,7 +27,7 @@ function PopUpRating({ imageProduct, nameProduct, categoryProduct }) {
                 }}
             />
         ));
-    }
+    };
     const handleClick = (props) => {
         if (props === currentScore) {
             setCurrentScore(0);
@@ -44,28 +44,35 @@ function PopUpRating({ imageProduct, nameProduct, categoryProduct }) {
     const handleMouseLeave = () => {
         setHoverScore(undefined);
     };
+
+    function clearImgPreview() {
+        const listFilePrev = document.querySelectorAll(".preview-img-rating");
+        listFilePrev.forEach(resetPreviewImg);
+    };
+    function resetPreviewImg(item, index) {
+        item.style.display = "none";
+        item.key = index;
+    };
     function previewListImg() {
-        const file = document.querySelector("#inputImageFile").files;
+        clearImgPreview();
+        const file = document.querySelector("#input-img-rating").files;
+        if (file.length === 0) {
+            return;
+        }
         for (let i = 0; i < file.length; i++) {
             previewImg(i);
         }
     }
     function previewImg(index) {
-        const preview = document.querySelector("#img-up-rating-" + (index + 1));
-        var file = document.querySelector("#inputImageFile").files[index];
+        const preview = document.querySelector("#img-rating-upload-" + (index + 1));
+        var file = document.querySelector("#input-img-rating").files[index];
         console.log(file);
         let blobURL = URL.createObjectURL(file);
         preview.style.display = "block";
         preview.style.backgroundImage = "url(" + blobURL.toString() + ")";
     }
-    function previewFileVideo() {
-        let file = document.querySelector("#inputVideoFile").files[0];
-        let videoURL = URL.createObjectURL(file);
-        document.querySelector("video").style.display = "block";
-        document.querySelector("video").src = videoURL;
-    }
     return (
-        <div className="popupRatingComponent">
+        <div className="popup-rating-component">
             <div className="row">
                 <div className="col-2">
                     <button className="btn btn-primary" onClick={handlePopUp}>
@@ -75,39 +82,39 @@ function PopUpRating({ imageProduct, nameProduct, categoryProduct }) {
             </div>
             <div className={popUp ? "open-popup-rating" : "close-popup-rating"}>
                 <div className="rating-popup-overlay"></div>
-                <div className="container rating-popup-form d-flex justify-content-center">
-                    <div className="col-11 bg-white p-3">
+                <div className="col-8 rating-popup-form d-flex justify-content-center">
+                    <div className="bg-white p-3">
                         <div className="row rating-popup-form-header">
                             <h5>RATING PRODUCT</h5>
                         </div>
-                        <div className="row rating-popup-form-product py-3">
+                        <div className="row rating-popup-form-product py-1">
                             <div className="col-2 product-img">
                                 <img
-                                    src={imageProduct}
+                                    src={image}
                                     className="img-fluid"
                                     alt="img-product"
                                 />
                             </div>
                             <div className="col-10 product-info">
                                 <div className="row product-name">
-                                    <h6>{nameProduct}</h6>
+                                    <h6>{name}</h6>
                                 </div>
                                 <div className="row product-category text-secondary">
-                                    <p>{categoryProduct} </p>
+                                    <p>Category: {category} </p>
                                 </div>
                             </div>
                         </div>
                         <div className="rating-popup-form-body">
                             <form>
                                 <div className="form-group rating-choose-score d-flex justify-content-center align-items-center">
-                                    {pickStarScore(currentScore)}
+                                    {pickStarScore()}
                                 </div>
                                 <div className="form-group rating-enter-cmt">
                                     <textarea
                                         type="content-cmt"
                                         className="form-control"
                                         id="content-cmt"
-                                        rows="4"
+                                        rows="3"
                                         placeholder="Please share more things you like about this product"
                                     />
                                 </div>
@@ -118,14 +125,14 @@ function PopUpRating({ imageProduct, nameProduct, categoryProduct }) {
                                                 <input
                                                     type="file"
                                                     className="custom-file-input"
-                                                    id="inputImageFile"
+                                                    id="input-img-rating"
                                                     accept="image/png, image/jpeg, image/jpg"
                                                     multiple
                                                     onChange={previewListImg}
                                                 />
                                                 <label
                                                     className="custom-file-label text-primary border-primary rounded-0"
-                                                    htmlFor="inputImageFile"
+                                                    htmlFor="input-img-rating"
                                                 >
                                                     <FontAwesomeIcon
                                                         icon={faCamera}
@@ -133,58 +140,27 @@ function PopUpRating({ imageProduct, nameProduct, categoryProduct }) {
                                                     Add Images
                                                 </label>
                                             </div>
-                                            <div className="custom-file col-3 m-1 d-flex align-items-center">
-                                                <input
-                                                    type="file"
-                                                    className="custom-file-input"
-                                                    id="inputVideoFile"
-                                                    accept="video/mp4,video/x-m4v,video/*"
-                                                    onChange={previewFileVideo}
-                                                />
-                                                <label
-                                                    className="custom-file-label text-primary border-primary rounded-0"
-                                                    htmlFor="inputVideoFile"
-                                                >
-                                                    <FontAwesomeIcon
-                                                        icon={faVideo}
-                                                    />{" "}
-                                                    Add Video
-                                                </label>
-                                            </div>
-                                            <div className="col-4 d-flex align-items-center">
+                                            <div className="ml-2 col-4 d-flex align-items-center">
                                                 <div className="row">
-                                                    (Max is 5-images and
-                                                    1-video.)
+                                                    (Max is 6 images.)
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="row previewFile pt-2">
+                                        <div className="row preview-file-rating pt-2">
                                             {[0, 0, 0, 0, 0, 0].map(
                                                 (_, index) => {
-                                                    return index !== 5 ? (
+                                                    return (
                                                         <div
-                                                            className="previewImage"
+                                                            className="m-1 preview-img-rating"
                                                             id={
-                                                                "img-up-rating-" +
+                                                                "img-rating-upload-" +
                                                                 (index + 1)
                                                             }
+                                                            key={index}
                                                             style={{
                                                                 display: "none",
                                                             }}
                                                         ></div>
-                                                    ) : (
-                                                        <video
-                                                            className="previewVideo m-1"
-                                                            style={{
-                                                                display: "none",
-                                                            }}
-                                                            controls
-                                                            autoPlay
-                                                        >
-                                                            Your browser does
-                                                            not support the
-                                                            video tag.
-                                                        </video>
                                                     );
                                                 }
                                             )}

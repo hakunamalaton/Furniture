@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../Image/Logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faShoppingCart, faUser } from "@fortawesome/fontawesome-free-solid";
+import { faBars, faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
 import "../Css/Header.css";
 import SearchBar from "./SearchBar";
 
@@ -28,10 +28,10 @@ const Header = () => {
                             className="text-light icon-cart-shopping mr-4"
                             icon={faUser}
                         />
-                        <FontAwesomeIcon
+                        <a href="/order"><FontAwesomeIcon
                             className="text-light icon-cart-shopping"
                             icon={faShoppingCart}
-                        />
+                        /></a>
                     </div>
 
                     <button

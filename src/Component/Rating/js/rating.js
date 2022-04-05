@@ -1,12 +1,10 @@
 import { React, useState } from "react";
 import "../css/rating.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faThumbsUp } from "@fortawesome/fontawesome-free-solid";
 import listBtn from "../dataRatingFake/dataRatingCategory.json";
 import listRating from "../dataRatingFake/dataProductRating.json";
-import Header from "../../Header/Js/Header";
-import Footer from "../../Footer/Js/Footer";
-
+import PopUpRating from "./popUpRating"
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 function Rating() {
     let listNumKindRating = [];
     listNumKindRating.push(listRating.length);
@@ -161,26 +159,6 @@ function Rating() {
                             );
                         })}
                     </div>
-                    <div className="row rating-action align-items-center">
-                        <div
-                            className="btn"
-                            id={
-                                item.listLike.indexOf("Lam Thanh Duong") !== -1
-                                    ? "like"
-                                    : "nonLike"
-                            }
-                            onClick={() => {
-                                alert("Liked, thank you.");
-                            }}
-                        >
-                            <FontAwesomeIcon icon={faThumbsUp} />
-                        </div>
-                        <div className="text-secondary">
-                            {item.listLike.indexOf("Lam Thanh Duong") !== -1
-                                ? item.listLike.length
-                                : "Useful ?"}
-                        </div>
-                    </div>
                 </div>
             </div>
         );
@@ -216,12 +194,10 @@ function Rating() {
         }
     }
     return (
-        <div className="ratingComponent">
-            <Header />
-            <div className="container-fluid rating-cpn-body d-flex justify-content-center">
-                <div className="col-8 bg-white">
-                    <div className="container">
-                        <div className="row rating-head">
+        <div className="rating-component">
+            <div className="d-flex justify-content-center">
+                <div className="col-12">
+                        <div className="row rating-head pt-2">
                             <h5>RATING PRODUCT</h5>
                         </div>
                         <div className="row rating-overview py-4 border border-dark">
@@ -259,10 +235,10 @@ function Rating() {
                                 {paginationRating(productRatings)}
                             </ul>
                         </div>
-                    </div>
+                    
                 </div>
             </div>
-            <Footer />
+            <PopUpRating image="https://i.imgur.com/Q12CDlu.png" name="Josie Upholstered Low Profile Platform Bed" category="Blue, Full"></PopUpRating>
         </div>
     );
 }
