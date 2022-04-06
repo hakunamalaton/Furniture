@@ -60,16 +60,24 @@ class OrdersController < ApplicationController
     
     new_order = Order.create(set_params.merge({user_id: params[:user_id]}))
     # array of id
+    # quantity
     products = params[:products].map do |product|
                  Product.find_by(id: product)  
                end
     email = User.find_by(id: params[:user_id]).email 
     new_order.products << products
+    
+    # update quantity
+    OrdersProduct.where(order_id: new_order.id).each_with_index.map do |product, index|
+      product.update(quantity: params[:quantity][index])
+    end
+    
     render json: {
         code: 0,
         email: email,
         order: new_order,
-        products: new_order.products
+        products: new_order.products,
+        quantity: params[:quantity]
     }
   end
 
