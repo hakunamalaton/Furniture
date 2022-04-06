@@ -1,27 +1,25 @@
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import "./App.css";
-import HomePage from "./HomePage";
-import Address from "./Component/Address/Js/Address";
-import PageProduct from "./Component/PageProduct/js/pageProduct"
-import Mapbox from "./Component/Address/Js/Mapbox";
-import Rating from "./Component/Rating/js/rating";
-import ImportDesign from "./Component/ImportDesign/js/importDesign";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-    return (
-        <Router>
-            <div className="App">
-                <Switch>
-                    <Route exact path="/" component={HomePage} />
-                    <Route exact path="/import-design" component={ImportDesign}/>
-                    <Route exact path="/page-product" component={PageProduct} />
-                    <Route exact path="/rating" component={Rating} />
-                    <Route exact path="/address" component={Address} />
-                    <Route exact path="/mapbox" component={Mapbox} />
-                </Switch>
-            </div>
-        </Router>
-    );
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
 export default App;
