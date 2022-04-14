@@ -76,11 +76,11 @@ function ImportDesign() {
                     </div>
                     <div className="import-ds-form-body">
                         <form>
-                            <div className="form-group d-inline">
-                                <div className="input-group">
+                            <div className="form-group d-block">
+                                <div className="input-group align-items-center justify-content-center">
                                     <div className="row justify-content-center">
-                                        <div className="col-10 d-flex">
-                                            <div className="custom-file col-4 m-3 d-flex align-items-center">
+                                        <div className="col-10 p-0 d-block mx-auto mt-2 d-md-flex justify-content-md-center">
+                                            <div className="custom-file col-12 col-md-4 mx-auto d-flex align-items-center">
                                                 <input
                                                     type="file"
                                                     className="custom-file-input"
@@ -90,17 +90,18 @@ function ImportDesign() {
                                                     onChange={previewListImg}
                                                 />
                                                 <label
-                                                    className="custom-file-label text-primary border-primary rounded-0"
+                                                    className="custom-file-label d-flex justify-content-center align-items-center text-primary border-primary rounded-0"
                                                     htmlFor="input-img-import"
                                                 >
                                                     <FontAwesomeIcon
                                                         icon={faCamera}
+                                                        className="pr-1"
                                                     />{" "}
                                                     Add Images
                                                 </label>
                                             </div>
-                                            <div className="d-flex align-items-center">
-                                                <div className="row">
+                                            <div className="d-flex col-md-7 mx-auto mx-md-0  align-items-center">
+                                                <div className="row mx-auto mx-md-0">
                                                     (You can import more than 1
                                                     file.)
                                                 </div>
@@ -112,7 +113,7 @@ function ImportDesign() {
                             <div className="row justify-content-center">
                                 <button
                                     type="submit"
-                                    className="btn col-2 mt-2 btn-primary"
+                                    className="btn col-6 col-sm-4 col-md-3 col-lg-2 mt-2 btn-primary"
                                 >
                                     <FontAwesomeIcon
                                         className="text-white"

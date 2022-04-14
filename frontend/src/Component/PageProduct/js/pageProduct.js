@@ -34,12 +34,17 @@ function PageProduct() {
         setSize(props);
         setPickSize(index);
     };
-    const [num, setNum] = useState(1);
     const handleNum = (props) => {
-        if (props === 0) {
-            return;
+        const quantity = document.querySelector(
+            "#product-input-quantity"
+        ).value;
+        if (props === "minus" && quantity > 1) {
+            document.querySelector("#product-input-quantity").value =
+                parseInt(quantity) - 1;
+        } else if (props === "add") {
+            document.querySelector("#product-input-quantity").value =
+                parseInt(quantity) + 1;
         }
-        setNum(props);
     };
     function starAvgScore(props) {
         const divElement = [];
@@ -71,109 +76,43 @@ function PageProduct() {
             </a>
         );
     }
-    const colorProduct = (item, index) => {
-        const indexSeparator = item.indexOf("#");
-        const codeColor = item.slice(indexSeparator);
-        const nameColor = item.slice(0, indexSeparator);
-        return (
-            <label className="btn p-0 m-1 rounded-0">
-                <input
-                    type="radio"
-                    name="color"
-                    key={index}
-                    id={"color" + (index + 1)}
-                    onClick={() => handleColor(nameColor, index)}
-                />{" "}
-                <div
-                    className="product-btn-color"
-                    style={{
-                        backgroundColor: codeColor,
-                        border: "3px solid white",
-                        outline: pickColor === index ? "solid black" : "none",
-                    }}
-                ></div>
-            </label>
-        );
-    };
-    const sizeProduct = (item, index) => {
-        const indexFirstSeparator = item.indexOf("#");
-        const subItem = item.slice(indexFirstSeparator + 1);
-        const nameSize = item.slice(0, indexFirstSeparator);
-        const indexSecondarySeparator = subItem.indexOf("#");
-        const size = subItem.slice(0, indexSecondarySeparator);
-        const weight = subItem.slice(indexSecondarySeparator + 1);
-        return (
-            <label className="btn p-0 m-1 rounded-0 col-5">
-                <input
-                    type="radio"
-                    name="size"
-                    key={index}
-                    id={"size" + (index + 1)}
-                    onClick={() => handleSize(nameSize, index)}
-                />{" "}
-                <div className="product-btn-size" style={{
-                        outline: pickSize === index ? "solid black" : "none",
-                    }}>
-                    <p>{size}</p>
-                    <p>{weight}</p>
-                </div>
-            </label>
-        );
-    };
     return (
         <div className="page-product-component">
             <Header />
             <div className="container bg-white">
-                <div className="d-flex pt-2">
-                    <div className="product-image col-6">
+                <div className="d-block d-lg-flex pt-2">
+                    <div className="product-image col-lg-6">
                         <div
                             id="carousel-img-product"
                             className="carousel slide"
                             data-ride="carousel"
                         >
                             <div className="carousel-inner">
-                                <div className="carousel-item active">
-                                    <img
-                                        src="https://i.imgur.com/Q12CDlu.png"
-                                        className="d-block w-100"
-                                        alt="img-bed-1"
-                                    />
-                                </div>
-                                <div className="carousel-item">
-                                    <img
-                                        src="https://i.imgur.com/oATc63T.png"
-                                        className="d-block w-100"
-                                        alt="img-bed-1"
-                                    />
-                                </div>
-                                <div className="carousel-item">
-                                    <img
-                                        src="https://i.imgur.com/CIUdrUf.png"
-                                        className="d-block w-100"
-                                        alt="img-bed-1"
-                                    />
-                                </div>
-                                <div className="carousel-item">
-                                    <img
-                                        src="https://i.imgur.com/JbatxhQ.png"
-                                        className="d-block w-100"
-                                        alt="img-bed-1"
-                                    />
-                                </div>
-                                <div className="carousel-item">
-                                    <img
-                                        src="https://i.imgur.com/ceNDrYk.png"
-                                        className="d-block w-100"
-                                        alt="img-bed-1"
-                                    />
-                                </div>
-                                <div className="carousel-item">
-                                    <img
-                                        src="https://i.imgur.com/5lpquNF.png"
-                                        className="d-block w-100"
-                                        alt="img-bed-1"
-                                    />
-                                </div>
+                                {Product.image.map((item, index) => {
+                                    return index === 0 ? (
+                                        <div
+                                            className="carousel-item active"
+                                            key={index}
+                                        >
+                                            <img
+                                                src={item}
+                                                className="d-block w-100"
+                                                alt="img-bed-1"
+                                            />
+                                        </div>
+                                    ) : (
+                                        <div
+                                            className="carousel-item"
+                                            key={index}
+                                        >
+                                            <img
+                                                src={item}
+                                                className="d-block w-100"
+                                                alt="img-bed-1"
+                                            />
+                                        </div>
+                                    );
+                                })}
                             </div>
                             <button
                                 className="carousel-control-prev"
@@ -204,75 +143,32 @@ function PageProduct() {
                             className="list-img-product-small row justify-content-center py-2"
                             data-ride="carousel"
                         >
-                            <div className="col-2 ">
-                                <img
-                                    src="https://i.imgur.com/Q12CDlu.png"
-                                    className="d-block w-100 img-small border border-dark"
-                                    alt="img-small-bed-1"
-                                    data-target="#carousel-img-product"
-                                    data-slide-to="0"
-                                />
-                            </div>
-                            <div className="col-2">
-                                <img
-                                    src="https://i.imgur.com/oATc63T.png"
-                                    className="d-block w-100 img-small border border-dark"
-                                    alt="img-small-bed-1"
-                                    data-target="#carousel-img-product"
-                                    data-slide-to="1"
-                                />
-                            </div>
-                            <div className="col-2">
-                                <img
-                                    src="https://i.imgur.com/CIUdrUf.png"
-                                    className="d-block w-100 img-small border border-dark"
-                                    alt="img-small-bed-1"
-                                    data-target="#carousel-img-product"
-                                    data-slide-to="2"
-                                />
-                            </div>
-                            <div className="col-2">
-                                <img
-                                    src="https://i.imgur.com/JbatxhQ.png"
-                                    className="d-block w-100 img-small border border-dark"
-                                    alt="img-small-bed-1"
-                                    data-target="#carousel-img-product"
-                                    data-slide-to="3"
-                                />
-                            </div>
-                            <div className="col-2">
-                                <img
-                                    src="https://i.imgur.com/ceNDrYk.png"
-                                    className="d-block w-100 img-small border border-dark"
-                                    alt="img-small-bed-1"
-                                    data-target="#carousel-img-product"
-                                    data-slide-to="4"
-                                />
-                            </div>
-                            <div className="col-2">
-                                <img
-                                    src="https://i.imgur.com/5lpquNF.png"
-                                    className="d-block w-100 img-small border border-dark"
-                                    alt="img-small-bed-1"
-                                    data-target="#carousel-img-product"
-                                    data-slide-to="5"
-                                />
-                            </div>
+                            {Product.image.map((item, index) => {
+                                return (
+                                    <div className="col-2 px-1" key={index}>
+                                        <img
+                                            src={item}
+                                            className="d-block w-100 img-small border border-dark"
+                                            alt="img-small-bed-1"
+                                            data-target="#carousel-img-product"
+                                            data-slide-to={index}
+                                        />
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
-                    <div className="product-info col-6">
+                    <div className="product-info col-lg-6">
                         <div className="row product-name">
                             <h5 className="font-weight-bold">{Product.name}</h5>
                         </div>
-                        <div className="row product-rating-score">
-                            <div className="d-flex align-items-center">
-                                {starAvgScore(Product.rating)}
-                                <div className="text-warning pl-2">
-                                    {Product.rating}
-                                </div>
-                                <div className="product-num-previews pl-3">
-                                    ({Product.numReviews} reviews)
-                                </div>
+                        <div className="row product-rating-score align-items-center">
+                            {starAvgScore(Product.rating)}
+                            <div className="text-warning pl-2">
+                                {Product.rating}
+                            </div>
+                            <div className="product-num-previews pl-3">
+                                ({Product.numReviews} reviews)
                             </div>
                         </div>
                         <div className="row product-price font-weight-bold">
@@ -290,7 +186,44 @@ function PageProduct() {
                                 className="btn-group btn-group-toggle"
                                 data-toggle="buttons"
                             >
-                                {Product.color.map(colorProduct)}
+                                {Product.color.map((item, index) => {
+                                    const indexSeparator = item.indexOf("#");
+                                    const codeColor =
+                                        item.slice(indexSeparator);
+                                    const nameColor = item.slice(
+                                        0,
+                                        indexSeparator
+                                    );
+                                    return (
+                                        <label
+                                            key={index}
+                                            className="btn p-0 m-1 rounded-0"
+                                        >
+                                            <input
+                                                type="radio"
+                                                name="color"
+                                                id={"color" + (index + 1)}
+                                                onClick={() =>
+                                                    handleColor(
+                                                        nameColor,
+                                                        index
+                                                    )
+                                                }
+                                            />{" "}
+                                            <div
+                                                className="product-btn-color"
+                                                style={{
+                                                    backgroundColor: codeColor,
+                                                    border: "3px solid white",
+                                                    outline:
+                                                        pickColor === index
+                                                            ? "solid black"
+                                                            : "none",
+                                                }}
+                                            ></div>
+                                        </label>
+                                    );
+                                })}
                             </div>
                         </div>
                         <div className="row d-block product-size">
@@ -302,51 +235,98 @@ function PageProduct() {
                                 className="btn-group btn-group-toggle product-list-size row justify-content-start"
                                 data-toggle="buttons"
                             >
-                                {Product.size.map(sizeProduct)}
+                                {Product.size.map((item, index) => {
+                                    const indexFirstSeparator =
+                                        item.indexOf("#");
+                                    const subItem = item.slice(
+                                        indexFirstSeparator + 1
+                                    );
+                                    const nameSize = item.slice(
+                                        0,
+                                        indexFirstSeparator
+                                    );
+                                    const indexSecondarySeparator =
+                                        subItem.indexOf("#");
+                                    const size = subItem.slice(
+                                        0,
+                                        indexSecondarySeparator
+                                    );
+                                    const weight = subItem.slice(
+                                        indexSecondarySeparator + 1
+                                    );
+                                    return (
+                                        <label
+                                            key={index}
+                                            className="btn p-0 m-1 rounded-0 col-5"
+                                        >
+                                            <input
+                                                type="radio"
+                                                name="size"
+                                                id={"size" + (index + 1)}
+                                                onClick={() =>
+                                                    handleSize(nameSize, index)
+                                                }
+                                            />{" "}
+                                            <div
+                                                className="product-btn-size"
+                                                style={{
+                                                    outline:
+                                                        pickSize === index
+                                                            ? "solid black"
+                                                            : "none",
+                                                }}
+                                            >
+                                                <p>{size}</p>
+                                                <p>{weight}</p>
+                                            </div>
+                                        </label>
+                                    );
+                                })}
                             </div>
                         </div>
-                        <div className="row pt-2">
+                        <div className="product-quantity pt-2 d-flex col-md-10 col-lg-12 pl-0">
                             <div className="d-flex align-items-center font-weight-bold">
                                 Quantity:
                             </div>
-                            <div className="col-4 d-flex">
+                            <div className="col-4  col-md-4 col-lg-5 d-flex">
                                 <button
                                     type="button"
                                     className="btn product-btn-decrease-number"
-                                    onClick={() => handleNum(num - 1)}
+                                    onClick={() => handleNum("minus")}
                                 >
                                     <FontAwesomeIcon icon={faMinus} />
                                 </button>
                                 <label
-                                    className="sr-only"
-                                    htmlFor="product-input-number"
+                                    className="sr-only d-none"
+                                    htmlFor="product-input-quantity"
                                 >
-                                    Name
+                                    Quantity
                                 </label>
                                 <input
                                     type="text"
                                     className="form-control"
-                                    id="product-input-number"
-                                    defaultValue={num}
+                                    id="product-input-quantity"
+                                    defaultValue={1}
+                                    onChange={() => handleNum("")}
                                 />
                                 <button
                                     type="button"
                                     className="btn product-btn-increase-number"
-                                    onClick={() => handleNum(num + 1)}
+                                    onClick={() => handleNum("add")}
                                 >
                                     <FontAwesomeIcon icon={faPlus} />
                                 </button>
                             </div>
                         </div>
-                        <div className="row pt-2">
+                        <div className="product-btn row pt-2">
                             <div className="">
                                 <button
                                     type="submit"
-                                    className="btn product-btn-add-to-cart mr-2"
+                                    className="btn btn-add-to-cart mr-2"
                                 >
                                     <FontAwesomeIcon
                                         icon={faCartShopping}
-                                        className="pr-2"
+                                        className="pr-2 icon-cart"
                                     />
                                     Add to Cart
                                 </button>
@@ -354,13 +334,13 @@ function PageProduct() {
                             <div className="">
                                 <button
                                     type="submit"
-                                    className="btn product-btn-buy-now"
+                                    className="btn btn-buy-now"
                                 >
                                     Buy Now
                                 </button>
                             </div>
                         </div>
-                        <div className=" pt-2">
+                        <div className="product-description pt-2">
                             <div className="d-flex align-items-center justify-content-between">
                                 <div className="d-flex">
                                     <div className="font-weight-bold pr-1">
@@ -373,8 +353,8 @@ function PageProduct() {
                                 >
                                     <div className="btn btn-outline-primary">
                                         {viewDescription
-                                            ? "Collapse"
-                                            : "View all"}
+                                            ? "View less"
+                                            : "View more"}
                                     </div>
                                 </div>
                             </div>
@@ -389,7 +369,7 @@ function PageProduct() {
                                 {Product.description}
                             </div>
                         </div>
-                        <div className="d-block pt-2">
+                        <div className="product-overview d-block pt-2">
                             <div className="d-flex align-items-center justify-content-between">
                                 <div className="d-flex">
                                     <div className="font-weight-bold pr-1">
@@ -401,7 +381,7 @@ function PageProduct() {
                                     onClick={handleViewOverview}
                                 >
                                     <div className="btn btn-outline-primary">
-                                        {viewOverview ? "Collapse" : "View all"}
+                                        {viewOverview ? "View less" : "View more"}
                                     </div>
                                 </div>
                             </div>

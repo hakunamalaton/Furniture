@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../css/popUpRating.css";
-import { faCamera, faStar, faVideo } from "@fortawesome/free-solid-svg-icons";
+import { faCamera, faStar} from "@fortawesome/free-solid-svg-icons";
 function PopUpRating({ image, name, category }) {
     const [currentScore, setCurrentScore] = useState(0);
     const [hoverScore, setHoverScore] = useState(undefined);
@@ -20,7 +20,7 @@ function PopUpRating({ image, name, category }) {
                 className={
                     (hoverScore || currentScore) > index
                         ? "text-warning icon-star-score"
-                        : "text-secondary"
+                        : "text-secondary icon-star-score"
                 }
                 style={{
                     cursor: "pointer",
@@ -74,7 +74,7 @@ function PopUpRating({ image, name, category }) {
     return (
         <div className="popup-rating-component">
             <div className="row">
-                <div className="col-2">
+                <div className="col-12">
                     <button className="btn btn-primary" onClick={handlePopUp}>
                         RATING PRODUCT
                     </button>
@@ -82,34 +82,34 @@ function PopUpRating({ image, name, category }) {
             </div>
             <div className={popUp ? "open-popup-rating" : "close-popup-rating"}>
                 <div className="rating-popup-overlay"></div>
-                <div className="col-8 rating-popup-form d-flex justify-content-center">
+                <div className="col-12 col-md-9 col-xl-8 rating-popup-form d-flex justify-content-center">
                     <div className="bg-white p-3">
                         <div className="row rating-popup-form-header">
                             <h5>RATING PRODUCT</h5>
                         </div>
                         <div className="row rating-popup-form-product py-1">
-                            <div className="col-2 product-img">
+                            <div className="col-3 col-sm-2 p-0 product-img">
                                 <img
                                     src={image}
                                     className="img-fluid"
                                     alt="img-product"
                                 />
                             </div>
-                            <div className="col-10 product-info">
+                            <div className="col-9 col-sm-10 product-info">
                                 <div className="row product-name">
                                     <h6>{name}</h6>
                                 </div>
                                 <div className="row product-category text-secondary">
-                                    <p>Category: {category} </p>
+                                    <p className="m-0">Category: {category} </p>
                                 </div>
                             </div>
                         </div>
                         <div className="rating-popup-form-body">
                             <form>
-                                <div className="form-group rating-choose-score d-flex justify-content-center align-items-center">
+                                <div className="form-group mb-0 rating-choose-score d-flex justify-content-center align-items-center">
                                     {pickStarScore()}
                                 </div>
-                                <div className="form-group rating-enter-cmt">
+                                <div className="form-group mb-0 rating-enter-cmt">
                                     <textarea
                                         type="content-cmt"
                                         className="form-control"
@@ -118,10 +118,10 @@ function PopUpRating({ image, name, category }) {
                                         placeholder="Please share more things you like about this product"
                                     />
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group mb-0">
                                     <div className="input-group col-12 d-inline-block">
-                                        <div className="row">
-                                            <div className="custom-file col-3 m-1 d-flex align-items-center">
+                                        <div className="d-block d-sm-flex">
+                                            <div className="custom-file col-12 col-sm-5 col-md-5 col-lg-4 col-xl-3 m-1 d-flex align-items-center">
                                                 <input
                                                     type="file"
                                                     className="custom-file-input"
@@ -131,16 +131,17 @@ function PopUpRating({ image, name, category }) {
                                                     onChange={previewListImg}
                                                 />
                                                 <label
-                                                    className="custom-file-label text-primary border-primary rounded-0"
+                                                    className="custom-file-label text-primary border-primary rounded-0 d-flex justify-content-center align-items-center"
                                                     htmlFor="input-img-rating"
                                                 >
                                                     <FontAwesomeIcon
                                                         icon={faCamera}
+                                                        className="pr-1"
                                                     />{" "}
                                                     Add Images
                                                 </label>
                                             </div>
-                                            <div className="ml-2 col-4 d-flex align-items-center">
+                                            <div className="ml-2 col-12 col-sm-4 d-flex align-items-center">
                                                 <div className="row">
                                                     (Max is 6 images.)
                                                 </div>
@@ -168,7 +169,7 @@ function PopUpRating({ image, name, category }) {
                                     </div>
                                 </div>
                                 <div className="row rating-popup-form-footer justify-content-end">
-                                    <Link to="/">
+                                    <Link to="/page-product">
                                         <button
                                             className="btn btn-outline-secondary m-2"
                                             onClick={handlePopUp}
