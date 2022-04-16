@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "user_id": 1,
+        "created_at": "15/04/2022",
+        "updated_at": "15/04/2022",
+        "status": "1",
+        "total_price": 10000000,
+        "description": "Give me red product",
+        "address": "Quang Ngai, Viet Nam"
+    },
+    {
+        "id": 2,
+        "user_id": 1,
+        "created_at": "15/04/2022",
+        "updated_at": "15/04/2022",
+        "status": "0",
+        "total_price": 6000000,
+        "description": "Give me blue product",
+        "address": "Thua Thien Hue, Viet Nam"
+    }
+]

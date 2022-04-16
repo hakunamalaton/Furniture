@@ -80,6 +80,24 @@ function PageProduct() {
         <div className="page-product-component">
             <Header />
             <div className="container bg-white">
+                <div className="paga-product-breadcrumb">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/">BK Furniture</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="/bedding">Bedding</a>
+                            </li>
+                            <li
+                                class="breadcrumb-item active"
+                                aria-current="page"
+                            >
+                                {Product.name}
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
                 <div className="d-block d-lg-flex pt-2">
                     <div className="product-image col-lg-6">
                         <div
@@ -381,7 +399,9 @@ function PageProduct() {
                                     onClick={handleViewOverview}
                                 >
                                     <div className="btn btn-outline-primary">
-                                        {viewOverview ? "View less" : "View more"}
+                                        {viewOverview
+                                            ? "View less"
+                                            : "View more"}
                                     </div>
                                 </div>
                             </div>

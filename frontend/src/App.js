@@ -6,6 +6,7 @@ import PageProduct from "./Component/PageProduct/js/pageProduct"
 import Mapbox from "./Component/Address/Js/Mapbox";
 import Rating from "./Component/Rating/js/rating";
 import ImportDesign from "./Component/ImportDesign/js/importDesign";
+import TransactionHistory from "./Component/TransactionHistory/js/transactionHistory"
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                     <Route exact path="/rating" component={Rating} />
                     <Route exact path="/address" component={Address} />
                     <Route exact path="/mapbox" component={Mapbox} />
+                    <Route exact path="/transaction-history" component={TransactionHistory} />
                 </Switch>
             </div>
         </Router>
