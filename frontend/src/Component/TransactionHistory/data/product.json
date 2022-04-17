@@ -10,7 +10,7 @@
             "https://i.imgur.com/ceNDrYk.png",
             "https://i.imgur.com/5lpquNF.png"
         ],
-        "price": 6000000,
+        "price": 600,
         "rating": 4.7,
         "numReviews": 150,
         "third_party": "Carbono Design#https://www.carbonodesign.com.br/en/about",
@@ -33,7 +33,7 @@
         ]
     },
     {
-        "id": 1,
+        "id": 2,
         "name": "Josie Upholstered Low Profile Platform Bed 2",
         "image": [
             "https://i.imgur.com/Q12CDlu.png",
@@ -43,7 +43,7 @@
             "https://i.imgur.com/ceNDrYk.png",
             "https://i.imgur.com/5lpquNF.png"
         ],
-        "price": 4000000,
+        "price": 400,
         "rating": 4.7,
         "numReviews": 150,
         "third_party": "Carbono Design#https://www.carbonodesign.com.br/en/about",
