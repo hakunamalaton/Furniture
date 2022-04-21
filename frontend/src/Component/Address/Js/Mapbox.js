@@ -1,6 +1,7 @@
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import axios from "axios";
+import "../mapbox.css";
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import MapGL, {
     FullscreenControl,
@@ -111,7 +112,7 @@ function Mapbox(props) {
 
     useEffect(() => {
         if (choosenAdd && distance) props.ParentcallbackFunction({ choosenAdd, distance });
-    }, [choosenAdd, distance, props]);
+    }, [choosenAdd, distance]);
 
     return (
         <div>
@@ -119,7 +120,7 @@ function Mapbox(props) {
                 ref={mapRef}
                 {...viewport}
                 width="100%"
-                height="500px"
+                height="40vh"
                 mapStyle="mapbox://styles/mapbox/streets-v11"
                 onViewportChange={handleViewportChange}
                 onNativeClick={(e) => {
@@ -162,22 +163,12 @@ function Mapbox(props) {
                 ) : (
                     <></>
                 )}
-                <Geocoder
-                    mapRef={mapRef}
-                    onViewportChange={handleGeocoderViewportChange}
-                    position="top-left"
-                    mapboxApiAccessToken={MAPBOXACCESSTOKEN}
-                    reverseGeocode={true}
-                    enableHighAccuracy={true}
-                    limit={10}
-                    country="vn"
-                />
 
-                <FullscreenControl style={{ right: 10, top: 10 }} />
-                <NavigationControl style={{ right: 10, top: 50 }} />
+                <FullscreenControl style={{ right: 10, bottom: 10 }} />
+                <NavigationControl style={{ right: 10, bottom: 50 }} />
 
                 <GeolocateControl
-                    style={{ right: 10, top: 150 }}
+                    style={{ right: 10, bottom: 150 }}
                     positionOptions={{ enableHighAccuracy: true }}
                     trackUserLocation={true}
                     auto
@@ -185,7 +176,7 @@ function Mapbox(props) {
                 <button
                     className="choosen-position"
                     onClick={gotoChoosenPlace}
-                    style={{ position: "absolute", right: 10, top: 190, zIndex: 10 }}
+                    style={{ position: "absolute", right: 10, bottom: 190 }}
                     title="Find My Choosen Location"
                 >
                     Click me
@@ -208,6 +199,16 @@ function Mapbox(props) {
                     <></>
                 )}
             </MapGL>
+            <Geocoder
+                position="top-left"
+                mapRef={mapRef}
+                onViewportChange={handleGeocoderViewportChange}
+                mapboxApiAccessToken={MAPBOXACCESSTOKEN}
+                reverseGeocode={true}
+                enableHighAccuracy={true}
+                limit={10}
+                country="vn"
+            />
         </div>
     );
 }
