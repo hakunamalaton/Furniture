@@ -76,7 +76,7 @@ function PopUpRating({ image, name, category }) {
             <div className="row">
                 <div className="col-12">
                     <button className="btn btn-primary" onClick={handlePopUp}>
-                        RATING PRODUCT
+                        RATING
                     </button>
                 </div>
             </div>
@@ -169,7 +169,7 @@ function PopUpRating({ image, name, category }) {
                                     </div>
                                 </div>
                                 <div className="row rating-popup-form-footer justify-content-end">
-                                    <Link to="/page-product">
+                                    <Link to="/transaction-history">
                                         <button
                                             className="btn btn-outline-secondary m-2"
                                             onClick={handlePopUp}

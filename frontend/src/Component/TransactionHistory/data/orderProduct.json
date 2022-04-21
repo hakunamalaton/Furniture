@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "product_id": 1,
+        "order_id": 1,
+        "quantity": 1,
+        "color":"Charcoal Gray",
+        "size":"King Size"
+    },
+    {
+        "id": 2,
+        "product_id": 2,
+        "order_id": 1,
+        "quantity": 1,
+        "color":"Navy Blue",
+        "size":"Queen Size"
+    },
+    {
+        "id": 3,
+        "product_id": 1,
+        "order_id": 2,
+        "quantity": 1,
+        "color":"Navy Blue",
+        "size":"Full Size"
+    },
+    {
+        "id": 4,
+        "product_id": 1,
+        "order_id": 3,
+        "quantity": 1,
+        "color":"Navy Blue",
+        "size":"Full Size"
+    }
+    
+]
