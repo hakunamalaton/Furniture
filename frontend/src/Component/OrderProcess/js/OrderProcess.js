@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import Header from "../../Header/Js/Header";
 import Footer from "../../Footer/Js/Footer";
-
 import "../css/OrderProcess.css";
-
-import MultiStepProgressBar from "./MultiStepProgressBar";
 
 import OrderData from "./fakeOrderData.json";
 import AddressData from "./fakeAddressData.json";
+
+import MultiStepProgressBar from "./MultiStepProgressBar";
 import AddressOnly from "./AddressOnly";
 import DateTime from "./DateTime";
 import Payment from "./Payment";
-import CurrentCart from "../../cart/js/CurrentCart";
+import CurrentCart from "./CurrentCart";
+
+import { useSelector, useDispatch } from "react-redux";
+import { incrementItemQuantity, decrementItemQuantity } from "../slice/cartSlice";
 
 const OrderProcess = () => {
+
     const { buyer, cart, status, price } = OrderData;
     const [cartState, setCartState] = useState(cart);
     const [buyerState, setBuyerState] = useState(buyer);
@@ -47,8 +50,8 @@ const OrderProcess = () => {
                     <div className="progress-bar-item"> Proceed Payment </div>
                 </div>
                 <div className="next-prev-button-bar">
-                    <button onClick={toPrevPage} type="button" class="btn btn-primary">Prev</button>
-                    <button onClick={toNextPage} type="button" class="btn btn-primary">Next</button>
+                    <button onClick={toPrevPage} type="button" className="btn btn-primary">Prev</button>
+                    <button onClick={toNextPage} type="button" className="btn btn-primary">Next</button>
                 </div>
                 <CurrentCart step={step} cartState={cartState} setCartState={setCartState} buyerState={buyerState} setBuyerState={setBuyerState} statusState={statusState} setStatusState={setStatusState} priceState={priceState} setPriceState={setPriceState} />
                 <AddressOnly step={step} AddressData={AddressData} buyerState={buyerState} setBuyerState={setBuyerState} priceState={priceState} setPriceState={setPriceState} />

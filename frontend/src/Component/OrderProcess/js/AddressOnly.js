@@ -1,10 +1,19 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updateAddress } from "../slice/cartSlice";
+
 import NewAddressModal from "../../Address/Js/NewAddressModal";
-import Total from "../../cart/js/Total";
+import Total from "./Total";
 
 const AddressOnly = ({ step, AddressData, buyerState, setBuyerState, priceState, setPriceState }) => {
+    const dispatch = useDispatch();
     const size = { "font-size": "1.1rem" };
+
+    const AddressListState = useSelector(state => state.account.addressList);
+    const OrderPriceState = useSelector(state => state.cart.price);
+    const OrderBuyerState = useSelector(state => state.cart.buyer);
+
     const handleChangeAddress = ({ price, fullName, phoneNum, description, town, district, city }) => {
         let newPriceState = { ...priceState };
         newPriceState.shipping = price;
@@ -50,7 +59,7 @@ const AddressOnly = ({ step, AddressData, buyerState, setBuyerState, priceState,
 
                                 {/* Addresses List */}
                                 <div className="mt-3">
-                                    {AddressData.map((addressItem) => {
+                                    {AddressListState.map((addressItem) => {
                                         return (
                                             <div className="form-check row list-group-item-action">
                                                 <label className="form-check-label d-flex justify-content-md-between row border border-left-0 border-right-0 border-top-0 mr-0">
@@ -60,7 +69,7 @@ const AddressOnly = ({ step, AddressData, buyerState, setBuyerState, priceState,
                                                         name="optradio"
                                                         id="address"
                                                         value={addressItem.price}
-                                                        onChange={() => handleChangeAddress(addressItem)}
+                                                        onChange={() => dispatch(updateAddress(addressItem))}
                                                     />
                                                     <div className="mb-3 mt-3 ml-4 col-md">
                                                         <p className="mb-0" style={size}>

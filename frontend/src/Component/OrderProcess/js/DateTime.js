@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import DatePicker, { addMonths } from "react-datepicker";
-import Total from "../../cart/js/Total";
+import Total from "./Total";
 import "react-datepicker/dist/react-datepicker.css";
 
+import { useDispatch, useSelector } from "react-redux";
+import { updateShippingMethod, updateShippingDate } from "../slice/cartSlice";
+
 const DateTime = ({ step, AddressData, buyerState, setBuyerState, priceState, setPriceState }) => {
+    const dispatch = useDispatch();
+    const OrderPriceState = useSelector(state => state.cart.price);
+
     const size = { "font-size": "1.1rem" };
 
-    const [shippingOption, setShippingOption] = useState(priceState.shippingOption);
+    // const [shippingOption, setShippingOption] = useState(priceState.shippingOption);
     const [date, setDate] = useState(new Date());
     const [minDate, setMinDate] = useState(new Date());
     const [maxDate, setMaxDate] = useState(new Date());
@@ -17,20 +23,24 @@ const DateTime = ({ step, AddressData, buyerState, setBuyerState, priceState, se
             setMaxDate((new Date).setDate((new Date).getDate() + 6));
             newPriceState.shippingOption = "express";
             newPriceState.shippingScale = 2.5;
+            dispatch(updateShippingMethod({ shippingOption: "express", shippingScale: 2.5 }));
         }
         else if (newShippingOption === "standard") {
             setMinDate((new Date).setDate((new Date).getDate() + 7));
             setMaxDate((new Date).setDate((new Date).getDate() + 14));
             newPriceState.shippingOption = "standard";
             newPriceState.shippingScale = 1;
+            dispatch(updateShippingMethod({ shippingOption: "standard", shippingScale: 1 }));
         }
-        setPriceState(newPriceState);
-        setShippingOption(newShippingOption);
+        // setPriceState(newPriceState);
+        // setShippingOption(newShippingOption);
     };
     const handleChangeDate = (dateTime) => {
         const newPriceState = { ...priceState };
         newPriceState.deliveryDate = dateTime.toJSON();
-        setPriceState(newPriceState);
+        // setPriceState(newPriceState);
+        dispatch(updateShippingDate(dateTime));
+
         setDate(dateTime);
     };
 
@@ -100,9 +110,9 @@ const DateTime = ({ step, AddressData, buyerState, setBuyerState, priceState, se
                                 </div>
 
                                 <br></br>
-                                {(shippingOption !== "") &&
+                                {(OrderPriceState.shippingOption !== "") &&
                                     <div>
-                                        <h5>Date and Time (From {shippingOption === "express" ? 2 : 7} days after purchase up to {shippingOption === "express" ? 6 : 14} days):</h5>
+                                        <h5>Date and Time (From {OrderPriceState.shippingOption === "express" ? 2 : 7} days after purchase up to {OrderPriceState.shippingOption === "express" ? 6 : 14} days):</h5>
                                         <DatePicker
                                             selected={date}
                                             onChange={(dateTime) => handleChangeDate(dateTime)}
