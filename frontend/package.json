@@ -25,11 +25,13 @@
     "react-icons": "^4.3.1",
     "react-map-gl": "^5.2.3",
     "react-map-gl-geocoder": "^2.2.0",
+    "react-modal": "^3.14.4",
     "react-paypal-button-v2": "^2.6.3",
     "react-redux": "^8.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.0",
     "react-step-progress-bar": "^1.0.3",
+    "reactjs-popup": "^2.0.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

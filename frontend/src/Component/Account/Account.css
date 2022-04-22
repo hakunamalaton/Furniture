@@ -91,3 +91,20 @@
 .addMargin {
   margin-top: 20px;
 }
+
+.close-modal-btn {
+  background-color: blue;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid white;
+  padding: 10px;
+}
+
+.close-modal-btn a {
+  color: white;
+}
+
+.modal-btns {
+  display: flex;
+  justify-content: space-evenly;
+}

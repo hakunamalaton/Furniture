@@ -4,14 +4,40 @@ import './Account.css';
 import Bg from './bg.jpg';
 
 import axios from 'axios';
+import Modal from 'react-modal';
 
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+    },
+};
+
 const FakeRegister = () => {
+
+    let subtitle;
+
+    function afterOpenModal() {
+        // references are now sync'd and can be accessed.
+        subtitle.style.color = '#f00';
+    }
+
+    function closeModal() {
+        setPageState("started");
+    }
+
     const [email, setEmail] = useState('')
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setconfirmPassword] = useState('')
+
+    const [pageState, setPageState] = useState('started')  // started, success, failed
 
     const register = async (e) => {
         e.preventDefault();
@@ -29,8 +55,12 @@ const FakeRegister = () => {
         }
         console.log("SERVER_URL", SERVER_URL);
         console.log("Register request body", requestBody);
-        const signUpResponse = await axios.post(`${SERVER_URL}/signup`, requestBody, headers);
-        console.log("Register Response", signUpResponse)
+        const signUpResponse = await axios.post(`${SERVER_URL}/sign-up`, requestBody, headers);
+        if (signUpResponse.data.code === 0) {
+            setPageState("success");
+        } else {
+            setPageState("failed");
+        }
     }
     return (
         <div style={{
@@ -50,27 +80,58 @@ const FakeRegister = () => {
 
                             <div className='inputBlock'>
                                 <label className='labelForm'><strong>Email</strong></label>
-                                <input required type='email' class="form-control" onChange={(event) => setEmail(event.target.value)} />
+                                <input required type='email' className="form-control" onChange={(event) => setEmail(event.target.value)} />
                             </div>
 
                             <div className='inputBlock'>
                                 <label className='labelForm'><strong>Name</strong></label>
-                                <input required type='text' class="form-control" onChange={(event) => setName(event.target.value)} />
+                                <input required type='text' className="form-control" onChange={(event) => setName(event.target.value)} />
                             </div>
                             <div className='inputBlock'>
                                 <label className='labelForm'><strong>Password</strong></label>
-                                <input required type='password' class="form-control" onChange={(event) => setPassword(event.target.value)} />
+                                <input required type='password' className="form-control" onChange={(event) => setPassword(event.target.value)} />
                             </div>
                             <div className='inputBlock'>
                                 <label className='labelForm'><strong>Comfirm password</strong></label>
-                                <input required type='password' class="form-control" onChange={(event) => setconfirmPassword(event.target.value)} />
+                                <input required type='password' className="form-control" onChange={(event) => setconfirmPassword(event.target.value)} />
                             </div>
 
                             <div className='center addMargin'>
-                                <button type="submit" class="btn btn-primary" onClick={register}>REGISTER</button>
+                                <button type="submit" className="btn btn-primary" onClick={register}>REGISTER</button>
                             </div>
-
                         </form>
+
+                        <div>
+                            <Modal
+                                isOpen={pageState === "success"}
+                                onAfterOpen={afterOpenModal}
+                                onRequestClose={closeModal}
+                                style={customStyles}
+                                contentLabel="Example Modal"
+                            >
+                                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Register Success! Would you like to proceed to login?</h2>
+                                <div className="modal-btns">
+                                    <button className="close-modal-btn" onClick={closeModal}>Close</button>
+                                    <button className="close-modal-btn"><Link to="/fakelogin">Proceed To Login</Link></button>
+                                </div>
+                            </Modal>
+                        </div>
+
+                        <div>
+                            <Modal
+                                isOpen={pageState === "failed"}
+                                onAfterOpen={afterOpenModal}
+                                onRequestClose={closeModal}
+                                style={customStyles}
+                                contentLabel="Example Modal"
+                            >
+                                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Register failed, your email has been taken or password not matched</h2>
+                                <div className="modal-btns">
+                                    <button className="close-modal-btn" onClick={closeModal}>Close</button>
+                                </div>
+                            </Modal>
+                        </div>
+
 
                         <div className='center addMargin'>
                             <p><strong>Have account?</strong> <span><Link to='/fakelogin' className='star'>Login</Link> </span> </p>

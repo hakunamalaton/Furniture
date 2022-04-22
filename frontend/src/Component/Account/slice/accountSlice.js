@@ -1,9 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const initialState = {
     fullname: "maiduclong2001",
     email: "maiduclong@gmail.com",
     phoneNum: "(+84)1231231231",
+    token: "",
+    status: "guest",
     addressList: [
         {
             "fullName": "Mai Duc Long",
@@ -43,11 +48,30 @@ const accountSlice = createSlice({
     },
     extraReducers: builder => {
         builder
-            .addCase(loginAccount.fulfilled, (state, action) => { })
-            .addCase(loginAccount.rejected, (state, action) => { })
+            .addCase(loginAccount.fulfilled, (state, action) => {
+                const { token, email, success } = action.payload;
+                if (success) {
+                    state.email = email;
+                    state.token = token;
+                    state.status = true;
+                } else {
+                }
+            })
     }
 })
 
 export default accountSlice.reducer;
 
-export const loginAccount = createAsyncThunk('account/loginAccount', async () => { })
+export const loginAccount = createAsyncThunk('account/loginAccount', async ({ requestBody, headers }, thunkAPI) => {
+    const loginResponse = await axios.post(`${SERVER_URL}/sign-in`, requestBody, headers);
+    console.log("loginResponse", loginResponse);
+    if (loginResponse.data.code === 0) {
+        const token = loginResponse.data.token;
+        const email = requestBody["user"]["email"];
+        console.log("{token, email}", { token, email });
+        console.log("LOL", { token, email, success: true });
+        return { token, email, success: true };
+    } else {
+        return { token: null, email: null, success: false };
+    }
+})
