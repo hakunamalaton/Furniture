@@ -24,10 +24,10 @@ const Header = () => {
                     </div>
 
                     <div className="col-4 col-md-2 align-self-center d-flex justify-content-end">
-                        <FontAwesomeIcon
+                        <a href="/fakeregister"><FontAwesomeIcon
                             className="text-light icon-cart-shopping mr-4"
                             icon={faUser}
-                        />
+                        /></a>
                         <a href="/order"><FontAwesomeIcon
                             className="text-light icon-cart-shopping"
                             icon={faShoppingCart}

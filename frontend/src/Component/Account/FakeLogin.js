@@ -3,14 +3,12 @@ import { Link } from 'react-router-dom';
 import './Account.css'
 import { FaUserAlt } from "react-icons/fa";
 import Bg from './bg.jpg'
-export default function Login() {
+export default function FakeLogin() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     function submitLogin(e) {
-
-        console.log(email);
-        console.log(password);
+        e.preventDefault();
     }
 
 
@@ -23,7 +21,7 @@ export default function Login() {
             backgroundRepeat: 'no-repeat'
         }}>
             <div className='loginContainer'>
-                <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                <div className="shadow-lg p-3 mb-5 bg-white rounded">
                     <div className='inContainer'>
                         <form method="post">
                             <div className='center'>
@@ -44,10 +42,10 @@ export default function Login() {
 
                         </form>
                         <div className='center addMargin'>
-                            <p><strong>Forgot password? </strong><span><Link to='/forgetpass' className='star'>Click here</Link> </span> </p>
+                            <p><strong>Forgot password? </strong><span><Link to='/forgetPass' className='star'>Click here</Link> </span> </p>
                         </div>
                         <div className='center addMargin'>
-                            <p><strong>Not have account?</strong> <span><Link to='/register' className='star'>Register</Link> </span> </p>
+                            <p><strong>Not have account?</strong> <span><Link to='/fakeregister' className='star'>Register</Link> </span> </p>
                         </div>
                     </div>
                 </div>
