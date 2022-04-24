@@ -88,3 +88,1250 @@ Migrating to AddProductCustomDesignColumn (20220320095622)
   [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(7878110171987094480)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/products" for ::1 at 2022-04-24 15:23:14 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (6.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#create as */*
+  Parameters: {"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"], "product"=>{"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "price"=>600, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"], "category"=>"bed"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameters: :image, :color, :size, :overview. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x000001dcfdbbe370>, params: {"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"], "controller"=>"products", "action"=>"create", "product"=>{"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "price"=>600, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"], "category"=>"bed"}} }[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (24.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Josie Upholstered Low Profile Platform Bed"], ["image", nil], ["description", "You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!"], ["price", 600], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", nil], ["size", nil], ["overview", nil], ["category", "bed"], ["created_at", "2022-04-24 08:23:17.699954"], ["updated_at", "2022-04-24 08:23:17.699954"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 221ms (Views: 3.0ms | ActiveRecord: 55.9ms | Allocations: 14990)
+
+
+Started POST "/products" for ::1 at 2022-04-24 15:25:28 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"]}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :image. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x000001dcfd743cc8>, params: {"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "controller"=>"products", "action"=>"create", "product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"]}} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (1.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", nil], ["image", nil], ["description", nil], ["price", nil], ["third_party", nil], ["color", nil], ["size", nil], ["overview", nil], ["category", nil], ["created_at", "2022-04-24 08:25:28.528728"], ["updated_at", "2022-04-24 08:25:28.528728"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 23ms (Views: 1.4ms | ActiveRecord: 2.5ms | Allocations: 2730)
+
+
+Started POST "/products" for ::1 at 2022-04-24 15:26:50 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"image"=>["https://i.imgur.com/Q12CDlu.png"], "product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png"]}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :image. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x000001dcfd813f18>, params: {"image"=>["https://i.imgur.com/Q12CDlu.png"], "controller"=>"products", "action"=>"create", "product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png"]}} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", nil], ["image", nil], ["description", nil], ["price", nil], ["third_party", nil], ["color", nil], ["size", nil], ["overview", nil], ["category", nil], ["created_at", "2022-04-24 08:26:50.723114"], ["updated_at", "2022-04-24 08:26:50.723114"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 48ms (Views: 1.7ms | ActiveRecord: 2.4ms | Allocations: 2449)
+
+
+Started POST "/products" for ::1 at 2022-04-24 15:27:31 +0700
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "product": {
+        {
+    "name": "Josie Upholstered Low Profile Platform Bed",
+    "image": [
+        "https://i.imgur.com/Q12CDlu.png",
+        "https://i.imgur.com/oATc63T.png",
+        "https://i.imgur.com/CIUdrUf.png",
+        "https://i.imgur.com/JbatxhQ.png",
+        "https://i.imgur.com/ceNDrYk.png",
+        "https://i.imgur.com/5lpquNF.png"
+    ],
+    "price": 600,
+    "rating": 4.7,
+    "numReviews": 150,
+    "third_party": "Carbono Design#https://www.carbonodesign.com.br/en/about",
+    "color": [
+        "Charcoal Gray#36454F",
+        "Navy Blue#000080"
+    ],
+    "size": [
+        "Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb",
+        "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb",
+        "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"
+    ],
+    "description": "You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!",
+    "category": "bed",
+    "overview": [
+        "Headboard Included",
+        "Footboard Included",
+        "Center Supports Included",
+        "Warranty Length: 1 Year"
+    ]
+}
+    }
+}
+Processing by ProductsController#create as */*
+Completed 400 Bad Request in 11ms (ActiveRecord: 0.0ms | Allocations: 793)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+actionpack (7.0.2.3) lib/action_dispatch/http/parameters.rb:96:in `rescue in parse_formatted_parameters'
+actionpack (7.0.2.3) lib/action_dispatch/http/parameters.rb:92:in `parse_formatted_parameters'
+actionpack (7.0.2.3) lib/action_dispatch/http/request.rb:390:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (7.0.2.3) lib/action_dispatch/http/request.rb:389:in `POST'
+actionpack (7.0.2.3) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (7.0.2.3) lib/action_controller/metal/strong_parameters.rb:1223:in `params'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:485:in `form_authenticity_param'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:352:in `request_authenticity_tokens'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:345:in `any_authenticity_token_valid?'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:340:in `verified_request?'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:270:in `verify_authenticity_token'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+actiontext (7.0.2.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.2.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.2.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.2.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.2.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.2.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:850:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/cookies.rb:693:in `call'
+activerecord (7.0.2.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.2.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (7.0.2.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.2) lib/puma/configuration.rb:252:in `call'
+puma (5.6.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.2) lib/puma/server.rb:441:in `process_client'
+puma (5.6.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/products" for ::1 at 2022-04-24 15:28:15 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameters: :image, :rating, :numReviews, :color, :size, :overview. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x000001dcfd7c7578>, params: {"product"=>{"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}, "controller"=>"products", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Josie Upholstered Low Profile Platform Bed"], ["image", nil], ["description", "You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!"], ["price", 600], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", nil], ["size", nil], ["overview", nil], ["category", "bed"], ["created_at", "2022-04-24 08:28:16.007193"], ["updated_at", "2022-04-24 08:28:16.007193"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 32ms (Views: 1.1ms | ActiveRecord: 2.2ms | Allocations: 2859)
+
+
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (2.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", nil], ["image", "{a,b}"], ["description", nil], ["price", nil], ["third_party", nil], ["color", nil], ["size", nil], ["overview", nil], ["category", nil], ["created_at", "2022-04-24 08:35:07.043792"], ["updated_at", "2022-04-24 08:35:07.043792"], ["custom_design", false]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/products" for ::1 at 2022-04-24 15:36:27 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameters: :image, :rating, :numReviews, :color, :size, :overview. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x000001dcfdea2a28>, params: {"product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}, "controller"=>"products", "action"=>"create"} }[0m
+[31mUnpermitted parameters: :image, :rating, :numReviews, :color, :size, :overview. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x000001dcfdea2a28>, params: {"product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}, "controller"=>"products", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mProduct Create (8.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", nil], ["image", nil], ["description", "You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!"], ["price", 600], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", nil], ["size", nil], ["overview", nil], ["category", "bed"], ["created_at", "2022-04-24 08:36:28.526795"], ["updated_at", "2022-04-24 08:36:28.526795"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+Completed 200 OK in 226ms (Views: 1.2ms | ActiveRecord: 26.2ms | Allocations: 8619)
+
+
+Started POST "/products" for ::1 at 2022-04-24 15:37:37 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"]}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :image. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x000001dcfd3af7d8>, params: {"product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"]}, "controller"=>"products", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", nil], ["image", nil], ["description", nil], ["price", nil], ["third_party", nil], ["color", nil], ["size", nil], ["overview", nil], ["category", nil], ["created_at", "2022-04-24 08:37:38.751828"], ["updated_at", "2022-04-24 08:37:38.751828"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+Completed 200 OK in 57ms (Views: 1.4ms | ActiveRecord: 27.5ms | Allocations: 6351)
+
+
+Started POST "/products" for ::1 at 2022-04-24 15:38:10 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"]}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :image. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x000001dcfe2b5d40>, params: {"product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"]}, "controller"=>"products", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", nil], ["image", nil], ["description", nil], ["price", nil], ["third_party", nil], ["color", nil], ["size", nil], ["overview", nil], ["category", nil], ["created_at", "2022-04-24 08:38:11.857942"], ["updated_at", "2022-04-24 08:38:11.857942"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+Completed 200 OK in 53ms (Views: 1.5ms | ActiveRecord: 10.4ms | Allocations: 6200)
+
+
+Started POST "/products" for ::1 at 2022-04-24 15:38:39 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"]}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :image. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x000001dcff0883a0>, params: {"product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"]}, "controller"=>"products", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", nil], ["image", nil], ["description", nil], ["price", nil], ["third_party", nil], ["color", nil], ["size", nil], ["overview", nil], ["category", nil], ["created_at", "2022-04-24 08:38:39.815488"], ["updated_at", "2022-04-24 08:38:39.815488"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+Completed 200 OK in 50ms (Views: 1.0ms | ActiveRecord: 9.5ms | Allocations: 6221)
+
+
+Started POST "/products" for ::1 at 2022-04-24 15:40:07 +0700
+  
+SyntaxError (D:/Tryhard/212-Semester/Electronic Commerce/BTL/furniture/backend/app/controllers/products_controller.rb:102: syntax error, unexpected ',', expecting =>
+...name,:image => [],:description,:price,:third_party,:color,:s...
+...                              ^
+):
+  
+app/controllers/products_controller.rb:102: syntax error, unexpected ',', expecting =>
+app/controllers/products_controller.rb:102: syntax error, unexpected ',', expecting =>
+app/controllers/products_controller.rb:102: syntax error, unexpected ',', expecting =>
+Started POST "/products" for ::1 at 2022-04-24 15:41:11 +0700
+  
+SyntaxError (D:/Tryhard/212-Semester/Electronic Commerce/BTL/furniture/backend/app/controllers/products_controller.rb:102: syntax error, unexpected ',', expecting =>
+...t(:name,image: [],:description,:price,:third_party,:color,:s...
+...                              ^
+):
+  
+app/controllers/products_controller.rb:102: syntax error, unexpected ',', expecting =>
+app/controllers/products_controller.rb:102: syntax error, unexpected ',', expecting =>
+app/controllers/products_controller.rb:102: syntax error, unexpected ',', expecting =>
+Started POST "/products" for ::1 at 2022-04-24 15:41:26 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mProduct Create (1.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", nil], ["image", "{https://i.imgur.com/Q12CDlu.png,https://i.imgur.com/oATc63T.png,https://i.imgur.com/CIUdrUf.png,https://i.imgur.com/JbatxhQ.png,https://i.imgur.com/ceNDrYk.png,https://i.imgur.com/5lpquNF.png}"], ["description", nil], ["price", nil], ["third_party", nil], ["color", nil], ["size", nil], ["overview", nil], ["category", nil], ["created_at", "2022-04-24 08:41:27.727607"], ["updated_at", "2022-04-24 08:41:27.727607"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+Completed 200 OK in 713ms (Views: 3.1ms | ActiveRecord: 19.0ms | Allocations: 6326)
+
+
+Started POST "/products" for ::1 at 2022-04-24 15:42:07 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "color"=>["red", "blue"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mProduct Create (1.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", nil], ["image", "{https://i.imgur.com/Q12CDlu.png,https://i.imgur.com/oATc63T.png,https://i.imgur.com/CIUdrUf.png,https://i.imgur.com/JbatxhQ.png,https://i.imgur.com/ceNDrYk.png,https://i.imgur.com/5lpquNF.png}"], ["description", nil], ["price", nil], ["third_party", nil], ["color", "[\"red\", \"blue\"]"], ["size", nil], ["overview", nil], ["category", nil], ["created_at", "2022-04-24 08:42:07.835983"], ["updated_at", "2022-04-24 08:42:07.835983"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+Completed 200 OK in 49ms (Views: 1.3ms | ActiveRecord: 10.5ms | Allocations: 6241)
+
+
+Started POST "/products" for ::1 at 2022-04-24 15:43:19 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", nil], ["image", "{https://i.imgur.com/Q12CDlu.png,https://i.imgur.com/oATc63T.png,https://i.imgur.com/CIUdrUf.png,https://i.imgur.com/JbatxhQ.png,https://i.imgur.com/ceNDrYk.png,https://i.imgur.com/5lpquNF.png}"], ["description", nil], ["price", nil], ["third_party", nil], ["color", nil], ["size", nil], ["overview", nil], ["category", nil], ["created_at", "2022-04-24 08:43:20.341089"], ["updated_at", "2022-04-24 08:43:20.341089"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+Completed 200 OK in 81ms (Views: 1.3ms | ActiveRecord: 12.7ms | Allocations: 6239)
+
+
+Started POST "/products" for ::1 at 2022-04-24 15:43:28 +0700
+  
+SyntaxError (D:/Tryhard/212-Semester/Electronic Commerce/BTL/furniture/backend/app/controllers/products_controller.rb:102: syntax error, unexpected ',', expecting =>
+...,:size,overview: [], :category, image: [], color: [])
+...                              ^
+):
+  
+app/controllers/products_controller.rb:102: syntax error, unexpected ',', expecting =>
+app/controllers/products_controller.rb:102: syntax error, unexpected ',', expecting =>
+app/controllers/products_controller.rb:102: syntax error, unexpected ',', expecting =>
+Started POST "/products" for ::1 at 2022-04-24 15:45:41 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", nil], ["image", "{https://i.imgur.com/Q12CDlu.png,https://i.imgur.com/oATc63T.png,https://i.imgur.com/CIUdrUf.png,https://i.imgur.com/JbatxhQ.png,https://i.imgur.com/ceNDrYk.png,https://i.imgur.com/5lpquNF.png}"], ["description", nil], ["price", nil], ["third_party", nil], ["color", nil], ["size", nil], ["overview", nil], ["category", nil], ["created_at", "2022-04-24 08:45:42.140731"], ["updated_at", "2022-04-24 08:45:42.140731"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+Completed 200 OK in 45ms (Views: 1.5ms | ActiveRecord: 11.8ms | Allocations: 6294)
+
+
+Started POST "/products" for ::1 at 2022-04-24 15:46:42 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameters: :rating, :numReviews. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x000001dcfe408580>, params: {"product"=>{"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}, "controller"=>"products", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mProduct Create (1.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Josie Upholstered Low Profile Platform Bed"], ["image", "{https://i.imgur.com/Q12CDlu.png,https://i.imgur.com/oATc63T.png,https://i.imgur.com/CIUdrUf.png,https://i.imgur.com/JbatxhQ.png,https://i.imgur.com/ceNDrYk.png,https://i.imgur.com/5lpquNF.png}"], ["description", "You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!"], ["price", 600], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "[\"Charcoal Gray#36454F\", \"Navy Blue#000080\"]"], ["size", "[\"Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb\", \"King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb\", \"Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb\"]"], ["overview", "{\"Headboard Included\",\"Footboard Included\",\"Center Supports Included\",\"Warranty Length: 1 Year\"}"], ["category", "bed"], ["created_at", "2022-04-24 08:46:43.733030"], ["updated_at", "2022-04-24 08:46:43.733030"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+Completed 200 OK in 116ms (Views: 3.0ms | ActiveRecord: 15.0ms | Allocations: 6604)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeColorIntoArray (20220424085014)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (85.4ms)[0m  [1m[35mALTER TABLE "products" ALTER COLUMN "color" TYPE varchar[] USING CAST(overview AS varchar[])[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220424085014"]]
+  [1m[36mTRANSACTION (9.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeSizeIntoArray (20220424085132)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (28.5ms)[0m  [1m[35mALTER TABLE "products" ALTER COLUMN "size" TYPE varchar[] USING CAST(overview AS varchar[])[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220424085132"]]
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/products" for ::1 at 2022-04-24 15:55:01 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameters: :rating, :numReviews. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x000001dc80068b60>, params: {"product"=>{"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}, "controller"=>"products", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mProduct Create (29.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Josie Upholstered Low Profile Platform Bed"], ["image", "{https://i.imgur.com/Q12CDlu.png,https://i.imgur.com/oATc63T.png,https://i.imgur.com/CIUdrUf.png,https://i.imgur.com/JbatxhQ.png,https://i.imgur.com/ceNDrYk.png,https://i.imgur.com/5lpquNF.png}"], ["description", "You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!"], ["price", 600], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "[\"Charcoal Gray#36454F\", \"Navy Blue#000080\"]"], ["size", "[\"Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb\", \"King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb\", \"Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb\"]"], ["overview", "{\"Headboard Included\",\"Footboard Included\",\"Center Supports Included\",\"Warranty Length: 1 Year\"}"], ["category", "bed"], ["created_at", "2022-04-24 08:55:03.841105"], ["updated_at", "2022-04-24 08:55:03.841105"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+Completed 500 Internal Server Error in 651ms (ActiveRecord: 31.0ms | Allocations: 6900)
+
+
+  
+ActiveRecord::StatementInvalid (PG::InvalidTextRepresentation: ERROR:  malformed array literal: "["Charcoal Gray#36454F", "Navy Blue#000080"]"
+DETAIL:  "[" must introduce explicitly-specified array dimensions.
+):
+  
+app/controllers/products_controller.rb:12:in `create'
+Started POST "/products" for ::1 at 2022-04-24 15:56:09 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"color"=>["Charcoal Gray#36454F", "Navy Blue#000080"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mProduct Create (9.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", nil], ["image", nil], ["description", nil], ["price", nil], ["third_party", nil], ["color", "[\"Charcoal Gray#36454F\", \"Navy Blue#000080\"]"], ["size", nil], ["overview", nil], ["category", nil], ["created_at", "2022-04-24 08:56:09.775717"], ["updated_at", "2022-04-24 08:56:09.775717"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 10.3ms | Allocations: 3450)
+
+
+  
+ActiveRecord::StatementInvalid (PG::InvalidTextRepresentation: ERROR:  malformed array literal: "["Charcoal Gray#36454F", "Navy Blue#000080"]"
+DETAIL:  "[" must introduce explicitly-specified array dimensions.
+):
+  
+app/controllers/products_controller.rb:12:in `create'
+Started POST "/products" for ::1 at 2022-04-24 15:57:47 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mProduct Create (6.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", nil], ["image", "{https://i.imgur.com/Q12CDlu.png,https://i.imgur.com/oATc63T.png,https://i.imgur.com/CIUdrUf.png,https://i.imgur.com/JbatxhQ.png,https://i.imgur.com/ceNDrYk.png,https://i.imgur.com/5lpquNF.png}"], ["description", nil], ["price", nil], ["third_party", nil], ["color", nil], ["size", nil], ["overview", nil], ["category", nil], ["created_at", "2022-04-24 08:57:47.325675"], ["updated_at", "2022-04-24 08:57:47.325675"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+Completed 200 OK in 61ms (Views: 1.3ms | ActiveRecord: 7.9ms | Allocations: 2594)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/products" for ::1 at 2022-04-24 15:59:15 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"color"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", nil], ["image", nil], ["description", nil], ["price", nil], ["third_party", nil], ["color", "{https://i.imgur.com/Q12CDlu.png,https://i.imgur.com/oATc63T.png,https://i.imgur.com/CIUdrUf.png,https://i.imgur.com/JbatxhQ.png,https://i.imgur.com/ceNDrYk.png,https://i.imgur.com/5lpquNF.png}"], ["size", nil], ["overview", nil], ["category", nil], ["created_at", "2022-04-24 08:59:16.445801"], ["updated_at", "2022-04-24 08:59:16.445801"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+Completed 200 OK in 67ms (Views: 2.0ms | ActiveRecord: 26.0ms | Allocations: 6417)
+
+
+Started POST "/products" for ::1 at 2022-04-24 16:00:29 +0700
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "product": {
+{
+    "name": "Josie Upholstered Low Profile Platform Bed",
+    "image": [
+        "https://i.imgur.com/Q12CDlu.png",
+        "https://i.imgur.com/oATc63T.png",
+        "https://i.imgur.com/CIUdrUf.png",
+        "https://i.imgur.com/JbatxhQ.png",
+        "https://i.imgur.com/ceNDrYk.png",
+        "https://i.imgur.com/5lpquNF.png"
+    ],
+    "price": 600,
+    "rating": 4.7,
+    "numReviews": 150,
+    "third_party": "Carbono Design#https://www.carbonodesign.com.br/en/about",
+    "color": [
+        "Charcoal Gray#36454F",
+        "Navy Blue#000080"
+    ],
+    "size": [
+        "Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb",
+        "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb",
+        "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"
+    ],
+    "description": "You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!",
+    "category": "bed",
+    "overview": [
+        "Headboard Included",
+        "Footboard Included",
+        "Center Supports Included",
+        "Warranty Length: 1 Year"
+    ]
+}
+}
+}
+Processing by ProductsController#create as */*
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.0ms | Allocations: 778)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+actionpack (7.0.2.3) lib/action_dispatch/http/parameters.rb:96:in `rescue in parse_formatted_parameters'
+actionpack (7.0.2.3) lib/action_dispatch/http/parameters.rb:92:in `parse_formatted_parameters'
+actionpack (7.0.2.3) lib/action_dispatch/http/request.rb:390:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (7.0.2.3) lib/action_dispatch/http/request.rb:389:in `POST'
+actionpack (7.0.2.3) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (7.0.2.3) lib/action_controller/metal/strong_parameters.rb:1223:in `params'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:485:in `form_authenticity_param'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:352:in `request_authenticity_tokens'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:345:in `any_authenticity_token_valid?'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:340:in `verified_request?'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:270:in `verify_authenticity_token'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+actiontext (7.0.2.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.2.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.2.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.2.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.2.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.2.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:850:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/cookies.rb:693:in `call'
+activerecord (7.0.2.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.2.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (7.0.2.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.2) lib/puma/configuration.rb:252:in `call'
+puma (5.6.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.2) lib/puma/server.rb:441:in `process_client'
+puma (5.6.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/products" for ::1 at 2022-04-24 16:01:15 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameters: :rating, :numReviews. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x000001dc804a3360>, params: {"product"=>{"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}, "controller"=>"products", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mProduct Create (2.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Josie Upholstered Low Profile Platform Bed"], ["image", "{https://i.imgur.com/Q12CDlu.png,https://i.imgur.com/oATc63T.png,https://i.imgur.com/CIUdrUf.png,https://i.imgur.com/JbatxhQ.png,https://i.imgur.com/ceNDrYk.png,https://i.imgur.com/5lpquNF.png}"], ["description", "You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!"], ["price", 600], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{\"Charcoal Gray#36454F\",\"Navy Blue#000080\"}"], ["size", "{\"Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb\",\"King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb\",\"Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb\"}"], ["overview", "{\"Headboard Included\",\"Footboard Included\",\"Center Supports Included\",\"Warranty Length: 1 Year\"}"], ["category", "bed"], ["created_at", "2022-04-24 09:01:15.911247"], ["updated_at", "2022-04-24 09:01:15.911247"], ["custom_design", false]]
+  ↳ app/controllers/products_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:12:in `create'
+Completed 200 OK in 40ms (Views: 1.8ms | ActiveRecord: 3.3ms | Allocations: 2905)
+
+
+Started GET "/products" for ::1 at 2022-04-24 16:07:25 +0700
+Processing by ProductsController#display_product as HTML
+  [1m[36mProduct Count (5.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:36:in `display_product'
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products"."id", "products"."name", "products"."image", "products"."price" FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:42:in `display_product'
+Completed 200 OK in 278ms (Views: 28.6ms | ActiveRecord: 36.1ms | Allocations: 15392)
+
+
+Started GET "/products/1" for ::1 at 2022-04-24 16:07:32 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:98:in `set_product'
+Completed 200 OK in 13ms (Views: 1.2ms | ActiveRecord: 0.7ms | Allocations: 3174)
+
+
+Started GET "/products/20" for ::1 at 2022-04-24 16:07:42 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:98:in `set_product'
+Completed 200 OK in 10ms (Views: 2.0ms | ActiveRecord: 0.5ms | Allocations: 998)
+
+
+Started GET "/products?name=cha" for ::1 at 2022-04-24 16:21:20 +0700
+Processing by ProductsController#display_product as HTML
+  Parameters: {"name"=>"cha"}
+  [1m[36mProduct Load (3.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (name LIKE '%cha%')[0m
+  ↳ app/controllers/products_controller.rb:62:in `search'
+Completed 200 OK in 192ms (Views: 0.4ms | ActiveRecord: 18.7ms | Allocations: 10645)
+
+
+Started GET "/products?name=jo" for ::1 at 2022-04-24 16:21:30 +0700
+Processing by ProductsController#display_product as HTML
+  Parameters: {"name"=>"jo"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (name LIKE '%jo%')[0m
+  ↳ app/controllers/products_controller.rb:62:in `search'
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 784)
+
+
+Started GET "/products?name=Jo" for ::1 at 2022-04-24 16:21:37 +0700
+Processing by ProductsController#display_product as HTML
+  Parameters: {"name"=>"Jo"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (name LIKE '%Jo%')[0m
+  ↳ app/controllers/products_controller.rb:62:in `search'
+Completed 200 OK in 20ms (Views: 5.0ms | ActiveRecord: 0.5ms | Allocations: 4455)
+
+
+Started GET "/products?name=js" for ::1 at 2022-04-24 16:22:01 +0700
+Processing by ProductsController#display_product as HTML
+  Parameters: {"name"=>"js"}
+  [1m[36mProduct Load (2.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (name ILIKE '%js%')[0m
+  ↳ app/controllers/products_controller.rb:62:in `search'
+Completed 200 OK in 40ms (Views: 0.6ms | ActiveRecord: 2.5ms | Allocations: 8108)
+
+
+Started GET "/products?name=jo" for ::1 at 2022-04-24 16:22:04 +0700
+Processing by ProductsController#display_product as HTML
+  Parameters: {"name"=>"jo"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (name ILIKE '%jo%')[0m
+  ↳ app/controllers/products_controller.rb:62:in `search'
+Completed 200 OK in 53ms (Views: 4.7ms | ActiveRecord: 31.9ms | Allocations: 5035)
+
+
+Started GET "/products?type=bed" for ::1 at 2022-04-24 16:22:22 +0700
+Processing by ProductsController#display_product as HTML
+  Parameters: {"type"=>"bed"}
+  [1m[36mProduct Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."category" = $1[0m  [["category", "bed"]]
+  ↳ app/controllers/products_controller.rb:37:in `display_product'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products"."id", "products"."name", "products"."image", "products"."price" FROM "products" WHERE "products"."category" = $1[0m  [["category", "bed"]]
+  ↳ app/controllers/products_controller.rb:46:in `display_product'
+Completed 200 OK in 16ms (Views: 5.9ms | ActiveRecord: 1.6ms | Allocations: 1959)
+
+
+Started GET "/sign-in" for ::1 at 2022-04-24 16:24:38 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/sign-in"):
+  
+Started POST "/sign-in" for ::1 at 2022-04-24 16:25:01 +0700
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"mdlong@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"mdlong@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 400 Bad Request in 145ms (ActiveRecord: 0.0ms | Allocations: 3809)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/sessions_controller.rb:37:in `user_params'
+app/controllers/sessions_controller.rb:5:in `create'
+Started POST "/sign-in" for ::1 at 2022-04-24 16:25:25 +0700
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"mdlong@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"mdlong@gmail.com", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mdlong@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Completed 200 OK in 22ms (Views: 0.7ms | ActiveRecord: 10.9ms | Allocations: 1635)
+
+
+Started POST "/sign-up" for ::1 at 2022-04-24 16:26:00 +0700
+  
+SyntaxError (D:/Tryhard/212-Semester/Electronic Commerce/BTL/furniture/backend/app/controllers/users_controller.rb:1: syntax error, unexpected <<
+<<<<<<< HEAD
+^~
+D:/Tryhard/212-Semester/Electronic Commerce/BTL/furniture/backend/app/controllers/users_controller.rb:33: syntax error, unexpected ===, expecting `end'
+=======
+^~~
+D:/Tryhard/212-Semester/Electronic Commerce/BTL/furniture/backend/app/controllers/users_controller.rb:64: syntax error, unexpected >>, expecting `end'
+>>>>>>> origin/xvu
+^~
+D:/Tryhard/212-Semester/Electronic Commerce/BTL/furniture/backend/app/controllers/users_controller.rb:65: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/users_controller.rb:1: syntax error, unexpected <<
+app/controllers/users_controller.rb:33: syntax error, unexpected ===, expecting `end'
+app/controllers/users_controller.rb:64: syntax error, unexpected >>, expecting `end'
+app/controllers/users_controller.rb:65: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/users_controller.rb:1: syntax error, unexpected <<
+app/controllers/users_controller.rb:33: syntax error, unexpected ===, expecting `end'
+app/controllers/users_controller.rb:64: syntax error, unexpected >>, expecting `end'
+app/controllers/users_controller.rb:65: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/users_controller.rb:1: syntax error, unexpected <<
+app/controllers/users_controller.rb:33: syntax error, unexpected ===, expecting `end'
+app/controllers/users_controller.rb:64: syntax error, unexpected >>, expecting `end'
+app/controllers/users_controller.rb:65: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/sign-up" for ::1 at 2022-04-24 16:26:53 +0700
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"mdclondg@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mdclondg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Create (3.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "mdclondg@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2022-04-24 09:26:54.970540"], ["updated_at", "2022-04-24 09:26:54.970540"]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+Completed 200 OK in 430ms (Views: 0.4ms | ActiveRecord: 13.1ms | Allocations: 6831)
+
+
+Started POST "/sign-in" for ::1 at 2022-04-24 16:27:04 +0700
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"mdclondg@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"mdclondg@gmail.com", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mdclondg@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Completed 200 OK in 375ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1133)
+
+
+Started DELETE "/logout" for ::1 at 2022-04-24 16:27:59 +0700
+Processing by SessionsController#destroy as */*
+  Parameters: {"email"=>"mdclondg@gmail.com", "session"=>{"email"=>"mdclondg@gmail.com"}}
+Can't verify CSRF token authenticity.
+Completed 200 OK in 16ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 225)
+
+
+Started DELETE "/logout" for ::1 at 2022-04-24 16:28:03 +0700
+Processing by SessionsController#destroy as */*
+  Parameters: {"email"=>"mdclondg@gmail.com", "session"=>{"email"=>"mdclondg@gmail.com"}}
+Can't verify CSRF token authenticity.
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 224)
+
+
+Started GET "/products/20" for ::1 at 2022-04-24 16:28:54 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `set_product'
+Completed 200 OK in 75ms (Views: 1.4ms | ActiveRecord: 9.1ms | Allocations: 12070)
+
+
+Started GET "/products/20/ratings" for ::1 at 2022-04-24 16:29:28 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `set_product'
+  [1m[36mRating Load (4.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."category" = $1 AND "ratings"."product_id" = $2[0m  [["category", "all"], ["product_id", 20]]
+  ↳ app/controllers/products_controller.rb:74:in `show_ratings'
+Completed 200 OK in 88ms (Views: 4.6ms | ActiveRecord: 16.4ms | Allocations: 15615)
+
+
+Started GET "/products/1/ratings" for ::1 at 2022-04-24 16:29:35 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."category" = $1 AND "ratings"."product_id" = $2[0m  [["category", "all"], ["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:74:in `show_ratings'
+Completed 200 OK in 13ms (Views: 3.9ms | ActiveRecord: 1.0ms | Allocations: 1514)
+
+
+Started POST "/products/1/ratings" for ::1 at 2022-04-24 16:32:54 +0700
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"title"=>"Bad reviews", "description"=>"The product is not like the picture", "id"=>"1", "product"=>{"description"=>"The product is not like the picture"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:81:in `create_ratings'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:82:in `create_ratings'
+Completed 500 Internal Server Error in 437ms (ActiveRecord: 4.0ms | Allocations: 12467)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/products_controller.rb:86:in `create_ratings'
+Started POST "/products/1/ratings" for ::1 at 2022-04-24 16:35:13 +0700
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"lamtoan@gmail.com", "title"=>"Bad reviews", "description"=>"The product is not like the picture", "id"=>"1", "product"=>{"description"=>"The product is not like the picture"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamtoan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:81:in `create_ratings'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:82:in `create_ratings'
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 6.3ms | Allocations: 6750)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'video' for Rating.):
+  
+app/controllers/products_controller.rb:84:in `create_ratings'
+Started POST "/products/1/ratings" for ::1 at 2022-04-24 16:35:22 +0700
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"lamtoan@gmail.com", "title"=>"Bad reviews", "description"=>"The product is not like the picture", "id"=>"1", "product"=>{"description"=>"The product is not like the picture"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamtoan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:81:in `create_ratings'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:82:in `create_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mRating Create (8.1ms)[0m  [1m[32mINSERT INTO "ratings" ("title", "user_id", "product_id", "description", "image", "category", "star", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Bad reviews"], ["user_id", 2], ["product_id", 1], ["description", "The product is not like the picture"], ["image", nil], ["category", nil], ["star", nil], ["created_at", "2022-04-24 09:35:23.198455"], ["updated_at", "2022-04-24 09:35:23.198455"]]
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+Completed 200 OK in 199ms (Views: 1.1ms | ActiveRecord: 29.2ms | Allocations: 24871)
+
+
+Started GET "/products/1/ratings" for ::1 at 2022-04-24 16:35:39 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:102:in `set_product'
+  [1m[36mRating Load (3.9ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."category" = $1 AND "ratings"."product_id" = $2[0m  [["category", "all"], ["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:74:in `show_ratings'
+Completed 200 OK in 116ms (Views: 28.9ms | ActiveRecord: 5.5ms | Allocations: 1623)
+
+
+Started POST "/products/1/ratings" for ::1 at 2022-04-24 16:38:01 +0700
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"lamtoan@gmail.com", "title"=>"Bad reviews", "description"=>"The product is not like the picture", "category"=>"all", "id"=>"1", "product"=>{"description"=>"The product is not like the picture", "category"=>"all"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamtoan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:81:in `create_ratings'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:82:in `create_ratings'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mRating Create (2.0ms)[0m  [1m[32mINSERT INTO "ratings" ("title", "user_id", "product_id", "description", "image", "category", "star", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Bad reviews"], ["user_id", 2], ["product_id", 1], ["description", "The product is not like the picture"], ["image", nil], ["category", "all"], ["star", nil], ["created_at", "2022-04-24 09:38:02.148294"], ["updated_at", "2022-04-24 09:38:02.148294"]]
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+Completed 200 OK in 40ms (Views: 2.3ms | ActiveRecord: 5.7ms | Allocations: 5264)
+
+
+Started GET "/products/1/ratings" for ::1 at 2022-04-24 16:38:06 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:102:in `set_product'
+  [1m[36mRating Load (0.7ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."category" = $1 AND "ratings"."product_id" = $2[0m  [["category", "all"], ["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:74:in `show_ratings'
+Completed 200 OK in 16ms (Views: 5.9ms | ActiveRecord: 1.1ms | Allocations: 1670)
+
+
+Started POST "/products/1/ratings" for ::1 at 2022-04-24 16:39:21 +0700
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"lamtoan@gmail.com", "title"=>"Bad reviews", "description"=>"The product is not like the picture", "image"=>["a", "b"], "category"=>"5 Stars", "id"=>"1", "product"=>{"image"=>["a", "b"], "description"=>"The product is not like the picture", "category"=>"5 Stars"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamtoan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:81:in `create_ratings'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:82:in `create_ratings'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mRating Create (1.4ms)[0m  [1m[32mINSERT INTO "ratings" ("title", "user_id", "product_id", "description", "image", "category", "star", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Bad reviews"], ["user_id", 2], ["product_id", 1], ["description", "The product is not like the picture"], ["image", "{a,b}"], ["category", "5 Stars"], ["star", nil], ["created_at", "2022-04-24 09:39:21.201912"], ["updated_at", "2022-04-24 09:39:21.201912"]]
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+Completed 200 OK in 47ms (Views: 1.1ms | ActiveRecord: 5.9ms | Allocations: 5274)
+
+
+Started POST "/products/1/ratings" for ::1 at 2022-04-24 16:40:22 +0700
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"lamtoan@gmail.com", "title"=>"Bad reviews", "description"=>"The product is not like the picture", "image"=>["a", "b"], "category"=>"5 Stars", "id"=>"1", "product"=>{"image"=>["a", "b"], "description"=>"The product is not like the picture", "category"=>"5 Stars"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamtoan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:81:in `create_ratings'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:82:in `create_ratings'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mRating Create (1.3ms)[0m  [1m[32mINSERT INTO "ratings" ("title", "user_id", "product_id", "description", "image", "category", "star", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Bad reviews"], ["user_id", 2], ["product_id", 1], ["description", "The product is not like the picture"], ["image", "{a,b}"], ["category", "5 Stars"], ["star", nil], ["created_at", "2022-04-24 09:40:23.377935"], ["updated_at", "2022-04-24 09:40:23.377935"]]
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+Completed 200 OK in 140ms (Views: 1.2ms | ActiveRecord: 28.6ms | Allocations: 20612)
+
+
+Started GET "/products/1/ratings" for ::1 at 2022-04-24 16:40:27 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:102:in `set_product'
+  [1m[36mRating Load (0.8ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."category" = $1 AND "ratings"."product_id" = $2[0m  [["category", "all"], ["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:74:in `show_ratings'
+Completed 200 OK in 16ms (Views: 5.1ms | ActiveRecord: 1.2ms | Allocations: 1787)
+
+
+Started GET "/products/1/ratings" for ::1 at 2022-04-24 16:42:16 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:105:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:77:in `show_ratings'
+Completed 200 OK in 96ms (Views: 16.6ms | ActiveRecord: 15.9ms | Allocations: 17958)
+
+
+Started GET "/products/1/ratings?type=5%20Stars" for ::1 at 2022-04-24 16:42:58 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"5 Stars", "id"=>"1"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:105:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1 AND "ratings"."category" = $2[0m  [["product_id", 1], ["category", "5 Stars"]]
+  ↳ app/controllers/products_controller.rb:77:in `show_ratings'
+Completed 200 OK in 87ms (Views: 13.9ms | ActiveRecord: 11.9ms | Allocations: 17745)
+
+
+Started POST "/users/1/address" for ::1 at 2022-04-24 16:48:44 +0700
+Processing by AddressesController#create as */*
+  Parameters: {"city"=>"HCM", "id"=>"1", "address"=>{"city"=>"HCM"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/addresses_controller.rb:32:in `set_address'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/addresses_controller.rb:13:in `create'
+  [1m[36mAddress Create (8.9ms)[0m  [1m[32mINSERT INTO "addresses" ("city", "district", "town", "description", "price", "phone_number", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["city", "HCM"], ["district", nil], ["town", nil], ["description", nil], ["price", nil], ["phone_number", nil], ["user_id", 1], ["created_at", "2022-04-24 09:48:46.990295"], ["updated_at", "2022-04-24 09:48:46.990295"]]
+  ↳ app/controllers/addresses_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/addresses_controller.rb:13:in `create'
+Completed 200 OK in 135ms (Views: 1.4ms | ActiveRecord: 51.5ms | Allocations: 16783)
+
+
+Started GET "/users/1/address" for ::1 at 2022-04-24 16:48:56 +0700
+Processing by AddressesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/addresses_controller.rb:32:in `set_address'
+  [1m[36mAddress Load (0.6ms)[0m  [1m[34mSELECT "addresses"."city", "addresses"."district", "addresses"."town", "addresses"."description", "addresses"."price", "addresses"."phone_number", "addresses"."id" FROM "addresses" WHERE "addresses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/addresses_controller.rb:7:in `show'
+Completed 200 OK in 18ms (Views: 6.6ms | ActiveRecord: 1.1ms | Allocations: 1754)
+
+
+Started GET "/products?name=Jo" for ::1 at 2022-04-24 16:52:25 +0700
+Processing by ProductsController#display_product as */*
+  Parameters: {"name"=>"Jo"}
+  [1m[36mProduct Load (4.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (name ILIKE '%Jo%')[0m
+  ↳ app/controllers/products_controller.rb:62:in `search'
+Completed 200 OK in 153ms (Views: 8.3ms | ActiveRecord: 22.3ms | Allocations: 12628)
+
+
+Started GET "/products" for ::1 at 2022-04-24 16:52:37 +0700
+Processing by ProductsController#display_product as */*
+  [1m[36mProduct Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:41:in `display_product'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products"."id", "products"."name", "products"."image", "products"."price" FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:46:in `display_product'
+Completed 200 OK in 17ms (Views: 6.0ms | ActiveRecord: 1.3ms | Allocations: 2748)
+
+
+Started POST "/users/1/orders" for ::1 at 2022-04-24 16:57:05 +0700
+Processing by OrdersController#create as */*
+  Parameters: {"order"=>{"status"=>"Created", "total_price"=>50, "description"=>"Fast Shipping"}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 9.9ms | Allocations: 9348)
+
+
+  
+NoMethodError (undefined method `map' for nil:NilClass):
+  
+app/controllers/orders_controller.rb:63:in `create'
+Started POST "/users/1/orders" for ::1 at 2022-04-24 16:59:14 +0700
+Processing by OrdersController#create as */*
+  Parameters: {"order"=>{"status"=>"Created", "total_price"=>50, "description"=>"Fast Shipping"}, "products"=>[1, 2, 3], "quantity"=>[5, 7, 2], "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:65:in `block in create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:65:in `block in create'
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:65:in `block in create'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:67:in `create'
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 19.0ms | Allocations: 20783)
+
+
+  
+NoMethodError (undefined method `email' for nil:NilClass):
+  
+app/controllers/orders_controller.rb:67:in `create'
+Started POST "/users/1/orders" for ::1 at 2022-04-24 16:59:40 +0700
+Processing by OrdersController#create as */*
+  Parameters: {"order"=>{"status"=>"Created", "total_price"=>50, "description"=>"Fast Shipping"}, "products"=>[1, 2, 3], "quantity"=>[5, 7, 2], "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:61:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:61:in `create'
+  [1m[36mOrder Create (10.1ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "status", "total_price", "description", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["status", "Created"], ["total_price", 50], ["description", "Fast Shipping"], ["address", nil], ["created_at", "2022-04-24 09:59:41.105613"], ["updated_at", "2022-04-24 09:59:41.105613"]]
+  ↳ app/controllers/orders_controller.rb:61:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:61:in `create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:65:in `block in create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:65:in `block in create'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:65:in `block in create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:68:in `create'
+  [1m[36mOrder::HABTM_Products Create (19.3ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["order_id", 15], ["product_id", 1], ["created_at", "2022-04-24 09:59:41.262890"], ["updated_at", "2022-04-24 09:59:41.262890"], ["quantity", nil]]
+  ↳ app/controllers/orders_controller.rb:68:in `create'
+  [1m[36mOrder::HABTM_Products Create (1.1ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["order_id", 15], ["product_id", 2], ["created_at", "2022-04-24 09:59:41.329734"], ["updated_at", "2022-04-24 09:59:41.329734"], ["quantity", nil]]
+  ↳ app/controllers/orders_controller.rb:68:in `create'
+  [1m[36mOrder::HABTM_Products Create (2.1ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["order_id", 15], ["product_id", 3], ["created_at", "2022-04-24 09:59:41.361933"], ["updated_at", "2022-04-24 09:59:41.361933"], ["quantity", nil]]
+  ↳ app/controllers/orders_controller.rb:68:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:68:in `create'
+  [1m[36mOrdersProduct Load (0.6ms)[0m  [1m[34mSELECT "orders_products".* FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/controllers/orders_controller.rb:71:in `each_with_index'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mOrdersProduct Update (5.9ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-24 09:59:41.440258"], ["quantity", 5], ["id", 11]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-24 09:59:41.488387"], ["quantity", 7], ["id", 12]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-24 09:59:41.515633"], ["quantity", 2], ["id", 13]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mProduct Load (2.4ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "orders_products" ON "products"."id" = "orders_products"."product_id" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/controllers/orders_controller.rb:75:in `create'
+Completed 200 OK in 532ms (Views: 44.1ms | ActiveRecord: 82.5ms | Allocations: 61045)
+
+
+Started GET "/orders" for ::1 at 2022-04-24 17:01:31 +0700
+Processing by OrdersController#show as */*
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/controllers/orders_controller.rb:32:in `show'
+Completed 200 OK in 70ms (Views: 10.0ms | ActiveRecord: 7.9ms | Allocations: 12087)
+
+
+Started PATCH "/orders/15" for ::1 at 2022-04-24 17:03:28 +0700
+Processing by OrdersController#update as */*
+  Parameters: {"total_price"=>17, "id"=>"15", "order"=>{"total_price"=>17}}
+Can't verify CSRF token authenticity.
+  [1m[36mOrder Load (1.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:45:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:46:in `update'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:46:in `update'
+  [1m[36mOrder Update (0.7ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["status", nil], ["updated_at", "2022-04-24 10:03:29.196262"], ["id", 15]]
+  ↳ app/controllers/orders_controller.rb:46:in `update'
+  [1m[36mTRANSACTION (149.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:46:in `update'
+Completed 200 OK in 366ms (Views: 0.4ms | ActiveRecord: 158.9ms | Allocations: 19001)
+
+
+Started GET "/users/1/orders" for ::1 at 2022-04-24 17:08:32 +0700
+Processing by UsersController#show_order as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `show_order'
+Completed 200 OK in 64ms (Views: 10.1ms | ActiveRecord: 8.8ms | Allocations: 12164)
+
+
+Started GET "/users/1/orders" for ::1 at 2022-04-24 17:09:41 +0700
+Processing by UsersController#show_order as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders"."id", "orders"."status", "orders"."total_price", "orders"."description", "orders"."address" FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `show_order'
+Completed 200 OK in 63ms (Views: 2.1ms | ActiveRecord: 9.7ms | Allocations: 11133)
+
+
+Started GET "/users/1/orders?status=cancel" for ::1 at 2022-04-24 17:09:58 +0700
+Processing by UsersController#show_order as */*
+  Parameters: {"status"=>"cancel", "id"=>"1"}
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders"."id", "orders"."status", "orders"."total_price", "orders"."description", "orders"."address" FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2[0m  [["user_id", 1], ["status", "cancel"]]
+  ↳ app/controllers/users_controller.rb:31:in `show_order'
+Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 0.7ms | Allocations: 969)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddSizeAndColorToOrdersProducts (20220424101948)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (31.9ms)[0m  [1m[35mALTER TABLE "orders_products" ADD "size" character varying[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "orders_products" ADD "color" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220424101948"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users/1/orders" for ::1 at 2022-04-24 17:27:49 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"order"=>{"status"=>"Pending", "total_price"=>50, "description"=>"Normal Shipping"}, "products"=>[1, 2, 3], "quantity"=>[5, 9, 2], "size"=>["a", "a", "a"], "color"=>["red", "blue", "green"], "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:61:in `create'
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:61:in `create'
+  [1m[36mOrder Create (8.2ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "status", "total_price", "description", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["status", "Pending"], ["total_price", 50], ["description", "Normal Shipping"], ["address", nil], ["created_at", "2022-04-24 10:27:51.435555"], ["updated_at", "2022-04-24 10:27:51.435555"]]
+  ↳ app/controllers/orders_controller.rb:61:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:61:in `create'
+  [1m[36mProduct Load (4.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:65:in `block in create'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:65:in `block in create'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:65:in `block in create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:67:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:68:in `create'
+  [1m[36mOrder::HABTM_Products Create (4.5ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 16], ["product_id", 1], ["created_at", "2022-04-24 10:27:51.606152"], ["updated_at", "2022-04-24 10:27:51.606152"], ["quantity", nil], ["size", nil], ["color", nil]]
+  ↳ app/controllers/orders_controller.rb:68:in `create'
+  [1m[36mOrder::HABTM_Products Create (0.8ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 16], ["product_id", 2], ["created_at", "2022-04-24 10:27:51.619129"], ["updated_at", "2022-04-24 10:27:51.619129"], ["quantity", nil], ["size", nil], ["color", nil]]
+  ↳ app/controllers/orders_controller.rb:68:in `create'
+  [1m[36mOrder::HABTM_Products Create (1.0ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 16], ["product_id", 3], ["created_at", "2022-04-24 10:27:51.629340"], ["updated_at", "2022-04-24 10:27:51.629340"], ["quantity", nil], ["size", nil], ["color", nil]]
+  ↳ app/controllers/orders_controller.rb:68:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:68:in `create'
+  [1m[36mOrdersProduct Load (5.4ms)[0m  [1m[34mSELECT "orders_products".* FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/controllers/orders_controller.rb:71:in `each_with_index'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mOrdersProduct Update (1.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-24 10:27:51.692884"], ["quantity", 5], ["id", 14]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:73:in `block in create'
+  [1m[36mOrdersProduct Update (1.1ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-24 10:27:51.705110"], ["size", "a"], ["id", 14]]
+  ↳ app/controllers/orders_controller.rb:73:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:73:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:74:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-24 10:27:51.721006"], ["color", "red"], ["id", 14]]
+  ↳ app/controllers/orders_controller.rb:74:in `block in create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:74:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mOrdersProduct Update (0.6ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-24 10:27:51.752188"], ["quantity", 9], ["id", 15]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:73:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-24 10:27:51.765226"], ["size", "a"], ["id", 15]]
+  ↳ app/controllers/orders_controller.rb:73:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:73:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:74:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-24 10:27:51.781374"], ["color", "blue"], ["id", 15]]
+  ↳ app/controllers/orders_controller.rb:74:in `block in create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:74:in `block in create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-24 10:27:51.813649"], ["quantity", 2], ["id", 16]]
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:72:in `block in create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:73:in `block in create'
+  [1m[36mOrdersProduct Update (0.6ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-24 10:27:51.822648"], ["size", "a"], ["id", 16]]
+  ↳ app/controllers/orders_controller.rb:73:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:73:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:74:in `block in create'
+  [1m[36mOrdersProduct Update (1.0ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-24 10:27:51.838056"], ["color", "green"], ["id", 16]]
+  ↳ app/controllers/orders_controller.rb:74:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:74:in `block in create'
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "orders_products" ON "products"."id" = "orders_products"."product_id" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/controllers/orders_controller.rb:77:in `create'
+Completed 200 OK in 680ms (Views: 44.8ms | ActiveRecord: 94.2ms | Allocations: 91370)
+
+
