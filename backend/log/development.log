@@ -1335,3 +1335,110 @@ Can't verify CSRF token authenticity.
 Completed 200 OK in 680ms (Views: 44.8ms | ActiveRecord: 94.2ms | Allocations: 91370)
 
 
+  [1m[36mProduct Load (10.6ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRating Count (9.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (5.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAvgStarInProduct (20220424155945)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (29.1ms)[0m  [1m[35mALTER TABLE "products" ADD "avg_star" float DEFAULT 0.0[0m
+  [1m[36mActiveRecord::SchemaMigration Create (3.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220424155945"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (7.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/products/1/ratings" for ::1 at 2022-04-24 23:02:05 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"lamtoan@gmail.com", "title"=>"Bad reviews", "description"=>"The product is not like the picture", "image"=>["a", "b"], "category"=>"5 Stars", "star"=>4, "id"=>"1", "product"=>{"image"=>["a", "b"], "description"=>"The product is not like the picture", "category"=>"5 Stars"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamtoan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:83:in `create_ratings'
+  [1m[36mProduct Load (3.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mRating Count (5.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:87:in `create_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:89:in `create_ratings'
+  [1m[36mProduct Update (4.7ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1, "avg_star" = $2 WHERE "products"."id" = $3[0m  [["updated_at", "2022-04-24 16:02:07.309752"], ["avg_star", 0.8], ["id", 1]]
+  ↳ app/controllers/products_controller.rb:89:in `create_ratings'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:89:in `create_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:92:in `create_ratings'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:92:in `create_ratings'
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:92:in `create_ratings'
+  [1m[36mRating Create (6.0ms)[0m  [1m[32mINSERT INTO "ratings" ("title", "user_id", "product_id", "description", "image", "category", "star", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Bad reviews"], ["user_id", 2], ["product_id", 1], ["description", "The product is not like the picture"], ["image", "{a,b}"], ["category", "5 Stars"], ["star", 4], ["created_at", "2022-04-24 16:02:07.490545"], ["updated_at", "2022-04-24 16:02:07.490545"]]
+  ↳ app/controllers/products_controller.rb:92:in `create_ratings'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:92:in `create_ratings'
+Completed 200 OK in 438ms (Views: 4.8ms | ActiveRecord: 50.7ms | Allocations: 43444)
+
+
+Started GET "/products/1" for ::1 at 2022-04-24 23:02:38 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:110:in `set_product'
+Completed 200 OK in 12ms (Views: 1.2ms | ActiveRecord: 0.6ms | Allocations: 1128)
+
+
+Started GET "/products/1/ratings" for ::1 at 2022-04-24 23:03:13 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:110:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:76:in `show_ratings'
+Completed 200 OK in 19ms (Views: 9.7ms | ActiveRecord: 1.2ms | Allocations: 2408)
+
+
+Started GET "/products/1/ratings" for ::1 at 2022-04-24 23:04:03 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+  [1m[36mRating Load (0.7ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:79:in `show_ratings'
+Completed 200 OK in 119ms (Views: 4.0ms | ActiveRecord: 15.7ms | Allocations: 18350)
+
+
+Started POST "/products/1/ratings" for ::1 at 2022-04-24 23:04:28 +0700
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"lamtoan@gmail.com", "title"=>"Good reviews", "description"=>"The product is not like the picture", "image"=>["a", "b"], "category"=>"5 Stars", "star"=>5, "id"=>"1", "product"=>{"image"=>["a", "b"], "description"=>"The product is not like the picture", "category"=>"5 Stars"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamtoan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:84:in `create_ratings'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:85:in `create_ratings'
+  [1m[36mRating Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/products_controller.rb:88:in `create_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:90:in `create_ratings'
+  [1m[36mProduct Update (0.7ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1, "avg_star" = $2 WHERE "products"."id" = $3[0m  [["updated_at", "2022-04-24 16:04:28.945421"], ["avg_star", 1.5], ["id", 1]]
+  ↳ app/controllers/products_controller.rb:90:in `create_ratings'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:90:in `create_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:93:in `create_ratings'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:93:in `create_ratings'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:93:in `create_ratings'
+  [1m[36mRating Create (1.0ms)[0m  [1m[32mINSERT INTO "ratings" ("title", "user_id", "product_id", "description", "image", "category", "star", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Good reviews"], ["user_id", 2], ["product_id", 1], ["description", "The product is not like the picture"], ["image", "{a,b}"], ["category", "5 Stars"], ["star", 5], ["created_at", "2022-04-24 16:04:28.978345"], ["updated_at", "2022-04-24 16:04:28.978345"]]
+  ↳ app/controllers/products_controller.rb:93:in `create_ratings'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:93:in `create_ratings'
+Completed 200 OK in 101ms (Views: 1.3ms | ActiveRecord: 11.4ms | Allocations: 16498)
+
+
+Started GET "/products/1" for ::1 at 2022-04-24 23:04:38 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 11ms (Views: 1.2ms | ActiveRecord: 0.4ms | Allocations: 936)
+
+

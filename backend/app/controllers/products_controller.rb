@@ -8,7 +8,6 @@ class ProductsController < ApplicationController
 
   def create
     new_product = Product.new(product_params)
-    puts "params is #{params[:product]}"
     if new_product.save
       render json: {
         code: 0,
@@ -76,13 +75,20 @@ class ProductsController < ApplicationController
     
     render json: {
         code: 0,
-        ratings: ratings
+        ratings: ratings,
+        total: ratings.length
     }
   end
 
   def create_ratings
     user = User.find_by(email: params[:email])
     product = Product.find_by(id: params[:id])
+
+    # modify the average stars. 
+    all_ratings = product.ratings.count
+    new_avg_star = (product.avg_star * all_ratings + params[:star])/(all_ratings + 1)
+    product.update(avg_star: new_avg_star)
+    product.save
 
     rating = Rating.create(
         title: params[:title],
