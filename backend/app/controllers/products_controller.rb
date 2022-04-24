@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
 
   def create
     new_product = Product.new(product_params)
+    puts "params is #{params[:product]}"
     if new_product.save
       render json: {
         code: 0,
@@ -25,23 +26,28 @@ class ProductsController < ApplicationController
     type = params[:type] ? params[:type] : "all"
     page = params[:page] ? params[:page].to_i : 0
     limit = params[:limit] ? params[:limit].to_i : 0 
+    name = params[:name] ? params[:limit].to_i : ""
     total = 0
 
-    if type != "all"
-      total = Product.where(category: type).count
-      @products = page == 0 ? Product.where(category: type).select(:id, :name, :image, :price) : \
-      Product.where(category: type).select(:id, :name, :image, :price).limit(limit).offset((page-1)*limit)
+    if name != ""
+      search
     else
-      total = Product.count
-      @products = page == 0 ? Product.select(:id, :name, :image, :price) : \
-      Product.select(:id, :name, :image, :price).limit(limit).offset((page-1)*limit)
-    end 
 
-    
-    render json: {
-      data: @products,
-      total: total
-    }
+      if type != "all"
+        total = Product.where(category: type).count
+        @products = page == 0 ? Product.where(category: type).select(:id, :name, :image, :price) : \
+        Product.where(category: type).select(:id, :name, :image, :price).limit(limit).offset((page-1)*limit)
+      else
+        total = Product.count
+        @products = page == 0 ? Product.select(:id, :name, :image, :price) : \
+        Product.select(:id, :name, :image, :price).limit(limit).offset((page-1)*limit)
+      end 
+      
+      render json: {
+        data: @products,
+        total: total
+      }
+    end
   end
 
   def search
@@ -52,7 +58,7 @@ class ProductsController < ApplicationController
       }
       return 
     end
-    products_result = Product.where("name LIKE ?", "%" + params[:name] + "%")
+    products_result = Product.where("name ILIKE ?", "%" + params[:name] + "%")
     total = products_result.length
 
     render json: {
@@ -63,8 +69,11 @@ class ProductsController < ApplicationController
 
   def show_ratings
     type = params[:type] ? params[:type] : "all"
-    ratings = Rating.where(category: type).where(product_id: @product.id)
+    
+    ratings = Rating.where(product_id: @product.id)
 
+    ratings = ratings.where(category: type) if type != "all"
+    
     render json: {
         code: 0,
         ratings: ratings
@@ -81,7 +90,6 @@ class ProductsController < ApplicationController
         product_id: product.id,
         description: params[:description],
         image: params[:image],
-        video: params[:video],
         category: params[:category],
         star: params[:star]
     )
@@ -98,6 +106,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name,:image,:description,:price,:third_party,:color,:size,:overview, :category)
+    params.require(:product).permit(:name,:description,:price,:third_party, :category, size: [], overview: [], image: [], color: [])
   end
 end

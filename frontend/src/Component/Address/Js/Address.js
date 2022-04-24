@@ -6,21 +6,13 @@ import NewAddressModal from "./NewAddressModal";
 import Footer from "../../Footer/Js/Footer";
 
 const Address = () => {
-    const size = { "font-size": "1.1rem" };
+    const size = { fontSize: "1.1rem" };
 
     const [totalPrice, setTotalPrice] = useState("");
 
     const handleChange = (price) => {
         setTotalPrice(price);
     };
-    //     let prices = document.getElementsByTagName("input");
-    //     for (var i = 1; i < prices.length; i++) {
-    //         if (prices[i].checked) {
-    //             // total_price = prices[i].value;
-    //             alert(prices[i].value);
-    //         }
-    //     }
-    // };
 
     return (
         <>
@@ -37,7 +29,7 @@ const Address = () => {
                             className="btn btn-block text-light"
                             data-toggle="modal"
                             data-target="#myModal"
-                            style={{ "background-color": "#054c73" }}
+                            style={{ backgroundColor: "#054c73" }}
                         >
                             Add new address
                         </button>
@@ -47,9 +39,9 @@ const Address = () => {
 
                 {/* Addresses List */}
                 <div className="mt-3">
-                    {datas.map((data) => {
+                    {datas.map((data, index) => {
                         return (
-                            <div className="form-check row list-group-item-action">
+                            <div key={index} className="form-check row list-group-item-action">
                                 <label className="form-check-label d-flex justify-content-md-between row border border-left-0 border-right-0 border-top-0 mr-0">
                                     <input
                                         type="radio"
@@ -95,7 +87,7 @@ const Address = () => {
                         <button
                             type="button"
                             className="col-2 btn text-light"
-                            style={{ "background-color": "#054c73" }}
+                            style={{ backgroundColor: "#054c73" }}
                         >
                             OK
                         </button>

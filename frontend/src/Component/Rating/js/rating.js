@@ -3,7 +3,6 @@ import "../css/rating.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import listBtn from "../dataRatingFake/dataRatingCategory.json";
 import listRating from "../dataRatingFake/dataProductRating.json";
-import PopUpRating from "./popUpRating"
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 function Rating() {
     let listNumKindRating = [];
@@ -249,7 +248,6 @@ function Rating() {
                     
                 </div>
             </div>
-            <PopUpRating image="https://i.imgur.com/Q12CDlu.png" name="Josie Upholstered Low Profile Platform Bed" category="Blue, Full"></PopUpRating>
         </div>
     );
 }

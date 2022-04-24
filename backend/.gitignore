@@ -21,6 +21,8 @@
 /tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep
+/tmp/cache/*
+tmp
 
 # Ignore uploaded files in development.
 /storage/*
@@ -35,3 +37,4 @@
 /config/master.key
 
 /config/credentials/development.key
+
