@@ -1,6 +1,5 @@
 import { React } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { encode, decode } from 'js-base64';
 import Header from "../../Header/Js/Header";
 import Footer from "../../Footer/Js/Footer";
 import "../css/importDesign.css";
@@ -35,8 +34,6 @@ function ImportDesign() {
         );
         var file = document.querySelector("#input-img-import").files[index];
         let blobURL = URL.createObjectURL(file);
-        console.log(encode(blobURL))
-        blobURL = decode(encode(blobURL))
         preview.style.display = "block";
         preview.style.backgroundImage = "url(" + blobURL.toString() + ")";
     }

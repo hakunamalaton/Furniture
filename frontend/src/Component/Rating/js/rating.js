@@ -3,6 +3,7 @@ import "../css/rating.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import listBtn from "../dataRatingFake/dataRatingCategory.json";
 import listRating from "../dataRatingFake/dataProductRating.json";
+import listImageUser from "../dataRatingFake/imageUser.json";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 function Rating() {
     let listNumKindRating = [];
@@ -139,7 +140,7 @@ function Rating() {
             <div className="col-12 d-block d-md-flex bg-white rating" key={index}>
                 <div className="col-8 col-md-2 col-lg-1 px-md-0 pt-2 pt-md-0 d-flex justify-content-center d-md-block rating-avatar mx-auto">
                     <img
-                        src={item.avatar}
+                        src={listImageUser[Math.floor(Math.random() * 20)]}
                         className="img-fluid p-md-3 p-lg-0 mt-lg-2 rounded-circle avatar-author"
                         alt="img-reviewer"
                     />

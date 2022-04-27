@@ -3,10 +3,37 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../css/popUpRating.css";
 import { faCamera, faStar} from "@fortawesome/free-solid-svg-icons";
-function PopUpRating({ image, name, category }) {
+import { encode, decode } from 'js-base64';
+const axios = require("axios")
+
+function PopUpRating({ id, image, name, category }) {
     const [currentScore, setCurrentScore] = useState(0);
     const [hoverScore, setHoverScore] = useState(undefined);
     const [popUp, setPopUp] = useState(false);
+
+    function handleAddRating(e) {
+        let score = currentScore;
+        let category = "5 stars"
+        let description = document.getElementById('content-cmt').value;
+        let image = document.querySelector("#input-img-rating").files;
+        if (image.length > 0) {
+            image = image.map((item) => {
+                return encode(URL.createObjectURL(item))
+            })
+        }
+        e.preventDefault();
+        axios.post(`http://localhost:8000/products/3/ratings`, {
+            user_id: 1,
+            product_id: 3,
+            description: description,
+            image: image,
+            category: category,
+            star: score
+        })
+
+        window.location.href = '/transaction-history'
+        setPopUp(!popUp);
+    }
 
     function pickStarScore() {
         const start = Array(5).fill(0);
@@ -35,7 +62,7 @@ function PopUpRating({ image, name, category }) {
         }
         setCurrentScore(props);
     };
-    const handlePopUp = () => {
+    const handlePopUp = (e) => {
         setPopUp(!popUp);
     };
     const handleMouseOver = (props) => {
@@ -170,7 +197,7 @@ function PopUpRating({ image, name, category }) {
                                 <div className="row rating-popup-form-footer justify-content-end">
                                     <Link to="/transaction-history">
                                         <button
-                                            className="btn btn-outline-secondary m-2"
+                                            className="btn btn-secondary m-2"
                                             onClick={handlePopUp}
                                         >
                                             CANCEL
@@ -179,7 +206,7 @@ function PopUpRating({ image, name, category }) {
                                     <button
                                         type="submit"
                                         className="btn btn-primary m-2"
-                                        onClick={handlePopUp}
+                                        onClick={(e) => handleAddRating(e)}
                                     >
                                         COMPLETE
                                     </button>

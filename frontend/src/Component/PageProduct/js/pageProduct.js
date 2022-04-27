@@ -10,14 +10,15 @@ import {
     faStar,
     faCartShopping
 } from "@fortawesome/free-solid-svg-icons";
+
+const axios = require("axios");
+
 function PageProduct() {
     const [dataProductDetail, setDataProductDetail] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:8000/products/3`)
-            .then(res => res.json())
-            .then(data => {
-                setDataProductDetail(data)
-            })
+        axios.get(`http://localhost:8000/products/3`)
+            .then(res => setDataProductDetail(res.data))
+            .catch(err => console.error("Đây là lỗi: " + err));
     }, [])
     const [color, setColor] = useState("");
     const [pickColor, setPickColor] = useState(-1);

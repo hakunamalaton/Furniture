@@ -20,7 +20,6 @@ function TransactionHistory() {
             let idProducts = orderProducts.filter(
                 (item) => item.order_id === orders[index].id
             );
-            console.log(idProducts);
             let listItemTemp = [];
             const lenIdProduct = idProducts.length;
             for (let i = 0; i < lenIdProduct; i++) {
@@ -36,7 +35,6 @@ function TransactionHistory() {
                 };
             }
             listOrderExpand.push({ ...orders[index], products: listItemTemp });
-            console.log(listItemTemp);
         }
         setOrderList([...listOrderExpand]);
     }, []);
@@ -105,7 +103,6 @@ function TransactionHistory() {
         );
     };
     const infoProduct = (status, item, index) => {
-        console.log(status)
         return (
             <div key={index} className="row col-12 m-1">
                 <div className="col-2">
@@ -129,6 +126,7 @@ function TransactionHistory() {
                         </div>
                         <div className={`justify-content-center ${status === "Shipped" ? "d-flex" : "d-none"}`}>
                             <PopUpRating
+                            id = {item.id}
                             image={item.image[0]}
                             name={item.name}
                             category={`${item.color}, ${item.size}`}
