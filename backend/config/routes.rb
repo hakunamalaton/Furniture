@@ -23,8 +23,9 @@ Rails.application.routes.draw do
   # get "/products", to: "products#search" #?name=
 
 
-  get "orders", to: "orders#show"  #?id & status
+  get "orders", to: "orders#index"  #status 
   patch "/orders/:id", to: "orders#update"
+  get "/orders/:id", to: "orders#show"
   post "/users/:id/orders", to: "orders#create" # quantity
   get "/users/:id/orders", to: "users#show_order" # quantity
 
