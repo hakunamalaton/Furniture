@@ -1735,3 +1735,163 @@ Can't verify CSRF token authenticity.
 Completed 200 OK in 222ms (Views: 0.7ms | ActiveRecord: 26.8ms | Allocations: 14269)
 
 
+Started POST "/products" for ::1 at 2022-04-27 10:24:33 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameters: :rating, :numReviews. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x0000018de7cc5328>, params: {"product"=>{"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}, "controller"=>"products", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (18.0ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Josie Upholstered Low Profile Platform Bed"], ["image", "{https://i.imgur.com/Q12CDlu.png,https://i.imgur.com/oATc63T.png,https://i.imgur.com/CIUdrUf.png,https://i.imgur.com/JbatxhQ.png,https://i.imgur.com/ceNDrYk.png,https://i.imgur.com/5lpquNF.png}"], ["description", "You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!"], ["price", 600], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{\"Charcoal Gray#36454F\",\"Navy Blue#000080\"}"], ["size", "{\"Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb\",\"King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb\",\"Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb\"}"], ["overview", "{\"Headboard Included\",\"Footboard Included\",\"Center Supports Included\",\"Warranty Length: 1 Year\"}"], ["category", "bed"], ["created_at", "2022-04-27 03:24:35.268416"], ["updated_at", "2022-04-27 03:24:35.268416"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 145ms (Views: 1.8ms | ActiveRecord: 37.9ms | Allocations: 16466)
+
+
+Started POST "/products/21/ratings" for ::1 at 2022-04-27 10:24:57 +0700
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"lamtoan@gmail.com", "title"=>"Good reviews", "description"=>"The product is not like the picture", "image"=>["a", "b"], "category"=>"5 Stars", "star"=>5, "id"=>"21", "product"=>{"image"=>["a", "b"], "description"=>"The product is not like the picture", "category"=>"5 Stars"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamtoan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:105:in `create_ratings'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:106:in `create_ratings'
+  [1m[36mRating Count (8.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 21]]
+  ↳ app/controllers/products_controller.rb:109:in `create_ratings'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:111:in `create_ratings'
+  [1m[36mProduct Update (0.9ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1, "avg_star" = $2 WHERE "products"."id" = $3[0m  [["updated_at", "2022-04-27 03:24:58.112389"], ["avg_star", 5.0], ["id", 21]]
+  ↳ app/controllers/products_controller.rb:111:in `create_ratings'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:111:in `create_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+  [1m[36mRating Create (3.3ms)[0m  [1m[32mINSERT INTO "ratings" ("title", "user_id", "product_id", "description", "image", "category", "star", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Good reviews"], ["user_id", 2], ["product_id", 21], ["description", "The product is not like the picture"], ["image", "{a,b}"], ["category", "5 Stars"], ["star", 5], ["created_at", "2022-04-27 03:24:58.177707"], ["updated_at", "2022-04-27 03:24:58.177707"]]
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+Completed 200 OK in 251ms (Views: 1.2ms | ActiveRecord: 31.2ms | Allocations: 32174)
+
+
+Started POST "/products/21/ratings" for ::1 at 2022-04-27 10:25:00 +0700
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"lamtoan@gmail.com", "title"=>"Good reviews", "description"=>"The product is not like the picture", "image"=>["a", "b"], "category"=>"5 Stars", "star"=>5, "id"=>"21", "product"=>{"image"=>["a", "b"], "description"=>"The product is not like the picture", "category"=>"5 Stars"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamtoan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:105:in `create_ratings'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:106:in `create_ratings'
+  [1m[36mRating Count (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 21]]
+  ↳ app/controllers/products_controller.rb:109:in `create_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+  [1m[36mRating Create (0.7ms)[0m  [1m[32mINSERT INTO "ratings" ("title", "user_id", "product_id", "description", "image", "category", "star", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Good reviews"], ["user_id", 2], ["product_id", 21], ["description", "The product is not like the picture"], ["image", "{a,b}"], ["category", "5 Stars"], ["star", 5], ["created_at", "2022-04-27 03:25:00.792648"], ["updated_at", "2022-04-27 03:25:00.792648"]]
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+Completed 200 OK in 62ms (Views: 2.0ms | ActiveRecord: 6.8ms | Allocations: 6464)
+
+
+Started POST "/products/21/ratings" for ::1 at 2022-04-27 10:25:02 +0700
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"lamtoan@gmail.com", "title"=>"Good reviews", "description"=>"The product is not like the picture", "image"=>["a", "b"], "category"=>"5 Stars", "star"=>5, "id"=>"21", "product"=>{"image"=>["a", "b"], "description"=>"The product is not like the picture", "category"=>"5 Stars"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamtoan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:105:in `create_ratings'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:106:in `create_ratings'
+  [1m[36mRating Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 21]]
+  ↳ app/controllers/products_controller.rb:109:in `create_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+  [1m[36mRating Create (0.9ms)[0m  [1m[32mINSERT INTO "ratings" ("title", "user_id", "product_id", "description", "image", "category", "star", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Good reviews"], ["user_id", 2], ["product_id", 21], ["description", "The product is not like the picture"], ["image", "{a,b}"], ["category", "5 Stars"], ["star", 5], ["created_at", "2022-04-27 03:25:02.431566"], ["updated_at", "2022-04-27 03:25:02.431566"]]
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+Completed 200 OK in 40ms (Views: 1.0ms | ActiveRecord: 4.6ms | Allocations: 6394)
+
+
+Started DELETE "/products/21" for ::1 at 2022-04-27 10:25:18 +0700
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"21"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:132:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mProduct::HABTM_Orders Delete All (2.7ms)[0m  [1m[31mDELETE FROM "orders_products" WHERE "orders_products"."product_id" = $1[0m  [["product_id", 21]]
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mProduct Destroy (32.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 21]]
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+Completed 500 Internal Server Error in 294ms (ActiveRecord: 41.2ms | Allocations: 21468)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "products" violates foreign key constraint "fk_rails_f846e598a7" on table "ratings"
+DETAIL:  Key (id)=(21) is still referenced from table "ratings".
+):
+  
+app/controllers/products_controller.rb:34:in `destroy'
+Started GET "/products/21" for ::1 at 2022-04-27 10:29:08 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"21"}
+  [1m[36mProduct Load (2.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:132:in `set_product'
+Completed 200 OK in 93ms (Views: 1.3ms | ActiveRecord: 10.9ms | Allocations: 24130)
+
+
+Started GET "/products/21/ratings" for ::1 at 2022-04-27 10:29:18 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"id"=>"21"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:132:in `set_product'
+  [1m[36mRating Load (2.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 21]]
+  ↳ app/controllers/products_controller.rb:100:in `show_ratings'
+Completed 200 OK in 39ms (Views: 2.6ms | ActiveRecord: 8.6ms | Allocations: 9095)
+
+
+Started DELETE "/products/21" for ::1 at 2022-04-27 10:29:24 +0700
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"21"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:132:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mRating Delete All (1.7ms)[0m  [1m[31mDELETE FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 21]]
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mProduct::HABTM_Orders Delete All (3.1ms)[0m  [1m[31mDELETE FROM "orders_products" WHERE "orders_products"."product_id" = $1[0m  [["product_id", 21]]
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mProduct Destroy (1.4ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 21]]
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+Completed 200 OK in 72ms (Views: 0.4ms | ActiveRecord: 12.4ms | Allocations: 18294)
+
+
+Started GET "/products/21/ratings" for ::1 at 2022-04-27 10:29:29 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"id"=>"21"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:132:in `set_product'
+Filter chain halted as :set_product rendered or redirected
+Completed 404 Not Found in 8ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 784)
+
+
