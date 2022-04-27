@@ -1,6 +1,5 @@
 import { React, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import Header from "../../Header/Js/Header";
 import Footer from "../../Footer/Js/Footer";
 import Rating from "../../Rating/js/rating";
@@ -9,18 +8,17 @@ import {
     faMinus,
     faPlus,
     faStar,
-    faCartShopping,
+    faCartShopping
 } from "@fortawesome/free-solid-svg-icons";
-const axios = require('axios')
-function PageProduct({id = 2}) {
-    console.log(id)
-    const [dataProductDetail, setDataProductDetail] = useState({})
+function PageProduct() {
+    const [dataProductDetail, setDataProductDetail] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:8000/products/${id}`)
-            .then(res => setDataProductDetail(res.data))
-            .catch(err => console.log('Đây là lỗi :', err))
+        fetch(`http://localhost:8000/products/3`)
+            .then(res => res.json())
+            .then(data => {
+                setDataProductDetail(data)
+            })
     }, [])
-    console.log(dataProductDetail)
     const [color, setColor] = useState("");
     const [pickColor, setPickColor] = useState(-1);
     const [pickSize, setPickSize] = useState(-1);
@@ -114,7 +112,7 @@ function PageProduct({id = 2}) {
                             data-ride="carousel"
                         >
                             <div className="carousel-inner">
-                                {dataProductDetail.image.map((item, index) => {
+                                {dataProductDetail.image && dataProductDetail.image.map((item, index) => {
                                     return index === 0 ? (
                                         <div
                                             className="carousel-item active"
@@ -169,7 +167,7 @@ function PageProduct({id = 2}) {
                             className="list-img-product-small row justify-content-center py-2"
                             data-ride="carousel"
                         >
-                            {dataProductDetail.image.map((item, index) => {
+                            {dataProductDetail.image && dataProductDetail.image.map((item, index) => {
                                 return (
                                     <div className="col-2 px-1" key={index}>
                                         <img
@@ -189,19 +187,16 @@ function PageProduct({id = 2}) {
                             <h5 className="font-weight-bold">{dataProductDetail.name}</h5>
                         </div>
                         <div className="row product-rating-score align-items-center">
-                            {starAvgScore(dataProductDetail.rating)}
+                            {starAvgScore(dataProductDetail.avg_star)}
                             <div className="text-warning pl-2">
-                                {dataProductDetail.rating}
-                            </div>
-                            <div className="product-num-previews pl-3">
-                                ({dataProductDetail.numReviews} reviews)
+                                {dataProductDetail.avg_star}
                             </div>
                         </div>
                         <div className="row product-price font-weight-bold">
                             <h4>$ {dataProductDetail.price}</h4>
                         </div>
                         <div className="product-made-by row">
-                            Provide by {thirdPartyProduct(dataProductDetail.third_party)}.
+                            Provide by {dataProductDetail.third_party && thirdPartyProduct(dataProductDetail.third_party)}.
                         </div>
                         <div className="row d-block product-color">
                             <div className="product-color-selected d-flex">
@@ -212,7 +207,7 @@ function PageProduct({id = 2}) {
                                 className="btn-group btn-group-toggle"
                                 data-toggle="buttons"
                             >
-                                {dataProductDetail.color.map((item, index) => {
+                                {dataProductDetail.color && dataProductDetail.color.map((item, index) => {
                                     const indexSeparator = item.indexOf("#");
                                     const codeColor =
                                         item.slice(indexSeparator);
@@ -261,7 +256,7 @@ function PageProduct({id = 2}) {
                                 className="btn-group btn-group-toggle product-list-size row justify-content-start"
                                 data-toggle="buttons"
                             >
-                                {dataProductDetail.size.map((item, index) => {
+                                {dataProductDetail.size && dataProductDetail.size.map((item, index) => {
                                     const indexFirstSeparator =
                                         item.indexOf("#");
                                     const subItem = item.slice(
@@ -422,7 +417,7 @@ function PageProduct({id = 2}) {
                                 }
                             >
                                 <ul>
-                                    {dataProductDetail.overview.map((item, index) => (
+                                    {dataProductDetail.overview && dataProductDetail.overview.map((item, index) => (
                                         <li key={index}>{item}</li>
                                     ))}
                                 </ul>

@@ -1468,3 +1468,264 @@ Migrating to AddAvgStarInProduct (20220424155945)
   [1m[36mActiveRecord::InternalMetadata Load (4.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/products/1" for ::1 at 2022-04-27 07:28:29 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (3.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 186ms (Views: 1.4ms | ActiveRecord: 15.4ms | Allocations: 17532)
+
+
+Started POST "/products" for ::1 at 2022-04-27 07:29:14 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameters: :rating, :numReviews. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x0000026de0c94b40>, params: {"product"=>{"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "rating"=>4.7, "numReviews"=>150, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}, "controller"=>"products", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (10.0ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Josie Upholstered Low Profile Platform Bed"], ["image", "{https://i.imgur.com/Q12CDlu.png,https://i.imgur.com/oATc63T.png,https://i.imgur.com/CIUdrUf.png,https://i.imgur.com/JbatxhQ.png,https://i.imgur.com/ceNDrYk.png,https://i.imgur.com/5lpquNF.png}"], ["description", "You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!"], ["price", 600], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{\"Charcoal Gray#36454F\",\"Navy Blue#000080\"}"], ["size", "{\"Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb\",\"King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb\",\"Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb\"}"], ["overview", "{\"Headboard Included\",\"Footboard Included\",\"Center Supports Included\",\"Warranty Length: 1 Year\"}"], ["category", "bed"], ["created_at", "2022-04-27 00:29:14.805300"], ["updated_at", "2022-04-27 00:29:14.805300"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 86ms (Views: 3.7ms | ActiveRecord: 22.5ms | Allocations: 12301)
+
+
+Started GET "/products/2" for ::1 at 2022-04-27 07:30:55 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 8ms (Views: 1.0ms | ActiveRecord: 0.4ms | Allocations: 1104)
+
+
+Started GET "/products/1" for ::1 at 2022-04-27 07:31:04 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 703)
+
+
+Started GET "/products/2" for ::1 at 2022-04-27 07:44:39 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (7.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 271ms (Views: 6.8ms | ActiveRecord: 55.4ms | Allocations: 3649)
+
+
+Started GET "/products/2" for ::1 at 2022-04-27 07:52:29 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (10.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 504ms (Views: 32.2ms | ActiveRecord: 71.8ms | Allocations: 3489)
+
+
+Started GET "/products/2" for ::1 at 2022-04-27 08:06:16 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (4.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 198ms (Views: 5.2ms | ActiveRecord: 22.4ms | Allocations: 3178)
+
+
+Started POST "/products" for ::1 at 2022-04-27 08:06:28 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "avg_star"=>4.7, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :avg_star. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x0000026de1927498>, params: {"product"=>{"name"=>"Josie Upholstered Low Profile Platform Bed", "image"=>["https://i.imgur.com/Q12CDlu.png", "https://i.imgur.com/oATc63T.png", "https://i.imgur.com/CIUdrUf.png", "https://i.imgur.com/JbatxhQ.png", "https://i.imgur.com/ceNDrYk.png", "https://i.imgur.com/5lpquNF.png"], "price"=>600, "avg_star"=>4.7, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Charcoal Gray#36454F", "Navy Blue#000080"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb", "Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb"], "description"=>"You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!", "category"=>"bed", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}, "controller"=>"products", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (6.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Josie Upholstered Low Profile Platform Bed"], ["image", "{https://i.imgur.com/Q12CDlu.png,https://i.imgur.com/oATc63T.png,https://i.imgur.com/CIUdrUf.png,https://i.imgur.com/JbatxhQ.png,https://i.imgur.com/ceNDrYk.png,https://i.imgur.com/5lpquNF.png}"], ["description", "You can stop browsing the internet right now; the Josie Upholstered Bed is the mid-century modern frame you have been looking for! With a soft velvet upholstery and a horizontal ribbed tufting pattern in the headboard, this upholstered bed will make the perfect addition to your master, guest, or teen’s bedroom. Built on a strong metal frame that features metal side rails and an additional center metal leg, this bed frame also includes a bentwood slat system and sturdy plastic legs to provide mattress support and allow for mattress breathability. The slats also remove the need for you to purchase any additional box spring or foundation. No matter the room, Josie’s simple yet trendy design will complement your existing furniture pieces and bring your bedroom décor to the next level. Available in multiple sizes and color options, there is the perfect Josie Upholstered Bed available for you!"], ["price", 600], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{\"Charcoal Gray#36454F\",\"Navy Blue#000080\"}"], ["size", "{\"Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb\",\"King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb\",\"Queen Size#42.5'' H x 64.5'' W x 85.5'' L# 88 lb\"}"], ["overview", "{\"Headboard Included\",\"Footboard Included\",\"Center Supports Included\",\"Warranty Length: 1 Year\"}"], ["category", "bed"], ["created_at", "2022-04-27 01:06:28.591240"], ["updated_at", "2022-04-27 01:06:28.591240"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 131ms (Views: 10.6ms | ActiveRecord: 7.8ms | Allocations: 2890)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:06:38 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 26ms (Views: 15.8ms | ActiveRecord: 0.8ms | Allocations: 997)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:10:09 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 24ms (Views: 5.6ms | ActiveRecord: 1.9ms | Allocations: 1002)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 08:23:23 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (5.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 241ms (Views: 5.4ms | ActiveRecord: 53.4ms | Allocations: 3178)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:24:17 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (2.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 121ms (Views: 100.0ms | ActiveRecord: 2.9ms | Allocations: 1002)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:24:21 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 15ms (Views: 1.7ms | ActiveRecord: 1.0ms | Allocations: 1021)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:29:02 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 34ms (Views: 2.4ms | ActiveRecord: 0.8ms | Allocations: 1002)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:29:14 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 8ms (Views: 2.2ms | ActiveRecord: 0.5ms | Allocations: 1002)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:29:21 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 13ms (Views: 2.4ms | ActiveRecord: 0.9ms | Allocations: 1004)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:29:35 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 1002)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:29:41 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 7ms (Views: 1.9ms | ActiveRecord: 0.4ms | Allocations: 1002)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:30:29 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 31ms (Views: 1.9ms | ActiveRecord: 1.0ms | Allocations: 1002)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:30:32 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 21ms (Views: 1.7ms | ActiveRecord: 0.7ms | Allocations: 1002)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:30:45 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 16ms (Views: 1.7ms | ActiveRecord: 0.5ms | Allocations: 1002)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:31:00 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 24ms (Views: 1.5ms | ActiveRecord: 0.4ms | Allocations: 1002)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:31:34 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 21ms (Views: 3.3ms | ActiveRecord: 1.7ms | Allocations: 1002)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:32:07 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 11ms (Views: 2.0ms | ActiveRecord: 1.0ms | Allocations: 1002)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:32:20 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 9ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 1002)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:41:50 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (2.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 226ms (Views: 20.6ms | ActiveRecord: 15.8ms | Allocations: 3474)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:41:52 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 0.6ms | Allocations: 1002)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:42:42 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 19ms (Views: 2.9ms | ActiveRecord: 1.0ms | Allocations: 1002)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:43:07 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 14ms (Views: 1.3ms | ActiveRecord: 0.6ms | Allocations: 1002)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:43:41 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 1002)
+
+
+Started GET "/products/3" for ::1 at 2022-04-27 08:48:10 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (5.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 202ms (Views: 40.1ms | ActiveRecord: 5.1ms | Allocations: 1002)
+
+
