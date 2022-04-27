@@ -426,7 +426,7 @@ function PageProduct() {
                         </div>
                     </div>
                 </div>
-                <Rating averageScore = {dataProductDetail.avg_star} />
+                <Rating id = {dataProductDetail.id} averageScore = {dataProductDetail.avg_star} />
             </div>
             <Footer />
         </div>

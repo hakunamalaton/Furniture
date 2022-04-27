@@ -5,10 +5,10 @@ import listBtn from "../dataRatingFake/dataRatingCategory.json";
 import listImageUser from "../dataRatingFake/imageUser.json";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 const axios = require("axios");
-function Rating({averageScore}) {
+function Rating({id, averageScore}) {
     const [dataRating, setDataRating] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:8000/products/3`)
+        axios.get(`http://localhost:8000/products/${id}/ratings`)
             .then(res => setDataRating(res.data))
             .catch(err => console.error("Đây là lỗi: " + err));
     }, [])
@@ -16,7 +16,6 @@ function Rating({averageScore}) {
 
     const [pick, setPick] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
-    const [productRatings, setProductRatings] = useState(dataRating);
     const countPage = 5;
 
     const handleClick = (props) => {
@@ -205,7 +204,7 @@ function Rating({averageScore}) {
                             </div>
                         </div>
                         <div className="row py-3 rating-cmt-list">
-                            {productRatings
+                            {dataRating && dataRating
                                 .slice(
                                     (currentPage - 1) * countPage,
                                     currentPage * countPage
@@ -214,7 +213,7 @@ function Rating({averageScore}) {
                         </div>
                         <div className="pagination-product-rating">
                             <ul className="pagination justify-content-center">
-                                {paginationRating(productRatings)}
+                                {dataRating && paginationRating(dataRating)}
                             </ul>
                         </div>
                     
