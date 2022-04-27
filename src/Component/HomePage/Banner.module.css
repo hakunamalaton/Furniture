@@ -126,11 +126,11 @@
 
 .tieude1{
     display: flex;
-    width: 82%;
+    width: 88%;
 }
 
 .tieude2{
-    width: 18%;
+    width: 12%;
     margin: auto;
 }
 
@@ -178,7 +178,6 @@
     font-family: IBM Plex Sans;
     font-weight: 600;
     margin-top: 2vw;
-    margin-bottom: 2vw;
     font-size: 1.3vw;
     justify-content: right;
     width: 98%;
@@ -261,6 +260,10 @@
 
 .mobile{
     display: none;
+}
+
+#rep1{
+    display: block;
 }
 
 #rep2{
