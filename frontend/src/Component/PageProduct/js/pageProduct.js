@@ -1,19 +1,26 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Header from "../../Header/Js/Header";
 import Footer from "../../Footer/Js/Footer";
 import Rating from "../../Rating/js/rating";
 import "../css/pageProduct.css";
-import Product from "./dataFakeProduct.json";
 import {
     faMinus,
     faPlus,
     faStar,
     faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
-
-function PageProduct() {
+const axios = require('axios')
+function PageProduct({id = 2}) {
+    console.log(id)
+    const [dataProductDetail, setDataProductDetail] = useState({})
+    useEffect(() => {
+        axios.get(`http://localhost:8000/products/${id}`)
+            .then(res => setDataProductDetail(res.data))
+            .catch(err => console.log('Đây là lỗi :', err))
+    }, [])
+    console.log(dataProductDetail)
     const [color, setColor] = useState("");
     const [pickColor, setPickColor] = useState(-1);
     const [pickSize, setPickSize] = useState(-1);
@@ -94,7 +101,7 @@ function PageProduct() {
                                 className="breadcrumb-item active"
                                 aria-current="page"
                             >
-                                {Product.name}
+                                {dataProductDetail.name}
                             </li>
                         </ol>
                     </nav>
@@ -107,7 +114,7 @@ function PageProduct() {
                             data-ride="carousel"
                         >
                             <div className="carousel-inner">
-                                {Product.image.map((item, index) => {
+                                {dataProductDetail.image.map((item, index) => {
                                     return index === 0 ? (
                                         <div
                                             className="carousel-item active"
@@ -162,7 +169,7 @@ function PageProduct() {
                             className="list-img-product-small row justify-content-center py-2"
                             data-ride="carousel"
                         >
-                            {Product.image.map((item, index) => {
+                            {dataProductDetail.image.map((item, index) => {
                                 return (
                                     <div className="col-2 px-1" key={index}>
                                         <img
@@ -179,22 +186,22 @@ function PageProduct() {
                     </div>
                     <div className="product-info col-lg-6">
                         <div className="row product-name">
-                            <h5 className="font-weight-bold">{Product.name}</h5>
+                            <h5 className="font-weight-bold">{dataProductDetail.name}</h5>
                         </div>
                         <div className="row product-rating-score align-items-center">
-                            {starAvgScore(Product.rating)}
+                            {starAvgScore(dataProductDetail.rating)}
                             <div className="text-warning pl-2">
-                                {Product.rating}
+                                {dataProductDetail.rating}
                             </div>
                             <div className="product-num-previews pl-3">
-                                ({Product.numReviews} reviews)
+                                ({dataProductDetail.numReviews} reviews)
                             </div>
                         </div>
                         <div className="row product-price font-weight-bold">
-                            <h4>$ {Product.price}</h4>
+                            <h4>$ {dataProductDetail.price}</h4>
                         </div>
                         <div className="product-made-by row">
-                            Provide by {thirdPartyProduct(Product.third_party)}.
+                            Provide by {thirdPartyProduct(dataProductDetail.third_party)}.
                         </div>
                         <div className="row d-block product-color">
                             <div className="product-color-selected d-flex">
@@ -205,7 +212,7 @@ function PageProduct() {
                                 className="btn-group btn-group-toggle"
                                 data-toggle="buttons"
                             >
-                                {Product.color.map((item, index) => {
+                                {dataProductDetail.color.map((item, index) => {
                                     const indexSeparator = item.indexOf("#");
                                     const codeColor =
                                         item.slice(indexSeparator);
@@ -254,7 +261,7 @@ function PageProduct() {
                                 className="btn-group btn-group-toggle product-list-size row justify-content-start"
                                 data-toggle="buttons"
                             >
-                                {Product.size.map((item, index) => {
+                                {dataProductDetail.size.map((item, index) => {
                                     const indexFirstSeparator =
                                         item.indexOf("#");
                                     const subItem = item.slice(
@@ -372,7 +379,7 @@ function PageProduct() {
                                 >
                                     <div className="btn btn-outline-primary">
                                         {viewDescription
-                                            ? "View less"
+                                            ? "Collapse"
                                             : "View more"}
                                     </div>
                                 </div>
@@ -385,7 +392,7 @@ function PageProduct() {
                                         : { display: "none" }
                                 }
                             >
-                                {Product.description}
+                                {dataProductDetail.description}
                             </div>
                         </div>
                         <div className="product-overview d-block pt-2">
@@ -401,7 +408,7 @@ function PageProduct() {
                                 >
                                     <div className="btn btn-outline-primary">
                                         {viewOverview
-                                            ? "View less"
+                                            ? "Collapse"
                                             : "View more"}
                                     </div>
                                 </div>
@@ -415,7 +422,7 @@ function PageProduct() {
                                 }
                             >
                                 <ul>
-                                    {Product.overview.map((item, index) => (
+                                    {dataProductDetail.overview.map((item, index) => (
                                         <li key={index}>{item}</li>
                                     ))}
                                 </ul>
