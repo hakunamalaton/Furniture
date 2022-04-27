@@ -58,18 +58,20 @@ class OrdersController < ApplicationController
 
   def create
     
-    new_order = Order.create(set_params.merge({user_id: params[:user_id]}))
+    new_order = Order.create(set_params.merge({user_id: params[:id]}))
     # array of id
     # quantity
     products = params[:products].map do |product|
                  Product.find_by(id: product)  
                end
-    email = User.find_by(id: params[:user_id]).email 
+    email = User.find_by(id: params[:id]).email 
     new_order.products << products
     
-    # update quantity
+    # update quantity, size, color
     OrdersProduct.where(order_id: new_order.id).each_with_index.map do |product, index|
       product.update(quantity: params[:quantity][index])
+      product.update(size: params[:size][index])
+      product.update(color: params[:color][index])
     end
     
     render json: {
@@ -77,7 +79,9 @@ class OrdersController < ApplicationController
         email: email,
         order: new_order,
         products: new_order.products,
-        quantity: params[:quantity]
+        quantity: params[:quantity],
+        size: params[:size],
+        color: params[:color]
     }
   end
 

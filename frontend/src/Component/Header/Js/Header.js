@@ -28,10 +28,10 @@ const Header = () => {
                             className="text-light icon-cart-shopping mr-4"
                             icon={faUser}
                         />
-                        <FontAwesomeIcon
+                        <a href="/order"><FontAwesomeIcon
                             className="text-light icon-cart-shopping"
                             icon={faShoppingCart}
-                        />
+                        /></a>
                     </div>
 
                     <button
@@ -54,28 +54,8 @@ const Header = () => {
                                 </div>
                                 <ul className="navbar-nav pl-3 pl-md-0 w-100 d-flex justify-content-around ">
                                     <li className="nav-item active">
-                                        <a className="nav-link text-light" href="/table">
-                                            ALL
-                                        </a>
-                                    </li>
-                                    <li className="nav-item active">
-                                        <a className="nav-link text-light" href="/table">
-                                            TABLE
-                                        </a>
-                                    </li>
-                                    <li className="nav-item active">
-                                        <a className="nav-link text-light" href="/desk">
-                                            DESK
-                                        </a>
-                                    </li>
-                                    <li className="nav-item active">
-                                        <a className="nav-link text-light" href="/chair">
-                                            CHAIR
-                                        </a>
-                                    </li>
-                                    <li className="nav-item active">
-                                        <a className="nav-link text-light" href="/bedding">
-                                            BEDDING
+                                        <a className="nav-link text-light" href="/menu">
+                                            FACTORY DESIGN
                                         </a>
                                     </li>
                                     <li className="nav-item active">
