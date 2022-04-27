@@ -1442,3 +1442,296 @@ Processing by ProductsController#show as */*
 Completed 200 OK in 11ms (Views: 1.2ms | ActiveRecord: 0.4ms | Allocations: 936)
 
 
+Started GET "/products/20" for ::1 at 2022-04-27 08:00:03 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (7.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (7.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 555ms (Views: 11.1ms | ActiveRecord: 41.7ms | Allocations: 24047)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 08:03:24 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 15ms (Views: 1.8ms | ActiveRecord: 0.9ms | Allocations: 1185)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 08:06:02 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 10ms (Views: 1.4ms | ActiveRecord: 0.8ms | Allocations: 1018)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 08:06:46 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 17ms (Views: 4.4ms | ActiveRecord: 0.7ms | Allocations: 1018)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 08:08:10 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (1.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 17ms (Views: 1.7ms | ActiveRecord: 1.8ms | Allocations: 1002)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 08:08:12 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 12ms (Views: 1.8ms | ActiveRecord: 0.6ms | Allocations: 1018)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 08:08:32 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 8ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 1002)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 08:08:37 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 25ms (Views: 1.5ms | ActiveRecord: 0.6ms | Allocations: 1002)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 08:08:41 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 11ms (Views: 1.6ms | ActiveRecord: 0.4ms | Allocations: 1002)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 08:08:44 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 16ms (Views: 3.3ms | ActiveRecord: 0.5ms | Allocations: 1002)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 08:08:47 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 12ms (Views: 2.1ms | ActiveRecord: 0.5ms | Allocations: 1002)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 08:09:01 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 9ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 1002)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 08:09:49 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 8ms (Views: 1.2ms | ActiveRecord: 0.4ms | Allocations: 1002)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 08:10:06 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 9ms (Views: 1.5ms | ActiveRecord: 0.6ms | Allocations: 1002)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 08:10:14 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 21ms (Views: 7.2ms | ActiveRecord: 0.6ms | Allocations: 1002)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 08:11:48 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:111:in `set_product'
+Completed 200 OK in 13ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 1002)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 10:08:19 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (3.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:120:in `set_product'
+Completed 200 OK in 124ms (Views: 3.8ms | ActiveRecord: 23.5ms | Allocations: 24054)
+
+
+Started PATCH "/products/20" for ::1 at 2022-04-27 10:08:44 +0700
+Processing by ProductsController#update as */*
+  Parameters: {"category"=>"chair", "id"=>"20", "product"=>{"category"=>"chair"}}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:120:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:25:in `update'
+  [1m[36mProduct Update (9.2ms)[0m  [1m[33mUPDATE "products" SET "category" = $1, "updated_at" = $2 WHERE "products"."id" = $3[0m  [["category", "chair"], ["updated_at", "2022-04-27 03:08:44.857096"], ["id", 20]]
+  ↳ app/controllers/products_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:25:in `update'
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 11.7ms | Allocations: 4943)
+
+
+  
+NoMethodError (undefined method `save' for true:TrueClass):
+  
+app/controllers/products_controller.rb:26:in `update'
+Started GET "/products/20" for ::1 at 2022-04-27 10:09:45 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:120:in `set_product'
+Completed 200 OK in 64ms (Views: 1.7ms | ActiveRecord: 9.9ms | Allocations: 12373)
+
+
+Started PATCH "/products/20" for ::1 at 2022-04-27 10:10:02 +0700
+Processing by ProductsController#update as */*
+  Parameters: {"category"=>"bath", "id"=>"20", "product"=>{"category"=>"bath"}}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:120:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:25:in `update'
+  [1m[36mProduct Update (3.1ms)[0m  [1m[33mUPDATE "products" SET "category" = $1, "updated_at" = $2 WHERE "products"."id" = $3[0m  [["category", "bath"], ["updated_at", "2022-04-27 03:10:02.721923"], ["id", 20]]
+  ↳ app/controllers/products_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:25:in `update'
+Completed 204 No Content in 23ms (Views: 0.9ms | ActiveRecord: 4.4ms | Allocations: 3472)
+
+
+Started PATCH "/products/20" for ::1 at 2022-04-27 10:10:16 +0700
+Processing by ProductsController#update as */*
+  Parameters: {"category"=>"bath", "id"=>"20", "product"=>{"category"=>"bath"}}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:120:in `set_product'
+Can't verify CSRF token authenticity.
+Completed 200 OK in 27ms (Views: 1.6ms | ActiveRecord: 7.4ms | Allocations: 5061)
+
+
+Started PATCH "/products/20" for ::1 at 2022-04-27 10:10:34 +0700
+Processing by ProductsController#update as */*
+  Parameters: {"category"=>"bed", "id"=>"20", "product"=>{"category"=>"bed"}}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:120:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:25:in `update'
+  [1m[36mProduct Update (0.8ms)[0m  [1m[33mUPDATE "products" SET "category" = $1, "updated_at" = $2 WHERE "products"."id" = $3[0m  [["category", "bed"], ["updated_at", "2022-04-27 03:10:34.515398"], ["id", 20]]
+  ↳ app/controllers/products_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:25:in `update'
+Completed 200 OK in 35ms (Views: 1.2ms | ActiveRecord: 7.5ms | Allocations: 6811)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 10:10:39 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:120:in `set_product'
+Completed 200 OK in 10ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 1035)
+
+
+Started DELETE "/products/20" for ::1 at 2022-04-27 10:15:20 +0700
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:132:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mProduct::HABTM_Orders Delete All (17.2ms)[0m  [1m[31mDELETE FROM "orders_products" WHERE "orders_products"."product_id" = $1[0m  [["product_id", 20]]
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mProduct Destroy (13.7ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 20]]
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+Completed 422 Unprocessable Entity in 377ms (Views: 0.3ms | ActiveRecord: 48.6ms | Allocations: 28579)
+
+
+Started GET "/products/20" for ::1 at 2022-04-27 10:15:40 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:132:in `set_product'
+Completed 200 OK in 52ms (Views: 0.3ms | ActiveRecord: 3.7ms | Allocations: 9366)
+
+
+Started DELETE "/products/20" for ::1 at 2022-04-27 10:15:49 +0700
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:132:in `set_product'
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.3ms | Allocations: 1499)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/products_controller.rb:34:in `destroy'
+Started DELETE "/products/19" for ::1 at 2022-04-27 10:16:08 +0700
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:132:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mProduct::HABTM_Orders Delete All (0.5ms)[0m  [1m[31mDELETE FROM "orders_products" WHERE "orders_products"."product_id" = $1[0m  [["product_id", 19]]
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mProduct Destroy (1.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 19]]
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+Completed 200 OK in 462ms (Views: 0.5ms | ActiveRecord: 13.0ms | Allocations: 21925)
+
+
+Started DELETE "/products/21" for ::1 at 2022-04-27 10:17:42 +0700
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"21"}
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:132:in `set_product'
+Filter chain halted as :set_product rendered or redirected
+Completed 404 Not Found in 61ms (Views: 0.3ms | ActiveRecord: 8.7ms | Allocations: 9414)
+
+
+Started DELETE "/products/18" for ::1 at 2022-04-27 10:17:47 +0700
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:132:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mProduct::HABTM_Orders Delete All (3.2ms)[0m  [1m[31mDELETE FROM "orders_products" WHERE "orders_products"."product_id" = $1[0m  [["product_id", 18]]
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mProduct Destroy (3.7ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 18]]
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+Completed 200 OK in 222ms (Views: 0.7ms | ActiveRecord: 26.8ms | Allocations: 14269)
+
+

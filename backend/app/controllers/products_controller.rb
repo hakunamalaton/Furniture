@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :show_ratings]
+  before_action :set_product, only: [:show, :show_ratings, :update, :destroy]
   protect_from_forgery with: :null_session
   
   def show
@@ -18,6 +18,27 @@ class ProductsController < ApplicationController
         code: 1,
         message: new_product.errors.full_messages
       }
+    end
+  end
+
+  def update
+    @product.update(product_params)
+    if @product.save
+      render json: @product, status: :ok
+    else
+      render json: @product.errors, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @product.destroy
+    if @product
+      render json: {
+        code: 0,
+        message: "Delete successfully!"
+      }, status: :ok
+    else
+      render json: @product.errors, status: :unprocessable_entity
     end
   end
 
@@ -109,6 +130,10 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find_by(id: params[:id])
+    render json: {
+      code: 1,
+      message: "Not found"
+    }, status: :not_found if @product == nil
   end
 
   def product_params
