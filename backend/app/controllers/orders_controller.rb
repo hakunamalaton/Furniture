@@ -17,12 +17,25 @@ class OrdersController < ApplicationController
   end
 
   def show
+    product_id = @order.orders_products.pluck(:product_id, :quantity, :size, :color).map do |information|
+      {
+        product_id: information[0],
+        quantity: information[1],
+        size: information[2],
+        color: information[3]
+      }
+    end
+    # quantity = @order.orders_products.pluck(:quantity)    
+
     render json: {
       order: @order,
-      detail_information: @order.orders_products
+      detail_information: product_id
     }, status: :ok
+
+    #handle error
   end
 
+  
   def update
     if params[:id] == nil
       render json: {
@@ -46,16 +59,40 @@ class OrdersController < ApplicationController
   end
 
   def create
-    
+    # handle valid quantity, size, color
+    unless params[:quantity].length == params[:size].length && params[:quantity].length == params[:color].length \
+      && (params[:quantity].all? { |number|
+        number > 0
+      })
+      render json: {
+        code: 1,
+        message: "Invalid quantity or size or color!"
+      }
+      return 
+    end
+
+    if params[:products].length != params[:quantity].length
+      render json: {
+        code: 1,
+        message: "Product providing is deficient or redundant!"
+      }
+      return 
+    end
+
     new_order = Order.create(set_params.merge({user_id: params[:id]}))
+    
     # array of id
     # quantity
     products = params[:products].map do |product|
-                 Product.find_by(id: product)  
-               end
+                  Product.find_by(id: product)
+                end
+
     email = User.find_by(id: params[:id]).email 
+
+    # Add records to OrdersProduct
     new_order.products << products
     
+
     # update quantity, size, color
     OrdersProduct.where(order_id: new_order.id).each_with_index.map do |product, index|
       product.update(quantity: params[:quantity][index])
