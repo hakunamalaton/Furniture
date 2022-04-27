@@ -1,55 +1,26 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import "../css/rating.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import listBtn from "../dataRatingFake/dataRatingCategory.json";
-import listRating from "../dataRatingFake/dataProductRating.json";
 import listImageUser from "../dataRatingFake/imageUser.json";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-function Rating() {
-    let listNumKindRating = [];
-    listNumKindRating.push(listRating.length);
-    listNumKindRating.push(listRating.filter((r) => r.score === 5).length);
-    listNumKindRating.push(listRating.filter((r) => r.score === 4).length);
-    listNumKindRating.push(listRating.filter((r) => r.score === 3).length);
-    listNumKindRating.push(listRating.filter((r) => r.score === 2).length);
-    listNumKindRating.push(listRating.filter((r) => r.score === 1).length);
-    listNumKindRating.push(
-        listRating.filter((r) => r.description !== "").length
-    );
-    listNumKindRating.push(
-        listRating.filter((r) => r.listImg.length !== 0).length
-    );
-
-    let sumScore = 0;
-    for (let i = 0; i < listRating.length; i++) {
-        sumScore += listRating[i].score;
-    }
-    let averageScore = Math.round((sumScore / listRating.length) * 100) / 100;
+const axios = require("axios");
+function Rating({averageScore}) {
+    const [dataRating, setDataRating] = useState([])
+    useEffect(() => {
+        axios.get(`http://localhost:8000/products/3`)
+            .then(res => setDataRating(res.data))
+            .catch(err => console.error("Đây là lỗi: " + err));
+    }, [])
+    
 
     const [pick, setPick] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
-    const [productRatings, setProductRatings] = useState(listRating);
+    const [productRatings, setProductRatings] = useState(dataRating);
     const countPage = 5;
 
     const handleClick = (props) => {
         setPick(props);
-        if (props === 0) {
-            setProductRatings(listRating);
-        } else if (props === 1) {
-            setProductRatings(listRating.filter((e) => e.score === 5));
-        } else if (props === 2) {
-            setProductRatings(listRating.filter((e) => e.score === 4));
-        } else if (props === 3) {
-            setProductRatings(listRating.filter((e) => e.score === 3));
-        } else if (props === 4) {
-            setProductRatings(listRating.filter((e) => e.score === 2));
-        } else if (props === 5) {
-            setProductRatings(listRating.filter((e) => e.score === 1));
-        } else if (props === 6) {
-            setProductRatings(listRating.filter((e) => e.description !== ""));
-        } else if (props === 7) {
-            setProductRatings(listRating.filter((e) => e.listImg.length !== 0));
-        }
     };
     const handleCurrentPage = (index, maxIndex) => {
         if (index === 0) {
@@ -75,8 +46,8 @@ function Rating() {
     }
     function starAvgScore(props) {
         const divElement = [];
-        let restScore = 5 - Math.ceil(props);
-        for (let i = 0; i < Math.ceil(props); i++) {
+        let restScore = 5 - Math.round(props);
+        for (let i = 0; i < Math.round(props); i++) {
             divElement.push(
                 <FontAwesomeIcon icon={faStar} className="text-warning" />
             );
@@ -108,7 +79,7 @@ function Rating() {
                     id={pick === index ? "pick" : "nonPick"}
                     onClick={() => handleClick(index)}
                 >
-                    {item + " (" + listNumKindRating[index] + ")"}
+                    {item}
                 </div>
             );
         } else if (index === 6) {
@@ -119,7 +90,7 @@ function Rating() {
                     id={pick === index ? "pick" : "nonPick"}
                     onClick={() => handleClick(index)}
                 >
-                    {item + " (" + listNumKindRating[index] + ")"}
+                    {item}
                 </div>
             );
         } else {
@@ -130,7 +101,7 @@ function Rating() {
                     id={pick === index ? "pick" : "nonPick"}
                     onClick={() => handleClick(index)}
                 >
-                    {item + " (" + listNumKindRating[index] + ")"}
+                    {item}
                 </div>
             );
         }

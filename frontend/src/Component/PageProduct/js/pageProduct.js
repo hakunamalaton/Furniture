@@ -55,8 +55,8 @@ function PageProduct() {
     };
     function starAvgScore(props) {
         const divElement = [];
-        let restScore = 5 - Math.ceil(props);
-        for (let i = 0; i < Math.ceil(props); i++) {
+        let restScore = 5 - Math.round(props);
+        for (let i = 0; i < Math.round(props); i++) {
             divElement.push(
                 <FontAwesomeIcon icon={faStar} className="text-warning" />
             );
@@ -426,7 +426,7 @@ function PageProduct() {
                         </div>
                     </div>
                 </div>
-                <Rating />
+                <Rating averageScore = {dataProductDetail.avg_star} />
             </div>
             <Footer />
         </div>

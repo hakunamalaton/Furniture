@@ -2,10 +2,9 @@ import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../css/popUpRating.css";
-import { faCamera, faStar} from "@fortawesome/free-solid-svg-icons";
-import { encode, decode } from 'js-base64';
-const axios = require("axios")
-
+import { faCamera, faStar } from "@fortawesome/free-solid-svg-icons";
+const axios = require("axios");
+const {Base64} = require('js-base64');
 function PopUpRating({ id, image, name, category }) {
     const [currentScore, setCurrentScore] = useState(0);
     const [hoverScore, setHoverScore] = useState(undefined);
@@ -13,26 +12,31 @@ function PopUpRating({ id, image, name, category }) {
 
     function handleAddRating(e) {
         let score = currentScore;
-        let category = "5 stars"
-        let description = document.getElementById('content-cmt').value;
+        let category = "5 stars";
+        let description = document.getElementById("content-cmt").value;
         let image = document.querySelector("#input-img-rating").files;
-        if (image.length > 0) {
-            image = image.map((item) => {
-                return encode(URL.createObjectURL(item))
-            })
+        let images = [];
+        for (let i = 0; i < image.length; i++)
+        {
+            images.push(Base64.encode(URL.createObjectURL(image[i]).toString()))
         }
+        console.log(score, description, images);
         e.preventDefault();
         axios.post(`http://localhost:8000/products/3/ratings`, {
-            user_id: 1,
-            product_id: 3,
-            description: description,
-            image: image,
-            category: category,
-            star: score
-        })
+                email: "lamduong@gmail.com",
+                description,
+                image: images,
+                category,
+                star: score,
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
 
-        window.location.href = '/transaction-history'
-        setPopUp(!popUp);
+        window.location.href = "/transaction-history";
     }
 
     function pickStarScore() {
@@ -54,7 +58,7 @@ function PopUpRating({ id, image, name, category }) {
                 }}
             />
         ));
-    };
+    }
     const handleClick = (props) => {
         if (props === currentScore) {
             setCurrentScore(0);
@@ -75,11 +79,11 @@ function PopUpRating({ id, image, name, category }) {
     function clearImgPreview() {
         const listFilePrev = document.querySelectorAll(".preview-img-rating");
         listFilePrev.forEach(resetPreviewImg);
-    };
+    }
     function resetPreviewImg(item, index) {
         item.style.display = "none";
         item.key = index;
-    };
+    }
     function previewListImg() {
         clearImgPreview();
         const file = document.querySelector("#input-img-rating").files;
@@ -91,7 +95,9 @@ function PopUpRating({ id, image, name, category }) {
         }
     }
     function previewImg(index) {
-        const preview = document.querySelector("#img-rating-upload-" + (index + 1));
+        const preview = document.querySelector(
+            "#img-rating-upload-" + (index + 1)
+        );
         var file = document.querySelector("#input-img-rating").files[index];
         let blobURL = URL.createObjectURL(file);
         preview.style.display = "block";
