@@ -15,9 +15,11 @@ Rails.application.routes.draw do
   get "/products/:id/ratings", to: "products#show_ratings" # ?type=
   post "/products/:id/ratings", to: "products#create_ratings"
 
-  post "products", to: "products#create"
-
+  
   get "products", to: "products#display_product" # ?type= & page=1 & limit=10
+  post "products", to: "products#create"
+  patch "products/:id", to: "products#update"
+  delete "products/:id", to: "products#destroy"
   # get "/products", to: "products#search" #?name=
 
 
