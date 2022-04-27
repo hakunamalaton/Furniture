@@ -1,8 +1,9 @@
 import { React, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import Header from "../../Header/Js/Header";
 import Footer from "../../Footer/Js/Footer";
 import Rating from "../../Rating/js/rating";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../css/pageProduct.css";
 import Product from "./dataFakeProduct.json";
 import {
@@ -82,15 +83,15 @@ function PageProduct() {
             <div className="container bg-white">
                 <div className="paga-product-breadcrumb">
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item">
                                 <a href="/">BK Furniture</a>
                             </li>
-                            <li class="breadcrumb-item">
+                            <li className="breadcrumb-item">
                                 <a href="/bedding">Bedding</a>
                             </li>
                             <li
-                                class="breadcrumb-item active"
+                                className="breadcrumb-item active"
                                 aria-current="page"
                             >
                                 {Product.name}

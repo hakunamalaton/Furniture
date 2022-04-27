@@ -66,7 +66,6 @@ function PopUpRating({ image, name, category }) {
     function previewImg(index) {
         const preview = document.querySelector("#img-rating-upload-" + (index + 1));
         var file = document.querySelector("#input-img-rating").files[index];
-        console.log(file);
         let blobURL = URL.createObjectURL(file);
         preview.style.display = "block";
         preview.style.backgroundImage = "url(" + blobURL.toString() + ")";
