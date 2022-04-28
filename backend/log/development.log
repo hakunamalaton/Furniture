@@ -4561,3 +4561,234 @@ Completed 200 OK in 9ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 851)
 
   [1m[36mProduct Load (12.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
   [1m[36mRating Load (0.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+Started GET "/products/5/ratings" for ::1 at 2022-04-29 00:16:36 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (8.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (9.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (11.8ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:102:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:102:in `block in show_ratings'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:102:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:102:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:102:in `block in show_ratings'
+Completed 200 OK in 760ms (Views: 2.1ms | ActiveRecord: 78.0ms | Allocations: 37313)
+
+
+Started GET "/products/5" for ::1 at 2022-04-29 00:17:14 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 11ms (Views: 1.5ms | ActiveRecord: 0.5ms | Allocations: 1080)
+
+
+Started DELETE "/products/5/ratings/19" for ::1 at 2022-04-29 00:17:30 +0700
+Processing by ProductsController#destroy_ratings as */*
+  Parameters: {"id"=>"5", "rating_id"=>"19"}
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mRating Load (1.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1 AND "ratings"."id" = $2 LIMIT $3[0m  [["product_id", 5], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:138:in `destroy_ratings'
+  [1m[36mRating Count (9.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:140:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:142:in `destroy_ratings'
+  [1m[36mProduct Update (12.4ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1, "avg_star" = $2 WHERE "products"."id" = $3[0m  [["updated_at", "2022-04-28 17:17:31.121174"], ["avg_star", 4.25], ["id", 5]]
+  ↳ app/controllers/products_controller.rb:142:in `destroy_ratings'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:142:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:145:in `destroy_ratings'
+  [1m[36mRating Destroy (2.0ms)[0m  [1m[31mDELETE FROM "ratings" WHERE "ratings"."id" = $1[0m  [["id", 19]]
+  ↳ app/controllers/products_controller.rb:145:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:145:in `destroy_ratings'
+Completed 200 OK in 857ms (Views: 0.5ms | ActiveRecord: 29.6ms | Allocations: 19424)
+
+
+Started GET "/products/5" for ::1 at 2022-04-29 00:17:36 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 10ms (Views: 1.0ms | ActiveRecord: 0.6ms | Allocations: 905)
+
+
+Started DELETE "/products/5/ratings/20" for ::1 at 2022-04-29 00:17:52 +0700
+Processing by ProductsController#destroy_ratings as */*
+  Parameters: {"id"=>"5", "rating_id"=>"20"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mRating Load (0.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1 AND "ratings"."id" = $2 LIMIT $3[0m  [["product_id", 5], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:138:in `destroy_ratings'
+  [1m[36mRating Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:140:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:142:in `destroy_ratings'
+  [1m[36mProduct Update (0.9ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1, "avg_star" = $2 WHERE "products"."id" = $3[0m  [["updated_at", "2022-04-28 17:17:52.952009"], ["avg_star", 4.0], ["id", 5]]
+  ↳ app/controllers/products_controller.rb:142:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:142:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:145:in `destroy_ratings'
+  [1m[36mRating Destroy (0.7ms)[0m  [1m[31mDELETE FROM "ratings" WHERE "ratings"."id" = $1[0m  [["id", 20]]
+  ↳ app/controllers/products_controller.rb:145:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:145:in `destroy_ratings'
+Completed 200 OK in 40ms (Views: 0.4ms | ActiveRecord: 5.2ms | Allocations: 5711)
+
+
+Started GET "/products/5" for ::1 at 2022-04-29 00:17:59 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 9ms (Views: 1.1ms | ActiveRecord: 0.7ms | Allocations: 867)
+
+
+Started DELETE "/products/5/ratings/21" for ::1 at 2022-04-29 00:18:04 +0700
+Processing by ProductsController#destroy_ratings as */*
+  Parameters: {"id"=>"5", "rating_id"=>"21"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mRating Load (0.7ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1 AND "ratings"."id" = $2 LIMIT $3[0m  [["product_id", 5], ["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:138:in `destroy_ratings'
+  [1m[36mRating Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:140:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:142:in `destroy_ratings'
+  [1m[36mProduct Update (0.7ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1, "avg_star" = $2 WHERE "products"."id" = $3[0m  [["updated_at", "2022-04-28 17:18:04.682162"], ["avg_star", 3.5], ["id", 5]]
+  ↳ app/controllers/products_controller.rb:142:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:142:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:145:in `destroy_ratings'
+  [1m[36mRating Destroy (0.6ms)[0m  [1m[31mDELETE FROM "ratings" WHERE "ratings"."id" = $1[0m  [["id", 21]]
+  ↳ app/controllers/products_controller.rb:145:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:145:in `destroy_ratings'
+Completed 200 OK in 36ms (Views: 0.6ms | ActiveRecord: 4.7ms | Allocations: 5655)
+
+
+Started GET "/products/5" for ::1 at 2022-04-29 00:18:08 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 10ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 851)
+
+
+Started DELETE "/products/5/ratings/22" for ::1 at 2022-04-29 00:18:13 +0700
+Processing by ProductsController#destroy_ratings as */*
+  Parameters: {"id"=>"5", "rating_id"=>"22"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1 AND "ratings"."id" = $2 LIMIT $3[0m  [["product_id", 5], ["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:138:in `destroy_ratings'
+  [1m[36mRating Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:140:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:142:in `destroy_ratings'
+  [1m[36mProduct Update (0.7ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1, "avg_star" = $2 WHERE "products"."id" = $3[0m  [["updated_at", "2022-04-28 17:18:14.137428"], ["avg_star", 3.0], ["id", 5]]
+  ↳ app/controllers/products_controller.rb:142:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:142:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:145:in `destroy_ratings'
+  [1m[36mRating Destroy (0.6ms)[0m  [1m[31mDELETE FROM "ratings" WHERE "ratings"."id" = $1[0m  [["id", 22]]
+  ↳ app/controllers/products_controller.rb:145:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:145:in `destroy_ratings'
+Completed 200 OK in 38ms (Views: 0.7ms | ActiveRecord: 4.6ms | Allocations: 5679)
+
+
+Started GET "/products/5" for ::1 at 2022-04-29 00:18:19 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 9ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 851)
+
+
+Started DELETE "/products/5/ratings/23" for ::1 at 2022-04-29 00:18:25 +0700
+Processing by ProductsController#destroy_ratings as */*
+  Parameters: {"id"=>"5", "rating_id"=>"23"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1 AND "ratings"."id" = $2 LIMIT $3[0m  [["product_id", 5], ["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:138:in `destroy_ratings'
+  [1m[36mRating Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:140:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:142:in `destroy_ratings'
+  [1m[36mProduct Update (0.7ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1, "avg_star" = $2 WHERE "products"."id" = $3[0m  [["updated_at", "2022-04-28 17:18:25.267770"], ["avg_star", 0.0], ["id", 5]]
+  ↳ app/controllers/products_controller.rb:142:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:142:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:145:in `destroy_ratings'
+  [1m[36mRating Destroy (3.4ms)[0m  [1m[31mDELETE FROM "ratings" WHERE "ratings"."id" = $1[0m  [["id", 23]]
+  ↳ app/controllers/products_controller.rb:145:in `destroy_ratings'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:145:in `destroy_ratings'
+Completed 200 OK in 39ms (Views: 0.3ms | ActiveRecord: 7.2ms | Allocations: 5679)
+
+
+Started GET "/products/5" for ::1 at 2022-04-29 00:18:32 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 8ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 851)
+
+
+Started POST "/products/5/ratings" for ::1 at 2022-04-29 00:18:41 +0700
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"ltt@gmail.com", "description"=>"The product is not like the picture", "image"=>["a", "b"], "category"=>["4-star", "media"], "star"=>3, "id"=>"5", "product"=>{"image"=>["a", "b"], "description"=>"The product is not like the picture", "category"=>["4-star", "media"]}}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ltt@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:115:in `create_ratings'
+  [1m[36mRating Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:118:in `create_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:120:in `create_ratings'
+  [1m[36mProduct Update (0.8ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1, "avg_star" = $2 WHERE "products"."id" = $3[0m  [["updated_at", "2022-04-28 17:18:41.341125"], ["avg_star", 3.0], ["id", 5]]
+  ↳ app/controllers/products_controller.rb:120:in `create_ratings'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:120:in `create_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mRating Create (11.2ms)[0m  [1m[32mINSERT INTO "ratings" ("user_id", "product_id", "description", "image", "star", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 4], ["product_id", 5], ["description", "The product is not like the picture"], ["image", "{a,b}"], ["star", 3], ["created_at", "2022-04-28 17:18:41.367213"], ["updated_at", "2022-04-28 17:18:41.367213"], ["category", "{4-star,media}"]]
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+Completed 200 OK in 64ms (Views: 0.9ms | ActiveRecord: 16.1ms | Allocations: 10824)
+
+
+Started GET "/products/5" for ::1 at 2022-04-29 00:18:46 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 8ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 851)
+
+
