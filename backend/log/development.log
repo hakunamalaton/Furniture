@@ -4060,3 +4060,481 @@ Processing by UsersController#show_order as */*
 Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1027)
 
 
+Started POST "/users/2/orders" for ::1 at 2022-04-28 13:55:20 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"order"=>{"status"=>"Created", "user_id"=>2, "address"=>"HCM", "total_price"=>1250, "description"=>"Fast Shipping"}, "products"=>[3], "quantity"=>[2], "size"=>["Full size", "King size"], "color"=>["Navy blue", "Coal"], "id"=>"2"}
+Can't verify CSRF token authenticity.
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 382)
+
+
+Started POST "/users/2/orders" for ::1 at 2022-04-28 13:55:42 +0700
+Processing by OrdersController#create as */*
+  Parameters: {"order"=>{"status"=>"Created", "user_id"=>2, "address"=>"HCM", "total_price"=>1250, "description"=>"Fast Shipping"}, "products"=>[3], "quantity"=>[2], "size"=>["Full size", "King size"], "color"=>["Navy blue", "Navy blue"], "id"=>"2"}
+Can't verify CSRF token authenticity.
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 228)
+
+
+Started POST "/users/2/orders" for ::1 at 2022-04-28 13:56:09 +0700
+Processing by OrdersController#create as */*
+  Parameters: {"order"=>{"status"=>"Created", "user_id"=>2, "address"=>"HCM", "total_price"=>1250, "description"=>"Fast Shipping"}, "products"=>[3], "quantity"=>[2], "size"=>["Full size"], "color"=>["Navy blue"], "id"=>"2"}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :user_id. Context: { controller: OrdersController, action: create, request: #<ActionDispatch::Request:0x00000230db313018>, params: {"order"=>{"status"=>"Created", "user_id"=>2, "address"=>"HCM", "total_price"=>1250, "description"=>"Fast Shipping"}, "products"=>[3], "quantity"=>[2], "size"=>["Full size"], "color"=>["Navy blue"], "controller"=>"orders", "action"=>"create", "id"=>"2"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:82:in `create'
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:82:in `create'
+  [1m[36mOrder Create (2.6ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "status", "total_price", "description", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 2], ["status", "Created"], ["total_price", 1250], ["description", "Fast Shipping"], ["address", "HCM"], ["created_at", "2022-04-28 06:56:09.660404"], ["updated_at", "2022-04-28 06:56:09.660404"]]
+  ↳ app/controllers/orders_controller.rb:82:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:82:in `create'
+  [1m[36mProduct Load (2.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:87:in `block in create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:93:in `create'
+  [1m[36mOrdersProduct Create (2.8ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 2], ["product_id", 3], ["created_at", "2022-04-28 06:56:09.709904"], ["updated_at", "2022-04-28 06:56:09.709904"], ["quantity", nil], ["size", nil], ["color", nil]]
+  ↳ app/controllers/orders_controller.rb:93:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:93:in `create'
+  [1m[36mOrdersProduct Load (3.4ms)[0m  [1m[34mSELECT "orders_products".* FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 2]]
+  ↳ app/controllers/orders_controller.rb:97:in `each_with_index'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:98:in `block in create'
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:98:in `block in create'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:98:in `block in create'
+  [1m[36mOrdersProduct Update (0.4ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-28 06:56:09.740676"], ["quantity", 2], ["id", 2]]
+  ↳ app/controllers/orders_controller.rb:98:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:98:in `block in create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:99:in `block in create'
+  [1m[36mOrdersProduct Update (0.4ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-28 06:56:09.746882"], ["size", "Full size"], ["id", 2]]
+  ↳ app/controllers/orders_controller.rb:99:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:99:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:100:in `block in create'
+  [1m[36mOrdersProduct Update (0.4ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-28 06:56:09.757364"], ["color", "Navy blue"], ["id", 2]]
+  ↳ app/controllers/orders_controller.rb:100:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:100:in `block in create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "orders_products" ON "products"."id" = "orders_products"."product_id" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 2]]
+  ↳ app/controllers/orders_controller.rb:103:in `create'
+Completed 200 OK in 239ms (Views: 5.3ms | ActiveRecord: 21.3ms | Allocations: 50280)
+
+
+Started GET "/users/2/orders" for ::1 at 2022-04-28 13:56:59 +0700
+Processing by UsersController#show_order as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders"."id", "orders"."status", "orders"."total_price", "orders"."description", "orders"."address" FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:31:in `show_order'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1249)
+
+
+Started GET "/orders/1" for ::1 at 2022-04-28 14:00:41 +0700
+Processing by OrdersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:121:in `set_order'
+  [1m[36mOrdersProduct Pluck (0.3ms)[0m  [1m[34mSELECT "orders_products"."product_id", "orders_products"."quantity", "orders_products"."size", "orders_products"."color" FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/controllers/orders_controller.rb:20:in `show'
+Completed 200 OK in 73ms (Views: 0.8ms | ActiveRecord: 0.8ms | Allocations: 2237)
+
+
+Started GET "/products/3" for ::1 at 2022-04-28 14:06:21 +0700
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:06:21 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (2.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 188ms (Views: 12.6ms | ActiveRecord: 25.0ms | Allocations: 6395)
+
+
+  [1m[36mProduct Load (3.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (3.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 290ms (Views: 0.7ms | ActiveRecord: 50.7ms | Allocations: 11632)
+
+
+Started GET "/products/3" for ::1 at 2022-04-28 14:07:24 +0700
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:07:24 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 13ms (Views: 1.7ms | ActiveRecord: 1.1ms | Allocations: 1144)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (5.9ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 6.2ms | Allocations: 1336)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:07:48 +0700
+Started GET "/products/3" for ::1 at 2022-04-28 14:07:48 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 1421)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 11ms (Views: 1.8ms | ActiveRecord: 0.5ms | Allocations: 997)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:07:52 +0700
+Started GET "/products/3" for ::1 at 2022-04-28 14:07:52 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 58ms (Views: 0.4ms | ActiveRecord: 1.1ms | Allocations: 1433)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 14ms (Views: 1.5ms | ActiveRecord: 0.4ms | Allocations: 997)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:08:05 +0700
+Started GET "/products/3" for ::1 at 2022-04-28 14:08:05 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1427)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 997)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:08:10 +0700
+Started GET "/products/3" for ::1 at 2022-04-28 14:08:10 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 1411)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 9ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 997)
+
+
+Started GET "/products/3" for ::1 at 2022-04-28 14:08:14 +0700
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:08:14 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 7ms (Views: 2.6ms | ActiveRecord: 0.2ms | Allocations: 1044)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 1336)
+
+
+Started GET "/products/3" for ::1 at 2022-04-28 14:08:22 +0700
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:08:22 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 1050)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 1336)
+
+
+Started GET "/products/3" for ::1 at 2022-04-28 14:08:25 +0700
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:08:25 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 1056)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 17ms (Views: 1.1ms | ActiveRecord: 0.9ms | Allocations: 1336)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:08:31 +0700
+Started GET "/products/3" for ::1 at 2022-04-28 14:08:31 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1414)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 14ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 997)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:08:46 +0700
+Started GET "/products/3" for ::1 at 2022-04-28 14:08:46 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 27ms (Views: 0.7ms | ActiveRecord: 1.1ms | Allocations: 1401)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 13ms (Views: 2.4ms | ActiveRecord: 0.5ms | Allocations: 997)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:08:51 +0700
+Started GET "/products/3" for ::1 at 2022-04-28 14:08:51 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 12ms (Views: 1.3ms | ActiveRecord: 0.7ms | Allocations: 1411)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 997)
+
+
+Started GET "/products/3" for ::1 at 2022-04-28 14:09:28 +0700
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:09:28 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 12ms (Views: 2.1ms | ActiveRecord: 0.5ms | Allocations: 1054)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 15ms (Views: 0.4ms | ActiveRecord: 1.0ms | Allocations: 1336)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:09:51 +0700
+Started GET "/products/3" for ::1 at 2022-04-28 14:09:51 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 15ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 1405)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 19ms (Views: 1.6ms | ActiveRecord: 0.6ms | Allocations: 997)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:09:55 +0700
+Started GET "/products/3" for ::1 at 2022-04-28 14:09:55 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 1405)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 10ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 997)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:11:12 +0700
+Started GET "/products/3" for ::1 at 2022-04-28 14:11:12 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 11ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 1407)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 10ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 997)
+
+
+Started GET "/products/3" for ::1 at 2022-04-28 14:11:14 +0700
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:11:14 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 9ms (Views: 1.2ms | ActiveRecord: 0.4ms | Allocations: 1060)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (1.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 1336)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:11:53 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 14ms (Views: 0.6ms | ActiveRecord: 0.6ms | Allocations: 1341)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:12:25 +0700
+Started GET "/products/3" for ::1 at 2022-04-28 14:12:25 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 1419)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 7ms (Views: 1.0ms | ActiveRecord: 0.7ms | Allocations: 997)
+
+
+Started GET "/products/3" for ::1 at 2022-04-28 14:12:28 +0700
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:12:28 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 8ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 1066)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 15ms (Views: 0.6ms | ActiveRecord: 0.6ms | Allocations: 1336)
+
+
+Started GET "/products/3" for ::1 at 2022-04-28 14:12:28 +0700
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:12:28 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 1054)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1336)
+
+
+Started POST "/products/3/ratings" for ::1 at 2022-04-28 14:12:51 +0700
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"lamduong@gmail.com", "description"=>"aa", "image"=>[], "category"=>"5 stars", "star"=>5, "id"=>"3", "product"=>{"image"=>[], "description"=>"aa", "category"=>"5 stars"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamduong@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:115:in `create_ratings'
+  [1m[36mRating Count (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:118:in `create_ratings'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:120:in `create_ratings'
+  [1m[36mProduct Update (7.4ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1, "avg_star" = $2 WHERE "products"."id" = $3[0m  [["updated_at", "2022-04-28 07:12:51.153143"], ["avg_star", 5.0], ["id", 3]]
+  ↳ app/controllers/products_controller.rb:120:in `create_ratings'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:120:in `create_ratings'
+Completed 500 Internal Server Error in 160ms (ActiveRecord: 35.4ms | Allocations: 8589)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'title' for Rating.):
+  
+app/controllers/products_controller.rb:123:in `create_ratings'
