@@ -3676,3 +3676,452 @@ Can't verify CSRF token authenticity.
 Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 247)
 
 
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (9.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeRatingsCategoryToArray (20220428062225)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (126.0ms)[0m  [1m[35mALTER TABLE "ratings" ALTER COLUMN "category" TYPE varchar[] USING CAST(category AS varchar[])[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeRatingsCategoryToArray (20220428062225)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (65.8ms)[0m  [1m[35mALTER TABLE "ratings" ALTER COLUMN "category" TYPE varchar[] USING CAST(category AS varchar[])[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
+Started GET "/users/1/orders" for ::1 at 2022-04-28 13:50:02 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20220428062225_change_ratings_category_to_array.rb
+
+
+):
+  
+activerecord (7.0.2.3) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.2.3) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.2.3) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.2.3) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.2.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.2.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.2.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (7.0.2.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.2) lib/puma/configuration.rb:252:in `call'
+puma (5.6.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.2) lib/puma/server.rb:441:in `process_client'
+puma (5.6.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeRatingsCategoryToArray (20220428062225)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (72.6ms)[0m  [1m[35mALTER TABLE "ratings" ALTER COLUMN "category" TYPE varchar USING CAST(category AS varchar[])[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (7.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeRatingsCategoryToArray (20220428062225)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.0ms)[0m  [1m[35mALTER TABLE "ratings" DROP COLUMN "category"[0m
+  [1m[35m (25.8ms)[0m  [1m[35mALTER TABLE "ratings" ALTER COLUMN "category" TYPE varchar[] USING CAST(category AS varchar[])[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeRatingsCategoryToArray (20220428062225)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "ratings" DROP COLUMN "category"[0m
+  [1m[35m (24.2ms)[0m  [1m[35mALTER TABLE "ratings" ADD "category" varchar[] USING CAST(category AS varchar[])[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeRatingsCategoryToArray (20220428062225)
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.7ms)[0m  [1m[35mALTER TABLE "ratings" DROP COLUMN "category"[0m
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "ratings" ADD "category" varchar[][0m
+  [1m[36mActiveRecord::SchemaMigration Create (5.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220428062225"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (7.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/products/5/ratings" for ::1 at 2022-04-28 14:35:34 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"lamtoan@gmail.com", "description"=>"The product is not like the picture", "image"=>["a", "b"], "category"=>["5-star", "media"], "star"=>5, "id"=>"5", "product"=>{"image"=>["a", "b"], "description"=>"The product is not like the picture", "category"=>["5-star", "media"]}}
+  [1m[36mProduct Load (6.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:140:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamtoan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+  [1m[36mRating Count (4.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:118:in `create_ratings'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mRating Create (9.2ms)[0m  [1m[32mINSERT INTO "ratings" ("user_id", "product_id", "description", "image", "star", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 2], ["product_id", 5], ["description", "The product is not like the picture"], ["image", "{a,b}"], ["star", 5], ["created_at", "2022-04-28 07:35:36.320323"], ["updated_at", "2022-04-28 07:35:36.320323"], ["category", "{5-star,media}"]]
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+Completed 200 OK in 444ms (Views: 2.6ms | ActiveRecord: 47.3ms | Allocations: 41895)
+
+
+Started POST "/products/5/ratings" for ::1 at 2022-04-28 14:40:51 +0700
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"lamtoan@gmail.com", "description"=>"The product is not like the picture", "image"=>["a", "b"], "category"=>["4-star", "media"], "star"=>5, "id"=>"5", "product"=>{"image"=>["a", "b"], "description"=>"The product is not like the picture", "category"=>["4-star", "media"]}}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:139:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamtoan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:113:in `create_ratings'
+  [1m[36mRating Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:117:in `create_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:122:in `create_ratings'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:122:in `create_ratings'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:122:in `create_ratings'
+  [1m[36mRating Create (0.8ms)[0m  [1m[32mINSERT INTO "ratings" ("user_id", "product_id", "description", "image", "star", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 2], ["product_id", 5], ["description", "The product is not like the picture"], ["image", "{a,b}"], ["star", 5], ["created_at", "2022-04-28 07:40:51.770527"], ["updated_at", "2022-04-28 07:40:51.770527"], ["category", "{4-star,media}"]]
+  ↳ app/controllers/products_controller.rb:122:in `create_ratings'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:122:in `create_ratings'
+Completed 200 OK in 102ms (Views: 1.3ms | ActiveRecord: 19.7ms | Allocations: 22706)
+
+
+Started GET "/products/5/ratings?type=media" for ::1 at 2022-04-28 14:41:04 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"media", "id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:139:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.8ms | Allocations: 3492)
+
+
+  
+NoMethodError (undefined method `where' for [{"id"=>17, "user_id"=>2, "product_id"=>5, "description"=>"The product is not like the picture", "image"=>["a", "b"], "star"=>5, "created_at"=>"2022-04-27T08:21:57.913Z", "updated_at"=>"2022-04-27T08:21:57.913Z", "category"=>nil}, {"id"=>18, "user_id"=>2, "product_id"=>5, "description"=>"The product is not like the picture", "image"=>["a", "b"], "star"=>5, "created_at"=>"2022-04-27T08:22:51.722Z", "updated_at"=>"2022-04-27T08:22:51.722Z", "category"=>nil}, {"id"=>19, "user_id"=>2, "product_id"=>5, "description"=>"The product is not like the picture", "image"=>["a", "b"], "star"=>5, "created_at"=>"2022-04-28T07:35:36.320Z", "updated_at"=>"2022-04-28T07:35:36.320Z", "category"=>["5-star", "media"]}, {"id"=>20, "user_id"=>2, "product_id"=>5, "description"=>"The product is not like the picture", "image"=>["a", "b"], "star"=>5, "created_at"=>"2022-04-28T07:40:51.770Z", "updated_at"=>"2022-04-28T07:40:51.770Z", "category"=>["4-star", "media"]}]:Array):
+  
+app/controllers/products_controller.rb:95:in `show_ratings'
+Started GET "/products/5/ratings?type=media" for ::1 at 2022-04-28 14:42:27 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"media", "id"=>"5"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:139:in `set_product'
+  [1m[36mRating Load (0.7ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 500 Internal Server Error in 219ms (ActiveRecord: 21.9ms | Allocations: 15380)
+
+
+  
+NoMethodError (undefined method `where' for [{"id"=>17, "user_id"=>2, "product_id"=>5, "description"=>"The product is not like the picture", "image"=>["a", "b"], "star"=>5, "created_at"=>"2022-04-27T08:21:57.913Z", "updated_at"=>"2022-04-27T08:21:57.913Z", "category"=>nil}, {"id"=>18, "user_id"=>2, "product_id"=>5, "description"=>"The product is not like the picture", "image"=>["a", "b"], "star"=>5, "created_at"=>"2022-04-27T08:22:51.722Z", "updated_at"=>"2022-04-27T08:22:51.722Z", "category"=>nil}, {"id"=>19, "user_id"=>2, "product_id"=>5, "description"=>"The product is not like the picture", "image"=>["a", "b"], "star"=>5, "created_at"=>"2022-04-28T07:35:36.320Z", "updated_at"=>"2022-04-28T07:35:36.320Z", "category"=>["5-star", "media"]}, {"id"=>20, "user_id"=>2, "product_id"=>5, "description"=>"The product is not like the picture", "image"=>["a", "b"], "star"=>5, "created_at"=>"2022-04-28T07:40:51.770Z", "updated_at"=>"2022-04-28T07:40:51.770Z", "category"=>["4-star", "media"]}]:Array):
+  
+app/controllers/products_controller.rb:95:in `show_ratings'
+Started GET "/products/5/ratings?type=media" for ::1 at 2022-04-28 14:43:34 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"media", "id"=>"5"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:139:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 22.4ms | Allocations: 15333)
+
+
+  
+NoMethodError (undefined method `where' for [{"id"=>17, "user_id"=>2, "product_id"=>5, "description"=>"The product is not like the picture", "image"=>["a", "b"], "star"=>5, "created_at"=>"2022-04-27T08:21:57.913Z", "updated_at"=>"2022-04-27T08:21:57.913Z", "category"=>nil}, {"id"=>18, "user_id"=>2, "product_id"=>5, "description"=>"The product is not like the picture", "image"=>["a", "b"], "star"=>5, "created_at"=>"2022-04-27T08:22:51.722Z", "updated_at"=>"2022-04-27T08:22:51.722Z", "category"=>nil}, {"id"=>19, "user_id"=>2, "product_id"=>5, "description"=>"The product is not like the picture", "image"=>["a", "b"], "star"=>5, "created_at"=>"2022-04-28T07:35:36.320Z", "updated_at"=>"2022-04-28T07:35:36.320Z", "category"=>["5-star", "media"]}, {"id"=>20, "user_id"=>2, "product_id"=>5, "description"=>"The product is not like the picture", "image"=>["a", "b"], "star"=>5, "created_at"=>"2022-04-28T07:40:51.770Z", "updated_at"=>"2022-04-28T07:40:51.770Z", "category"=>["4-star", "media"]}]:Array):
+  
+app/controllers/products_controller.rb:95:in `show_ratings'
+Started GET "/products/5/ratings?type=media" for ::1 at 2022-04-28 14:44:03 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"media", "id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:139:in `set_product'
+  [1m[36mRating Load (21.9ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1 AND "ratings"."category" = $2[0m  [["product_id", 5], ["category", "media"]]
+  ↳ app/controllers/products_controller.rb:99:in `show_ratings'
+Completed 500 Internal Server Error in 102ms (ActiveRecord: 32.3ms | Allocations: 12659)
+
+
+  
+ActiveRecord::StatementInvalid (PG::InvalidTextRepresentation: ERROR:  malformed array literal: "media"
+DETAIL:  Array value must start with "{" or dimension information.
+):
+  
+app/controllers/products_controller.rb:99:in `show_ratings'
+Started GET "/products/5/ratings?type=media" for ::1 at 2022-04-28 14:44:32 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"media", "id"=>"5"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:139:in `set_product'
+  [1m[36mRating Load (9.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1 AND ('media' in category)[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:99:in `show_ratings'
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 24.1ms | Allocations: 12703)
+
+
+  
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near "category"
+LINE 1: ... WHERE "ratings"."product_id" = $1 AND ('media' in category)
+                                                              ^
+):
+  
+app/controllers/products_controller.rb:99:in `show_ratings'
+Started GET "/products/5/ratings?type=media" for ::1 at 2022-04-28 14:45:04 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"media", "id"=>"5"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:139:in `set_product'
+  [1m[36mRating Load (12.9ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1 AND ('media' in category::varchar[])[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:99:in `show_ratings'
+Completed 500 Internal Server Error in 299ms (ActiveRecord: 33.0ms | Allocations: 12678)
+
+
+  
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near "category"
+LINE 1: ...WHERE "ratings"."product_id" = $1 AND ('media' in category::...
+                                                             ^
+):
+  
+app/controllers/products_controller.rb:99:in `show_ratings'
+Started GET "/products/5/ratings?type=media" for ::1 at 2022-04-28 14:46:30 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"media", "id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:142:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:96:in `show_ratings'
+Completed 200 OK in 100ms (Views: 0.4ms | ActiveRecord: 16.9ms | Allocations: 14061)
+
+
+Started GET "/products/5/ratings" for ::1 at 2022-04-28 14:46:41 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:142:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:102:in `show_ratings'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+Completed 200 OK in 69ms (Views: 1.0ms | ActiveRecord: 7.3ms | Allocations: 9450)
+
+
+Started GET "/products/5/ratings" for ::1 at 2022-04-28 14:47:21 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:142:in `set_product'
+  [1m[36mRating Load (0.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:102:in `show_ratings'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+Completed 200 OK in 162ms (Views: 0.7ms | ActiveRecord: 26.5ms | Allocations: 21562)
+
+
+Started GET "/products/5/ratings?type=media" for ::1 at 2022-04-28 14:47:27 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"media", "id"=>"5"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:142:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:96:in `show_ratings'
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 1.0ms | Allocations: 4403)
+
+
+  
+NoMethodError (undefined method `include?' for #<Rating id: 17, user_id: 2, product_id: 5, description: "The product is not like the picture", image: ["a", "b"], star: 5, created_at: "2022-04-27 08:21:57.913034000 +0000", updated_at: "2022-04-27 08:21:57.913034000 +0000", category: nil>):
+  
+app/controllers/products_controller.rb:97:in `block in show_ratings'
+app/controllers/products_controller.rb:96:in `show_ratings'
+Started GET "/products/5/ratings?type=media" for ::1 at 2022-04-28 14:47:52 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"media", "id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:142:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:96:in `show_ratings'
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 16.2ms | Allocations: 14674)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/controllers/products_controller.rb:97:in `block in show_ratings'
+app/controllers/products_controller.rb:96:in `select'
+app/controllers/products_controller.rb:96:in `show_ratings'
+Started GET "/products/5/ratings?type=media" for ::1 at 2022-04-28 14:48:09 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"media", "id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:143:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:96:in `show_ratings'
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 14.0ms | Allocations: 14690)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/controllers/products_controller.rb:98:in `block in show_ratings'
+app/controllers/products_controller.rb:96:in `select'
+app/controllers/products_controller.rb:96:in `show_ratings'
+Started GET "/products/5/ratings?type=media" for ::1 at 2022-04-28 14:48:28 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"media", "id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:143:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:96:in `show_ratings'
+Completed 500 Internal Server Error in 90ms (ActiveRecord: 16.5ms | Allocations: 14688)
+
+
+  
+NoMethodError (undefined method `include?' for nil:NilClass):
+  
+app/controllers/products_controller.rb:98:in `block in show_ratings'
+app/controllers/products_controller.rb:96:in `each'
+app/controllers/products_controller.rb:96:in `show_ratings'
+Started GET "/products/5/ratings?type=media" for ::1 at 2022-04-28 14:49:21 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"media", "id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:142:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:96:in `show_ratings'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+Completed 200 OK in 136ms (Views: 0.7ms | ActiveRecord: 23.5ms | Allocations: 21650)
+
+
+Started GET "/products/5/ratings?type=media" for ::1 at 2022-04-28 14:49:48 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"media", "id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:142:in `set_product'
+  [1m[36mRating Load (0.7ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:96:in `show_ratings'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+Completed 200 OK in 175ms (Views: 1.4ms | ActiveRecord: 25.4ms | Allocations: 21542)
+
+
+Started GET "/products/5/ratings?type=media" for ::1 at 2022-04-28 14:50:05 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"media", "id"=>"5"}
+  [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:143:in `set_product'
+  [1m[36mRating Load (0.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:96:in `show_ratings'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+Completed 200 OK in 210ms (Views: 2.8ms | ActiveRecord: 30.9ms | Allocations: 21552)
+
+
+Started GET "/products/5/ratings?type=media" for ::1 at 2022-04-28 14:50:22 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"media", "id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:143:in `set_product'
+  [1m[36mRating Load (1.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:96:in `show_ratings'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:103:in `block in show_ratings'
+Completed 200 OK in 146ms (Views: 0.6ms | ActiveRecord: 26.1ms | Allocations: 20571)
+
+
+Started GET "/products/5/ratings?type=media" for ::1 at 2022-04-28 14:50:32 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"media", "id"=>"5"}
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:95:in `show_ratings'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:102:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:102:in `block in show_ratings'
+Completed 200 OK in 136ms (Views: 0.5ms | ActiveRecord: 19.7ms | Allocations: 20536)
+
+
+Started GET "/products/5/ratings?type=5-star" for ::1 at 2022-04-28 14:50:41 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"type"=>"5-star", "id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:141:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/controllers/products_controller.rb:95:in `show_ratings'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:102:in `block in show_ratings'
+Completed 200 OK in 17ms (Views: 0.4ms | ActiveRecord: 1.0ms | Allocations: 2371)
+
+
