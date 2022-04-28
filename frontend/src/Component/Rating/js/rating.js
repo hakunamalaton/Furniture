@@ -122,7 +122,7 @@ function Rating({ id, averageScore }) {
                 </div>
                 <div className="col-12 col-md-10 p-2 rating-main">
                     <div className="row font-weight-bold rating-author-name">
-                        {item.name}
+                        {showNameReviewer(item.name)}
                     </div>
                     <div className="row text-warning rating-score">
                         {starScore(item.star)}
@@ -187,6 +187,9 @@ function Rating({ id, averageScore }) {
                 .slice((currentPage - 1) * countPage, currentPage * countPage)
                 .map(productRating);
         }
+    }
+    function showNameReviewer(name) {
+        return (name ? name: "Incognito");
     }
     return (
         <div className="rating-component">
