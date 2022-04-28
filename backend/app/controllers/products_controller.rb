@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :show_ratings, :update, :destroy, :create_ratings]
+  before_action :set_product, only: [:show, :show_ratings, :update, :destroy, :create_ratings, :destroy_ratings]
   protect_from_forgery with: :null_session
   
   def show
@@ -133,6 +133,29 @@ class ProductsController < ApplicationController
         rating: rating
     }
   end
+
+  def destroy_ratings
+    del_rating = @product.ratings.find_by(id: params[:rating_id])
+    #update avg_star
+    all_ratings = @product.ratings.count
+    new_avg_star = (@product.avg_star * all_ratings - del_rating.star)/(all_ratings - 1)
+    @product.update(avg_star: new_avg_star)
+    @product.save
+
+    if del_rating.destroy
+      render json: {
+        code: 0,
+        message: "Delete successfully!"
+      }
+    else
+      render json: {
+        code: 1,
+        message: "Delete unsuccessfully!"
+      }
+    end
+  end
+
+
 
   private
 
