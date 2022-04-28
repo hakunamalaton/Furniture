@@ -5,14 +5,14 @@ import listBtn from "../dataRatingFake/dataRatingCategory.json";
 import listImageUser from "../dataRatingFake/imageUser.json";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 const axios = require("axios");
-function Rating({id, averageScore}) {
-    const [dataRating, setDataRating] = useState([])
+function Rating({ id, averageScore }) {
+    const [dataRating, setDataRating] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:8000/products/${id}/ratings`)
-            .then(res => setDataRating(res.data))
-            .catch(err => console.error("Đây là lỗi: " + err));
-    }, [])
-    
+        axios
+            .get(`http://localhost:8000/products/${id}/ratings`)
+            .then((res) => setDataRating(res.data))
+            .catch((err) => console.error("Đây là lỗi: " + err));
+    }, [id]);
 
     const [pick, setPick] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
@@ -107,7 +107,10 @@ function Rating({id, averageScore}) {
     };
     const productRating = (item, index) => {
         return (
-            <div className="col-12 d-block d-md-flex bg-white rating" key={index}>
+            <div
+                className="col-12 d-block d-md-flex bg-white rating"
+                key={index}
+            >
                 <div className="col-8 col-md-2 col-lg-1 px-md-0 pt-2 pt-md-0 d-flex justify-content-center d-md-block rating-avatar mx-auto">
                     <img
                         src={listImageUser[Math.floor(Math.random() * 20)]}
@@ -174,49 +177,53 @@ function Rating({id, averageScore}) {
             ));
         }
     }
+    function showListRating(array) {
+        console.log(array.ratings)
+        if (array.length === 0) {
+            return <div>No have review about this product.</div>;
+        } else {
+            return array
+                .slice((currentPage - 1) * countPage, currentPage * countPage)
+                .map(productRating);
+        }
+    }
     return (
         <div className="rating-component">
             <div className="d-flex justify-content-center">
                 <div className="col-12">
-                        <div className="row rating-head pt-2">
-                            <h5>RATING PRODUCT</h5>
-                        </div>
-                        <div className="d-block d-md-flex rating-overview py-4 border border-dark">
-                            <div className="col-12 col-md-4 text-warning d-flex align-items-center">
-                                <div className="col product-rating-score">
-                                    <div className="row align-items-end justify-content-center">
-                                        <p className="rating-score mb-0">
-                                            {averageScore}
-                                        </p>
-                                        <p className="rating-score-out-of mb-0">
-                                            / 5
-                                        </p>
-                                    </div>
-                                    <div className="row rating-star justify-content-center">
-                                        {starAvgScore(averageScore)}
-                                    </div>
+                    <div className="row rating-head pt-2">
+                        <h5>RATING PRODUCT</h5>
+                    </div>
+                    <div className="d-block d-md-flex rating-overview py-4 border border-dark">
+                        <div className="col-12 col-md-4 text-warning d-flex align-items-center">
+                            <div className="col product-rating-score">
+                                <div className="row align-items-end justify-content-center">
+                                    <p className="rating-score mb-0">
+                                        {averageScore}
+                                    </p>
+                                    <p className="rating-score-out-of mb-0">
+                                        / 5
+                                    </p>
                                 </div>
-                            </div>
-                            <div className="col-12 col-md-8">
-                                <div className="row categories justify-content-around justify-content-md-start">
-                                    {listBtn.map(categories)}
+                                <div className="row rating-star justify-content-center">
+                                    {starAvgScore(averageScore)}
                                 </div>
                             </div>
                         </div>
-                        <div className="row py-3 rating-cmt-list">
-                            {dataRating && dataRating
-                                .slice(
-                                    (currentPage - 1) * countPage,
-                                    currentPage * countPage
-                                )
-                                .map(productRating)}
+                        <div className="col-12 col-md-8">
+                            <div className="row categories justify-content-around justify-content-md-start">
+                                {listBtn.map(categories)}
+                            </div>
                         </div>
-                        <div className="pagination-product-rating">
-                            <ul className="pagination justify-content-center">
-                                {dataRating && paginationRating(dataRating)}
-                            </ul>
-                        </div>
-                    
+                    </div>
+                    <div className="row py-3 rating-cmt-list">
+                        {dataRating && showListRating(dataRating)}
+                    </div>
+                    <div className="pagination-product-rating">
+                        <ul className="pagination justify-content-center">
+                            {dataRating && paginationRating(dataRating)}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

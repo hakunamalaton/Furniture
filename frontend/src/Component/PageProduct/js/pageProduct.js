@@ -13,13 +13,13 @@ import {
 
 const axios = require("axios");
 
-function PageProduct() {
+function PageProduct({id=3}) {
     const [dataProductDetail, setDataProductDetail] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:8000/products/3`)
+        axios.get(`http://localhost:8000/products/${id}`)
             .then(res => setDataProductDetail(res.data))
             .catch(err => console.error("Đây là lỗi: " + err));
-    }, [])
+    }, [id])
     const [color, setColor] = useState("");
     const [pickColor, setPickColor] = useState(-1);
     const [pickSize, setPickSize] = useState(-1);
@@ -426,7 +426,7 @@ function PageProduct() {
                         </div>
                     </div>
                 </div>
-                <Rating id = {dataProductDetail.id} averageScore = {dataProductDetail.avg_star} />
+                <Rating id = {id} averageScore = {dataProductDetail.avg_star} />
             </div>
             <Footer />
         </div>
