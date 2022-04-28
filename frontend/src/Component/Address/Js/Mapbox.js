@@ -153,7 +153,12 @@ function Mapbox(props) {
                         offsetLeft={-15}
                         offsetTop={-25}
                     >
-                        <FontAwesomeIcon icon={faStreetView} size="2x" color="#E24F4F" />
+                        <FontAwesomeIcon
+                            icon={faStreetView}
+                            size="2x"
+                            color="#04CE6D"
+                            className="animationMarker"
+                        />
                     </Marker>
                 ) : (
                     <></>
@@ -174,7 +179,11 @@ function Mapbox(props) {
                     style={{ position: "absolute", right: 10, bottom: 190 }}
                     title="Find My Choosen Location"
                 >
-                    <FontAwesomeIcon icon={faStreetView} color="#E24F4F" />
+                    <FontAwesomeIcon
+                        icon={faStreetView}
+                        color="#04CE6D"
+                        style={{ width: "25px" }}
+                    />
                 </button>
 
                 {locateb && fullScreenFlag ? (
