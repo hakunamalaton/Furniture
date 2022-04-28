@@ -92,8 +92,8 @@ class ProductsController < ApplicationController
     ratings = Rating.where(product_id: @product.id)
 
     # select the type given
-    ratings = ratings.as_json.select do |rating|
-      rating["category"] != nil && (rating["category"].include? type) 
+    ratings = ratings.select do |rating|
+      rating[:category] != nil && (rating[:category].include? type) 
     end if type != "all"
     
     # update name in ratings
@@ -113,8 +113,7 @@ class ProductsController < ApplicationController
 
   def create_ratings
     user = User.find_by(email: params[:email])
-    product = Product.find_by(id: params[:id])
-
+    #product = Product.find_by(id: params[:id])
     # modify the average stars. 
     all_ratings = product.ratings.count
     new_avg_star = (product.avg_star * all_ratings + params[:star])/(all_ratings + 1)

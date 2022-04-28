@@ -12,9 +12,7 @@ class AddressesController < ApplicationController
   def create
     new_address = @user.addresses.create(
       user_id: @user.id,
-      city: params[:city],
-      town: params[:town],
-      district: params[:district],
+      location: params[:location],
       description: params[:description],
       price: params[:price],
       phone_number: params[:phone_number]
