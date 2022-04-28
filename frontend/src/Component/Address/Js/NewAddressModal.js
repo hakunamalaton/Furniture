@@ -57,7 +57,7 @@ function NewAddressModal() {
 
         if ((address || childProp) && phoneNumber)
             axios.post(`http://localhost:8000/users/${id}/address`, {
-                location: "815400, Bình An, Huyện Long Thành, Đồng Nai, Vietnam",
+                location: submitAddress,
                 description: description,
                 price: price,
                 phone_number: phoneNumber,

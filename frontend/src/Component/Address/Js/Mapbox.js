@@ -134,6 +134,14 @@ function Mapbox(props) {
                 mapboxApiAccessToken={MAPBOXACCESSTOKEN}
                 transitionDuration={20}
             >
+                <Geocoder
+                    position="top-left"
+                    mapRef={mapRef}
+                    onViewportChange={handleGeocoderViewportChange}
+                    mapboxApiAccessToken={MAPBOXACCESSTOKEN}
+                    reverseGeocode={true}
+                    limit={10}
+                />
                 <Marker
                     longitude={106.80618697610669}
                     latitude={10.879752117974931}
@@ -203,16 +211,6 @@ function Mapbox(props) {
                     <></>
                 )}
             </MapGL>
-            <Geocoder
-                position="top-left"
-                mapRef={mapRef}
-                onViewportChange={handleGeocoderViewportChange}
-                mapboxApiAccessToken={MAPBOXACCESSTOKEN}
-                reverseGeocode={true}
-                enableHighAccuracy={true}
-                limit={10}
-                country="vn"
-            />
         </div>
     );
 }

@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Header from "../../Header/Js/Header";
-import datas from "./address.json";
 import NewAddressModal from "./NewAddressModal";
 import Footer from "../../Footer/Js/Footer";
 
