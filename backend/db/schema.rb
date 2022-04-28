@@ -68,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_27_091009) do
   end
 
   create_table "ratings", force: :cascade do |t|
+    t.string "title"
     t.bigint "user_id", null: false
     t.bigint "product_id", null: false
     t.string "description"
