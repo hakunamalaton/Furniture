@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :show_ratings, :update, :destroy]
+  before_action :set_product, only: [:show, :show_ratings, :update, :destroy, :create_ratings]
   protect_from_forgery with: :null_session
   
   def show
@@ -112,18 +112,17 @@ class ProductsController < ApplicationController
 
   def create_ratings
     user = User.find_by(email: params[:email])
-    product = Product.find_by(id: params[:id])
+    #product = Product.find_by(id: params[:id])
 
     # modify the average stars. 
-    all_ratings = product.ratings.count
-    new_avg_star = (product.avg_star * all_ratings + params[:star])/(all_ratings + 1)
-    product.update(avg_star: new_avg_star)
-    product.save
+    all_ratings = @product.ratings.count
+    new_avg_star = (@product.avg_star * all_ratings + params[:star])/(all_ratings + 1)
+    @product.update(avg_star: new_avg_star)
+    @product.save
 
     rating = Rating.create(
-        title: params[:title],
         user_id: user.id,
-        product_id: product.id,
+        product_id: @product.id,
         description: params[:description],
         image: params[:image],
         category: params[:category],
