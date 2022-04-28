@@ -3,7 +3,6 @@ import "../css/rating.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import listBtn from "../dataRatingFake/dataRatingCategory.json";
 import listRating from "../dataRatingFake/dataProductRating.json";
-import PopUpRating from "./popUpRating"
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 function Rating() {
     let listNumKindRating = [];
@@ -93,7 +92,7 @@ function Rating() {
             return (
                 <div
                     key={index}
-                    className="col-2 btn rounded-0 py-1 m-1 d-flex justify-content-center align-items-center"
+                    className="col-5 col-sm-3 col-md-2 col-lg-2 btn rounded-0 py-1 m-1 d-flex justify-content-center align-items-center"
                     id={pick === index ? "pick" : "nonPick"}
                     onClick={() => handleClick(index)}
                 >
@@ -104,7 +103,18 @@ function Rating() {
             return (
                 <div
                     key={index}
-                    className="col-3 btn rounded-0 py-1 m-1 d-flex justify-content-center align-items-center"
+                    className="col-5 col-sm-3 col-md-4 col-lg-3 btn rounded-0 py-1 m-1 d-flex justify-content-center align-items-center"
+                    id={pick === index ? "pick" : "nonPick"}
+                    onClick={() => handleClick(index)}
+                >
+                    {item + " (" + listNumKindRating[index] + ")"}
+                </div>
+            );
+        } else if (index === 6) {
+            return (
+                <div
+                    key={index}
+                    className="col-11 col-sm-5 col-md-6 col-lg-5 btn rounded-0 py-1 m-1 d-flex justify-content-center align-items-center"
                     id={pick === index ? "pick" : "nonPick"}
                     onClick={() => handleClick(index)}
                 >
@@ -115,7 +125,7 @@ function Rating() {
             return (
                 <div
                     key={index}
-                    className="col-5 btn rounded-0 py-1 m-1 d-flex justify-content-center align-items-center"
+                    className="col-11 col-sm-5 col-md-7 col-lg-6 btn rounded-0 py-1 m-1 d-flex justify-content-center align-items-center"
                     id={pick === index ? "pick" : "nonPick"}
                     onClick={() => handleClick(index)}
                 >
@@ -126,15 +136,15 @@ function Rating() {
     };
     const productRating = (item, index) => {
         return (
-            <div className="col-12 d-flex bg-white rating" key={index}>
-                <div className="col-2 rating-avatar">
+            <div className="col-12 d-block d-md-flex bg-white rating" key={index}>
+                <div className="col-8 col-md-2 col-lg-1 px-md-0 pt-2 pt-md-0 d-flex justify-content-center d-md-block rating-avatar mx-auto">
                     <img
                         src={item.avatar}
-                        className="img-fluid p-4 rounded-circle"
+                        className="img-fluid p-md-3 p-lg-0 mt-lg-2 rounded-circle avatar-author"
                         alt="img-reviewer"
                     />
                 </div>
-                <div className="col-10 p-2 rating-main">
+                <div className="col-12 col-md-10 p-2 rating-main">
                     <div className="row font-weight-bold rating-author-name">
                         {item.name}
                     </div>
@@ -153,7 +163,7 @@ function Rating() {
                                 <img
                                     key={index}
                                     src={i}
-                                    className="img-fluid col-1 p-2"
+                                    className="img-fluid col-2 col-lg-1 p-0 m-1"
                                     alt={"Image product rating " + index}
                                 />
                             );
@@ -200,14 +210,14 @@ function Rating() {
                         <div className="row rating-head pt-2">
                             <h5>RATING PRODUCT</h5>
                         </div>
-                        <div className="row rating-overview py-4 border border-dark">
-                            <div className="col-4 text-warning d-flex align-items-center">
-                                <div className="col">
+                        <div className="d-block d-md-flex rating-overview py-4 border border-dark">
+                            <div className="col-12 col-md-4 text-warning d-flex align-items-center">
+                                <div className="col product-rating-score">
                                     <div className="row align-items-end justify-content-center">
-                                        <p className="rating-score">
+                                        <p className="rating-score mb-0">
                                             {averageScore}
                                         </p>
-                                        <p className="rating-score-out-of">
+                                        <p className="rating-score-out-of mb-0">
                                             / 5
                                         </p>
                                     </div>
@@ -216,8 +226,8 @@ function Rating() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-8">
-                                <div className="row categories">
+                            <div className="col-12 col-md-8">
+                                <div className="row categories justify-content-around justify-content-md-start">
                                     {listBtn.map(categories)}
                                 </div>
                             </div>
@@ -238,7 +248,6 @@ function Rating() {
                     
                 </div>
             </div>
-            <PopUpRating image="https://i.imgur.com/Q12CDlu.png" name="Josie Upholstered Low Profile Platform Bed" category="Blue, Full"></PopUpRating>
         </div>
     );
 }

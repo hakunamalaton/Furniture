@@ -24,9 +24,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def show_order
+    @orders = Order.where(user_id: params[:id])
+    @orders = @orders.where(status: params[:status]) if params[:status] != nil
+    @orders = @orders.select(:id, :status, :total_price, :description, :address)
+    total = @orders.length
+
+    render json: {
+      orders: @orders,
+      total: total
+    }
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation, :name)
   end
 end

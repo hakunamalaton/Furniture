@@ -8,6 +8,10 @@ import Mapbox from "./Component/Address/Js/Mapbox";
 import Rating from "./Component/Rating/js/rating";
 import ImportDesign from "./Component/ImportDesign/js/importDesign";
 import Menu from "./Component/Menu/menu";
+import TransactionHistory from "./Component/TransactionHistory/js/transactionHistory"
+import Login from "./Component/Account/Login";
+import Register from "./Component/Account/Register";
+import LoginRoute from "./Component/auth/LoginRoute";
 
 function App() {
     return (
@@ -17,7 +21,6 @@ function App() {
                     <Route exact path="/" component={HomePage} />
                     <Route exact path="/import-design" component={ImportDesign} />
                     <Route exact path="/page-product" component={PageProduct} />
-                    <Route exact path="/import-design" component={ImportDesign} />
                     <Route exact path="/rating" component={Rating} />
                     <Route exact path="/order" component={OrderProcess} />
                     <Route exact path="/address" component={Address} />
@@ -25,6 +28,9 @@ function App() {
                     <Route exact path="/homepage" component={HomePage} />
                     <Route exact path="/address" component={Address} />
                     <Route exact path="/menu" component={Menu} />
+                    <Route exact path="/transaction-history" component={TransactionHistory} />
+                    <LoginRoute exact path="/login" component={Login} />
+                    <LoginRoute exact path="/register" component={Register} />
                 </Switch>
             </div>
         </Router>

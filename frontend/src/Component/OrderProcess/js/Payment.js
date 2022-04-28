@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import Total from "../../cart/js/Total";
+import Total from "./Total";
+import { useDispatch, useSelector } from "react-redux";
+import { updatePaymentMethod } from "../slice/cartSlice";
 
 const Payment = ({ step, AddressData, buyerState, setBuyerState, priceState, setPriceState }) => {
     const size = { "font-size": "1.1rem" };
 
+    const OrderPaymentState = useSelector(state => state.cart.payment);
+    const dispatch = useDispatch();
     const [paymentOption, setPaymentOption] = useState("");
-
 
     if (step !== 4) {
         return null;
@@ -30,7 +33,7 @@ const Payment = ({ step, AddressData, buyerState, setBuyerState, priceState, set
                                             name="optradio"
                                             id="address"
                                             value={"paypal"}
-                                            onChange={(event) => setPaymentOption(event.target.value)}
+                                            onChange={(event) => dispatch(updatePaymentMethod(event.target.value))}
                                         />
                                         <div className="mb-3 mt-3 ml-4 col-md">
                                             <p className="mb-0" style={size}>{"PayPal"}</p>
@@ -52,7 +55,7 @@ const Payment = ({ step, AddressData, buyerState, setBuyerState, priceState, set
                                             name="optradio"
                                             id="address"
                                             value={"momo"}
-                                            onChange={(event) => setPaymentOption(event.target.value)}
+                                            onChange={(event) => dispatch(updatePaymentMethod(event.target.value))}
                                         />
                                         <div className="mb-3 mt-3 ml-4 col-md">
                                             <p className="mb-0" style={size}>{"MoMo"}</p>
@@ -93,7 +96,7 @@ const Payment = ({ step, AddressData, buyerState, setBuyerState, priceState, set
                         </div>
 
                         <div className="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
-                            <Total priceState={priceState} paymentOption={paymentOption} />
+                            <Total priceState={priceState} paymentOption={OrderPaymentState.paymentOption} />
                         </div>
                     </div>
                 </div>

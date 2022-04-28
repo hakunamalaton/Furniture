@@ -16,6 +16,7 @@
     scrollbar-width: none; /* Firefox */
     padding: 0;
 }
+
 .import-ds-form .frame-import::-webkit-scrollbar {
     display: none;
 }
@@ -33,11 +34,34 @@
 }
 
 .import-ds-form .frame-import .preview-img-import {
-    width: 215px;
-    height: 215px;
+    width: 216px;
+    height: 216px;
     overflow: hidden;
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
     border: 1px solid black;
+}
+
+ /* Table */
+@media only screen and (max-width: 991.5px){
+    .import-ds-form .frame-import .preview-img-import{
+        width: 108px;
+        height: 108px;
+    }
+    .import-ds-form .frame-import {
+        height: 350px;
+        
+    }
+}
+/* Mobile */
+@media only screen and (max-width: 767.5px){
+    .import-ds-form .frame-import .preview-img-import{
+        width: 54px;
+        height: 54px;
+    }
+    .import-ds-form .frame-import {
+        height: 300px;
+        
+    }
 }

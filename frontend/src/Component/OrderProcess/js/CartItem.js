@@ -3,41 +3,57 @@ import { FaMinusCircle } from 'react-icons/fa';
 import { FaPlusCircle } from 'react-icons/fa';
 import { FaTrashAlt } from 'react-icons/fa';
 
+import { incrementItemQuantity, decrementItemQuantity, removeItem } from "../slice/cartSlice";
+import { useSelector, useDispatch } from "react-redux";
+
 const CartItem = (props) => {
+    const dispatch = useDispatch();
+
+    /**
+     * How to write custom selector for case select item by its info, but still keep
+     * the ability to auto render when change
+     */
+    const cartItemList = useSelector(state => state.cart.cart);
+
     const { id, priceState, setPriceState, cartState, setCartState } = props;
     let itemInfo = null;
-    cartState.forEach(cartItem => {
+    cartItemList.forEach(cartItem => {
         if (cartItem.id === id) {
-            itemInfo = { ...cartItem }; return;
+            /**
+             * Pass by pointer (pointer is value but its member is reference)
+             */
+            itemInfo = cartItem; return;
         }
     });
-    if (itemInfo === null) { alert("ERROR: item not found in cart by id") }
-    const IncrementItemQuantity = () => {
-        const newCartState = [...cartState];
-        cartState.forEach(cartItem => {
-            if (cartItem.id === id) {
-                cartItem.quantity += 1;
-                console.log("Increment Item Click", newCartState);
-                setPriceState({ ...priceState, total: priceState.total + cartItem.price }); return;
-            }
-        });
-        setCartState(newCartState);
-    }
-    const DecrementItemQuantity = () => {
-        const newCartState = [...cartState];
-        cartState.forEach(cartItem => {
-            if (cartItem.id === id) {
-                if (cartItem.quantity > 1) {
-                    cartItem.quantity -= 1;
-                    setPriceState({ ...priceState, total: priceState.total - cartItem.price }); return;
-                } else {
-                    return;
-                }
-            }
-        });
-        setCartState(newCartState);
-    }
-    const removeItem = () => {
+
+
+    // if (itemInfo === null) { alert("ERROR: item not found in cart by id") }
+    // const IncrementItemQuantity = () => {
+    //     const newCartState = [...cartState];
+    //     cartState.forEach(cartItem => {
+    //         if (cartItem.id === id) {
+    //             cartItem.quantity += 1;
+    //             console.log("Increment Item Click", newCartState);
+    //             setPriceState({ ...priceState, total: priceState.total + cartItem.price }); return;
+    //         }
+    //     });
+    //     setCartState(newCartState);
+    // }
+    // const DecrementItemQuantity = () => {
+    //     const newCartState = [...cartState];
+    //     cartState.forEach(cartItem => {
+    //         if (cartItem.id === id) {
+    //             if (cartItem.quantity > 1) {
+    //                 cartItem.quantity -= 1;
+    //                 setPriceState({ ...priceState, total: priceState.total - cartItem.price }); return;
+    //             } else {
+    //                 return;
+    //             }
+    //         }
+    //     });
+    //     setCartState(newCartState);
+    // }
+    const RemoveItem = () => {
         console.log("id", id);
         let newCartState = cartState.filter(cartItem => {
             if (id === cartItem.id) {
@@ -67,7 +83,7 @@ const CartItem = (props) => {
                         <div className="col-6">
                             <ul className="pagination justify-content-end set_quantity">
                                 <li className="page-item">
-                                    <button onClick={DecrementItemQuantity} className="page-link ">
+                                    <button onClick={() => dispatch(decrementItemQuantity(itemInfo.id))} className="page-link ">
                                         <FaMinusCircle />
                                     </button>
                                 </li>
@@ -82,7 +98,7 @@ const CartItem = (props) => {
                                     />
                                 </li>
                                 <li className="page-item">
-                                    <button onClick={IncrementItemQuantity} className="page-link">
+                                    <button onClick={() => dispatch(incrementItemQuantity(itemInfo.id))} className="page-link">
                                         <FaPlusCircle />
                                     </button>
                                 </li>
@@ -91,7 +107,7 @@ const CartItem = (props) => {
                     </div>
 
                     <div className="row">
-                        <div onClick={removeItem} className="col-8 d-flex justify-content-between remove_wish pt-4">
+                        <div onClick={() => { dispatch(removeItem(itemInfo.id)) }} className="col-8 d-flex justify-content-between remove_wish pt-4">
                             <p>
                                 <FaTrashAlt /> REMOVE ITEM
                             </p>
