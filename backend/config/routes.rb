@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "/products/:id", to: "products#show"
   get "/products/:id/ratings", to: "products#show_ratings" # ?type=
   post "/products/:id/ratings", to: "products#create_ratings"
+  delete "/products/:id/ratings/:rating_id", to: "products#destroy_ratings"
 
   
   get "products", to: "products#display_product" # ?type= & page=1 & limit=10
