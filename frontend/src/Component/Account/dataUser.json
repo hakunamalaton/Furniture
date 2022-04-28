@@ -1,0 +1,45 @@
+[
+    {
+        "id": 1,
+        "email": "nguyenvanxuanvu231@gmail.com",
+        "name": "Nguyễn Văn Xuân Vũ",
+        "password_digest": "1915982" 
+    },
+    {
+        "id": 2,
+        "email": "toan.lamdaniel@hcmut.edu.vn",
+        "name": "Lâm Thiện Toàn",
+        "password_digest": "1915540" 
+    },
+    {
+        "id": 3,
+        "email": "long.mai106@hcmut.edu.vn",
+        "name": "Mai Đức Long",
+        "password_digest": "1913996" 
+    },
+    {
+        "id": 4,
+        "email": "thinh.huynhduc1012@hcmut.edu.vn",
+        "name": "Huỳnh Đức Thịnh",
+        "password_digest": "1910563" 
+    },
+    {
+        "id": 5,
+        "email": "duong.lamthanh3006@hcmut.edu.vn",
+        "name": "Lâm Thành Dương",
+        "password_digest": "1912980" 
+    },
+    {
+        "id": 6,
+        "email": "mai.caothanh@hcmut.edu.vn",
+        "name": "Cao Thị Thanh Mai",
+        "password_digest": "1911565" 
+    },
+    {
+        "id": 7,
+        "email": "phuoc.lehuy0105@hcmut.edu.vn",
+        "name": "Lê Huy Phước",
+        "password_digest": "1914763" 
+    }
+
+]
