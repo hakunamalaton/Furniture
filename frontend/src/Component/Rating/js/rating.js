@@ -5,12 +5,14 @@ import listBtn from "../dataRatingFake/dataRatingCategory.json";
 import listImageUser from "../dataRatingFake/imageUser.json";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 const axios = require("axios");
+
+
 function Rating({ id, averageScore }) {
     const [dataRating, setDataRating] = useState([]);
     useEffect(() => {
         axios
             .get(`http://localhost:8000/products/${id}/ratings`)
-            .then((res) => setDataRating(res.data))
+            .then((res) => setDataRating(res.data.ratings))
             .catch((err) => console.error("Đây là lỗi: " + err));
     }, [id]);
 
@@ -123,21 +125,21 @@ function Rating({ id, averageScore }) {
                         {item.name}
                     </div>
                     <div className="row text-warning rating-score">
-                        {starScore(item.score)}
+                        {starScore(item.star)}
                     </div>
                     <div className="row text-secondary rating-time py-2">
-                        {item.time}
+                        {item.created_at}
                     </div>
                     <div className="row pb-2 rating-cmt">
                         {item.description}
                     </div>
                     <div className="row rating-list-img">
-                        {item.listImg.map((i, index) => {
+                        {item.image.map((i, index) => {
                             return (
                                 <img
                                     key={index}
-                                    src={i}
-                                    className="img-fluid col-2 col-lg-1 p-0 m-1"
+                                    src={`data:image/png;base64,${i}`}
+                                    className="img-fluid col-2 col-lg-1 p-0 m-1 border border-1"
                                     alt={"Image product rating " + index}
                                 />
                             );
@@ -178,7 +180,6 @@ function Rating({ id, averageScore }) {
         }
     }
     function showListRating(array) {
-        console.log(array.ratings)
         if (array.length === 0) {
             return <div>No have review about this product.</div>;
         } else {

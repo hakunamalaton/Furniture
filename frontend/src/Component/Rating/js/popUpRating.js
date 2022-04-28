@@ -4,25 +4,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../css/popUpRating.css";
 import { faCamera, faStar } from "@fortawesome/free-solid-svg-icons";
 const axios = require("axios");
-const {Base64} = require('js-base64');
+
 function PopUpRating({ id, image, name, category }) {
     const [currentScore, setCurrentScore] = useState(0);
     const [hoverScore, setHoverScore] = useState(undefined);
     const [popUp, setPopUp] = useState(false);
-
+    let images=[];
+    
     function handleAddRating(e) {
         let score = currentScore;
         let category = "5 stars";
         let description = document.getElementById("content-cmt").value;
-        let image = document.querySelector("#input-img-rating").files;
-        let images = [];
-        for (let i = 0; i < image.length; i++)
-        {
-            images.push(Base64.encode(URL.createObjectURL(image[i]).toString()))
-        }
-        console.log(score, description, images);
+
         e.preventDefault();
-        axios.post(`http://localhost:8000/products/3/ratings`, {
+        axios
+            .post(`http://localhost:8000/products/3/ratings`, {
                 email: "lamduong@gmail.com",
                 description,
                 image: images,
@@ -98,10 +94,24 @@ function PopUpRating({ id, image, name, category }) {
         const preview = document.querySelector(
             "#img-rating-upload-" + (index + 1)
         );
+        
         var file = document.querySelector("#input-img-rating").files[index];
         let blobURL = URL.createObjectURL(file);
         preview.style.display = "block";
         preview.style.backgroundImage = "url(" + blobURL.toString() + ")";
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            // Use a regex to remove data url part
+            const base64String = reader.result
+                .replace('data:', '')
+                .replace(/^.+,/, '');
+
+            console.log(base64String);
+            images.push(base64String);
+            console.log(images);
+            // Logs wL2dvYWwgbW9yZ...
+        };
+        reader.readAsDataURL(file);
     }
     return (
         <div className="popup-rating-component">

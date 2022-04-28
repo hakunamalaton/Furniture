@@ -4543,3 +4543,170 @@ app/controllers/products_controller.rb:123:in `create_ratings'
   [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/products/3/ratings" for ::1 at 2022-04-28 14:29:41 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"lamduong@gmail.com", "description"=>"aa", "image"=>["a", "b"], "category"=>"5 stars", "star"=>5, "id"=>"3", "product"=>{"image"=>["a", "b"], "description"=>"aa", "category"=>"5 stars"}}
+  [1m[36mProduct Load (7.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:140:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamduong@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+  [1m[36mRating Count (4.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:118:in `create_ratings'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mRating Create (7.7ms)[0m  [1m[32mINSERT INTO "ratings" ("user_id", "product_id", "description", "image", "category", "star", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 2], ["product_id", 3], ["description", "aa"], ["image", "{a,b}"], ["category", "5 stars"], ["star", 5], ["created_at", "2022-04-28 07:29:42.405539"], ["updated_at", "2022-04-28 07:29:42.405539"]]
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+Completed 200 OK in 209ms (Views: 1.6ms | ActiveRecord: 34.4ms | Allocations: 41951)
+
+
+Started POST "/products/3/ratings" for ::1 at 2022-04-28 14:33:01 +0700
+Processing by ProductsController#create_ratings as HTML
+  Parameters: {"email"=>"lamduong@gmail.com", "description"=>"Bad service", "image"=>["YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvNmVjYmQ1MmYtODg5OS00Y2JjLWI3ZjUtOWQ4NmI5OTc5MWVi", "YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvY2FhYjNjYWYtMTM1MC00ZGExLTk0NmItODAxZTlkM2Q1ZTk5", "YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvYTZhM2EwMjItZmQ0Ni00MTk3LWJkNjctNjBjNGU2NmY4Mjhk", "YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvNWQzOWY2NmUtNjIyMS00NjMzLThjMzEtMWZlOTRhYmMxODNi", "YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvZmVmZTA1OTQtYzI1ZS00MDU1LTgwYjktOWIyNzBiOTY2Mzdj", "YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvOWNlN2E4ZTUtNDdjZi00MTdkLWE1MDctNDk1NjJjNDVhNDUx"], "category"=>"5 stars", "star"=>3, "id"=>"3", "product"=>{"image"=>["YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvNmVjYmQ1MmYtODg5OS00Y2JjLWI3ZjUtOWQ4NmI5OTc5MWVi", "YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvY2FhYjNjYWYtMTM1MC00ZGExLTk0NmItODAxZTlkM2Q1ZTk5", "YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvYTZhM2EwMjItZmQ0Ni00MTk3LWJkNjctNjBjNGU2NmY4Mjhk", "YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvNWQzOWY2NmUtNjIyMS00NjMzLThjMzEtMWZlOTRhYmMxODNi", "YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvZmVmZTA1OTQtYzI1ZS00MDU1LTgwYjktOWIyNzBiOTY2Mzdj", "YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvOWNlN2E4ZTUtNDdjZi00MTdkLWE1MDctNDk1NjJjNDVhNDUx"], "description"=>"Bad service", "category"=>"5 stars"}}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:140:in `set_product'
+HTTP Origin header (http://localhost:3000) didn't match request.base_url (http://localhost:8000)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamduong@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:114:in `create_ratings'
+  [1m[36mRating Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:118:in `create_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:120:in `create_ratings'
+  [1m[36mProduct Update (4.3ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1, "avg_star" = $2 WHERE "products"."id" = $3[0m  [["updated_at", "2022-04-28 07:33:01.400930"], ["avg_star", 4.0], ["id", 3]]
+  ↳ app/controllers/products_controller.rb:120:in `create_ratings'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:120:in `create_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mRating Create (0.5ms)[0m  [1m[32mINSERT INTO "ratings" ("user_id", "product_id", "description", "image", "category", "star", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 2], ["product_id", 3], ["description", "Bad service"], ["image", "{YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvNmVjYmQ1MmYtODg5OS00Y2JjLWI3ZjUtOWQ4NmI5OTc5MWVi,YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvY2FhYjNjYWYtMTM1MC00ZGExLTk0NmItODAxZTlkM2Q1ZTk5,YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvYTZhM2EwMjItZmQ0Ni00MTk3LWJkNjctNjBjNGU2NmY4Mjhk,YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvNWQzOWY2NmUtNjIyMS00NjMzLThjMzEtMWZlOTRhYmMxODNi,YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvZmVmZTA1OTQtYzI1ZS00MDU1LTgwYjktOWIyNzBiOTY2Mzdj,YmxvYjpodHRwOi8vbG9jYWxob3N0OjMwMDAvOWNlN2E4ZTUtNDdjZi00MTdkLWE1MDctNDk1NjJjNDVhNDUx}"], ["category", "5 stars"], ["star", 3], ["created_at", "2022-04-28 07:33:01.426960"], ["updated_at", "2022-04-28 07:33:01.426960"]]
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+Completed 200 OK in 58ms (Views: 1.1ms | ActiveRecord: 9.0ms | Allocations: 8616)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:33:09 +0700
+Processing by ProductsController#show_ratings as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:140:in `set_product'
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:100:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:100:in `block in show_ratings'
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 2.4ms | Allocations: 3552)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:33:55 +0700
+Started GET "/products/3" for ::1 at 2022-04-28 14:33:56 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (2.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:140:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:100:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:100:in `block in show_ratings'
+Completed 200 OK in 56ms (Views: 1.4ms | ActiveRecord: 3.2ms | Allocations: 3514)
+
+
+  [1m[36mProduct Load (2.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:140:in `set_product'
+Completed 200 OK in 211ms (Views: 4.2ms | ActiveRecord: 24.1ms | Allocations: 6696)
+
+
+Started GET "/products/3" for ::1 at 2022-04-28 14:35:32 +0700
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:35:32 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:140:in `set_product'
+Completed 200 OK in 8ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 1079)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:140:in `set_product'
+  [1m[36mRating Load (1.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:100:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:100:in `block in show_ratings'
+Completed 200 OK in 20ms (Views: 0.5ms | ActiveRecord: 4.0ms | Allocations: 2693)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:37:18 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:140:in `set_product'
+  [1m[36mRating Load (0.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:100:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:100:in `block in show_ratings'
+Completed 200 OK in 229ms (Views: 1.0ms | ActiveRecord: 1.7ms | Allocations: 2669)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:37:42 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:140:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:100:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:100:in `block in show_ratings'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 2669)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:37:54 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:140:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:100:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:100:in `block in show_ratings'
+Completed 200 OK in 16ms (Views: 1.3ms | ActiveRecord: 1.2ms | Allocations: 2669)
+
+
+Started GET "/products/3/ratings" for ::1 at 2022-04-28 14:38:01 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:140:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/controllers/products_controller.rb:93:in `show_ratings'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:100:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:100:in `block in show_ratings'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 2670)
+
+
