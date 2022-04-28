@@ -139,7 +139,7 @@ function Rating({ id, averageScore }) {
                                 <img
                                     key={index}
                                     src={`data:image/png;base64,${i}`}
-                                    className="img-fluid col-2 col-lg-1 p-0 m-1 border border-1"
+                                    className="img-fluid col-2 col-lg-1 p-0 m-1 border border-dark"
                                     alt={"Image product rating " + index}
                                 />
                             );
@@ -181,7 +181,7 @@ function Rating({ id, averageScore }) {
     }
     function showListRating(array) {
         if (array.length === 0) {
-            return <div>No have review about this product.</div>;
+            return <h5>No have review about this product.</h5>;
         } else {
             return array
                 .slice((currentPage - 1) * countPage, currentPage * countPage)

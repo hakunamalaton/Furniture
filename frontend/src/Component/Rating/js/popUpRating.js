@@ -18,8 +18,8 @@ function PopUpRating({ id, image, name, category }) {
 
         e.preventDefault();
         axios
-            .post(`http://localhost:8000/products/3/ratings`, {
-                email: "lamduong@gmail.com",
+            .post(`http://localhost:8000/products/${id}/ratings`, {
+                email: "duong@gmail.com",
                 description,
                 image: images,
                 category,
@@ -99,19 +99,8 @@ function PopUpRating({ id, image, name, category }) {
         let blobURL = URL.createObjectURL(file);
         preview.style.display = "block";
         preview.style.backgroundImage = "url(" + blobURL.toString() + ")";
-        const reader = new FileReader();
-        reader.onloadend = () => {
-            // Use a regex to remove data url part
-            const base64String = reader.result
-                .replace('data:', '')
-                .replace(/^.+,/, '');
-
-            console.log(base64String);
-            images.push(base64String);
-            console.log(images);
-            // Logs wL2dvYWwgbW9yZ...
-        };
-        reader.readAsDataURL(file);
+        let image = JSON.stringify(file);
+        images.push(image);
     }
     return (
         <div className="popup-rating-component">
