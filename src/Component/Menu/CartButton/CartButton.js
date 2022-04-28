@@ -1,13 +1,7 @@
-import classes from './CartButton.module.css';
-
 
 const CartButton = () => {
   return (
-        <button>
-          <span className={classes.icon}>
-            <img className="image" src={require('../Image/AddToCartButton.png')} alt = "Button" />
-          </span>
-        </button>
+    <div className="addtocart"><a href="/homepage"><button></button></a></div>
   );
 };
 

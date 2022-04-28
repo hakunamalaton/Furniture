@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { Fragment } from 'react';
 import React from "react";
 import Header from "../Header/Js/Header";
@@ -10,18 +9,15 @@ const Menu = () => {
     return (
         <Fragment>
         <Header/>
-        {/* <Banner /> */}
+
         <div className="QR_area">
-            <CartButton />
         </div>
+        
         <div className="cart">
             <div className="tieude">
                 <div className="tieude1">
                     <h1 className="fonts3 tab"> Sản phẩm</h1>
                 </div>
-                {/* <div className="tieude2">
-                    <a style={{"textDecoration":"none"}} className="fonts3 fonts5 fonts6" href="#">Xem tất cả {'>'}</a>
-                </div> */}
             </div>
             <div className="list">
                 <div className="listsmall">
@@ -34,34 +30,214 @@ const Menu = () => {
             </div>
             <div>
                 <div className="clearfix-menu padd">
+
+                    <div className='animation'>
                     <div className="img-container-menu">
-                        <img className="image-menu image3" src={require('../../picture/1.png')} alt = "" />
+                        <CartButton />
+                        <div className="dt">
+                            <span className="data1">Chair</span><br/>
+                            <span className="data2">Glossy Cube</span>
+                        </div>
+                        <div className="money"><span className="money1">1.000.000 VND</span></div>
+                        <img className="image-menu image3" src={require('../../picture/chair1.png')} alt = "" />
                     </div>
+                    </div>
+
+                    <div className='animation'>
                     <div className="img-container-menu">
-                        <img className="image-menu image3" src={require('../../picture/2.png')} alt = "" />
+                        <CartButton />
+                        <div className="dt">
+                            <span className="data1">Chair</span><br/>
+                            <span className="data2">Louis XVI</span>
+                        </div>
+                        <div className="money"><span className="money1">1.000.000 VND</span></div>
+                        <img className="image-menu image3" src={require('../../picture/chair2.png')} alt = "" />
                     </div>
+                    </div>
+
+                    <div className='animation'>
                     <div className="img-container-menu">
-                        <img className="image-menu image3 y" src={require('../../picture/3.png')} alt = "" />
+                        <CartButton />
+                        <div className="dt">
+                            <span className="data1">Chair</span><br/>
+                            <span className="data2">Shellton Mindel</span>
+                        </div>
+                        <div className="money"><span className="money1">1.000.000 VND</span></div>
+                        <img className="image-menu image3" src={require('../../picture/chair3.png')} alt = "" />
                     </div>
+                    </div>
+
+                    <div className='animation'>
+                    <div className="img-container-menu">
+                        <CartButton />
+                        <div className="dt">
+                            <span className="data1">Chair</span><br/>
+                            <span className="data2">Nuemeyeri</span>
+                        </div>
+                        <div className="money"><span className="money1">1.000.000 VND</span></div>
+                        <img className="image-menu image3" src={require('../../picture/chair4.png')} alt = "" />
+                    </div>
+                    </div>
+                </div>
+
+                <div className="clearfix-menu">
+                    
+                <div className='animation'>
                     <div className="img-container-menu x">
-                        <img className="image-menu image3" src={require('../../picture/4.png')} alt = "" />
+                        <CartButton />
+                        <div className="dt">
+                            <span className="data1">Lamp</span><br/>
+                            <span className="data2">Chelsea pendant</span>
+                        </div>
+                        <div className="money"><span className="money1">1.000.000 VND</span></div>
+                        <img className="image-menu image3" src={require('../../picture/lamp1.png')} alt = "" />
                     </div>
+                    </div>
+
+
+                    <div className='animation'>
+                    <div className="img-container-menu x">
+                        <CartButton />
+                        <div className="dt">
+                            <span className="data1">Lamp</span><br/>
+                            <span className="data2">Kuta floor</span>
+                        </div>
+                        <div className="money"><span className="money1">1.000.000 VND</span></div>
+                        <img className="image-menu image3" src={require('../../picture/lamp2.png')} alt = "" />
+                    </div>
+                    </div>
+
+                  <div className='animation'>
+                    <div className="img-container-menu x">
+                        <CartButton />
+                        <div className="dt">
+                            <span className="data1">Lamp</span><br/>
+                            <span className="data2">Aerial pendant</span>
+                        </div>
+                        <div className="money"><span className="money1">1.000.000 VND</span></div>
+                        <img className="image-menu image3" src={require('../../picture/lamp3.png')} alt = "" />
+                    </div>
+                    </div>
+
+                  <div className='animation'>
+                    <div className="img-container-menu x">
+                        <CartButton />
+                        <div className="dt">
+                            <span className="data1">Lamp</span><br/>
+                            <span className="data2">Three chandelier</span>
+                        </div>
+                        <div className="money"><span className="money1">1.000.000 VND</span></div>
+                        <img className="image-menu image3" src={require('../../picture/lamp4.png')} alt = "" />
+                    </div>
+                    </div>
+
                 </div>
                 <div className="clearfix-menu">
+                    
+                <div className='animation'>
                     <div className="img-container-menu x">
-                        <img className="image-menu image3" src={require('../../picture/1.png')} alt = "" />
+                        <CartButton />
+                        <div className="dt">
+                            <span className="data1">Bed</span><br/>
+                            <span className="data2">Milligan</span>
+                        </div>
+                        <div className="money"><span className="money1">1.000.000 VND</span></div>
+                        <img className="image-menu image3" src={require('../../picture/bed1.png')} alt = "" />
                     </div>
+                    </div>
+
+
+                    <div className='animation'>
                     <div className="img-container-menu x">
-                        <img className="image-menu image3" src={require('../../picture/2.png')} alt = "" />
+                        <CartButton />
+                        <div className="dt">
+                            <span className="data1">Bed</span><br/>
+                            <span className="data2">Sanaya</span>
+                        </div>
+                        <div className="money"><span className="money1">1.000.000 VND</span></div>
+                        <img className="image-menu image3" src={require('../../picture/bed2.png')} alt = "" />
                     </div>
+                    </div>
+
+                  <div className='animation'>
                     <div className="img-container-menu x">
-                        <img className="image-menu image3" src={require('../../picture/3.png')} alt = "" />
+                        <CartButton />
+                        <div className="dt">
+                            <span className="data1">Bed</span><br/>
+                            <span className="data2">Suhavy Tufted</span>
+                        </div>
+                        <div className="money"><span className="money1">1.000.000 VND</span></div>
+                        <img className="image-menu image3" src={require('../../picture/bed3.png')} alt = "" />
                     </div>
+                    </div>
+
+                  <div className='animation'>
                     <div className="img-container-menu x">
-                        <img className="image-menu image3" src={require('../../picture/4.png')} alt = "" />
+                        <CartButton />
+                        <div className="dt">
+                            <span className="data1">Bed</span><br/>
+                            <span className="data2">Tianna</span>
+                        </div>
+                        <div className="money"><span className="money1">1.000.000 VND</span></div>
+                        <img className="image-menu image3" src={require('../../picture/bed4.png')} alt = "" />
                     </div>
+                    </div>
+
+                </div>
+                <div className="clearfix-menu">
+                    
+                <div className='animation'>
+                    <div className="img-container-menu x">
+                        <CartButton />
+                        <div className="dt">
+                            <span className="data1">Sofa</span><br/>
+                            <span className="data2">Black Lacquer</span>
+                        </div>
+                        <div className="money"><span className="money1">1.000.000 VND</span></div>
+                        <img className="image-menu image3" src={require('../../picture/sofa1.png')} alt = "" />
+                    </div>
+                    </div>
+
+
+                    <div className='animation'>
+                    <div className="img-container-menu x">
+                        <CartButton />
+                        <div className="dt">
+                            <span className="data1">Sofa</span><br/>
+                            <span className="data2">Ovan Mono</span>
+                        </div>
+                        <div className="money"><span className="money1">1.000.000 VND</span></div>
+                        <img className="image-menu image3" src={require('../../picture/sofa2.png')} alt = "" />
+                    </div>
+                    </div>
+
+                  <div className='animation'>
+                    <div className="img-container-menu x">
+                        <CartButton />
+                        <div className="dt">
+                            <span className="data1">Sofa</span><br/>
+                            <span className="data2">La Debutante</span>
+                        </div>
+                        <div className="money"><span className="money1">1.000.000 VND</span></div>
+                        <img className="image-menu image3" src={require('../../picture/sofa3.png')} alt = "" />
+                    </div>
+                    </div>
+
+                  <div className='animation'>
+                    <div className="img-container-menu x">
+                        <CartButton />
+                        <div className="dt">
+                            <span className="data1">Sofa</span><br/>
+                            <span className="data2">Cezanne Relax</span>
+                        </div>
+                        <div className="money"><span className="money1">1.000.000 VND</span></div>
+                        <img className="image-menu image3" src={require('../../picture/sofa4.png')} alt = "" />
+                    </div>
+                    </div>
+
                 </div>
             </div>
+            
             <div>
                 <div class="pagination" id="rep1">
                     <a href="#">Trang trước</a>
@@ -81,18 +257,6 @@ const Menu = () => {
                     <a href="#">Trang sau</a>
                 </div>
             </div>
-            {/* <div className="mail">
-                <h1 className="fonts7">Join Our Mailing List</h1>
-                <h1 className="fonts8">Sign up to receive inspiration, product updates, and special offers from our team.</h1>
-            </div>
-            <div className="add-the-center">
-                <div class="input-group mb-3 add">
-                    <input type="text" class="form-control form-add" placeholder="example@gmail.com" aria-label="example@gmail.com" aria-describedby="basic-addon2"/>
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary btn1" type="button"><span className="fonts8 add1">Submit</span></button>
-                </div>
-                </div>
-            </div> */}
         </div>
         <Footer />
         </Fragment>

@@ -36,7 +36,7 @@
 .font3{
     font-weight: bold;
     font-size: 1.8vw;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .img-container {
@@ -83,4 +83,11 @@
     #word{
         margin-top: 50px;
     }
+}
+.zoom img {
+  transition: transform .3s; 
+}
+
+.zoom img:hover {
+  transform: scale(1.06); 
 }

@@ -17,18 +17,18 @@ const HomePage = () => {
             <h1 className="font font1">Chọn theo phòng</h1>
             <h1 className="font font2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h1>
         </div>
-        <div className="clearfix" style={{"marginTop": "50px"}}>
+        <div className="clearfix zoom" style={{"marginTop": "50px"}}>
             <div className="img-container">
-                <img className="image image3" src={require('../../picture/diningroom.png')} alt = "" />
-                <h1 className="font font3">Phòng ăn</h1>
+                <a href="/menu"><img className="image image3" src={require('../../picture/diningroom.png')} alt = "" /></a>
+                <a style={{"textDecoration":"none"}} href="/menu"><h1 className="font font3">Phòng ăn</h1></a>
             </div>
             <div className="img-container">
-                <img className="image image3" src={require('../../picture/livingroom.png')} alt = "" />
-                <h1 className="font font3">Phòng khách</h1>
+                <a href="/menu"><img className="image image3" src={require('../../picture/livingroom.png')} alt = "" /></a>
+                <a style={{"textDecoration":"none"}} href="/menu"><h1 className="font font3">Phòng khách</h1></a>
             </div>
             <div className="img-container">
-                <img className="image image3" src={require('../../picture/bedroom.png')} alt = "" />
-                <h1 className="font font3">Phòng ngủ</h1>
+                <a href="/menu"><img className="image image3" src={require('../../picture/bedroom.png')} alt = "" /></a>
+                <a style={{"textDecoration":"none"}} href="/menu"><h1 className="font font3">Phòng ngủ</h1></a>
             </div>
         </div>
         <Footer/>

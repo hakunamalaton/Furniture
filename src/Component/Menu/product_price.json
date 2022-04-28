@@ -1,0 +1,143 @@
+[
+    {
+      "Id":1,
+      "Item_Name": "Glossy Cube",
+      "Category" : "Chair",
+      "Product_Price": 1000000,
+      "Image": "../../picture/chair1.png"
+    },
+    {
+      "Id":2,
+      "Item_Name": "Louis XVI",
+      "Category" : "Chair",
+      "Product_Price": 1000000,
+      "Image": "../../picture/chair2.png"
+    },
+    {
+      "Id":3,
+      "Item_Name": "Shellton Mindel",
+      "Category" : "Chair",
+      "Product_Price": 1000000,
+      "Image": "../../picture/chair3.png"
+    },
+    {
+      "Id":4,
+      "Item_Name": "Nuemeyeri",
+      "Category" : "Chair",
+      "Product_Price": 1000000,
+      "Image": "../../picture/chair4.png"
+    },
+    {
+      "Id":5,
+      "Item_Name": "Bontempi Kelly",
+      "Category" : "Chair",
+      "Product_Price": 1000000,
+      "Image": "../../picture/chair5.png"
+    },
+    {
+      "Id":6,
+      "Item_Name": "Black Lacquer",
+      "Category" : "Sofa",
+      "Product_Price": 1000000,
+      "Image": "../../picture/sofa1.png"
+    },
+    {
+      "Id":7,
+      "Item_Name": "Cezanne Relax",
+      "Category" : "Sofa",
+      "Product_Price": 1000000,
+      "Image": "../../picture/sofa2.png"
+    },
+    {
+      "Id":8,
+      "Item_Name": "La Debutante",
+      "Category" : "Sofa",
+      "Product_Price": 1000000,
+      "Image": "../../picture/sofa3.png"
+    },
+    {
+      "Id":9,
+      "Item_Name": "McQueen",
+      "Category" : "Sofa",
+      "Product_Price": 1000000,
+      "Image": "../../picture/sofa4.png"
+    },
+    {
+      "Id":10,
+      "Item_Name": "Ovan Mono",
+      "Category" : "Sofa",
+      "Product_Price": 1000000,
+      "Image": "../../picture/sofa5.png"
+    },
+    {
+      "Id":11,
+      "Item_Name": "Kuta floor",
+      "Category" : "Lamp",
+      "Product_Price": 1000000,
+      "Image": "../../picture/lamp1.png"
+    },
+    {
+      "Id":12,
+      "Item_Name": "Aerial pendant",
+      "Category" : "Lamp",
+      "Product_Price": 1000000,
+      "Image": "../../picture/lamp2.png"
+    },
+    {
+      "Id":13, 
+      "Item_Name": "Three chandelier",
+      "Category" : "Lamp",
+      "Product_Price": 1000000,
+      "Image": "../../picture/lamp3.png"
+    },
+    {
+      "Id":14,
+      "Item_Name": "Chelsea pendant",
+      "Category" : "Lamp",
+      "Product_Price": 1000000,
+      "Image": "../../picture/lamp4.png"
+    },
+    {
+      "Id":15,
+      "Item_Name": "Shelter table",
+      "Category" : "Lamp",
+      "Product_Price": 1000000,
+      "Image": "../../picture/lamp5.png"
+    },
+    {
+      "Id":16,
+      "Item_Name": "Milligan",
+      "Category" : "Bed",
+      "Product_Price": 1000000,
+      "Image": "../../picture/bed1.png"
+    },
+    {
+      "Id":17,
+      "Item_Name": "Sanaya",
+      "Category" : "Bed",
+      "Product_Price": 1000000,
+      "Image": "../../picture/bed2.png"
+    },
+    {
+      "Id":18,
+      "Item_Name": "Suhavy Tufted",
+      "Category" : "Bed",
+      "Product_Price": 1000000,
+      "Image": "../../picture/bed3.png"
+    },
+    {
+      "Id":19,
+      "Item_Name": "Tianna",
+      "Category" : "Bed",
+      "Product_Price": 1000000,
+      "Image": "../../picture/bed4.png"
+    },
+    {
+      "Id":20,
+      "Item_Name": "Matheney",
+      "Category" : "Bed",
+      "Product_Price": 1000000,
+      "Image": "../../picture/bed5.png"
+    }
+  ]
+    
