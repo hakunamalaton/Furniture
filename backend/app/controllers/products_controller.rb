@@ -89,19 +89,20 @@ class ProductsController < ApplicationController
 
   def show_ratings
     type = params[:type] ? params[:type] : "all"
-    
-    ratings = Rating.where(product_id: @product.id).as_json
+    ratings = Rating.where(product_id: @product.id)
 
-    ratings = ratings.where(category: type) if type != "all"
+    # select the type given
+    ratings = ratings.as_json.select do |rating|
+      rating["category"] != nil && (rating["category"].include? type) 
+    end if type != "all"
     
     # update name in ratings
     # name = ""
-    ratings = ratings.each do |rating|
+    ratings = ratings.as_json.each do |rating|
       name = User.find_by(id: rating["user_id"]).name
       rating["name"] = name
       # puts User.find_by(id: rating[:user_id]).email
     end
-
 
     render json: {
         code: 0,
