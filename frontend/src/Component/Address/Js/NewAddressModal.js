@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Scrollbars from "react-custom-scrollbars/lib/Scrollbars";
 import Mapbox from "./Mapbox";
 
 function NewAddressModal() {
@@ -54,44 +53,39 @@ function NewAddressModal() {
                         </button>
                     </div>
 
-                    <Scrollbars style={{ height: "70vh" }}>
-                        <div className="modal-body">
-                            <div className="row justify-content-center">
-                                <input
-                                    className="col-11"
-                                    type="text"
-                                    id="fullname"
-                                    placeholder="Họ và tên"
-                                />
-                            </div>{" "}
-                            <br></br>
-                            <div className="row justify-content-center">
-                                <input
-                                    className="col-11"
-                                    type="text"
-                                    id="phone"
-                                    placeholder="Số điện thoại:"
-                                />
-                            </div>{" "}
-                            <br></br>
-                            <div className="row justify-content-center">
-                                <input
-                                    className="col-11"
-                                    type="text"
-                                    id="street"
-                                    placeholder="Số nhà, đường:"
-                                    onChange={(e) => {
-                                        setStreet(e.target.value);
-                                    }}
-                                />
-                            </div>{" "}
-                            <br></br>
-                            <Mapbox
-                                ParentcallbackFunction={ParentcallbackFunction}
-                                address={address}
+                    <div className="modal-body">
+                        <div className="row justify-content-center">
+                            <input
+                                className="col-11"
+                                type="text"
+                                id="fullname"
+                                placeholder="Full Name:"
                             />
-                        </div>
-                    </Scrollbars>
+                        </div>{" "}
+                        <br></br>
+                        <div className="row justify-content-center">
+                            <input
+                                className="col-11"
+                                type="text"
+                                id="phone"
+                                placeholder="Phone Number:"
+                            />
+                        </div>{" "}
+                        <br></br>
+                        <div className="row justify-content-center">
+                            <input
+                                className="col-11"
+                                type="text"
+                                id="street"
+                                placeholder="No. Street:"
+                                onChange={(e) => {
+                                    setStreet(e.target.value);
+                                }}
+                            />
+                        </div>{" "}
+                        <br></br>
+                        <Mapbox ParentcallbackFunction={ParentcallbackFunction} address={address} />
+                    </div>
 
                     <div className="modal-footer justify-content-between position-fixed-bottom">
                         <div className="col-lg-8 col-12">

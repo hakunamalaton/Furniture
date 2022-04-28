@@ -13,7 +13,7 @@ import MapGL, {
 import Geocoder from "react-map-gl-geocoder";
 import location from "../Image/location.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCrosshairs } from "@fortawesome/fontawesome-free-solid";
+import { faStreetView } from "@fortawesome/fontawesome-free-solid";
 
 const MAPBOXACCESSTOKEN =
     "pk.eyJ1IjoibG9uZ21haTEwNiIsImEiOiJjbDB4ajZ3cWwwOGxiM2lwajN2MG9kN2p1In0.4PE7Yoc48wF6IEmKGWT--Q";
@@ -153,12 +153,7 @@ function Mapbox(props) {
                         offsetLeft={-15}
                         offsetTop={-25}
                     >
-                        <FontAwesomeIcon
-                            icon={faCrosshairs}
-                            size="2x"
-                            color="rgb(192, 55, 55)"
-                            spin
-                        />
+                        <FontAwesomeIcon icon={faStreetView} size="2x" color="#E24F4F" />
                     </Marker>
                 ) : (
                     <></>
@@ -179,7 +174,7 @@ function Mapbox(props) {
                     style={{ position: "absolute", right: 10, bottom: 190 }}
                     title="Find My Choosen Location"
                 >
-                    Click me
+                    <FontAwesomeIcon icon={faStreetView} color="#E24F4F" />
                 </button>
 
                 {locateb && fullScreenFlag ? (

@@ -8,7 +8,7 @@ import SearchBar from "./SearchBar";
 const Header = () => {
     return (
         <div className="header">
-            <div className="container pt-2">
+            <div className="container pt-2 pb-2">
                 {/* <div className="row sign_in_header justify-content-end mr-1">
                     <div className="d-flex text-light">
                         <p className="pr-3 border-right border-light">Sign Up</p>
@@ -28,10 +28,12 @@ const Header = () => {
                             className="text-light icon-cart-shopping mr-4"
                             icon={faUser}
                         />
-                        <a href="/order"><FontAwesomeIcon
-                            className="text-light icon-cart-shopping"
-                            icon={faShoppingCart}
-                        /></a>
+                        <a href="/order">
+                            <FontAwesomeIcon
+                                className="text-light icon-cart-shopping"
+                                icon={faShoppingCart}
+                            />
+                        </a>
                     </div>
 
                     <button
@@ -45,48 +47,6 @@ const Header = () => {
                     >
                         <FontAwesomeIcon className="text-light" icon={faBars} />
                     </button>
-
-                    <div className="w-100">
-                        <nav className="navbar navbar-expand-md navbar-light p-0 m-1 w-100">
-                            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                                <div className="d-block d-md-none position-relative pl-2 pr-3">
-                                    <SearchBar />
-                                </div>
-                                <ul className="navbar-nav pl-3 pl-md-0 w-100 d-flex justify-content-around ">
-                                    <li className="nav-item active">
-                                        <a className="nav-link text-light" href="/table">
-                                            ALL
-                                        </a>
-                                    </li>
-                                    <li className="nav-item active">
-                                        <a className="nav-link text-light" href="/table">
-                                            TABLE
-                                        </a>
-                                    </li>
-                                    <li className="nav-item active">
-                                        <a className="nav-link text-light" href="/desk">
-                                            DESK
-                                        </a>
-                                    </li>
-                                    <li className="nav-item active">
-                                        <a className="nav-link text-light" href="/chair">
-                                            CHAIR
-                                        </a>
-                                    </li>
-                                    <li className="nav-item active">
-                                        <a className="nav-link text-light" href="/bedding">
-                                            BEDDING
-                                        </a>
-                                    </li>
-                                    <li className="nav-item active">
-                                        <a className="nav-link text-light" href="/import-design">
-                                            CUSTOM DESIGN
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
                 </div>
             </div>
         </div>
