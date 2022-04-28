@@ -9,13 +9,36 @@ function PopUpRating({ id, image, name, category }) {
     const [currentScore, setCurrentScore] = useState(0);
     const [hoverScore, setHoverScore] = useState(undefined);
     const [popUp, setPopUp] = useState(false);
-    let images=[];
-    
+    let images = [];
+
     function handleAddRating(e) {
         let score = currentScore;
-        let category = "5 stars";
+        let category = [];
+        switch (score) {
+            case 5:
+                category.push("5-star");
+                break;
+            case 4:
+                category.push("4-star");
+                break;
+            case 3:
+                category.push("3-star");
+                break;
+            case 2:
+                category.push("2-star");
+                break;
+            case 1:
+                category.push("1-star");
+                break;
+            default: break
+        }
         let description = document.getElementById("content-cmt").value;
-
+        if (description) {
+            category.push("comment");
+        }
+        if (images.length > 0) {
+            category.push("media");
+        }
         e.preventDefault();
         axios
             .post(`http://localhost:8000/products/${id}/ratings`, {
@@ -94,13 +117,16 @@ function PopUpRating({ id, image, name, category }) {
         const preview = document.querySelector(
             "#img-rating-upload-" + (index + 1)
         );
-        
+
         var file = document.querySelector("#input-img-rating").files[index];
         let blobURL = URL.createObjectURL(file);
         preview.style.display = "block";
         preview.style.backgroundImage = "url(" + blobURL.toString() + ")";
-        let image = JSON.stringify(file);
-        images.push(image);
+        const reader = new FileReader();
+        reader.onload = function () {
+            images.push(reader.result)
+        }
+        reader.readAsDataURL(file);
     }
     return (
         <div className="popup-rating-component">

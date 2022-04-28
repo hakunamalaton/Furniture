@@ -6,22 +6,47 @@ import listImageUser from "../dataRatingFake/imageUser.json";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 const axios = require("axios");
 
-
 function Rating({ id, averageScore }) {
     const [dataRating, setDataRating] = useState([]);
+    const [category, setCategory] = useState("");
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/products/${id}/ratings`)
+            .get(`http://localhost:8000/products/${id}/ratings${category}`)
             .then((res) => setDataRating(res.data.ratings))
             .catch((err) => console.error("Đây là lỗi: " + err));
-    }, [id]);
+    }, [id,category]);
 
     const [pick, setPick] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const countPage = 5;
-
     const handleClick = (props) => {
         setPick(props);
+        switch (props) {
+            case 0:
+                break;
+            case 1:
+                setCategory("?type=5-star")
+                break;
+            case 2:
+                setCategory("?type=4-star")
+                break;
+            case 3:
+                setCategory("?type=3-star")
+                break;
+            case 4:
+                setCategory("?type=2-star")
+                break;
+            case 5:
+                setCategory("?type=1-star")
+                break;
+            case 6:
+                setCategory("?type=comment")
+                break;
+            case 7:
+                setCategory("?type=media")
+                break;
+            default: break
+        }
     };
     const handleCurrentPage = (index, maxIndex) => {
         if (index === 0) {
@@ -107,6 +132,7 @@ function Rating({ id, averageScore }) {
             );
         }
     };
+
     const productRating = (item, index) => {
         return (
             <div
@@ -138,7 +164,7 @@ function Rating({ id, averageScore }) {
                             return (
                                 <img
                                     key={index}
-                                    src={`data:image/png;base64,${i}`}
+                                    src={`${i}`}
                                     className="img-fluid col-2 col-lg-1 p-0 m-1 border border-dark"
                                     alt={"Image product rating " + index}
                                 />
@@ -189,7 +215,24 @@ function Rating({ id, averageScore }) {
         }
     }
     function showNameReviewer(name) {
-        return (name ? name: "Incognito");
+        return name ? name : "Incognito";
+    }
+    function showAvgScore(score) {
+        return score ? (
+            <>
+                <div className="row align-items-end justify-content-center">
+                    <p className="rating-score mb-0">
+                        {showAvgScore(averageScore)}
+                    </p>
+                    <p className="rating-score-out-of mb-0">/ 5</p>
+                </div>
+                <div className="row rating-star justify-content-center">
+                    {starAvgScore(averageScore)}
+                </div>
+            </>
+        ) : (
+            <div className="text-warning font-weight-bold d-flex justify-content-center">No have review.</div>
+        );
     }
     return (
         <div className="rating-component">
@@ -201,17 +244,7 @@ function Rating({ id, averageScore }) {
                     <div className="d-block d-md-flex rating-overview py-4 border border-dark">
                         <div className="col-12 col-md-4 text-warning d-flex align-items-center">
                             <div className="col product-rating-score">
-                                <div className="row align-items-end justify-content-center">
-                                    <p className="rating-score mb-0">
-                                        {averageScore}
-                                    </p>
-                                    <p className="rating-score-out-of mb-0">
-                                        / 5
-                                    </p>
-                                </div>
-                                <div className="row rating-star justify-content-center">
-                                    {starAvgScore(averageScore)}
-                                </div>
+                                {showAvgScore(averageScore)}
                             </div>
                         </div>
                         <div className="col-12 col-md-8">

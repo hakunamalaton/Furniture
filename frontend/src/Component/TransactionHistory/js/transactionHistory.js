@@ -126,7 +126,7 @@ function TransactionHistory() {
                         </div>
                         <div className={`justify-content-center ${status === "Shipped" ? "d-flex" : "d-none"}`}>
                             <PopUpRating
-                            id = {item.id}
+                            id = {6}
                             image={item.image[0]}
                             name={item.name}
                             category={`${item.color}, ${item.size}`}

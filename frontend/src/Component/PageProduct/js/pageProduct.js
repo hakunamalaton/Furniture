@@ -8,18 +8,19 @@ import {
     faMinus,
     faPlus,
     faStar,
-    faCartShopping
+    faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 
 const axios = require("axios");
 
-function PageProduct({id=3}) {
-    const [dataProductDetail, setDataProductDetail] = useState([])
+function PageProduct({ id = 6 }) {
+    const [dataProductDetail, setDataProductDetail] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:8000/products/${id}`)
-            .then(res => setDataProductDetail(res.data))
-            .catch(err => console.error("Đây là lỗi: " + err));
-    }, [id])
+        axios
+            .get(`http://localhost:8000/products/${id}`)
+            .then((res) => setDataProductDetail(res.data))
+            .catch((err) => console.error("Đây là lỗi: " + err));
+    }, [id]);
     const [color, setColor] = useState("");
     const [pickColor, setPickColor] = useState(-1);
     const [pickSize, setPickSize] = useState(-1);
@@ -83,6 +84,18 @@ function PageProduct({id=3}) {
             </a>
         );
     }
+    function showStar(value) {
+        return value ? (
+            <>
+                {starAvgScore(dataProductDetail.avg_star)}
+                <div className="text-warning pl-2">
+                    {dataProductDetail.avg_star}
+                </div>
+            </>
+        ) : (
+            <div className="text-warning font-weight-bold">No have review.</div>
+        );
+    }
     return (
         <div className="page-product-component">
             <Header />
@@ -113,31 +126,34 @@ function PageProduct({id=3}) {
                             data-ride="carousel"
                         >
                             <div className="carousel-inner">
-                                {dataProductDetail.image && dataProductDetail.image.map((item, index) => {
-                                    return index === 0 ? (
-                                        <div
-                                            className="carousel-item active"
-                                            key={index}
-                                        >
-                                            <img
-                                                src={item}
-                                                className="d-block w-100"
-                                                alt="img-bed-1"
-                                            />
-                                        </div>
-                                    ) : (
-                                        <div
-                                            className="carousel-item"
-                                            key={index}
-                                        >
-                                            <img
-                                                src={item}
-                                                className="d-block w-100"
-                                                alt="img-bed-1"
-                                            />
-                                        </div>
-                                    );
-                                })}
+                                {dataProductDetail.image &&
+                                    dataProductDetail.image.map(
+                                        (item, index) => {
+                                            return index === 0 ? (
+                                                <div
+                                                    className="carousel-item active"
+                                                    key={index}
+                                                >
+                                                    <img
+                                                        src={item}
+                                                        className="d-block w-100"
+                                                        alt="img-bed-1"
+                                                    />
+                                                </div>
+                                            ) : (
+                                                <div
+                                                    className="carousel-item"
+                                                    key={index}
+                                                >
+                                                    <img
+                                                        src={item}
+                                                        className="d-block w-100"
+                                                        alt="img-bed-1"
+                                                    />
+                                                </div>
+                                            );
+                                        }
+                                    )}
                             </div>
                             <button
                                 className="carousel-control-prev"
@@ -168,36 +184,41 @@ function PageProduct({id=3}) {
                             className="list-img-product-small row justify-content-center py-2"
                             data-ride="carousel"
                         >
-                            {dataProductDetail.image && dataProductDetail.image.map((item, index) => {
-                                return (
-                                    <div className="col-2 px-1" key={index}>
-                                        <img
-                                            src={item}
-                                            className="d-block w-100 img-small border border-dark"
-                                            alt="img-small-bed-1"
-                                            data-target="#carousel-img-product"
-                                            data-slide-to={index}
-                                        />
-                                    </div>
-                                );
-                            })}
+                            {dataProductDetail.image &&
+                                dataProductDetail.image.map((item, index) => {
+                                    return (
+                                        <div className="col-2 px-1" key={index}>
+                                            <img
+                                                src={item}
+                                                className="d-block w-100 img-small border border-dark"
+                                                alt="img-small-bed-1"
+                                                data-target="#carousel-img-product"
+                                                data-slide-to={index}
+                                            />
+                                        </div>
+                                    );
+                                })}
                         </div>
                     </div>
                     <div className="product-info col-lg-6">
                         <div className="row product-name">
-                            <h5 className="font-weight-bold">{dataProductDetail.name}</h5>
+                            <h5 className="font-weight-bold">
+                                {dataProductDetail.name}
+                            </h5>
                         </div>
                         <div className="row product-rating-score align-items-center">
-                            {starAvgScore(dataProductDetail.avg_star)}
-                            <div className="text-warning pl-2">
-                                {dataProductDetail.avg_star}
-                            </div>
+                            {showStar(dataProductDetail.avg_star)}
                         </div>
                         <div className="row product-price font-weight-bold">
-                            <h4>$ {dataProductDetail.price}</h4>
+                            <h4>{dataProductDetail.price} USD</h4>
                         </div>
                         <div className="product-made-by row">
-                            Provide by {dataProductDetail.third_party && thirdPartyProduct(dataProductDetail.third_party)}.
+                            Provide by{" "}
+                            {dataProductDetail.third_party &&
+                                thirdPartyProduct(
+                                    dataProductDetail.third_party
+                                )}
+                            .
                         </div>
                         <div className="row d-block product-color">
                             <div className="product-color-selected d-flex">
@@ -208,44 +229,53 @@ function PageProduct({id=3}) {
                                 className="btn-group btn-group-toggle"
                                 data-toggle="buttons"
                             >
-                                {dataProductDetail.color && dataProductDetail.color.map((item, index) => {
-                                    const indexSeparator = item.indexOf("#");
-                                    const codeColor =
-                                        item.slice(indexSeparator);
-                                    const nameColor = item.slice(
-                                        0,
-                                        indexSeparator
-                                    );
-                                    return (
-                                        <label
-                                            key={index}
-                                            className="btn p-0 m-1 rounded-0"
-                                        >
-                                            <input
-                                                type="radio"
-                                                name="color"
-                                                id={"color" + (index + 1)}
-                                                onClick={() =>
-                                                    handleColor(
-                                                        nameColor,
-                                                        index
-                                                    )
-                                                }
-                                            />{" "}
-                                            <div
-                                                className="product-btn-color"
-                                                style={{
-                                                    backgroundColor: codeColor,
-                                                    border: "3px solid white",
-                                                    outline:
-                                                        pickColor === index
-                                                            ? "solid black"
-                                                            : "none",
-                                                }}
-                                            ></div>
-                                        </label>
-                                    );
-                                })}
+                                {dataProductDetail.color &&
+                                    dataProductDetail.color.map(
+                                        (item, index) => {
+                                            const indexSeparator =
+                                                item.indexOf("#");
+                                            const codeColor =
+                                                item.slice(indexSeparator);
+                                            const nameColor = item.slice(
+                                                0,
+                                                indexSeparator
+                                            );
+                                            return (
+                                                <label
+                                                    key={index}
+                                                    className="btn p-0 m-1 rounded-0"
+                                                >
+                                                    <input
+                                                        type="radio"
+                                                        name="color"
+                                                        id={
+                                                            "color" +
+                                                            (index + 1)
+                                                        }
+                                                        onClick={() =>
+                                                            handleColor(
+                                                                nameColor,
+                                                                index
+                                                            )
+                                                        }
+                                                    />{" "}
+                                                    <div
+                                                        className="product-btn-color"
+                                                        style={{
+                                                            backgroundColor:
+                                                                codeColor,
+                                                            // border: "3px solid white",
+                                                            outline:
+                                                                pickColor ===
+                                                                index
+                                                                    ? "solid black"
+                                                                    : "none",
+                                                        }}
+                                                    ></div>
+                                                </label>
+                                            );
+                                        }
+                                    )}
                             </div>
                         </div>
                         <div className="row d-block product-size">
@@ -257,53 +287,62 @@ function PageProduct({id=3}) {
                                 className="btn-group btn-group-toggle product-list-size row justify-content-start"
                                 data-toggle="buttons"
                             >
-                                {dataProductDetail.size && dataProductDetail.size.map((item, index) => {
-                                    const indexFirstSeparator =
-                                        item.indexOf("#");
-                                    const subItem = item.slice(
-                                        indexFirstSeparator + 1
-                                    );
-                                    const nameSize = item.slice(
-                                        0,
-                                        indexFirstSeparator
-                                    );
-                                    const indexSecondarySeparator =
-                                        subItem.indexOf("#");
-                                    const size = subItem.slice(
-                                        0,
-                                        indexSecondarySeparator
-                                    );
-                                    const weight = subItem.slice(
-                                        indexSecondarySeparator + 1
-                                    );
-                                    return (
-                                        <label
-                                            key={index}
-                                            className="btn p-0 m-1 rounded-0 col-5"
-                                        >
-                                            <input
-                                                type="radio"
-                                                name="size"
-                                                id={"size" + (index + 1)}
-                                                onClick={() =>
-                                                    handleSize(nameSize, index)
-                                                }
-                                            />{" "}
-                                            <div
-                                                className="product-btn-size"
-                                                style={{
-                                                    outline:
-                                                        pickSize === index
-                                                            ? "solid black"
-                                                            : "none",
-                                                }}
-                                            >
-                                                <p>{size}</p>
-                                                <p>{weight}</p>
-                                            </div>
-                                        </label>
-                                    );
-                                })}
+                                {dataProductDetail.size &&
+                                    dataProductDetail.size.map(
+                                        (item, index) => {
+                                            const indexFirstSeparator =
+                                                item.indexOf("#");
+                                            const subItem = item.slice(
+                                                indexFirstSeparator + 1
+                                            );
+                                            const nameSize = item.slice(
+                                                0,
+                                                indexFirstSeparator
+                                            );
+                                            const indexSecondarySeparator =
+                                                subItem.indexOf("#");
+                                            const size = subItem.slice(
+                                                0,
+                                                indexSecondarySeparator
+                                            );
+                                            const weight = subItem.slice(
+                                                indexSecondarySeparator + 1
+                                            );
+                                            return (
+                                                <label
+                                                    key={index}
+                                                    className="btn p-0 m-1 rounded-0 col-5"
+                                                >
+                                                    <input
+                                                        type="radio"
+                                                        name="size"
+                                                        id={
+                                                            "size" + (index + 1)
+                                                        }
+                                                        onClick={() =>
+                                                            handleSize(
+                                                                nameSize,
+                                                                index
+                                                            )
+                                                        }
+                                                    />{" "}
+                                                    <div
+                                                        className="product-btn-size"
+                                                        style={{
+                                                            outline:
+                                                                pickSize ===
+                                                                index
+                                                                    ? "solid black"
+                                                                    : "none",
+                                                        }}
+                                                    >
+                                                        <p>{size}</p>
+                                                        <p>{weight}</p>
+                                                    </div>
+                                                </label>
+                                            );
+                                        }
+                                    )}
                             </div>
                         </div>
                         <div className="product-quantity pt-2 d-flex col-md-10 col-lg-12 pl-0">
@@ -351,14 +390,6 @@ function PageProduct({id=3}) {
                                         className="pr-2 icon-cart"
                                     />
                                     Add to Cart
-                                </button>
-                            </div>
-                            <div className="">
-                                <button
-                                    type="submit"
-                                    className="btn btn-buy-now"
-                                >
-                                    Buy Now
                                 </button>
                             </div>
                         </div>
@@ -418,15 +449,18 @@ function PageProduct({id=3}) {
                                 }
                             >
                                 <ul>
-                                    {dataProductDetail.overview && dataProductDetail.overview.map((item, index) => (
-                                        <li key={index}>{item}</li>
-                                    ))}
+                                    {dataProductDetail.overview &&
+                                        dataProductDetail.overview.map(
+                                            (item, index) => (
+                                                <li key={index}>{item}</li>
+                                            )
+                                        )}
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <Rating id = {id} averageScore = {dataProductDetail.avg_star} />
+                <Rating id={id} averageScore={dataProductDetail.avg_star} />
             </div>
             <Footer />
         </div>
