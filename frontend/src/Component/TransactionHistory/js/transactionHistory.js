@@ -10,7 +10,7 @@ const axios = require("axios");
 function TransactionHistory() {
     const [dataOrderList, setDataOrderList] = useState([]);
     const [dataOrderDetailList, setDataOrderDetailList] = useState([]);
-    const [dataDetailList, setDataDetailList] = useState([]);
+
     useEffect(() => {
         axios
             .get(`http://localhost:8000/users/3/orders`)
@@ -21,49 +21,33 @@ function TransactionHistory() {
     }, []);
 
     useEffect(() => {
-        let len = dataOrderList.length;
-        let arrOrder = [];
-        for (let i = 0; i < len; i++) {
+        for (const key in dataOrderList) {
             axios
-                .get(`http://localhost:8000/orders/${dataOrderList[i]}`)
+                .get(`http://localhost:8000/orders/${dataOrderList[key]}`)
                 .then((res) => {
-                    arrOrder.push(res.data);
-                    setDataOrderDetailList(() => [...arrOrder]);
+                    setDataOrderDetailList(prev => [...prev, res.data]);
                 })
                 .catch((err) => console.error("Đây là lỗi: " + err));
         }
     }, [dataOrderList]);
-    useEffect(() => {
-        let listOrder = dataOrderDetailList;
-        let lenOrder = listOrder.length;
-        let arr1 = [];
-        for (let i = 0; i < lenOrder; i++) {
-            let listProduct = listOrder[i].detail_information;
-            let lenProduct = listProduct.length;
-            let arr2 = [];
-            for (let k = 0; k < lenProduct; k++) {
-                axios
-                    .get(
-                        `http://localhost:8000/products/${listProduct[k].product_id}`
-                    )
-                    .then((res) => {
-                        arr2.push({
-                            ...res.data,
-                            size: listProduct[k].size,
-                            color: listProduct[k].color,
-                            quantity: listProduct[k].quantity,
-                        });
-                    })
-                    .catch((err) => console.error("Đây là lỗi: " + err));
-            }
-            arr1.push({order: listOrder[i].order, product: arr2})
-        }
-        setDataDetailList([...arr1])
-    }, [dataOrderDetailList]);
-    console.log(dataDetailList)
     const [pick, setPick] = useState(0);
+    const [category, setCategory] = useState("");
     const handleFilter = (index) => {
         setPick(index);
+        switch (index) {
+            case 0:
+                break;
+            case 1:
+                setCategory("?status=Payed")
+                break;
+            case 2:
+                setCategory("?status=Shipped")
+                break;
+            case 3:
+                setCategory("?status=Cancel")
+                break;
+            default: break
+        }
     };
     const infoOrder = (item, index) => {
         return (
@@ -115,8 +99,8 @@ function TransactionHistory() {
                     </div>
                 </div>
                 <div className={style.transBody_infoProduct}>
-                    {item.product &&
-                        showListProduct(item.product, item.order.status)}
+                    {item.detail_information &&
+                        showListProduct(item.detail_information, item.order.status, item.order.id)}
                 </div>
                 <div className={`d-flex justify-content-end`}>
                     <div className="col-6 d-flex justify-content-end p-1">
@@ -135,44 +119,44 @@ function TransactionHistory() {
             </div>
         );
     };
-    function infoProduct(status, item, index) {
+    function infoProduct(idOrder, status, item, index) {
         return (
-            // <div key={index} className="row col-12 m-1">
-            //     <div className="col-2">
-            //         <img
-            //             src={item.image[0]}
-            //             className="img-fluid p-1"
-            //             alt="img-product"
-            //         />
-            //     </div>
-            //     <div className="col-10 d-flex justify-content-between">
-            //         <div className="col-10">
-            //             <div className="row font-weight-bold">{item.name}</div>
-            //             <div className="row text-secondary">
-            //                 {`Category: ${item.color}, ${item.size}`}
-            //             </div>
-            //             <div className="row">{`Quantity: ${item.quantity}`}</div>
-            //         </div>
-            //         <div className="col-2 d-block">
-            //             <div className="d-flex justify-content-center align-items-center">
-            //                 {`${item.price} USD`}
-            //             </div>
-            //             <div
-            //                 className={`justify-content-center ${
-            //                     status === "Shipped" ? "d-flex" : "d-none"
-            //                 }`}
-            //             >
-            //                 <PopUpRating
-            //                     id={item.id}
-            //                     image={item.image[0]}
-            //                     name={item.name}
-            //                     category={`${item.color}, ${item.size}`}
-            //                 />
-            //             </div>
-            //         </div>
-            //     </div>
-            // </div>
-            <div>a</div>
+            <div key={index} className="row col-12 m-1">
+                <div className="col-2">
+                    <img
+                        src={item.image ?? item.image}
+                        className="img-fluid p-1"
+                        alt="img-product"
+                    />
+                </div>
+                <div className="col-10 d-flex justify-content-between">
+                    <div className="col-10">
+                        <div className="row font-weight-bold">{item.name}</div>
+                        <div className="row text-secondary">
+                            {`Category: ${item.color}, ${item.size}`}
+                        </div>
+                        <div className="row">{`Quantity: ${item.quantity}`}</div>
+                    </div>
+                    <div className="col-2 d-block">
+                        <div className="d-flex justify-content-center align-items-center">
+                            {`${item.price} USD`}
+                        </div>
+                        <div
+                            className={`justify-content-center ${
+                                status === "Shipped" ? "d-flex" : "d-none"
+                            }`}
+                        >
+                            <PopUpRating
+                                id={item.id}
+                                idOrder = {idOrder}
+                                image={item.image}
+                                name={item.name}
+                                category={`${item.color}, ${item.size}`}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
         );
     }
     const categories = (item, index) => {
@@ -199,7 +183,7 @@ function TransactionHistory() {
             return array.map(infoOrder);
         }
     }
-    function showListProduct(array, status) {
+    function showListProduct(array, status, idOrder) {
         console.log(array)
         if (array.length === 0) {
             return (
@@ -209,7 +193,7 @@ function TransactionHistory() {
             );
         } else {
             return array.map((product, index) => {
-                return infoProduct(status, product, index);
+                return infoProduct(idOrder, status, product, index);
             });
         }
     }
@@ -230,7 +214,7 @@ function TransactionHistory() {
                     </div>
                 </div>
                 <div className="transBody">
-                    {showListOrder(dataDetailList)}
+                    {showListOrder(dataOrderDetailList)}
                 </div>
             </div>
             <Footer />

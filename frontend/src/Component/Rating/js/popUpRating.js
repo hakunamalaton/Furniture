@@ -5,7 +5,7 @@ import "../css/popUpRating.css";
 import { faCamera, faStar } from "@fortawesome/free-solid-svg-icons";
 const axios = require("axios");
 
-function PopUpRating({ id, image, name, category }) {
+function PopUpRating({ idOrder, id, image, name, category }) {
     const [currentScore, setCurrentScore] = useState(0);
     const [hoverScore, setHoverScore] = useState(undefined);
     const [popUp, setPopUp] = useState(false);
@@ -30,7 +30,8 @@ function PopUpRating({ id, image, name, category }) {
             case 1:
                 category.push("1-star");
                 break;
-            default: break
+            default:
+                break;
         }
         let description = document.getElementById("content-cmt").value;
         if (description) {
@@ -54,7 +55,16 @@ function PopUpRating({ id, image, name, category }) {
             .catch(function (error) {
                 console.log(error);
             });
-
+        axios
+            .patch(`http://localhost:8000/orders/${idOrder}`, {
+                status: "Evaluated"
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         window.location.href = "/transaction-history";
     }
 
@@ -124,8 +134,8 @@ function PopUpRating({ id, image, name, category }) {
         preview.style.backgroundImage = "url(" + blobURL.toString() + ")";
         const reader = new FileReader();
         reader.onload = function () {
-            images.push(reader.result)
-        }
+            images.push(reader.result);
+        };
         reader.readAsDataURL(file);
     }
     return (
