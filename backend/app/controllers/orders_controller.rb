@@ -107,7 +107,7 @@ class OrdersController < ApplicationController
         code: 0,
         email: email,
         order: new_order,
-        products: new_order.products,
+        product_ids: new_order.products.ids,  # change more detail into ids
         quantity: params[:quantity],
         size: params[:size],
         color: params[:color]
