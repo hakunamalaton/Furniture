@@ -4945,3 +4945,1206 @@ Processing by OrdersController#show as */*
 Completed 200 OK in 342ms (Views: 1.8ms | ActiveRecord: 26.5ms | Allocations: 22775)
 
 
+Started POST "/products" for ::1 at 2022-04-29 21:31:42 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (5.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Modern Pio fabric bed 1m6 color 10/WV094", "image"=>["https://i.imgur.com/wPaj0Us.png", "https://i.imgur.com/YHkNZTp.jpg", "https://i.imgur.com/Le6Xxk5.jpg"], "price"=>1200, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Silver#C0C0C0"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb"], "description"=>"Bed upholstered with Pio fabric 1m6 color 10/WV094 is designed completely upholstered with solid beech wood frame. The details at the head of the bed, the pillow at the head of the bed help it become fancy and impressive. Using slim legs makes your bedroom more airy and elegant. Pio bed is a bright choice for Nordic- Modern bedroom space, with 2 sizes to choose from: 1m6, 1m8, with different fabric colors to choose from.", "category"=>"Bedding", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (12.0ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Modern Pio fabric bed 1m6 color 10/WV094"], ["image", "{https://i.imgur.com/wPaj0Us.png,https://i.imgur.com/YHkNZTp.jpg,https://i.imgur.com/Le6Xxk5.jpg}"], ["description", "Bed upholstered with Pio fabric 1m6 color 10/WV094 is designed completely upholstered with solid beech wood frame. The details at the head of the bed, the pillow at the head of the bed help it become fancy and impressive. Using slim legs makes your bedroom more airy and elegant. Pio bed is a bright choice for Nordic- Modern bedroom space, with 2 sizes to choose from: 1m6, 1m8, with different fabric colors to choose from."], ["price", 1200], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{Silver#C0C0C0}"], ["size", "{\"Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb\",\"King Size# 39.5'' H x 78.5'' W x 84.5'' L#95.5 lb\"}"], ["overview", "{\"Headboard Included\",\"Footboard Included\",\"Center Supports Included\",\"Warranty Length: 1 Year\"}"], ["category", "Bedding"], ["created_at", "2022-04-29 14:31:42.886572"], ["updated_at", "2022-04-29 14:31:42.886572"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 61ms (Views: 1.1ms | ActiveRecord: 32.7ms | Allocations: 16144)
+
+
+Started POST "/products" for ::1 at 2022-04-29 21:34:51 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Miami bed 1m8 upholstered with Dolce fabric 160", "image"=>["https://i.imgur.com/PYFD5NI.png", "https://i.imgur.com/Q9AqyAQ.jpg", "https://i.imgur.com/37Tjcrg.jpg"], "price"=>1500, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Darkgray#A9A9A9"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb"], "description"=>"The Miami upholstered bed uses white Oak imported from the US and high-grade moisture-resistant MDF to create a solid product. Thanks to the warm tone of wood, the Miami bed brings a harmony, typical of Nordic interior style.", "category"=>"Bedding", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1.5 Years"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (3.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Miami bed 1m8 upholstered with Dolce fabric 160"], ["image", "{https://i.imgur.com/PYFD5NI.png,https://i.imgur.com/Q9AqyAQ.jpg,https://i.imgur.com/37Tjcrg.jpg}"], ["description", "The Miami upholstered bed uses white Oak imported from the US and high-grade moisture-resistant MDF to create a solid product. Thanks to the warm tone of wood, the Miami bed brings a harmony, typical of Nordic interior style."], ["price", 1500], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{Darkgray#A9A9A9}"], ["size", "{\"Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb\"}"], ["overview", "{\"Headboard Included\",\"Footboard Included\",\"Center Supports Included\",\"Warranty Length: 1.5 Years\"}"], ["category", "Bedding"], ["created_at", "2022-04-29 14:34:51.582142"], ["updated_at", "2022-04-29 14:34:51.582142"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 15ms (Views: 0.5ms | ActiveRecord: 4.4ms | Allocations: 2940)
+
+
+Started POST "/products" for ::1 at 2022-04-29 21:39:30 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Maxine wooden bed", "image"=>["https://i.imgur.com/wnIV4bA.png", "https://i.imgur.com/aVBWoGV.jpg", "https://i.imgur.com/ZgcvIQs.jpg", "https://i.imgur.com/FsWEkHe.jpg"], "price"=>2500, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["SaddleBrown#8B4513"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb"], "description"=>"The Miami upholstered bed uses white Oak imported from the US and high-grade moisture-resistant MDF to create a solid product. Thanks to the warm tone of wood, the Miami bed brings a harmony, typical of Nordic interior style.", "category"=>"Bedding", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 2 Years"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Maxine wooden bed"], ["image", "{https://i.imgur.com/wnIV4bA.png,https://i.imgur.com/aVBWoGV.jpg,https://i.imgur.com/ZgcvIQs.jpg,https://i.imgur.com/FsWEkHe.jpg}"], ["description", "The Miami upholstered bed uses white Oak imported from the US and high-grade moisture-resistant MDF to create a solid product. Thanks to the warm tone of wood, the Miami bed brings a harmony, typical of Nordic interior style."], ["price", 2500], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{SaddleBrown#8B4513}"], ["size", "{\"Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb\"}"], ["overview", "{\"Headboard Included\",\"Footboard Included\",\"Center Supports Included\",\"Warranty Length: 2 Years\"}"], ["category", "Bedding"], ["created_at", "2022-04-29 14:39:30.858441"], ["updated_at", "2022-04-29 14:39:30.858441"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 14ms (Views: 0.5ms | ActiveRecord: 1.2ms | Allocations: 2691)
+
+
+Started POST "/products" for ::1 at 2022-04-29 21:43:34 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Mushroom Rattan Leather Bed", "image"=>["https://i.imgur.com/0Uw40Ni.png", "https://i.imgur.com/GSICxiS.jpg", "https://i.imgur.com/NmEnxPa.jpg"], "price"=>2000, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Sienna#A0522D"], "size"=>["Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb", "Queen Size#42.5'' H x 55.5'' W x 80.5'' L# 80 lb"], "description"=>"The Rattan leather bed is a combination of the main body made of Melaleuca wood, upholstered with leather and accented with rattan material for the headboard. Deep colors make the bedroom space cozy and closer. Rattan bed has 2 sizes full size and queen size.", "category"=>"Bedding", "overview"=>["Headboard Included", "Footboard Included", "Center Supports Included", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (3.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Mushroom Rattan Leather Bed"], ["image", "{https://i.imgur.com/0Uw40Ni.png,https://i.imgur.com/GSICxiS.jpg,https://i.imgur.com/NmEnxPa.jpg}"], ["description", "The Rattan leather bed is a combination of the main body made of Melaleuca wood, upholstered with leather and accented with rattan material for the headboard. Deep colors make the bedroom space cozy and closer. Rattan bed has 2 sizes full size and queen size."], ["price", 2000], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{Sienna#A0522D}"], ["size", "{\"Full Size#42.5'' H x 58.5'' W x 80.5'' L# 83.5 lb\",\"Queen Size#42.5'' H x 55.5'' W x 80.5'' L# 80 lb\"}"], ["overview", "{\"Headboard Included\",\"Footboard Included\",\"Center Supports Included\",\"Warranty Length: 1 Year\"}"], ["category", "Bedding"], ["created_at", "2022-04-29 14:43:34.423620"], ["updated_at", "2022-04-29 14:43:34.423620"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 16ms (Views: 0.8ms | ActiveRecord: 4.1ms | Allocations: 2636)
+
+
+Started GET "/products/6/ratings" for ::1 at 2022-04-29 21:45:22 +0700
+Started GET "/products/6" for ::1 at 2022-04-29 21:45:22 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"6"}
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProduct Load (4.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (5.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 6]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:102:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:102:in `block in show_ratings'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:102:in `block in show_ratings'
+Completed 200 OK in 126ms (Views: 0.5ms | ActiveRecord: 17.7ms | Allocations: 21183)
+
+
+  [1m[36mProduct Load (3.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 135ms (Views: 4.2ms | ActiveRecord: 16.5ms | Allocations: 22131)
+
+
+Started GET "/products/6/ratings?type=5-star" for ::1 at 2022-04-29 21:45:29 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"type"=>"5-star", "id"=>"6"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (3.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 6]]
+  ↳ app/controllers/products_controller.rb:95:in `show_ratings'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:102:in `block in show_ratings'
+Completed 200 OK in 17ms (Views: 0.4ms | ActiveRecord: 4.5ms | Allocations: 2182)
+
+
+Started GET "/products/6/ratings?type=4-star" for ::1 at 2022-04-29 21:45:31 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"type"=>"4-star", "id"=>"6"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 6]]
+  ↳ app/controllers/products_controller.rb:95:in `show_ratings'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 1480)
+
+
+Started GET "/products/6/ratings?type=2-star" for ::1 at 2022-04-29 21:45:33 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"type"=>"2-star", "id"=>"6"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 6]]
+  ↳ app/controllers/products_controller.rb:95:in `show_ratings'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:102:in `block in show_ratings'
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 2147)
+
+
+Started GET "/products/7/ratings" for ::1 at 2022-04-29 21:45:48 +0700
+Started GET "/products/7" for ::1 at 2022-04-29 21:45:48 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.7ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 7]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 16ms (Views: 0.5ms | ActiveRecord: 1.5ms | Allocations: 1429)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 23ms (Views: 12.2ms | ActiveRecord: 0.5ms | Allocations: 963)
+
+
+Started GET "/products/8" for ::1 at 2022-04-29 21:46:00 +0700
+Started GET "/products/8/ratings" for ::1 at 2022-04-29 21:46:00 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 11ms (Views: 1.6ms | ActiveRecord: 1.1ms | Allocations: 1010)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 8]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 12ms (Views: 0.9ms | ActiveRecord: 1.0ms | Allocations: 1336)
+
+
+Started GET "/products/9/ratings" for ::1 at 2022-04-29 21:46:14 +0700
+Started GET "/products/9" for ::1 at 2022-04-29 21:46:14 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 9]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 12ms (Views: 0.8ms | ActiveRecord: 0.9ms | Allocations: 1409)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 8ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 963)
+
+
+Started GET "/products/10/ratings" for ::1 at 2022-04-29 21:46:24 +0700
+Started GET "/products/10" for ::1 at 2022-04-29 21:46:24 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 10]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1403)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 963)
+
+
+Started GET "/products/10" for ::1 at 2022-04-29 21:46:38 +0700
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"10"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 11ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 968)
+
+
+Started GET "/products/10/ratings" for ::1 at 2022-04-29 21:46:43 +0700
+Started GET "/products/10" for ::1 at 2022-04-29 21:46:43 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 10]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1403)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 963)
+
+
+Started POST "/products" for ::1 at 2022-04-29 23:53:39 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Modern 2.5 seater Jazz sofa in cognac leather", "image"=>["https://i.imgur.com/D7bPqWm.png", "https://i.imgur.com/ZnzKY0K.jpg", "https://i.imgur.com/C7BShDv.jpg", "https://i.imgur.com/i0Z0NA1.jpg", "https://i.imgur.com/HJ62BuO.jpg"], "price"=>300, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Maroon#800000"], "size"=>["Large Size#29.5'' H x 66.1'' W x 33.1'' L#60.6 lb."], "description"=>"The 2.5-seat Jazz sofa is covered by high-quality cowhide, providing a wonderfully soft, smooth and relaxing feeling. Modern design with unique beauty from elegant shapes, delicate lines is the biggest plus point of Jazz sofa.", "category"=>"Sofas", "overview"=>["Solid Wood", "Adjustable Recline", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (9.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Modern 2.5 seater Jazz sofa in cognac leather"], ["image", "{https://i.imgur.com/D7bPqWm.png,https://i.imgur.com/ZnzKY0K.jpg,https://i.imgur.com/C7BShDv.jpg,https://i.imgur.com/i0Z0NA1.jpg,https://i.imgur.com/HJ62BuO.jpg}"], ["description", "The 2.5-seat Jazz sofa is covered by high-quality cowhide, providing a wonderfully soft, smooth and relaxing feeling. Modern design with unique beauty from elegant shapes, delicate lines is the biggest plus point of Jazz sofa."], ["price", 300], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{Maroon#800000}"], ["size", "{\"Large Size#29.5'' H x 66.1'' W x 33.1'' L#60.6 lb.\"}"], ["overview", "{\"Solid Wood\",\"Adjustable Recline\",\"Warranty Length: 1 Year\"}"], ["category", "Sofas"], ["created_at", "2022-04-29 16:53:41.545566"], ["updated_at", "2022-04-29 16:53:41.545566"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 172ms (Views: 1.6ms | ActiveRecord: 27.8ms | Allocations: 16237)
+
+
+Started POST "/products" for ::1 at 2022-04-29 23:57:51 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"3 seater sofa PENNY", "image"=>["https://i.imgur.com/BUmuFdN.png", "https://i.imgur.com/Lj8mPjG.jpg", "https://i.imgur.com/gC9UxcV.jpg", "https://i.imgur.com/i0Z0NA1.jpg", "https://i.imgur.com/lSmrYkS.jpg", "https://i.imgur.com/C2qh8al.jpg"], "price"=>600, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["OliveDrab#6B8E23", "PeachPuff#FFDAB9", "Salmon#FA8072"], "size"=>["Large Size#30.5'' H x 70.1'' W x 33.1'' L#70.6 lb."], "description"=>"Simplicity, sophistication, elegance and no less outstanding features of this sofa bearing the eternal blood of Scandivian with color versions from dark to light in turn with Pastel on will bring unmistakable colors and variety for each living space in your home. The square, slim design is a blend of solidity and lightness that are all the essential elements that converge in this sofa.", "category"=>"Sofas", "overview"=>["Adjustable Recline", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "3 seater sofa PENNY"], ["image", "{https://i.imgur.com/BUmuFdN.png,https://i.imgur.com/Lj8mPjG.jpg,https://i.imgur.com/gC9UxcV.jpg,https://i.imgur.com/i0Z0NA1.jpg,https://i.imgur.com/lSmrYkS.jpg,https://i.imgur.com/C2qh8al.jpg}"], ["description", "Simplicity, sophistication, elegance and no less outstanding features of this sofa bearing the eternal blood of Scandivian with color versions from dark to light in turn with Pastel on will bring unmistakable colors and variety for each living space in your home. The square, slim design is a blend of solidity and lightness that are all the essential elements that converge in this sofa."], ["price", 600], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{OliveDrab#6B8E23,PeachPuff#FFDAB9,Salmon#FA8072}"], ["size", "{\"Large Size#30.5'' H x 70.1'' W x 33.1'' L#70.6 lb.\"}"], ["overview", "{\"Adjustable Recline\",\"Warranty Length: 1 Year\"}"], ["category", "Sofas"], ["created_at", "2022-04-29 16:57:51.973200"], ["updated_at", "2022-04-29 16:57:51.973200"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 18ms (Views: 1.1ms | ActiveRecord: 2.5ms | Allocations: 2923)
+
+
+Started POST "/products" for ::1 at 2022-04-30 00:00:26 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"OSAKA 3-seat sofa", "image"=>["https://i.imgur.com/r0GBskt.png", "https://i.imgur.com/OHCyONq.jpg", "https://i.imgur.com/Chbb4MA.jpg", "https://i.imgur.com/mBsBWWp.jpg", "https://i.imgur.com/FNGng4P.jpg", "https://i.imgur.com/Pbjcx6y.jpg"], "price"=>1000, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["PapayaWhip#FFEFD5"], "size"=>["Large Size#30.5'' H x 70.1'' W x 33.1'' L#70.6 lb."], "description"=>"Simplicity, sophistication, elegance and no less outstanding features of this sofa bearing the eternal blood of Scandivian with color versions from dark to light in turn with Pastel on will bring unmistakable colors and variety for each living space in your home. The square, slim design is a blend of solidity and lightness that are all the essential elements that converge in this sofa.", "category"=>"Sofas", "overview"=>["Adjustable Recline", "Warranty Length: 2 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (2.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "OSAKA 3-seat sofa"], ["image", "{https://i.imgur.com/r0GBskt.png,https://i.imgur.com/OHCyONq.jpg,https://i.imgur.com/Chbb4MA.jpg,https://i.imgur.com/mBsBWWp.jpg,https://i.imgur.com/FNGng4P.jpg,https://i.imgur.com/Pbjcx6y.jpg}"], ["description", "Simplicity, sophistication, elegance and no less outstanding features of this sofa bearing the eternal blood of Scandivian with color versions from dark to light in turn with Pastel on will bring unmistakable colors and variety for each living space in your home. The square, slim design is a blend of solidity and lightness that are all the essential elements that converge in this sofa."], ["price", 1000], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{PapayaWhip#FFEFD5}"], ["size", "{\"Large Size#30.5'' H x 70.1'' W x 33.1'' L#70.6 lb.\"}"], ["overview", "{\"Adjustable Recline\",\"Warranty Length: 2 Year\"}"], ["category", "Sofas"], ["created_at", "2022-04-29 17:00:26.884488"], ["updated_at", "2022-04-29 17:00:26.884488"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 21ms (Views: 0.8ms | ActiveRecord: 3.7ms | Allocations: 2686)
+
+
+Started POST "/products" for ::1 at 2022-04-30 00:03:40 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Modern 3-seat Bridge Sofa", "image"=>["https://i.imgur.com/OZB8fIn.png", "https://i.imgur.com/PZOF977.jpg", "https://i.imgur.com/YT8GfEX.jpg", "https://i.imgur.com/iCttfLn.jpg", "https://i.imgur.com/IhvkdMM.jpg", "https://i.imgur.com/0UM9Dka.jpg"], "price"=>900, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["White#FFFFFF", "Black#000000"], "size"=>["Large Size#30.5'' H x 70.1'' W x 33.1'' L#70.6 lb."], "description"=>"With a timeless design, using solid oak and natural cowhide, the Bridge sofa is a classy highlight in your living room. In particular, the exquisitely finished armrests combined with extremely solid texture help the Bridge sofa create a feeling of closeness, naturalness and comfort when used. It comes in light and deep oak finishes and a variety of skin tones to choose from. Sofa Bridge 3 seats is a bright choice for Nordic interior style.", "category"=>"Sofas", "overview"=>["Adjustable Recline", "Warranty Length: 1.5 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (1.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Modern 3-seat Bridge Sofa"], ["image", "{https://i.imgur.com/OZB8fIn.png,https://i.imgur.com/PZOF977.jpg,https://i.imgur.com/YT8GfEX.jpg,https://i.imgur.com/iCttfLn.jpg,https://i.imgur.com/IhvkdMM.jpg,https://i.imgur.com/0UM9Dka.jpg}"], ["description", "With a timeless design, using solid oak and natural cowhide, the Bridge sofa is a classy highlight in your living room. In particular, the exquisitely finished armrests combined with extremely solid texture help the Bridge sofa create a feeling of closeness, naturalness and comfort when used. It comes in light and deep oak finishes and a variety of skin tones to choose from. Sofa Bridge 3 seats is a bright choice for Nordic interior style."], ["price", 900], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{White#FFFFFF,Black#000000}"], ["size", "{\"Large Size#30.5'' H x 70.1'' W x 33.1'' L#70.6 lb.\"}"], ["overview", "{\"Adjustable Recline\",\"Warranty Length: 1.5 Year\"}"], ["category", "Sofas"], ["created_at", "2022-04-29 17:03:40.740297"], ["updated_at", "2022-04-29 17:03:40.740297"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 14ms (Views: 0.7ms | ActiveRecord: 2.7ms | Allocations: 2695)
+
+
+Started POST "/products" for ::1 at 2022-04-30 00:06:29 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Elegance 3-seater sofa in natural color", "image"=>["https://i.imgur.com/9IyaQIs.png", "https://i.imgur.com/6SuZ828.jpg", "https://i.imgur.com/Y9g4V2k.jpg", "https://i.imgur.com/d8gFwwm.jpg"], "price"=>850, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Sienna#A0522D", "DarkGreen#006400", "DarkOliveGreen#556B2F"], "size"=>["Large Size#30.5'' H x 70.1'' W x 33.1'' L#70.6 lb."], "description"=>"With a timeless design, using solid oak and natural cowhide, the Bridge sofa is a classy highlight in your living room. In particular, the exquisitely finished armrests combined with extremely solid texture help the Bridge sofa create a feeling of closeness, naturalness and comfort when used. It comes in light and deep oak finishes and a variety of skin tones to choose from. Sofa Bridge 3 seats is a bright choice for Nordic interior style.", "category"=>"Sofas", "overview"=>["Adjustable Recline", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (13.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Elegance 3-seater sofa in natural color"], ["image", "{https://i.imgur.com/9IyaQIs.png,https://i.imgur.com/6SuZ828.jpg,https://i.imgur.com/Y9g4V2k.jpg,https://i.imgur.com/d8gFwwm.jpg}"], ["description", "With a timeless design, using solid oak and natural cowhide, the Bridge sofa is a classy highlight in your living room. In particular, the exquisitely finished armrests combined with extremely solid texture help the Bridge sofa create a feeling of closeness, naturalness and comfort when used. It comes in light and deep oak finishes and a variety of skin tones to choose from. Sofa Bridge 3 seats is a bright choice for Nordic interior style."], ["price", 850], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{Sienna#A0522D,DarkGreen#006400,DarkOliveGreen#556B2F}"], ["size", "{\"Large Size#30.5'' H x 70.1'' W x 33.1'' L#70.6 lb.\"}"], ["overview", "{\"Adjustable Recline\",\"Warranty Length: 1 Year\"}"], ["category", "Sofas"], ["created_at", "2022-04-29 17:06:29.130613"], ["updated_at", "2022-04-29 17:06:29.130613"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 23ms (Views: 0.5ms | ActiveRecord: 14.3ms | Allocations: 2685)
+
+
+Started GET "/products/10" for ::1 at 2022-04-30 00:06:52 +0700
+Started GET "/products/10/ratings" for ::1 at 2022-04-30 00:06:52 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"10"}
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mProduct Load (3.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 36ms (Views: 1.4ms | ActiveRecord: 3.5ms | Allocations: 4048)
+
+
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (4.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 10]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 69ms (Views: 0.2ms | ActiveRecord: 6.5ms | Allocations: 6702)
+
+
+Started GET "/products/11/ratings" for ::1 at 2022-04-30 00:07:04 +0700
+Started GET "/products/11" for ::1 at 2022-04-30 00:07:04 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 11]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 18ms (Views: 0.4ms | ActiveRecord: 1.2ms | Allocations: 1447)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 11ms (Views: 1.3ms | ActiveRecord: 0.6ms | Allocations: 995)
+
+
+Started GET "/products/12" for ::1 at 2022-04-30 00:07:13 +0700
+Started GET "/products/12/ratings" for ::1 at 2022-04-30 00:07:13 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 1035)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 12]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1336)
+
+
+Started GET "/products/13" for ::1 at 2022-04-30 00:07:32 +0700
+Started GET "/products/13/ratings" for ::1 at 2022-04-30 00:07:32 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 9ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 1014)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 13]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 1336)
+
+
+Started GET "/products/14" for ::1 at 2022-04-30 00:07:39 +0700
+Started GET "/products/14/ratings" for ::1 at 2022-04-30 00:07:39 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 7ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 1020)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.9ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 14]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 1337)
+
+
+Started GET "/products/15" for ::1 at 2022-04-30 00:07:45 +0700
+Started GET "/products/15/ratings" for ::1 at 2022-04-30 00:07:45 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 1015)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1336)
+
+
+Started GET "/products/15/ratings" for ::1 at 2022-04-30 00:07:52 +0700
+Started GET "/products/15" for ::1 at 2022-04-30 00:07:52 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 15]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 1403)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 962)
+
+
+Started POST "/products" for ::1 at 2022-04-30 00:21:06 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Armchair String Gold", "image"=>["https://i.imgur.com/Twk2AbY.png", "https://i.imgur.com/8lOlyHA.jpg", "https://i.imgur.com/ooshtwq.jpg", "https://i.imgur.com/aLTrIaW.jpg"], "price"=>450, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Gold#FFD700"], "size"=>["Large Size#28.25'' H x 26.5'' W x 24.25'' D#22.3 lb."], "description"=>"The Armchair is specially designed with the highlight of the knitted armrest to bring Retro style to your living room.", "category"=>"Chair", "overview"=>["Seat Depth: Shallow", "Seat Height (Inches): 18", "Weight Capacity (lbs): 250", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (12.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Armchair String Gold"], ["image", "{https://i.imgur.com/Twk2AbY.png,https://i.imgur.com/8lOlyHA.jpg,https://i.imgur.com/ooshtwq.jpg,https://i.imgur.com/aLTrIaW.jpg}"], ["description", "The Armchair is specially designed with the highlight of the knitted armrest to bring Retro style to your living room."], ["price", 450], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{Gold#FFD700}"], ["size", "{\"Large Size#28.25'' H x 26.5'' W x 24.25'' D#22.3 lb.\"}"], ["overview", "{\"Seat Depth: Shallow\",\"Seat Height (Inches): 18\",\"Weight Capacity (lbs): 250\",\"Warranty Length: 1 Year\"}"], ["category", "Chair"], ["created_at", "2022-04-29 17:21:06.429352"], ["updated_at", "2022-04-29 17:21:06.429352"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 210ms (Views: 1.0ms | ActiveRecord: 48.8ms | Allocations: 5145)
+
+
+Started POST "/products" for ::1 at 2022-04-30 00:23:40 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Relax Hailey FABRIC/METAL Chair", "image"=>["https://i.imgur.com/LpQSDJo.png", "https://i.imgur.com/tEJf54L.jpg", "https://i.imgur.com/v6TI0w6.jpg", "https://i.imgur.com/tMPlqpB.jpg"], "price"=>550, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Silver#C0C0C0"], "size"=>["Large Size#28.25'' H x 26.5'' W x 24.25'' D#22.3 lb."], "description"=>"The Relax Hailey FABRIC/METAL Chair is specially designed with the highlight of the knitted armrest to bring Retro style to your living room.", "category"=>"Chair", "overview"=>["Seat Depth: Shallow", "Seat Height (Inches): 18", "Weight Capacity (lbs): 250", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (1.0ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Relax Hailey FABRIC/METAL Chair"], ["image", "{https://i.imgur.com/LpQSDJo.png,https://i.imgur.com/tEJf54L.jpg,https://i.imgur.com/v6TI0w6.jpg,https://i.imgur.com/tMPlqpB.jpg}"], ["description", "The Relax Hailey FABRIC/METAL Chair is specially designed with the highlight of the knitted armrest to bring Retro style to your living room."], ["price", 550], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{Silver#C0C0C0}"], ["size", "{\"Large Size#28.25'' H x 26.5'' W x 24.25'' D#22.3 lb.\"}"], ["overview", "{\"Seat Depth: Shallow\",\"Seat Height (Inches): 18\",\"Weight Capacity (lbs): 250\",\"Warranty Length: 1 Year\"}"], ["category", "Chair"], ["created_at", "2022-04-29 17:23:40.646197"], ["updated_at", "2022-04-29 17:23:40.646197"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 17ms (Views: 0.9ms | ActiveRecord: 1.6ms | Allocations: 2672)
+
+
+Started POST "/products" for ::1 at 2022-04-30 00:25:33 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Armchair Paradise L", "image"=>["https://i.imgur.com/xgIEhWR.png", "https://i.imgur.com/w6ZSQIE.jpg", "https://i.imgur.com/9gwMe1V.jpg", "https://i.imgur.com/tbEXy45.jpg", "https://i.imgur.com/0vXn8xx.jpg"], "price"=>750, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["DarkTurquoise#00CED1"], "size"=>["Large Size#28.25'' H x 26.5'' W x 24.25'' D#22.3 lb."], "description"=>"Thanks to the upholstery fabric inspired by tropical paradise gardens full of flowers and full of life, armchair Paradise will bring a breath of fresh air into the living room as its name suggests. The design is simple but equally comfortable thanks to the firm seat cushion and backrest. Paradise will be a great choice for your green space.", "category"=>"Chair", "overview"=>["Seat Depth: Shallow", "Seat Height (Inches): 18", "Weight Capacity (lbs): 250", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (2.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Armchair Paradise L"], ["image", "{https://i.imgur.com/xgIEhWR.png,https://i.imgur.com/w6ZSQIE.jpg,https://i.imgur.com/9gwMe1V.jpg,https://i.imgur.com/tbEXy45.jpg,https://i.imgur.com/0vXn8xx.jpg}"], ["description", "Thanks to the upholstery fabric inspired by tropical paradise gardens full of flowers and full of life, armchair Paradise will bring a breath of fresh air into the living room as its name suggests. The design is simple but equally comfortable thanks to the firm seat cushion and backrest. Paradise will be a great choice for your green space."], ["price", 750], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{DarkTurquoise#00CED1}"], ["size", "{\"Large Size#28.25'' H x 26.5'' W x 24.25'' D#22.3 lb.\"}"], ["overview", "{\"Seat Depth: Shallow\",\"Seat Height (Inches): 18\",\"Weight Capacity (lbs): 250\",\"Warranty Length: 1 Year\"}"], ["category", "Chair"], ["created_at", "2022-04-29 17:25:33.978539"], ["updated_at", "2022-04-29 17:25:33.978539"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 22ms (Views: 1.1ms | ActiveRecord: 3.0ms | Allocations: 2679)
+
+
+Started POST "/products" for ::1 at 2022-04-30 00:27:52 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Armchair Rattan Fango", "image"=>["https://i.imgur.com/Vtg6Rsz.png", "https://i.imgur.com/RtTs0Go.jpg"], "price"=>350, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["SaddleBrown#8B4513"], "size"=>["Large Size#28.25'' H x 26.5'' W x 24.25'' D#22.3 lb."], "description"=>"Armchair Rattan chair has a modern beauty, a combination of leather, ash wood (or Melaleuca wood) and rattan material. The design is delicate and distinguished by the curvature of the handrail in the gentle and close color of the meticulously and delicately handcrafted rattan. Rattan – Vietnamese soul in a modern breath The Clouds collection recalls the peaceful and close memories of the Vietnamese country soul, for a slow lifestyle to enjoy amidst the pace of modern life. As the name suggests, the collection is rattan-inspired, combined with modern materials such as leather, melaleuca, marble and brass. The ingenuity in the use of materials and design lines have made Rattan's products modern, full of aesthetics and also rich in functions. The Rattan collection is designed by Nha Xinh team and manufactured in Vietnam.", "category"=>"Chair", "overview"=>["Seat Depth: Shallow", "Seat Height (Inches): 18", "Weight Capacity (lbs): 250", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Armchair Rattan Fango"], ["image", "{https://i.imgur.com/Vtg6Rsz.png,https://i.imgur.com/RtTs0Go.jpg}"], ["description", "Armchair Rattan chair has a modern beauty, a combination of leather, ash wood (or Melaleuca wood) and rattan material. The design is delicate and distinguished by the curvature of the handrail in the gentle and close color of the meticulously and delicately handcrafted rattan. Rattan – Vietnamese soul in a modern breath The Clouds collection recalls the peaceful and close memories of the Vietnamese country soul, for a slow lifestyle to enjoy amidst the pace of modern life. As the name suggests, the collection is rattan-inspired, combined with modern materials such as leather, melaleuca, marble and brass. The ingenuity in the use of materials and design lines have made Rattan's products modern, full of aesthetics and also rich in functions. The Rattan collection is designed by Nha Xinh team and manufactured in Vietnam."], ["price", 350], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{SaddleBrown#8B4513}"], ["size", "{\"Large Size#28.25'' H x 26.5'' W x 24.25'' D#22.3 lb.\"}"], ["overview", "{\"Seat Depth: Shallow\",\"Seat Height (Inches): 18\",\"Weight Capacity (lbs): 250\",\"Warranty Length: 1 Year\"}"], ["category", "Chair"], ["created_at", "2022-04-29 17:27:53.029236"], ["updated_at", "2022-04-29 17:27:53.029236"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 17ms (Views: 0.6ms | ActiveRecord: 1.3ms | Allocations: 2602)
+
+
+Started POST "/products" for ::1 at 2022-04-30 00:29:15 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Armchair Garbo pink", "image"=>["https://i.imgur.com/BAPjs1D.png", "https://i.imgur.com/zfgPr68.jpg"], "price"=>350, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Coral#FF7F50"], "size"=>["Large Size#28.25'' H x 26.5'' W x 24.25'' D#22.3 lb."], "description"=>"Armchair Garbo is a new combination of black painted metal legs with high-quality fabric-covered seat cushion, giving it a slim but very solid feel. Armchair is suitable for modern and stylish living room spaces. With bright colors, the product will be the highlight of your home interior.", "category"=>"Chair", "overview"=>["Seat Depth: Shallow", "Seat Height (Inches): 18", "Weight Capacity (lbs): 250", "Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (1.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Armchair Garbo pink"], ["image", "{https://i.imgur.com/BAPjs1D.png,https://i.imgur.com/zfgPr68.jpg}"], ["description", "Armchair Garbo is a new combination of black painted metal legs with high-quality fabric-covered seat cushion, giving it a slim but very solid feel. Armchair is suitable for modern and stylish living room spaces. With bright colors, the product will be the highlight of your home interior."], ["price", 350], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{Coral#FF7F50}"], ["size", "{\"Large Size#28.25'' H x 26.5'' W x 24.25'' D#22.3 lb.\"}"], ["overview", "{\"Seat Depth: Shallow\",\"Seat Height (Inches): 18\",\"Weight Capacity (lbs): 250\",\"Warranty Length: 1 Year\"}"], ["category", "Chair"], ["created_at", "2022-04-29 17:29:15.140729"], ["updated_at", "2022-04-29 17:29:15.140729"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 14ms (Views: 0.7ms | ActiveRecord: 2.0ms | Allocations: 2650)
+
+
+Started GET "/products/16/ratings" for ::1 at 2022-04-30 00:29:24 +0700
+Started GET "/products/16" for ::1 at 2022-04-30 00:29:24 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"16"}
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mProduct Load (4.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (2.8ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 16]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 27ms (Views: 0.9ms | ActiveRecord: 7.5ms | Allocations: 2323)
+
+
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 99ms (Views: 2.0ms | ActiveRecord: 9.3ms | Allocations: 5239)
+
+
+Started GET "/products/17" for ::1 at 2022-04-30 00:29:32 +0700
+Started GET "/products/17/ratings" for ::1 at 2022-04-30 00:29:32 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.4ms | Allocations: 1027)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (1.9ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 17]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 1339)
+
+
+Started GET "/products/18" for ::1 at 2022-04-30 00:29:37 +0700
+Started GET "/products/18/ratings" for ::1 at 2022-04-30 00:29:37 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 1031)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 18]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 1336)
+
+
+Started GET "/products/19" for ::1 at 2022-04-30 00:29:42 +0700
+Started GET "/products/19/ratings" for ::1 at 2022-04-30 00:29:42 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 988)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (1.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 19]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 1336)
+
+
+Started GET "/products/20/ratings" for ::1 at 2022-04-30 00:29:47 +0700
+Started GET "/products/20" for ::1 at 2022-04-30 00:29:47 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 20]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1419)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:30:34 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:30:41 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 6ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20/ratings" for ::1 at 2022-04-30 00:30:52 +0700
+Started GET "/products/20" for ::1 at 2022-04-30 00:30:52 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 20]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 19ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 1415)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 8ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 949)
+
+
+Started GET "/products/20/ratings" for ::1 at 2022-04-30 00:30:57 +0700
+Started GET "/products/20" for ::1 at 2022-04-30 00:30:57 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 20]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1405)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 949)
+
+
+Started GET "/products/20/ratings" for ::1 at 2022-04-30 00:31:49 +0700
+Started GET "/products/20" for ::1 at 2022-04-30 00:31:49 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 20]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1403)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20/ratings" for ::1 at 2022-04-30 00:31:53 +0700
+Started GET "/products/20" for ::1 at 2022-04-30 00:31:53 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 20]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 1413)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 7ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20/ratings" for ::1 at 2022-04-30 00:32:21 +0700
+Started GET "/products/20" for ::1 at 2022-04-30 00:32:21 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 20]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 1417)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 7ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:32:23 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 949)
+
+
+Started GET "/products/20/ratings" for ::1 at 2022-04-30 00:32:27 +0700
+Started GET "/products/20" for ::1 at 2022-04-30 00:32:27 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 20]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1413)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:33:00 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:33:02 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:33:20 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 16ms (Views: 2.2ms | ActiveRecord: 0.5ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:33:25 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 8ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:33:28 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:33:55 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:33:56 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:34:06 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 949)
+
+
+Started GET "/products/20/ratings" for ::1 at 2022-04-30 00:35:11 +0700
+Started GET "/products/20" for ::1 at 2022-04-30 00:35:11 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 20]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 1423)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 7ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:36:16 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 7ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:36:21 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 10ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 949)
+
+
+Started GET "/products/20/ratings" for ::1 at 2022-04-30 00:37:17 +0700
+Started GET "/products/20" for ::1 at 2022-04-30 00:37:17 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 20]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 192ms (Views: 0.6ms | ActiveRecord: 0.6ms | Allocations: 1412)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:37:18 +0700
+Started GET "/products/20/ratings" for ::1 at 2022-04-30 00:37:18 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1000)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 20]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1336)
+
+
+Started GET "/products/20/ratings" for ::1 at 2022-04-30 00:37:29 +0700
+Started GET "/products/20" for ::1 at 2022-04-30 00:37:29 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 20]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 1405)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:37:35 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:37:47 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:37:48 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 6ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:37:56 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 9ms (Views: 1.2ms | ActiveRecord: 0.4ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:38:01 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:38:08 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 9ms (Views: 5.1ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20/ratings" for ::1 at 2022-04-30 00:38:18 +0700
+Started GET "/products/20" for ::1 at 2022-04-30 00:38:18 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 20]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1422)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:38:21 +0700
+Started GET "/products/20/ratings" for ::1 at 2022-04-30 00:38:21 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 994)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 20]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1336)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:38:40 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 7ms (Views: 2.6ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:38:42 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:38:49 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:38:56 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 9ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:39:02 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:39:11 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 8ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:39:32 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:39:36 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started GET "/products/20/ratings" for ::1 at 2022-04-30 00:40:44 +0700
+Started GET "/products/20" for ::1 at 2022-04-30 00:40:44 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 20]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 1407)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 949)
+
+
+Started GET "/products/20" for ::1 at 2022-04-30 00:40:58 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 8ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 949)
+
+
+Started POST "/products" for ::1 at 2022-04-30 00:50:30 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Ginkgo Stand Lamp", "image"=>["https://i.imgur.com/BAPjs1D.png", "https://i.imgur.com/zfgPr68.jpg"], "price"=>350, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Moccasin#FFE4B5"], "size"=>["Large Size#16'' H x 7.5'' W x 7.5'' D#5 lb."], "description"=>"Illuminate your space in sleek, contemporary style with this 19' table lamp. It's made from steel with a semi-gloss black finish, and its body strikes a streamlined silhouette with a tubular stem and a chunky, round pedestal base. Up top, a crisp fabric drum shade hides a 60 W max or LED equivalent medium-base bulb (not included) that disperses soft, ambient bright light throughout your space in the living room, bedroom, or entryway. Powered by a 60' length of cord, this lamp is operated by a beaded pull chain.", "category"=>"Light", "overview"=>["Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (6.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Ginkgo Stand Lamp"], ["image", "{https://i.imgur.com/BAPjs1D.png,https://i.imgur.com/zfgPr68.jpg}"], ["description", "Illuminate your space in sleek, contemporary style with this 19' table lamp. It's made from steel with a semi-gloss black finish, and its body strikes a streamlined silhouette with a tubular stem and a chunky, round pedestal base. Up top, a crisp fabric drum shade hides a 60 W max or LED equivalent medium-base bulb (not included) that disperses soft, ambient bright light throughout your space in the living room, bedroom, or entryway. Powered by a 60' length of cord, this lamp is operated by a beaded pull chain."], ["price", 350], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{Moccasin#FFE4B5}"], ["size", "{\"Large Size#16'' H x 7.5'' W x 7.5'' D#5 lb.\"}"], ["overview", "{\"Warranty Length: 1 Year\"}"], ["category", "Light"], ["created_at", "2022-04-29 17:50:30.970461"], ["updated_at", "2022-04-29 17:50:30.970461"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 297ms (Views: 1.8ms | ActiveRecord: 19.3ms | Allocations: 4883)
+
+
+Started DELETE "/products/21" for ::1 at 2022-04-30 00:51:44 +0700
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"21"}
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mRating Delete All (2.4ms)[0m  [1m[31mDELETE FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 21]]
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mOrder Load (12.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "orders_products" ON "orders"."id" = "orders_products"."order_id" WHERE "orders_products"."product_id" = $1[0m  [["product_id", 21]]
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mOrdersProduct Delete All (0.4ms)[0m  [1m[31mDELETE FROM "orders_products" WHERE "orders_products"."product_id" = $1 AND 1=0[0m  [["product_id", 21]]
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mProduct Destroy (5.6ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 21]]
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:34:in `destroy'
+Completed 200 OK in 547ms (Views: 0.4ms | ActiveRecord: 66.9ms | Allocations: 30277)
+
+
+Started POST "/products" for ::1 at 2022-04-30 00:52:53 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Ginkgo Stand Lamp", "image"=>["https://i.imgur.com/8RUKQ5F.png", "https://i.imgur.com/htJvUSk.jpg", "https://i.imgur.com/IQsVeWd.jpg", "https://i.imgur.com/6czTrhB.jpg"], "price"=>550, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Gold#FFD700"], "size"=>["Large Size#16'' H x 7.5'' W x 7.5'' D#5 lb."], "description"=>"Illuminate your space in sleek, contemporary style with this 19' table lamp. It's made from steel with a semi-gloss black finish, and its body strikes a streamlined silhouette with a tubular stem and a chunky, round pedestal base. Up top, a crisp fabric drum shade hides a 60 W max or LED equivalent medium-base bulb (not included) that disperses soft, ambient bright light throughout your space in the living room, bedroom, or entryway. Powered by a 60' length of cord, this lamp is operated by a beaded pull chain.", "category"=>"Light", "overview"=>["Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (1.0ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Ginkgo Stand Lamp"], ["image", "{https://i.imgur.com/8RUKQ5F.png,https://i.imgur.com/htJvUSk.jpg,https://i.imgur.com/IQsVeWd.jpg,https://i.imgur.com/6czTrhB.jpg}"], ["description", "Illuminate your space in sleek, contemporary style with this 19' table lamp. It's made from steel with a semi-gloss black finish, and its body strikes a streamlined silhouette with a tubular stem and a chunky, round pedestal base. Up top, a crisp fabric drum shade hides a 60 W max or LED equivalent medium-base bulb (not included) that disperses soft, ambient bright light throughout your space in the living room, bedroom, or entryway. Powered by a 60' length of cord, this lamp is operated by a beaded pull chain."], ["price", 550], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{Gold#FFD700}"], ["size", "{\"Large Size#16'' H x 7.5'' W x 7.5'' D#5 lb.\"}"], ["overview", "{\"Warranty Length: 1 Year\"}"], ["category", "Light"], ["created_at", "2022-04-29 17:52:53.886793"], ["updated_at", "2022-04-29 17:52:53.886793"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 18ms (Views: 0.9ms | ActiveRecord: 1.8ms | Allocations: 2753)
+
+
+Started POST "/products" for ::1 at 2022-04-30 00:54:11 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Amber Table Lamp", "image"=>["https://i.imgur.com/BFjIZtb.png", "https://i.imgur.com/RYmCQxM.jpg"], "price"=>350, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["PapayaWhip#FFEFD5"], "size"=>["Large Size#16'' H x 7.5'' W x 7.5'' D#5 lb."], "description"=>"Illuminate your space in sleek, contemporary style with this 19' table lamp. It's made from steel with a semi-gloss black finish, and its body strikes a streamlined silhouette with a tubular stem and a chunky, round pedestal base. Up top, a crisp fabric drum shade hides a 60 W max or LED equivalent medium-base bulb (not included) that disperses soft, ambient bright light throughout your space in the living room, bedroom, or entryway. Powered by a 60' length of cord, this lamp is operated by a beaded pull chain.", "category"=>"Light", "overview"=>["Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Amber Table Lamp"], ["image", "{https://i.imgur.com/BFjIZtb.png,https://i.imgur.com/RYmCQxM.jpg}"], ["description", "Illuminate your space in sleek, contemporary style with this 19' table lamp. It's made from steel with a semi-gloss black finish, and its body strikes a streamlined silhouette with a tubular stem and a chunky, round pedestal base. Up top, a crisp fabric drum shade hides a 60 W max or LED equivalent medium-base bulb (not included) that disperses soft, ambient bright light throughout your space in the living room, bedroom, or entryway. Powered by a 60' length of cord, this lamp is operated by a beaded pull chain."], ["price", 350], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{PapayaWhip#FFEFD5}"], ["size", "{\"Large Size#16'' H x 7.5'' W x 7.5'' D#5 lb.\"}"], ["overview", "{\"Warranty Length: 1 Year\"}"], ["category", "Light"], ["created_at", "2022-04-29 17:54:11.581556"], ["updated_at", "2022-04-29 17:54:11.581556"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 22ms (Views: 1.8ms | ActiveRecord: 1.4ms | Allocations: 2622)
+
+
+Started POST "/products" for ::1 at 2022-04-30 00:55:50 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Yuks Table Lamp", "image"=>["https://i.imgur.com/9lVzDez.png", "https://i.imgur.com/ijlK0oF.jpg", "https://i.imgur.com/D0YQ4D1.jpg"], "price"=>400, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["Moccasin#FFE4B5"], "size"=>["Large Size#16'' H x 7.5'' W x 7.5'' D#5 lb."], "description"=>"Illuminate your space in sleek, contemporary style with this 19' table lamp. It's made from steel with a semi-gloss black finish, and its body strikes a streamlined silhouette with a tubular stem and a chunky, round pedestal base. Up top, a crisp fabric drum shade hides a 60 W max or LED equivalent medium-base bulb (not included) that disperses soft, ambient bright light throughout your space in the living room, bedroom, or entryway. Powered by a 60' length of cord, this lamp is operated by a beaded pull chain.", "category"=>"Light", "overview"=>["Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Yuks Table Lamp"], ["image", "{https://i.imgur.com/9lVzDez.png,https://i.imgur.com/ijlK0oF.jpg,https://i.imgur.com/D0YQ4D1.jpg}"], ["description", "Illuminate your space in sleek, contemporary style with this 19' table lamp. It's made from steel with a semi-gloss black finish, and its body strikes a streamlined silhouette with a tubular stem and a chunky, round pedestal base. Up top, a crisp fabric drum shade hides a 60 W max or LED equivalent medium-base bulb (not included) that disperses soft, ambient bright light throughout your space in the living room, bedroom, or entryway. Powered by a 60' length of cord, this lamp is operated by a beaded pull chain."], ["price", 400], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{Moccasin#FFE4B5}"], ["size", "{\"Large Size#16'' H x 7.5'' W x 7.5'' D#5 lb.\"}"], ["overview", "{\"Warranty Length: 1 Year\"}"], ["category", "Light"], ["created_at", "2022-04-29 17:55:50.556276"], ["updated_at", "2022-04-29 17:55:50.556276"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 27ms (Views: 0.6ms | ActiveRecord: 1.4ms | Allocations: 2630)
+
+
+Started POST "/products" for ::1 at 2022-04-30 00:56:52 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Suzette Table Lamp", "image"=>["https://i.imgur.com/V9Uy8Of.png", "https://i.imgur.com/Y8lj3ck.jpg"], "price"=>400, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["White#FFFFFF"], "size"=>["Large Size#16'' H x 7.5'' W x 7.5'' D#5 lb."], "description"=>"Illuminate your space in sleek, contemporary style with this 19' table lamp. It's made from steel with a semi-gloss black finish, and its body strikes a streamlined silhouette with a tubular stem and a chunky, round pedestal base. Up top, a crisp fabric drum shade hides a 60 W max or LED equivalent medium-base bulb (not included) that disperses soft, ambient bright light throughout your space in the living room, bedroom, or entryway. Powered by a 60' length of cord, this lamp is operated by a beaded pull chain.", "category"=>"Light", "overview"=>["Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Suzette Table Lamp"], ["image", "{https://i.imgur.com/V9Uy8Of.png,https://i.imgur.com/Y8lj3ck.jpg}"], ["description", "Illuminate your space in sleek, contemporary style with this 19' table lamp. It's made from steel with a semi-gloss black finish, and its body strikes a streamlined silhouette with a tubular stem and a chunky, round pedestal base. Up top, a crisp fabric drum shade hides a 60 W max or LED equivalent medium-base bulb (not included) that disperses soft, ambient bright light throughout your space in the living room, bedroom, or entryway. Powered by a 60' length of cord, this lamp is operated by a beaded pull chain."], ["price", 400], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{White#FFFFFF}"], ["size", "{\"Large Size#16'' H x 7.5'' W x 7.5'' D#5 lb.\"}"], ["overview", "{\"Warranty Length: 1 Year\"}"], ["category", "Light"], ["created_at", "2022-04-29 17:56:52.804506"], ["updated_at", "2022-04-29 17:56:52.804506"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 18ms (Views: 1.1ms | ActiveRecord: 1.4ms | Allocations: 2622)
+
+
+Started POST "/products" for ::1 at 2022-04-30 00:57:34 +0700
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"Floral Brass W Shade . Table Lamp", "image"=>["https://i.imgur.com/ugxT9DQ.png", "https://i.imgur.com/kGwhMPy.jpg"], "price"=>450, "third_party"=>"Carbono Design#https://www.carbonodesign.com.br/en/about", "color"=>["White#FFFFFF"], "size"=>["Large Size#16'' H x 7.5'' W x 7.5'' D#5 lb."], "description"=>"Illuminate your space in sleek, contemporary style with this 19' table lamp. It's made from steel with a semi-gloss black finish, and its body strikes a streamlined silhouette with a tubular stem and a chunky, round pedestal base. Up top, a crisp fabric drum shade hides a 60 W max or LED equivalent medium-base bulb (not included) that disperses soft, ambient bright light throughout your space in the living room, bedroom, or entryway. Powered by a 60' length of cord, this lamp is operated by a beaded pull chain.", "category"=>"Light", "overview"=>["Warranty Length: 1 Year"]}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mProduct Create (1.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "image", "description", "price", "third_party", "color", "size", "overview", "category", "created_at", "updated_at", "custom_design", "avg_star") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Floral Brass W Shade . Table Lamp"], ["image", "{https://i.imgur.com/ugxT9DQ.png,https://i.imgur.com/kGwhMPy.jpg}"], ["description", "Illuminate your space in sleek, contemporary style with this 19' table lamp. It's made from steel with a semi-gloss black finish, and its body strikes a streamlined silhouette with a tubular stem and a chunky, round pedestal base. Up top, a crisp fabric drum shade hides a 60 W max or LED equivalent medium-base bulb (not included) that disperses soft, ambient bright light throughout your space in the living room, bedroom, or entryway. Powered by a 60' length of cord, this lamp is operated by a beaded pull chain."], ["price", 450], ["third_party", "Carbono Design#https://www.carbonodesign.com.br/en/about"], ["color", "{White#FFFFFF}"], ["size", "{\"Large Size#16'' H x 7.5'' W x 7.5'' D#5 lb.\"}"], ["overview", "{\"Warranty Length: 1 Year\"}"], ["category", "Light"], ["created_at", "2022-04-29 17:57:34.335474"], ["updated_at", "2022-04-29 17:57:34.335474"], ["custom_design", false], ["avg_star", 0.0]]
+  ↳ app/controllers/products_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:11:in `create'
+Completed 200 OK in 16ms (Views: 0.6ms | ActiveRecord: 2.3ms | Allocations: 2626)
+
+
+Started GET "/products/22/ratings" for ::1 at 2022-04-30 00:57:58 +0700
+Started GET "/products/22" for ::1 at 2022-04-30 00:57:58 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 22]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1432)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 6ms (Views: 2.1ms | ActiveRecord: 0.2ms | Allocations: 943)
+
+
+Started GET "/products/23" for ::1 at 2022-04-30 00:58:04 +0700
+Started GET "/products/23/ratings" for ::1 at 2022-04-30 00:58:04 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 990)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 23]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 1336)
+
+
+Started GET "/products/24/ratings" for ::1 at 2022-04-30 00:58:09 +0700
+Started GET "/products/24" for ::1 at 2022-04-30 00:58:09 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (1.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 24]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 1413)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 936)
+
+
+Started GET "/products/25" for ::1 at 2022-04-30 00:58:14 +0700
+Started GET "/products/25/ratings" for ::1 at 2022-04-30 00:58:14 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 10ms (Views: 2.2ms | ActiveRecord: 0.4ms | Allocations: 988)
+
+
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 25]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 1336)
+
+
+Started GET "/products/26/ratings" for ::1 at 2022-04-30 00:58:19 +0700
+Started GET "/products/26" for ::1 at 2022-04-30 00:58:19 +0700
+Processing by ProductsController#show_ratings as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 26]]
+  ↳ app/controllers/products_controller.rb:101:in `show_ratings'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 1413)
+
+
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 930)
+
+

@@ -129,7 +129,7 @@ function TransactionHistory() {
                 </div>
                 <div className={`d-flex justify-content-end`}>
                     <div className="col-6 d-flex justify-content-end p-1">
-                        <h5>{`Total price: $ ${item.order.total_price}`}</h5>
+                        <h5>{`Total price: ${item.order.total_price} USD`}</h5>
                     </div>
                 </div>
                 <div

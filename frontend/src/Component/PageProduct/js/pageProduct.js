@@ -13,7 +13,7 @@ import {
 
 const axios = require("axios");
 
-function PageProduct({ id = 6 }) {
+function PageProduct({ id = 26 }) {
     const [dataProductDetail, setDataProductDetail] = useState([]);
     useEffect(() => {
         axios
@@ -308,32 +308,36 @@ function PageProduct({ id = 6 }) {
                                             const weight = subItem.slice(
                                                 indexSecondarySeparator + 1
                                             );
-                                            return (
-                                                <label
-                                                    key={index}
-                                                    className="btn p-0 m-1 rounded-0 col-5"
-                                                >
+                                            return dataProductDetail.size.length === 1 || dataProductDetail.size.length === 2 ? (
+                                                <label key={index} className="btn p-0 m-1 rounded-0 col-12">
                                                     <input
                                                         type="radio"
                                                         name="size"
-                                                        id={
-                                                            "size" + (index + 1)
-                                                        }
-                                                        onClick={() =>
-                                                            handleSize(
-                                                                nameSize,
-                                                                index
-                                                            )
-                                                        }
+                                                        id={"size" + (index + 1)}
+                                                        onClick={() => handleSize(nameSize, index)}
+                                                    />{" "}
+                                                    <div
+                                                        className="product-btn-size p-1"
+                                                        style={{
+                                                            outline: pickSize === index ? "solid black" : "none",
+                                                        }}
+                                                    >
+                                                        <p>{size}</p>
+                                                        <p>{weight}</p>
+                                                    </div>
+                                                </label>
+                                            ) : (
+                                                <label key={index} className="btn p-0 m-1 rounded-0 col-5">
+                                                    <input
+                                                        type="radio"
+                                                        name="size"
+                                                        id={"size" + (index + 1)}
+                                                        onClick={() => handleSize(nameSize, index)}
                                                     />{" "}
                                                     <div
                                                         className="product-btn-size"
                                                         style={{
-                                                            outline:
-                                                                pickSize ===
-                                                                index
-                                                                    ? "solid black"
-                                                                    : "none",
+                                                            outline: pickSize === index ? "solid black" : "none",
                                                         }}
                                                     >
                                                         <p>{size}</p>
