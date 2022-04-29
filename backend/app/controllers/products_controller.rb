@@ -139,7 +139,7 @@ class ProductsController < ApplicationController
     del_rating = @product.ratings.find_by(id: params[:rating_id])
     #update avg_star
     all_ratings = @product.ratings.count
-    new_avg_star = (@product.avg_star * all_ratings - del_rating.star)/(all_ratings - 1)
+    new_avg_star = all_ratings > 1 ? (@product.avg_star * all_ratings - del_rating.star)/(all_ratings - 1) : 0.0
     @product.update(avg_star: new_avg_star)
     @product.save
 
