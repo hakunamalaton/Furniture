@@ -26,7 +26,13 @@ class UsersController < ApplicationController
 
   def show_order
     @orders = Order.where(user_id: params[:id])
-    @orders = @orders.where(status: params[:status]) if params[:status] != nil
+    if params[:status] != nil
+      if params[:status] != "Shipped"
+        @orders = @orders.where(status: params[:status]) 
+      else
+        @orders = @orders.where(status: ["Shipped", "Evaluated"]) 
+      end
+    end
     @orders = @orders.select(:id, :status, :total_price, :description, :address)
     total = @orders.length
 
