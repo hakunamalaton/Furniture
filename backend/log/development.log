@@ -4792,3 +4792,82 @@ Processing by ProductsController#show as */*
 Completed 200 OK in 8ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 851)
 
 
+Started GET "/orders/16" for ::1 at 2022-04-29 16:37:02 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (6.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#show as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mOrder Load (7.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:124:in `set_order'
+  [1m[36mOrdersProduct Pluck (10.0ms)[0m  [1m[34mSELECT "orders_products"."product_id", "orders_products"."quantity", "orders_products"."size", "orders_products"."color" FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/controllers/orders_controller.rb:20:in `show'
+  [1m[36mProduct Load (9.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+Completed 500 Internal Server Error in 635ms (ActiveRecord: 70.6ms | Allocations: 37427)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/orders_controller.rb:25:in `block in show'
+app/controllers/orders_controller.rb:20:in `map'
+app/controllers/orders_controller.rb:20:in `show'
+Started GET "/orders/16" for ::1 at 2022-04-29 16:37:24 +0700
+Processing by OrdersController#show as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:124:in `set_order'
+  [1m[36mOrdersProduct Pluck (0.9ms)[0m  [1m[34mSELECT "orders_products"."product_id", "orders_products"."quantity", "orders_products"."size", "orders_products"."color" FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/controllers/orders_controller.rb:20:in `show'
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `block in show'
+  [1m[36mCACHE Product Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mProduct Load (6.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+Completed 200 OK in 223ms (Views: 6.9ms | ActiveRecord: 40.8ms | Allocations: 23062)
+
+
+Started GET "/orders/16" for ::1 at 2022-04-29 16:38:24 +0700
+Processing by OrdersController#show as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:124:in `set_order'
+  [1m[36mOrdersProduct Pluck (1.0ms)[0m  [1m[34mSELECT "orders_products"."product_id", "orders_products"."quantity", "orders_products"."size", "orders_products"."color" FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/controllers/orders_controller.rb:20:in `show'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mProduct Load (1.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `block in show'
+  [1m[36mCACHE Product Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+Completed 200 OK in 342ms (Views: 1.8ms | ActiveRecord: 26.5ms | Allocations: 22775)
+
+
