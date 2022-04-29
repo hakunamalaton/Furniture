@@ -8,28 +8,6 @@ import PopUpRating from "../../Rating/js/popUpRating";
 const axios = require("axios");
 
 function TransactionHistory() {
-    const [dataOrderList, setDataOrderList] = useState([]);
-    const [dataOrderDetailList, setDataOrderDetailList] = useState([]);
-
-    useEffect(() => {
-        axios
-            .get(`http://localhost:8000/users/3/orders`)
-            .then((res) => {
-                setDataOrderList(res.data.orders.map((item) => item.id));
-            })
-            .catch((err) => console.error("Đây là lỗi: " + err));
-    }, []);
-
-    useEffect(() => {
-        for (const key in dataOrderList) {
-            axios
-                .get(`http://localhost:8000/orders/${dataOrderList[key]}`)
-                .then((res) => {
-                    setDataOrderDetailList(prev => [...prev, res.data]);
-                })
-                .catch((err) => console.error("Đây là lỗi: " + err));
-        }
-    }, [dataOrderList]);
     const [pick, setPick] = useState(0);
     const [category, setCategory] = useState("");
     const handleFilter = (index) => {
@@ -38,17 +16,60 @@ function TransactionHistory() {
             case 0:
                 break;
             case 1:
-                setCategory("?status=Payed")
+                setCategory("?status=Payed");
                 break;
             case 2:
-                setCategory("?status=Shipped")
+                setCategory("?status=Shipped");
                 break;
             case 3:
-                setCategory("?status=Cancel")
+                setCategory("?status=Cancel");
                 break;
-            default: break
+            default:
+                break;
         }
     };
+
+    const [dataOrderList, setDataOrderList] = useState([]);
+    const [dataOrderDetailList, setDataOrderDetailList] = useState([]);
+
+    useEffect(() => {
+        axios
+            .get(
+                `${process.env.REACT_APP_SERVER_URL}/users/3/orders${category}`
+            )
+            .then((res) => {
+                setDataOrderList(res.data.orders.map((item) => item.id));
+            })
+            .catch((err) => console.error("Đây là lỗi: " + err));
+    }, [category]);
+    useEffect(() => {
+        setDataOrderDetailList([])
+        for (const key in dataOrderList) {
+            axios
+                .get(
+                    `${process.env.REACT_APP_SERVER_URL}/orders/${dataOrderList[key]}`
+                )
+                .then((res) => {
+                    setDataOrderDetailList((prev) => [...prev, res.data]);
+                })
+                .catch((err) => console.error("Đây là lỗi: " + err));
+        }
+        // const getDataOrderDetailList = async (id) => {
+        //     try {
+        //         const res = await axios.get(
+        //             `${process.env.REACT_APP_SERVER_URL}/orders/${id}`
+        //         );
+        //         setDataOrderDetailList((prev) => [...prev, res.data]);
+        //     } catch (e) {
+        //         console.log(e);
+        //     }
+        // };
+        // for (const key in dataOrderList) {
+        //     getDataOrderDetailList(dataOrderList[key]);
+        // }
+        
+    }, [dataOrderList]);
+
     const infoOrder = (item, index) => {
         return (
             <div
@@ -100,7 +121,11 @@ function TransactionHistory() {
                 </div>
                 <div className={style.transBody_infoProduct}>
                     {item.detail_information &&
-                        showListProduct(item.detail_information, item.order.status, item.order.id)}
+                        showListProduct(
+                            item.detail_information,
+                            item.order.status,
+                            item.order.id
+                        )}
                 </div>
                 <div className={`d-flex justify-content-end`}>
                     <div className="col-6 d-flex justify-content-end p-1">
@@ -148,7 +173,7 @@ function TransactionHistory() {
                         >
                             <PopUpRating
                                 id={item.id}
-                                idOrder = {idOrder}
+                                idOrder={idOrder}
                                 image={item.image}
                                 name={item.name}
                                 category={`${item.color}, ${item.size}`}
@@ -184,7 +209,6 @@ function TransactionHistory() {
         }
     }
     function showListProduct(array, status, idOrder) {
-        console.log(array)
         if (array.length === 0) {
             return (
                 <div className="d-flex justify-content-center">
