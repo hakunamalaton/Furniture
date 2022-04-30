@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import style from "../css/transactionHistory.module.css";
 import Header from "../../Header/Js/Header";
 import Footer from "../../Footer/Js/Footer";
@@ -8,12 +9,15 @@ import PopUpRating from "../../Rating/js/popUpRating";
 const axios = require("axios");
 
 function TransactionHistory() {
+    const idUser = useSelector(state => state.id);
+    const emailUser = useSelector(state => state.email);
     const [pick, setPick] = useState(0);
     const [category, setCategory] = useState("");
     const handleFilter = (index) => {
         setPick(index);
         switch (index) {
             case 0:
+                setCategory("");
                 break;
             case 1:
                 setCategory("?status=Payed");
@@ -177,7 +181,7 @@ function TransactionHistory() {
                             }`}
                         >
                             <PopUpRating
-                                id={item.id}
+                                id={item.product_id}
                                 idOrder={idOrder}
                                 image={item.image}
                                 name={item.name}

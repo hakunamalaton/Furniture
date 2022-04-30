@@ -13,14 +13,15 @@ import {
 
 const axios = require("axios");
 
-function PageProduct({ id = 26 }) {
+function PageProduct({ match }) {
+    const idProduct = match.params.id;
     const [dataProductDetail, setDataProductDetail] = useState([]);
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/products/${id}`)
+            .get(`http://localhost:8000/products/${idProduct}`)
             .then((res) => setDataProductDetail(res.data))
             .catch((err) => console.error("Đây là lỗi: " + err));
-    }, [id]);
+    }, [idProduct]);
     const [color, setColor] = useState("");
     const [pickColor, setPickColor] = useState(-1);
     const [pickSize, setPickSize] = useState(-1);
@@ -96,6 +97,13 @@ function PageProduct({ id = 26 }) {
             <div className="text-warning font-weight-bold">No have review.</div>
         );
     }
+    function breadcrumbCategory(category) {
+        console.log(category)
+        // let urlCategory = category.toLowerCase();
+        return (
+            <a href={`/menu/${category.toLowerCase()}`}>{category}</a>
+        );
+    }
     return (
         <div className="page-product-component">
             <Header />
@@ -107,7 +115,10 @@ function PageProduct({ id = 26 }) {
                                 <a href="/">BK Furniture</a>
                             </li>
                             <li className="breadcrumb-item">
-                                <a href="/bedding">Bedding</a>
+                                <a href="/menu">Products</a>
+                            </li>
+                            <li className="breadcrumb-item">
+                                {dataProductDetail.category && breadcrumbCategory(dataProductDetail.category)}
                             </li>
                             <li
                                 className="breadcrumb-item active"
@@ -464,7 +475,7 @@ function PageProduct({ id = 26 }) {
                         </div>
                     </div>
                 </div>
-                <Rating id={id} averageScore={dataProductDetail.avg_star} />
+                <Rating id={idProduct} averageScore={dataProductDetail.avg_star} />
             </div>
             <Footer />
         </div>

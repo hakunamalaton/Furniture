@@ -23,6 +23,7 @@ function Rating({ id, averageScore }) {
         setPick(props);
         switch (props) {
             case 0:
+                setCategory("")
                 break;
             case 1:
                 setCategory("?type=5-star")
@@ -141,7 +142,7 @@ function Rating({ id, averageScore }) {
             >
                 <div className="col-8 col-md-2 col-lg-1 px-md-0 pt-2 pt-md-0 d-flex justify-content-center d-md-block rating-avatar mx-auto">
                     <img
-                        src={listImageUser[Math.floor(Math.random() * 20)]}
+                        src={listImageUser[Math.floor(Math.random() * 9)]}
                         className="img-fluid p-md-3 p-lg-0 mt-lg-2 rounded-circle avatar-author"
                         alt="img-reviewer"
                     />
@@ -222,7 +223,7 @@ function Rating({ id, averageScore }) {
             <>
                 <div className="row align-items-end justify-content-center">
                     <p className="rating-score mb-0">
-                        {showAvgScore(averageScore)}
+                        {averageScore}
                     </p>
                     <p className="rating-score-out-of mb-0">/ 5</p>
                 </div>
