@@ -9,3 +9,24 @@
     margin-bottom: 0!important;
 }
 
+@media only screen and (max-width: 768px) {
+    .transHisComponent h5,.transHisComponent h4, .transHisComponent h6, .statusOrder{
+        font-size: 16px;
+    }
+    
+    .infoProductCpn, .btnCategoryRating, .btnBuyAgain {
+        font-size: 14px;
+    }    
+}
+
+@media only screen and (max-width: 576px) {
+    .transHisComponent h5,.transHisComponent h4, .transHisComponent h6, .statusOrder{
+        font-size: 14px;
+    }
+    
+    .infoProductCpn, .btnCategoryRating, .btnBuyAgain {
+        font-size: 12px;
+    }    
+}
+
+

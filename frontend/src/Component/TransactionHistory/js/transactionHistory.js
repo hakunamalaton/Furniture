@@ -43,7 +43,7 @@ function TransactionHistory() {
             .catch((err) => console.error("Đây là lỗi: " + err));
     }, [category]);
     useEffect(() => {
-        setDataOrderDetailList([])
+        setDataOrderDetailList([]);
         for (const key in dataOrderList) {
             axios
                 .get(
@@ -67,7 +67,6 @@ function TransactionHistory() {
         // for (const key in dataOrderList) {
         //     getDataOrderDetailList(dataOrderList[key]);
         // }
-        
     }, [dataOrderList]);
 
     const infoOrder = (item, index) => {
@@ -79,7 +78,7 @@ function TransactionHistory() {
                 <div
                     className={`${style.transBody_titleOrder} d-flex justify-content-between p-3`}
                 >
-                    <div className="col-10">
+                    <div className="col-8 col-md-9 col-lg-10">
                         <div className="row">
                             <h5>{`Order number: ${item.order.id}`}</h5>
                         </div>
@@ -103,9 +102,11 @@ function TransactionHistory() {
                             <h6>{`Description: ${item.order.description}`}</h6>
                         </div>
                     </div>
-                    <div className="col-2 d-flex align-items-center justify-content-center">
+                    <div className="col-4 col-md-3 col-lg-2 d-flex align-items-center justify-content-center">
                         <div
-                            className={`text-white rounded col-10 d-flex align-items-center justify-content-center p-1 ${
+                            className={`${
+                                style.statusOrder
+                            } text-white rounded col-10 d-flex align-items-center justify-content-center p-1 ${
                                 item.order.status === "Shipped"
                                     ? "bg-success"
                                     : item.order.status === "Payed"
@@ -127,42 +128,46 @@ function TransactionHistory() {
                             item.order.id
                         )}
                 </div>
-                <div className={`d-flex justify-content-end`}>
-                    <div className="col-6 d-flex justify-content-end p-1">
-                        <h5>{`Total price: ${item.order.total_price} USD`}</h5>
+                <div className={`d-flex justify-content-end align-items-center py-2`}>
+                    <div className="col-6 d-flex justify-content-end">
+                        <h5 className="m-0">{`Total price: ${item.order.total_price} USD`}</h5>
                     </div>
-                </div>
-                <div
-                    className={`${
-                        item.status === "Evaluated" || item.status === "Shipped"
-                            ? "d-flex"
-                            : "d-none"
-                    } justify-content-end p-1`}
-                >
-                    <div className="btn btn-outline-primary">BUY AGAIN</div>
+                    <div
+                        className={`${
+                            item.order.status === "Evaluated" ||
+                            item.order.status === "Shipped"
+                                ? "d-flex"
+                                : "d-none"
+                        } justify-content-end pr-2`}
+                    >
+                        <div className={`btn ${style.btnBuyAgain} btn-outline-primary`}>BUY AGAIN</div>
+                    </div>
                 </div>
             </div>
         );
     };
     function infoProduct(idOrder, status, item, index) {
         return (
-            <div key={index} className="row col-12 m-1">
-                <div className="col-2">
+            <div
+                key={index}
+                className={`${style.infoProductCpn} row col-12 m-1`}
+            >
+                <div className="col-3 col-lg-2">
                     <img
                         src={item.image ?? item.image}
                         className="img-fluid p-1"
                         alt="img-product"
                     />
                 </div>
-                <div className="col-10 d-flex justify-content-between">
-                    <div className="col-10">
+                <div className="col-9 col-lg-10 d-flex justify-content-between">
+                    <div className="col-9">
                         <div className="row font-weight-bold">{item.name}</div>
                         <div className="row text-secondary">
                             {`Category: ${item.color}, ${item.size}`}
                         </div>
                         <div className="row">{`Quantity: ${item.quantity}`}</div>
                     </div>
-                    <div className="col-2 d-block">
+                    <div className="col-3 d-block">
                         <div className="d-flex justify-content-center align-items-center">
                             {`${item.price} USD`}
                         </div>
@@ -188,7 +193,9 @@ function TransactionHistory() {
         return (
             <div
                 key={index}
-                className={`col-2 btn m-2 rounded-0 d-flex justify-content-center align-items-center ${
+                className={`col-2 btn m-2 rounded-0 ${
+                    style.btnCategoryRating
+                } d-flex justify-content-center align-items-center ${
                     pick === index ? "btn-primary" : "btn-outline-primary"
                 }`}
                 onClick={() => handleFilter(index)}

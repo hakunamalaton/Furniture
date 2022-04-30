@@ -45,7 +45,19 @@
     border: solid 1px #000;
 }
 
-@media only screen and (max-width: 575.5px) {
+@media only screen and (max-width: 768px) {
+    .popup-rating-component .btnRating{
+        font-size: 14px!important;
+    }
+    .popup-rating-component .btnCancel{
+        font-size: 14px!important;
+    }
+    .popup-rating-component .btnSubmit{
+        font-size: 14px!important;
+    }  
+}
+
+@media only screen and (max-width: 576px) {
     .rating-popup-form .rating-choose-score .icon-star-score{
         font-size: 1.5rem;
     }
@@ -55,5 +67,14 @@
     .popup-rating-component .preview-img-rating{
         width: 45px;
         height: 45px;
+    }
+    .popup-rating-component .btnRating{
+        font-size: 12px!important;
+    }
+    .popup-rating-component .btnCancel{
+        font-size: 12px!important;
+    }
+    .popup-rating-component .btnSubmit{
+        font-size: 12px!important;
     }
 }
