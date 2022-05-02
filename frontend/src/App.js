@@ -15,7 +15,14 @@ import FakeRegister from "./Component/Account/FakeRegister";
 import Register from "./Component/Account/Register";
 import LoginRoute from "./Component/auth/LoginRoute";
 
+import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+
 function App() {
+    const history = useHistory();
+    const accountState = useSelector(state => state.account);
+
     return (
         <Router>
             <div className="App">

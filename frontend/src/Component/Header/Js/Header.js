@@ -5,16 +5,38 @@ import { faBars, faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icon
 import "../Css/Header.css";
 import SearchBar from "./SearchBar";
 
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { logoutAccount } from "../../Account/slice/accountSlice";
+
 const Header = () => {
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const AccountState = useSelector(state => state.account);
+
+    const handleLogout = () => {
+        dispatch(logoutAccount());
+        history.push("/fakeLogin");
+    };
+
     return (
         <div className="header">
             <div className="container pt-2 pb-2">
-                {/* <div className="row sign_in_header justify-content-end mr-1">
-                    <div className="d-flex text-light">
-                        <p className="pr-3 border-right border-light">Sign Up</p>
-                        <p className="pl-3">Sign In</p>
-                    </div>
-                </div> */}
+                {
+                    AccountState.status === 'guest' && (<div className="row sign_in_header justify-content-end mr-1">
+                        <div className="d-flex text-light">
+                            <Link to="/fakeRegister"><p className="pr-3 border-right border-light">Sign Up</p></Link>
+                            <Link to="/fakeLogin"><p className="pl-3">Sign In</p></Link>
+                        </div>
+                    </div>)
+                }
+                {
+                    AccountState.status === 'member' &&
+                    (<div className="row sign_in_header justify-content-end mr-1"><div onClick={() => handleLogout()} className="d-flex text-light">
+                        <p className="pl-3">Log Out</p>
+                    </div></div>)
+                }
                 <div className="row">
                     <div className="col-6 col-md-3 d-flex align-items-center">
                         <img className="w-75" src={logo} alt="logoimg" />
@@ -24,16 +46,17 @@ const Header = () => {
                     </div>
 
                     <div className="col-4 col-md-2 align-self-center d-flex justify-content-end">
-                        <a href="/fakeregister"><FontAwesomeIcon
+                        <Link to="/address"><FontAwesomeIcon
                             className="text-light icon-cart-shopping mr-4"
                             icon={faUser}
                         />
-                        <a href="/order">
+                        </Link>
+                        <Link to="/order">
                             <FontAwesomeIcon
                                 className="text-light icon-cart-shopping"
                                 icon={faShoppingCart}
                             />
-                        </a>
+                        </Link>
                     </div>
 
                     <button

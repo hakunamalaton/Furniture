@@ -44,34 +44,46 @@ const accountSlice = createSlice({
     name: 'account',
     initialState,
     reducers: {
-
+        loginAccount(state, action) {
+            const { token, email } = action.payload;
+            state.email = email;
+            state.token = token;
+            state.status = "member";
+        },
+        logoutAccount(state, action) {
+            state.email = "";
+            state.token = "";
+            state.status = "guest";
+        }
     },
     extraReducers: builder => {
-        builder
-            .addCase(loginAccount.fulfilled, (state, action) => {
-                const { token, email, success } = action.payload;
-                if (success) {
-                    state.email = email;
-                    state.token = token;
-                    state.status = true;
-                } else {
-                }
-            })
+        // builder
+        //     .addCase(loginAccount.fulfilled, (state, action) => {
+        //         const { token, email, success } = action.payload;
+        //         console.log("action.payload", action.payload);
+        //         if (success) {
+        //             state.email = email;
+        //             state.token = token;
+        //             state.status = 'member';
+        //         }
+        //     })
+
     }
 })
+
+export const { loginAccount, logoutAccount } = accountSlice.actions;
 
 export default accountSlice.reducer;
 
-export const loginAccount = createAsyncThunk('account/loginAccount', async ({ requestBody, headers }, thunkAPI) => {
-    const loginResponse = await axios.post(`${SERVER_URL}/sign-in`, requestBody, headers);
-    console.log("loginResponse", loginResponse);
-    if (loginResponse.data.code === 0) {
-        const token = loginResponse.data.token;
-        const email = requestBody["user"]["email"];
-        console.log("{token, email}", { token, email });
-        console.log("LOL", { token, email, success: true });
-        return { token, email, success: true };
-    } else {
-        return { token: null, email: null, success: false };
-    }
-})
+// export const loginAccount = createAsyncThunk('account/loginAccount', async ({ requestBody, headers }, thunkAPI) => {
+//     const loginResponse = await axios.post(`${SERVER_URL}/sign-in`, requestBody, headers);
+//     console.log("loginResponse", loginResponse);
+//     if (loginResponse.data.code === 0) {
+//         const token = loginResponse.data.token;
+//         const email = requestBody["user"]["email"];
+//         console.log("{token, email}", { token, email });
+//         return { token, email, success: true };
+//     } else {
+//         return { token: null, email: null, success: false };
+//     }
+// })
