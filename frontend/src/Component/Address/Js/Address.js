@@ -1,9 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Header from "../../Header/Js/Header";
 import NewAddressModal from "./NewAddressModal";
-import Footer from "../../Footer/Js/Footer";
 
 const Address = () => {
     const size = { fontSize: "1.1rem" };
@@ -27,7 +25,6 @@ const Address = () => {
 
     return (
         <>
-            <Header />
             <div className="container pt-4 address">
                 {/* First row: Title + Add new address button */}
                 <div className="row align-items-center d-flex justify-content-between">
@@ -101,7 +98,6 @@ const Address = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     );
 };
