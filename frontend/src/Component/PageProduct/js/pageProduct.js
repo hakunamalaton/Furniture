@@ -90,7 +90,7 @@ function PageProduct({ match }) {
             <>
                 {starAvgScore(dataProductDetail.avg_star)}
                 <div className="text-warning pl-2">
-                    {dataProductDetail.avg_star}
+                    {dataProductDetail.avg_star.toFixed(2)}
                 </div>
             </>
         ) : (

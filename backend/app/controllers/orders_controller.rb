@@ -20,12 +20,9 @@ class OrdersController < ApplicationController
     product_id = @order.orders_products.pluck(:product_id, :quantity, :size, :color).map do |information|
       {
         product_id: information[0],
-<<<<<<< HEAD
         name: Product.find_by(id: information[0]).name,
         price: Product.find_by(id: information[0]).price,
         image: Product.find_by(id: information[0]).image ? Product.find_by(id: information[0]).image[0] : nil ,
-=======
->>>>>>> long
         quantity: information[1],
         size: information[2],
         color: information[3]
@@ -110,11 +107,7 @@ class OrdersController < ApplicationController
         code: 0,
         email: email,
         order: new_order,
-<<<<<<< HEAD
         product_ids: new_order.products.ids,  # change more detail into ids
-=======
-        products: new_order.products,
->>>>>>> long
         quantity: params[:quantity],
         size: params[:size],
         color: params[:color]

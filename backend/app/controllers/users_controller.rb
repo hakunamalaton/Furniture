@@ -26,7 +26,6 @@ class UsersController < ApplicationController
 
   def show_order
     @orders = Order.where(user_id: params[:id])
-<<<<<<< HEAD
     if params[:status] != nil
       if params[:status] != "Shipped"
         @orders = @orders.where(status: params[:status]) 
@@ -34,9 +33,6 @@ class UsersController < ApplicationController
         @orders = @orders.where(status: ["Shipped", "Evaluated"]) 
       end
     end
-=======
-    @orders = @orders.where(status: params[:status]) if params[:status] != nil
->>>>>>> long
     @orders = @orders.select(:id, :status, :total_price, :description, :address)
     total = @orders.length
 

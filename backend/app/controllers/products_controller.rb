@@ -1,9 +1,5 @@
 class ProductsController < ApplicationController
-<<<<<<< HEAD
   before_action :set_product, only: [:show, :show_ratings, :update, :destroy, :create_ratings, :destroy_ratings]
-=======
-  before_action :set_product, only: [:show, :show_ratings, :update, :destroy, :create_ratings]
->>>>>>> long
   protect_from_forgery with: :null_session
   
   def show

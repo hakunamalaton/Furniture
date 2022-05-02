@@ -223,7 +223,7 @@ function Rating({ id, averageScore }) {
             <>
                 <div className="row align-items-end justify-content-center">
                     <p className="rating-score mb-0">
-                        {averageScore}
+                        {averageScore.toFixed(2)}
                     </p>
                     <p className="rating-score-out-of mb-0">/ 5</p>
                 </div>

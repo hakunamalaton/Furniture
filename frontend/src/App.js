@@ -25,7 +25,6 @@ function App() {
                     <Route exact path="/order" component={OrderProcess} />
                     <Route exact path="/address" component={Address} />
                     <Route exact path="/mapbox" component={Mapbox} />
-                    <Route exact path="/homepage" component={HomePage} />
                     <Route exact path="/address" component={Address} />
                     <Route exact path="/menu" component={Menu} />
                     <Route exact path="/transaction-history" component={TransactionHistory} />
