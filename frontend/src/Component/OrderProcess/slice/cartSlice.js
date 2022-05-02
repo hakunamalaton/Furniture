@@ -1,4 +1,8 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const initialState = {
     status: "created",
@@ -48,14 +52,6 @@ const initialState = {
         // },
     ],
     price: {
-        // total: 1799.96,
-        // tax_percent: 11.2,
-        // tax: "",
-        // shipping: "",
-        // shippingOption: "",
-        // shippingScale: 1,
-        // final_price: 0,
-        // deliveryDate: "",
         total: 0,
         tax_percent: 11.2,
         tax: "",
@@ -136,7 +132,15 @@ const cartSlice = createSlice({
         updatePaymentMethod: (state, action) => {
             state.payment.paymentOption = action.payload;
         },
+        updateFinalPrice: (state, action) => {
+            state.price.final_price = state.price.total * (1 + state.price.tax_percent / 100) + state.price.shipping * state.price.shippingScale;
+        }
     },
+    extraReducers: builder => {
+        builder.addCase(createOrder.fulfilled, (state, action) => {
+
+        })
+    }
 });
 
 export default cartSlice.reducer;
@@ -150,7 +154,40 @@ export const {
     updateShippingMethod,
     updateShippingDate,
     updatePaymentMethod,
+    updateFinalPrice,
 } = cartSlice.actions;
+
+export const createOrder = createAsyncThunk('cart/createOrder', async (orderState, thunkAPI) => {
+    try {
+        const state = thunkAPI.getState();
+        /**
+         * CORS ERROR !!! heroku not accept request from localhost:3000
+         */
+        // const PaymentAPIResponse = await axios.post(`https://furniture-payment.herokuapp.com/payment-paypal?total=${state.cart.price.final_price}`);
+        try {
+            const cartState = state.cart;
+            console.log("createOrder final", cartState);
+            const processedOrderData = {};
+            processedOrderData["order"] = {
+                "status": "Created",
+                "user_id": state.account.token,
+                "address": state.cart.buyer.address.location,
+                "total_price": state.cart.price.final_price,
+                "description": "Smth",
+            }
+            processedOrderData["quantity"] = state.cart.cart.map(cartItem => cartItem.quantity);
+            processedOrderData["color"] = state.cart.cart.map(cartItem => cartItem.color);
+            processedOrderData["size"] = state.cart.cart.map(cartItem => cartItem.size);
+            console.log("Processed Order Data", processedOrderData);
+            const createOrderResponse = await axios.post(`${SERVER_URL}/users/${state.account.token}/orders`, processedOrderData);
+            return {};
+        } catch (err) {
+            console.log('Create Order Error', err);
+        }
+    } catch (err) {
+        console.log("Payment API Error", err);
+    }
+})
 
 const selectCartItemById = createSelector(
     (state) => state.cart,

@@ -1,23 +1,39 @@
 import React from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+
 import momoBtn from "../../../picture/momoBtn.png";
 import paypalBtn from "../../../picture/paypalBtn.jpg";
 
+import { updateFinalPrice, createOrder } from "../../OrderProcess/slice/cartSlice";
+
 const Total = ({ priceState, paymentOption }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const OrderState = useSelector(state => state.cart);
+
+  const OrderPriceState = useSelector(state => state.cart.price);
 
   const handlePayWithPayPal = () => {
+    dispatch(updateFinalPrice());
     console.log("Pay with PayPal");
+    dispatch(createOrder(OrderState));
+    history.push("/transaction-history");
   };
   const handlePayWithMomo = () => {
+    dispatch(updateFinalPrice());
+    console.log("The Final Price To Pay", OrderPriceState.final_price);
     console.log("Pay with Momo");
   };
 
-  const OrderPriceState = useSelector(state => state.cart.price);
+
   console.log("Total.js priceState", priceState);
   const taxFee = (OrderPriceState.total * OrderPriceState.tax_percent / 100);
   return (
     <div className="right_side p-3 shadow bg-info">
+      <div>{OrderState.price.final_price}</div>
       <div>
         <h2 className="product_name mb-5">The Total Amount Of</h2>
         <div className="price_indiv d-flex justify-content-between">

@@ -54,7 +54,7 @@ const accountSlice = createSlice({
         builder
             .addCase(getUserAddresses.fulfilled, (state, action) => {
                 const newAddressesList = action.payload;
-                state.addressList += newAddressesList;
+                state.addressList = newAddressesList;
             })
             .addCase(addNewUserAddress.fulfilled, (state, action) => {
                 const { location, description, price, phone_number } = action.payload;
@@ -90,9 +90,10 @@ export default accountSlice.reducer;
 //     }
 // })
 
-export const getUserAddresses = createAsyncThunk('account/getUserAddresses', async ({ token }, thunkAPI) => {
+export const getUserAddresses = createAsyncThunk('account/getUserAddresses', async (token, thunkAPI) => {
     try {
         const getUserAddressesResponse = await axios.get(`http://localhost:8000/users/${token}/address`);
+        console.log("getUserAddresses data", getUserAddressesResponse.data);
         return getUserAddressesResponse.data.address;
     } catch (err) {
         console.log("[ERROR!]: " + err);
