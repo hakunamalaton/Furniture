@@ -1,10 +1,9 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "../../Header/Js/Header";
 import Footer from "../../Footer/Js/Footer";
 import Rating from "../../Rating/js/rating";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../css/pageProduct.css";
-import Product from "./dataFakeProduct.json";
 import {
     faMinus,
     faPlus,
@@ -12,7 +11,17 @@ import {
     faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 
-function PageProduct() {
+const axios = require("axios");
+
+function PageProduct({ match }) {
+    const idProduct = match.params.id;
+    const [dataProductDetail, setDataProductDetail] = useState([]);
+    useEffect(() => {
+        axios
+            .get(`http://localhost:8000/products/${idProduct}`)
+            .then((res) => setDataProductDetail(res.data))
+            .catch((err) => console.error("Đây là lỗi: " + err));
+    }, [idProduct]);
     const [color, setColor] = useState("");
     const [pickColor, setPickColor] = useState(-1);
     const [pickSize, setPickSize] = useState(-1);
@@ -48,8 +57,8 @@ function PageProduct() {
     };
     function starAvgScore(props) {
         const divElement = [];
-        let restScore = 5 - Math.ceil(props);
-        for (let i = 0; i < Math.ceil(props); i++) {
+        let restScore = 5 - Math.round(props);
+        for (let i = 0; i < Math.round(props); i++) {
             divElement.push(
                 <FontAwesomeIcon icon={faStar} className="text-warning" />
             );
@@ -76,24 +85,36 @@ function PageProduct() {
             </a>
         );
     }
+    function showStar(value) {
+        return value ? (
+            <>
+                {starAvgScore(dataProductDetail.avg_star)}
+                <div className="text-warning pl-2">
+                    {dataProductDetail.avg_star.toFixed(2)}
+                </div>
+            </>
+        ) : (
+            <div className="text-warning font-weight-bold">No have review.</div>
+        );
+    }
     return (
         <div className="page-product-component">
             <Header />
             <div className="container bg-white">
                 <div className="paga-product-breadcrumb">
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item">
                                 <a href="/">BK Furniture</a>
                             </li>
-                            <li class="breadcrumb-item">
-                                <a href="/bedding">Bedding</a>
+                            <li className="breadcrumb-item">
+                                <a href="/menu">Products</a>
                             </li>
                             <li
-                                class="breadcrumb-item active"
+                                className="breadcrumb-item active"
                                 aria-current="page"
                             >
-                                {Product.name}
+                                {`${dataProductDetail.category} - ${dataProductDetail.name}`}
                             </li>
                         </ol>
                     </nav>
@@ -106,31 +127,34 @@ function PageProduct() {
                             data-ride="carousel"
                         >
                             <div className="carousel-inner">
-                                {Product.image.map((item, index) => {
-                                    return index === 0 ? (
-                                        <div
-                                            className="carousel-item active"
-                                            key={index}
-                                        >
-                                            <img
-                                                src={item}
-                                                className="d-block w-100"
-                                                alt="img-bed-1"
-                                            />
-                                        </div>
-                                    ) : (
-                                        <div
-                                            className="carousel-item"
-                                            key={index}
-                                        >
-                                            <img
-                                                src={item}
-                                                className="d-block w-100"
-                                                alt="img-bed-1"
-                                            />
-                                        </div>
-                                    );
-                                })}
+                                {dataProductDetail.image &&
+                                    dataProductDetail.image.map(
+                                        (item, index) => {
+                                            return index === 0 ? (
+                                                <div
+                                                    className="carousel-item active"
+                                                    key={index}
+                                                >
+                                                    <img
+                                                        src={item}
+                                                        className="d-block w-100"
+                                                        alt="img-bed-1"
+                                                    />
+                                                </div>
+                                            ) : (
+                                                <div
+                                                    className="carousel-item"
+                                                    key={index}
+                                                >
+                                                    <img
+                                                        src={item}
+                                                        className="d-block w-100"
+                                                        alt="img-bed-1"
+                                                    />
+                                                </div>
+                                            );
+                                        }
+                                    )}
                             </div>
                             <button
                                 className="carousel-control-prev"
@@ -161,39 +185,41 @@ function PageProduct() {
                             className="list-img-product-small row justify-content-center py-2"
                             data-ride="carousel"
                         >
-                            {Product.image.map((item, index) => {
-                                return (
-                                    <div className="col-2 px-1" key={index}>
-                                        <img
-                                            src={item}
-                                            className="d-block w-100 img-small border border-dark"
-                                            alt="img-small-bed-1"
-                                            data-target="#carousel-img-product"
-                                            data-slide-to={index}
-                                        />
-                                    </div>
-                                );
-                            })}
+                            {dataProductDetail.image &&
+                                dataProductDetail.image.map((item, index) => {
+                                    return (
+                                        <div className="col-2 px-1" key={index}>
+                                            <img
+                                                src={item}
+                                                className="d-block w-100 img-small border border-dark"
+                                                alt="img-small-bed-1"
+                                                data-target="#carousel-img-product"
+                                                data-slide-to={index}
+                                            />
+                                        </div>
+                                    );
+                                })}
                         </div>
                     </div>
                     <div className="product-info col-lg-6">
                         <div className="row product-name">
-                            <h5 className="font-weight-bold">{Product.name}</h5>
+                            <h5 className="font-weight-bold">
+                                {dataProductDetail.name}
+                            </h5>
                         </div>
                         <div className="row product-rating-score align-items-center">
-                            {starAvgScore(Product.rating)}
-                            <div className="text-warning pl-2">
-                                {Product.rating}
-                            </div>
-                            <div className="product-num-previews pl-3">
-                                ({Product.numReviews} reviews)
-                            </div>
+                            {showStar(dataProductDetail.avg_star)}
                         </div>
                         <div className="row product-price font-weight-bold">
-                            <h4>$ {Product.price}</h4>
+                            <h4>{dataProductDetail.price} USD</h4>
                         </div>
                         <div className="product-made-by row">
-                            Provide by {thirdPartyProduct(Product.third_party)}.
+                            Provide by{" "}
+                            {dataProductDetail.third_party &&
+                                thirdPartyProduct(
+                                    dataProductDetail.third_party
+                                )}
+                            .
                         </div>
                         <div className="row d-block product-color">
                             <div className="product-color-selected d-flex">
@@ -204,44 +230,53 @@ function PageProduct() {
                                 className="btn-group btn-group-toggle"
                                 data-toggle="buttons"
                             >
-                                {Product.color.map((item, index) => {
-                                    const indexSeparator = item.indexOf("#");
-                                    const codeColor =
-                                        item.slice(indexSeparator);
-                                    const nameColor = item.slice(
-                                        0,
-                                        indexSeparator
-                                    );
-                                    return (
-                                        <label
-                                            key={index}
-                                            className="btn p-0 m-1 rounded-0"
-                                        >
-                                            <input
-                                                type="radio"
-                                                name="color"
-                                                id={"color" + (index + 1)}
-                                                onClick={() =>
-                                                    handleColor(
-                                                        nameColor,
-                                                        index
-                                                    )
-                                                }
-                                            />{" "}
-                                            <div
-                                                className="product-btn-color"
-                                                style={{
-                                                    backgroundColor: codeColor,
-                                                    border: "3px solid white",
-                                                    outline:
-                                                        pickColor === index
-                                                            ? "solid black"
-                                                            : "none",
-                                                }}
-                                            ></div>
-                                        </label>
-                                    );
-                                })}
+                                {dataProductDetail.color &&
+                                    dataProductDetail.color.map(
+                                        (item, index) => {
+                                            const indexSeparator =
+                                                item.indexOf("#");
+                                            const codeColor =
+                                                item.slice(indexSeparator);
+                                            const nameColor = item.slice(
+                                                0,
+                                                indexSeparator
+                                            );
+                                            return (
+                                                <label
+                                                    key={index}
+                                                    className="btn p-0 m-1 rounded-0"
+                                                >
+                                                    <input
+                                                        type="radio"
+                                                        name="color"
+                                                        id={
+                                                            "color" +
+                                                            (index + 1)
+                                                        }
+                                                        onClick={() =>
+                                                            handleColor(
+                                                                nameColor,
+                                                                index
+                                                            )
+                                                        }
+                                                    />{" "}
+                                                    <div
+                                                        className="product-btn-color"
+                                                        style={{
+                                                            backgroundColor:
+                                                                codeColor,
+                                                            // border: "3px solid white",
+                                                            outline:
+                                                                pickColor ===
+                                                                index
+                                                                    ? "solid black"
+                                                                    : "none",
+                                                        }}
+                                                    ></div>
+                                                </label>
+                                            );
+                                        }
+                                    )}
                             </div>
                         </div>
                         <div className="row d-block product-size">
@@ -253,53 +288,66 @@ function PageProduct() {
                                 className="btn-group btn-group-toggle product-list-size row justify-content-start"
                                 data-toggle="buttons"
                             >
-                                {Product.size.map((item, index) => {
-                                    const indexFirstSeparator =
-                                        item.indexOf("#");
-                                    const subItem = item.slice(
-                                        indexFirstSeparator + 1
-                                    );
-                                    const nameSize = item.slice(
-                                        0,
-                                        indexFirstSeparator
-                                    );
-                                    const indexSecondarySeparator =
-                                        subItem.indexOf("#");
-                                    const size = subItem.slice(
-                                        0,
-                                        indexSecondarySeparator
-                                    );
-                                    const weight = subItem.slice(
-                                        indexSecondarySeparator + 1
-                                    );
-                                    return (
-                                        <label
-                                            key={index}
-                                            className="btn p-0 m-1 rounded-0 col-5"
-                                        >
-                                            <input
-                                                type="radio"
-                                                name="size"
-                                                id={"size" + (index + 1)}
-                                                onClick={() =>
-                                                    handleSize(nameSize, index)
-                                                }
-                                            />{" "}
-                                            <div
-                                                className="product-btn-size"
-                                                style={{
-                                                    outline:
-                                                        pickSize === index
-                                                            ? "solid black"
-                                                            : "none",
-                                                }}
-                                            >
-                                                <p>{size}</p>
-                                                <p>{weight}</p>
-                                            </div>
-                                        </label>
-                                    );
-                                })}
+                                {dataProductDetail.size &&
+                                    dataProductDetail.size.map(
+                                        (item, index) => {
+                                            const indexFirstSeparator =
+                                                item.indexOf("#");
+                                            const subItem = item.slice(
+                                                indexFirstSeparator + 1
+                                            );
+                                            const nameSize = item.slice(
+                                                0,
+                                                indexFirstSeparator
+                                            );
+                                            const indexSecondarySeparator =
+                                                subItem.indexOf("#");
+                                            const size = subItem.slice(
+                                                0,
+                                                indexSecondarySeparator
+                                            );
+                                            const weight = subItem.slice(
+                                                indexSecondarySeparator + 1
+                                            );
+                                            return dataProductDetail.size.length === 1 || dataProductDetail.size.length === 2 ? (
+                                                <label key={index} className="btn p-0 m-1 rounded-0 col-12">
+                                                    <input
+                                                        type="radio"
+                                                        name="size"
+                                                        id={"size" + (index + 1)}
+                                                        onClick={() => handleSize(nameSize, index)}
+                                                    />{" "}
+                                                    <div
+                                                        className="product-btn-size p-1"
+                                                        style={{
+                                                            outline: pickSize === index ? "solid black" : "none",
+                                                        }}
+                                                    >
+                                                        <p>{size}</p>
+                                                        <p>{weight}</p>
+                                                    </div>
+                                                </label>
+                                            ) : (
+                                                <label key={index} className="btn p-0 m-1 rounded-0 col-5">
+                                                    <input
+                                                        type="radio"
+                                                        name="size"
+                                                        id={"size" + (index + 1)}
+                                                        onClick={() => handleSize(nameSize, index)}
+                                                    />{" "}
+                                                    <div
+                                                        className="product-btn-size"
+                                                        style={{
+                                                            outline: pickSize === index ? "solid black" : "none",
+                                                        }}
+                                                    >
+                                                        <p>{size}</p>
+                                                        <p>{weight}</p>
+                                                    </div>
+                                                </label>
+                                            );
+                                        }
+                                    )}
                             </div>
                         </div>
                         <div className="product-quantity pt-2 d-flex col-md-10 col-lg-12 pl-0">
@@ -349,14 +397,6 @@ function PageProduct() {
                                     Add to Cart
                                 </button>
                             </div>
-                            <div className="">
-                                <button
-                                    type="submit"
-                                    className="btn btn-buy-now"
-                                >
-                                    Buy Now
-                                </button>
-                            </div>
                         </div>
                         <div className="product-description pt-2">
                             <div className="d-flex align-items-center justify-content-between">
@@ -371,7 +411,7 @@ function PageProduct() {
                                 >
                                     <div className="btn btn-outline-primary">
                                         {viewDescription
-                                            ? "View less"
+                                            ? "Collapse"
                                             : "View more"}
                                     </div>
                                 </div>
@@ -384,7 +424,7 @@ function PageProduct() {
                                         : { display: "none" }
                                 }
                             >
-                                {Product.description}
+                                {dataProductDetail.description}
                             </div>
                         </div>
                         <div className="product-overview d-block pt-2">
@@ -400,7 +440,7 @@ function PageProduct() {
                                 >
                                     <div className="btn btn-outline-primary">
                                         {viewOverview
-                                            ? "View less"
+                                            ? "Collapse"
                                             : "View more"}
                                     </div>
                                 </div>
@@ -414,15 +454,18 @@ function PageProduct() {
                                 }
                             >
                                 <ul>
-                                    {Product.overview.map((item, index) => (
-                                        <li key={index}>{item}</li>
-                                    ))}
+                                    {dataProductDetail.overview &&
+                                        dataProductDetail.overview.map(
+                                            (item, index) => (
+                                                <li key={index}>{item}</li>
+                                            )
+                                        )}
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <Rating />
+                <Rating id={idProduct} averageScore={dataProductDetail.avg_star} />
             </div>
             <Footer />
         </div>

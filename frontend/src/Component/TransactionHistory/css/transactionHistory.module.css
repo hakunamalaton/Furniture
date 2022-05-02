@@ -1,15 +1,31 @@
 .transHisComponent {
     background-color: #e5e5e5;
 }
-.filterOrder {
-    border-bottom: 1px solid #007bff;
-}
 .order {
     background-color: rgba(54, 181, 255, 0.127);
 }
 .order:last-child {
     margin-bottom: 0!important;
 }
-.transBody_infoProduct, .transBody_titleOrder {
-    border-bottom: 1px solid #007bff;
+
+@media only screen and (max-width: 768px) {
+    .transHisComponent h5,.transHisComponent h4, .transHisComponent h6, .statusOrder{
+        font-size: 16px;
+    }
+    
+    .infoProductCpn, .btnCategoryRating, .btnBuyAgain {
+        font-size: 14px;
+    }    
 }
+
+@media only screen and (max-width: 576px) {
+    .transHisComponent h5,.transHisComponent h4, .transHisComponent h6, .statusOrder{
+        font-size: 14px;
+    }
+    
+    .infoProductCpn, .btnCategoryRating, .btnBuyAgain {
+        font-size: 12px;
+    }    
+}
+
+

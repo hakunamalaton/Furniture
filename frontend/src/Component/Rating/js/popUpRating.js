@@ -2,11 +2,71 @@ import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../css/popUpRating.css";
-import { faCamera, faStar} from "@fortawesome/free-solid-svg-icons";
-function PopUpRating({ image, name, category }) {
+import { faCamera, faStar } from "@fortawesome/free-solid-svg-icons";
+const axios = require("axios");
+
+function PopUpRating({ idOrder, id, image, name, category }) {
     const [currentScore, setCurrentScore] = useState(0);
     const [hoverScore, setHoverScore] = useState(undefined);
     const [popUp, setPopUp] = useState(false);
+    let images = [];
+
+    function handleAddRating(e) {
+        let score = currentScore;
+        let category = [];
+        switch (score) {
+            case 5:
+                category.push("5-star");
+                break;
+            case 4:
+                category.push("4-star");
+                break;
+            case 3:
+                category.push("3-star");
+                break;
+            case 2:
+                category.push("2-star");
+                break;
+            case 1:
+                category.push("1-star");
+                break;
+            default:
+                break;
+        }
+        let description = document.getElementById("content-cmt").value;
+        if (description) {
+            category.push("comment");
+        }
+        if (images.length > 0) {
+            category.push("media");
+        }
+        e.preventDefault();
+        axios
+            .post(`http://localhost:8000/products/${id}/ratings`, {
+                email: "duong@gmail.com",
+                description,
+                image: images,
+                category,
+                star: score,
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        axios
+            .patch(`http://localhost:8000/orders/${idOrder}`, {
+                status: "Evaluated"
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        window.location.href = "/transaction-history";
+    }
 
     function pickStarScore() {
         const start = Array(5).fill(0);
@@ -27,7 +87,7 @@ function PopUpRating({ image, name, category }) {
                 }}
             />
         ));
-    };
+    }
     const handleClick = (props) => {
         if (props === currentScore) {
             setCurrentScore(0);
@@ -35,7 +95,7 @@ function PopUpRating({ image, name, category }) {
         }
         setCurrentScore(props);
     };
-    const handlePopUp = () => {
+    const handlePopUp = (e) => {
         setPopUp(!popUp);
     };
     const handleMouseOver = (props) => {
@@ -48,11 +108,11 @@ function PopUpRating({ image, name, category }) {
     function clearImgPreview() {
         const listFilePrev = document.querySelectorAll(".preview-img-rating");
         listFilePrev.forEach(resetPreviewImg);
-    };
+    }
     function resetPreviewImg(item, index) {
         item.style.display = "none";
         item.key = index;
-    };
+    }
     function previewListImg() {
         clearImgPreview();
         const file = document.querySelector("#input-img-rating").files;
@@ -64,18 +124,25 @@ function PopUpRating({ image, name, category }) {
         }
     }
     function previewImg(index) {
-        const preview = document.querySelector("#img-rating-upload-" + (index + 1));
+        const preview = document.querySelector(
+            "#img-rating-upload-" + (index + 1)
+        );
+
         var file = document.querySelector("#input-img-rating").files[index];
-        console.log(file);
         let blobURL = URL.createObjectURL(file);
         preview.style.display = "block";
         preview.style.backgroundImage = "url(" + blobURL.toString() + ")";
+        const reader = new FileReader();
+        reader.onload = function () {
+            images.push(reader.result);
+        };
+        reader.readAsDataURL(file);
     }
     return (
         <div className="popup-rating-component">
             <div className="row">
                 <div className="col-12">
-                    <button className="btn btn-primary" onClick={handlePopUp}>
+                    <button className="btn btn-primary btnRating" onClick={handlePopUp}>
                         RATING
                     </button>
                 </div>
@@ -171,7 +238,7 @@ function PopUpRating({ image, name, category }) {
                                 <div className="row rating-popup-form-footer justify-content-end">
                                     <Link to="/transaction-history">
                                         <button
-                                            className="btn btn-outline-secondary m-2"
+                                            className="btn btn-secondary m-2 btnCancel"
                                             onClick={handlePopUp}
                                         >
                                             CANCEL
@@ -179,8 +246,8 @@ function PopUpRating({ image, name, category }) {
                                     </Link>
                                     <button
                                         type="submit"
-                                        className="btn btn-primary m-2"
-                                        onClick={handlePopUp}
+                                        className="btn btn-primary m-2 btnSubmit"
+                                        onClick={(e) => handleAddRating(e)}
                                     >
                                         COMPLETE
                                     </button>

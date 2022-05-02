@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Scrollbars from "react-custom-scrollbars/lib/Scrollbars";
+import axios from "axios";
 import Mapbox from "./Mapbox";
 
 function NewAddressModal() {
     const [childProp, setChildProp] = useState();
     const [address, setAddress] = useState();
+
     const [street, setStreet] = useState("");
+    const [description, setDescription] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState();
+
     const [price, setPrice] = useState(0);
 
     const ParentcallbackFunction = (choosenAddressData) => {
@@ -43,6 +47,23 @@ function NewAddressModal() {
         }
     }, [childProp]);
 
+    let id = 1;
+
+    function handleAddNewAddress() {
+        let submitAddress = "";
+
+        if (address) submitAddress = address;
+        else if (childProp) submitAddress = childProp.choosenAdd;
+
+        if ((address || childProp) && phoneNumber)
+            axios.post(`http://localhost:8000/users/${id}/address`, {
+                location: submitAddress,
+                description: description,
+                price: price,
+                phone_number: phoneNumber,
+            });
+    }
+
     return (
         <div className="modal fade " id="myModal">
             <div className="modal-dialog modal-lg">
@@ -54,44 +75,46 @@ function NewAddressModal() {
                         </button>
                     </div>
 
-                    <Scrollbars style={{ height: "70vh" }}>
-                        <div className="modal-body">
-                            <div className="row justify-content-center">
-                                <input
-                                    className="col-11"
-                                    type="text"
-                                    id="fullname"
-                                    placeholder="Họ và tên"
-                                />
-                            </div>{" "}
-                            <br></br>
-                            <div className="row justify-content-center">
-                                <input
-                                    className="col-11"
-                                    type="text"
-                                    id="phone"
-                                    placeholder="Số điện thoại:"
-                                />
-                            </div>{" "}
-                            <br></br>
-                            <div className="row justify-content-center">
-                                <input
-                                    className="col-11"
-                                    type="text"
-                                    id="street"
-                                    placeholder="Số nhà, đường:"
-                                    onChange={(e) => {
-                                        setStreet(e.target.value);
-                                    }}
-                                />
-                            </div>{" "}
-                            <br></br>
-                            <Mapbox
-                                ParentcallbackFunction={ParentcallbackFunction}
-                                address={address}
+                    <div className="modal-body">
+                        <div className="row justify-content-center">
+                            *
+                            <input
+                                className="col-11"
+                                type="text"
+                                id="phone"
+                                placeholder="Phone Number:"
+                                onChange={(e) => {
+                                    setPhoneNumber(e.target.value);
+                                }}
                             />
-                        </div>
-                    </Scrollbars>
+                        </div>{" "}
+                        <br></br>
+                        <div className="row justify-content-center">
+                            <input
+                                className="col-11"
+                                type="text"
+                                id="street"
+                                placeholder="No. Street:"
+                                onChange={(e) => {
+                                    setStreet(e.target.value);
+                                }}
+                            />
+                        </div>{" "}
+                        <br></br>
+                        <div className="row justify-content-center">
+                            <input
+                                className="col-11"
+                                type="text"
+                                id="description"
+                                placeholder="Description:"
+                                onChange={(e) => {
+                                    setDescription(e.target.value);
+                                }}
+                            />
+                        </div>{" "}
+                        <br></br>
+                        <Mapbox ParentcallbackFunction={ParentcallbackFunction} address={address} />
+                    </div>
 
                     <div className="modal-footer justify-content-between position-fixed-bottom">
                         <div className="col-lg-8 col-12">
@@ -105,6 +128,7 @@ function NewAddressModal() {
                             type="button"
                             className="col-lg-3 col-12 btn btn-success text-light"
                             data-dismiss="modal"
+                            onClick={handleAddNewAddress}
                         >
                             Add new address
                         </button>

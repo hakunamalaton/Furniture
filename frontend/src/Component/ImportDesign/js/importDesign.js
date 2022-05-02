@@ -22,7 +22,6 @@ function ImportDesign() {
         const previewContent = document.querySelector(
             "#preview-content-import"
         );
-        console.log(previewContent);
         previewContent.style.display = "none";
         for (let i = 0; i < file.length; i++) {
             previewImg(i);
