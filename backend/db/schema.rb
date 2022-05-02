@@ -10,20 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_05_025546) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_28_085814) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
-    t.string "city"
-    t.string "district"
-    t.string "town"
     t.string "description"
-    t.integer "price"
+    t.float "price"
     t.string "phone_number"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -44,6 +42,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_05_025546) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quantity"
+    t.string "size"
+    t.string "color"
     t.index ["order_id"], name: "index_orders_products_on_order_id"
     t.index ["product_id"], name: "index_orders_products_on_product_id"
   end
@@ -54,36 +54,36 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_05_025546) do
     t.string "description"
     t.integer "price"
     t.string "third_party"
-    t.string "color"
-    t.string "size"
+    t.string "color", array: true
+    t.string "size", array: true
     t.text "overview", array: true
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "custom_design", default: false
+    t.float "avg_star", default: 0.0
     t.index ["overview"], name: "index_products_on_overview", using: :gin
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.string "title"
     t.bigint "user_id", null: false
     t.bigint "product_id", null: false
     t.string "description"
     t.string "image", array: true
-    t.string "category"
     t.integer "star"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category", array: true
     t.index ["product_id"], name: "index_ratings_on_product_id"
     t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
-    t.string "name"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   add_foreign_key "addresses", "users"

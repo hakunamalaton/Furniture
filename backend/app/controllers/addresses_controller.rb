@@ -3,7 +3,7 @@ class AddressesController < ApplicationController
   before_action :set_address, only: [:show, :create]
 
   def show
-    address  = @user.addresses.select(:city, :district, :town, :description, :price, :phone_number, :id)
+    address  = @user.addresses.select(:location, :description, :price, :phone_number, :id)
     render json: {
         address: address
     }
@@ -12,9 +12,7 @@ class AddressesController < ApplicationController
   def create
     new_address = @user.addresses.create(
       user_id: @user.id,
-      city: params[:city],
-      town: params[:town],
-      district: params[:district],
+      location: params[:location],
       description: params[:description],
       price: params[:price],
       phone_number: params[:phone_number]
