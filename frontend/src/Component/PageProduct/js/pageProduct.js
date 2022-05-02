@@ -1,5 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { insertItem } from "../../OrderProcess/slice/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "../../Header/Js/Header";
 import Footer from "../../Footer/Js/Footer";
 import Rating from "../../Rating/js/rating";
@@ -12,16 +14,21 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const axios = require("axios");
-
 function PageProduct({ match }) {
+    const dispatch = useDispatch();
     const idProduct = match.params.id;
     const [dataProductDetail, setDataProductDetail] = useState([]);
+    const [dataProductCart, setDataProductCart] = useState([]);
     useEffect(() => {
         axios
             .get(`http://localhost:8000/products/${idProduct}`)
-            .then((res) => setDataProductDetail(res.data))
+            .then((res) => {
+                setDataProductDetail(res.data)
+                setDataProductCart(res.data)
+            })
             .catch((err) => console.error("Đây là lỗi: " + err));
     }, [idProduct]);
+    // console.log(dataProductDetail);
     const [color, setColor] = useState("");
     const [pickColor, setPickColor] = useState(-1);
     const [pickSize, setPickSize] = useState(-1);
@@ -34,14 +41,19 @@ function PageProduct({ match }) {
         setViewOverview(!viewOverview);
     };
 
-    const handleColor = (props, index) => {
-        setColor(props);
+    const handleColor = (color, index) => {
+        setColor(color);
+        setDataProductCart({ ...dataProductCart, color: color });
         setPickColor(index);
     };
     const [size, setSize] = useState("");
-    const handleSize = (props, index) => {
-        setSize(props);
+    const handleSize = (size, index) => {
+        setSize(size);
+        setDataProductCart({ ...dataProductCart, size: size });
         setPickSize(index);
+    };
+    const handleAddToCart = () => {
+        dispatch(insertItem(dataProductCart))
     };
     const handleNum = (props) => {
         const quantity = document.querySelector(
@@ -309,18 +321,35 @@ function PageProduct({ match }) {
                                             const weight = subItem.slice(
                                                 indexSecondarySeparator + 1
                                             );
-                                            return dataProductDetail.size.length === 1 || dataProductDetail.size.length === 2 ? (
-                                                <label key={index} className="btn p-0 m-1 rounded-0 col-12">
+                                            return dataProductDetail.size
+                                                .length === 1 ||
+                                                dataProductDetail.size
+                                                    .length === 2 ? (
+                                                <label
+                                                    key={index}
+                                                    className="btn p-0 m-1 rounded-0 col-12"
+                                                >
                                                     <input
                                                         type="radio"
                                                         name="size"
-                                                        id={"size" + (index + 1)}
-                                                        onClick={() => handleSize(nameSize, index)}
+                                                        id={
+                                                            "size" + (index + 1)
+                                                        }
+                                                        onClick={() =>
+                                                            handleSize(
+                                                                size,
+                                                                index
+                                                            )
+                                                        }
                                                     />{" "}
                                                     <div
                                                         className="product-btn-size p-1"
                                                         style={{
-                                                            outline: pickSize === index ? "solid black" : "none",
+                                                            outline:
+                                                                pickSize ===
+                                                                index
+                                                                    ? "solid black"
+                                                                    : "none",
                                                         }}
                                                     >
                                                         <p>{size}</p>
@@ -328,17 +357,31 @@ function PageProduct({ match }) {
                                                     </div>
                                                 </label>
                                             ) : (
-                                                <label key={index} className="btn p-0 m-1 rounded-0 col-5">
+                                                <label
+                                                    key={index}
+                                                    className="btn p-0 m-1 rounded-0 col-5"
+                                                >
                                                     <input
                                                         type="radio"
                                                         name="size"
-                                                        id={"size" + (index + 1)}
-                                                        onClick={() => handleSize(nameSize, index)}
+                                                        id={
+                                                            "size" + (index + 1)
+                                                        }
+                                                        onClick={() =>
+                                                            handleSize(
+                                                                nameSize,
+                                                                index
+                                                            )
+                                                        }
                                                     />{" "}
                                                     <div
                                                         className="product-btn-size"
                                                         style={{
-                                                            outline: pickSize === index ? "solid black" : "none",
+                                                            outline:
+                                                                pickSize ===
+                                                                index
+                                                                    ? "solid black"
+                                                                    : "none",
                                                         }}
                                                     >
                                                         <p>{size}</p>
@@ -389,6 +432,7 @@ function PageProduct({ match }) {
                                 <button
                                     type="submit"
                                     className="btn btn-add-to-cart mr-2"
+                                    onClick={handleAddToCart}
                                 >
                                     <FontAwesomeIcon
                                         icon={faCartShopping}
@@ -465,7 +509,10 @@ function PageProduct({ match }) {
                         </div>
                     </div>
                 </div>
-                <Rating id={idProduct} averageScore={dataProductDetail.avg_star} />
+                <Rating
+                    id={idProduct}
+                    averageScore={dataProductDetail.avg_star}
+                />
             </div>
             <Footer />
         </div>

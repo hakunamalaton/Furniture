@@ -157,12 +157,16 @@
 }
 
 .image-menu{
-    width: 85%;
+    width: 360px;
+    height: 435px;
+    background-repeat: no-repeat;
+    background-size:  300px 300px;
+    background-position: center;
 }
 
 .img-container-menu {
     float: left;
-    width: 25%;
+    background-color: #C9ECFF;
 }
 .clearfix-menu{
     margin-top: 4vw;
@@ -178,6 +182,7 @@
     font-family: IBM Plex Sans;
     font-weight: 600;
     margin-top: 2vw;
+    margin-bottom: 2vw;
     font-size: 1.3vw;
     justify-content: right;
     width: 98%;
@@ -262,10 +267,6 @@
     display: none;
 }
 
-#rep1{
-    display: block;
-}
-
 #rep2{
     display: none;
 }
@@ -342,6 +343,7 @@
     }
     .image-menu{
         width: 92%;
+        position: relative;
     }
     .image3{
         margin-bottom: 4vw;
@@ -502,3 +504,71 @@
         margin-top: 15vw;
     }
 }
+
+.addtocart button{
+    background-image: url('./Image/AddToCartButton.png');
+    background-size: cover;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: white;
+    position: absolute;
+    margin-left: 18.5vw;
+    margin-top: 0.8vw;
+    float: left;
+}
+
+.dt{
+    position: absolute;
+    margin-top: 1.5vw;
+    margin-left: 1.5vw;
+    height: 100px;
+    width: 300px;
+}
+
+.data1{
+    color: rgba(51, 51, 51, 0.3);
+    font-family: 'Roboto';
+    font-weight: bolder;
+    font-size: 1vw;
+}
+
+.data2{
+    color: #054C73;
+    font-family: 'Roboto';
+    font-weight: bolder;
+    font-size: 1.5vw;
+}
+
+.money{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1vw 2px;
+    position: absolute;
+    width: 10vw;
+    height: 3vw;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(4px);
+    border-radius: 36px;
+    margin-top: 22vw;
+    margin-left: 1.5vw;
+}
+
+.money1{
+    font-family: 'Roboto';
+    font-weight: bolder;
+    font-size: 0.93vw;
+    color: #054C73;
+}
+
+.animation {
+    transition: transform .3s; 
+
+  }
+  
+.animation:hover {
+    transform: scale(1.055); 
+}
+

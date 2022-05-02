@@ -10,6 +10,8 @@ import ImportDesign from "./Component/ImportDesign/js/importDesign";
 import Menu from "./Component/Menu/menu";
 import TransactionHistory from "./Component/TransactionHistory/js/transactionHistory";
 import Login from "./Component/Account/Login";
+import FakeLogin from "./Component/Account/FakeLogin";
+import FakeRegister from "./Component/Account/FakeRegister";
 import Register from "./Component/Account/Register";
 import LoginRoute from "./Component/auth/LoginRoute";
 import ExchangePolicy from "./Component/Policy/ExchangePolicy";
@@ -18,7 +20,14 @@ import DeliveryPolicy from "./Component/Policy/DeliveryPolicy";
 import TermOfService from "./Component/Policy/TermOfService";
 import WarrantyPolicy from "./Component/Policy/WarrantyPolicy";
 
+import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+
 function App() {
+    const history = useHistory();
+    const accountState = useSelector(state => state.account);
+
     return (
         <Router>
             <div className="App">
@@ -38,8 +47,10 @@ function App() {
                     <Route exact path="/delivery-policy" component={DeliveryPolicy} />
                     <Route exact path="/warranty-policy" component={WarrantyPolicy} />
                     <Route exact path="/term-of-service" component={TermOfService} />
-                    <LoginRoute exact path="/login" component={Login} />
-                    <LoginRoute exact path="/register" component={Register} />
+                    <Route exact path="/login" component={FakeLogin} />
+                    <Route exact path="/register" component={FakeRegister} />
+                    {/* <LoginRoute exact path="/login" component={Login} />
+                    <LoginRoute exact path="/register" component={Register} /> */}
                 </Switch>
             </div>
         </Router>
