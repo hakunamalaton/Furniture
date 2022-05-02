@@ -12,7 +12,7 @@ const DeliveryPolicy = () => {
             >
                 <h1>DELIVERY POLICIES</h1>
                 <p>
-                    Khi một đơn hàng được đặt, nhân viên của Casanha sẽ liên lạc để xác nhận đơn
+                    Khi một đơn hàng được đặt, nhân viên của chúng tôi sẽ liên lạc để xác nhận đơn
                     hàng qua điện thoại hoặc email.
                 </p>
                 <p>

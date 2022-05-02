@@ -113,23 +113,23 @@ const ExchangePolicy = () => {
                     </li>
                     <li>
                         You may opt to exchange your item in our physical store only if informed via
-                        where and what store it is available for exchange, and if it meets Casanhà
-                        Return & Exchange Policies & Procedures.
+                        where and what store it is available for exchange, and if it meets
+                        BKFurniture Return & Exchange Policies & Procedures.
                     </li>
                     <li>
                         For exchange at our physical store, The store manager or cashier will check
                         and inspect your item/s if it is eligible for exchange.
                     </li>
                     <li>
-                        If an item requested for replacement is available, Casanhà will deliver the
-                        exchange item/s as soon as the purchased item/s meets the requirements for
-                        exchanging, we will send you a tracking code following the exchange request
-                        email you had sent us earlier.
+                        If an item requested for replacement is available, BKFurniture will deliver
+                        the exchange item/s as soon as the purchased item/s meets the requirements
+                        for exchanging, we will send you a tracking code following the exchange
+                        request email you had sent us earlier.
                     </li>
                     <li>
-                        If an item requested for replacement is not available, Casanhà will instead
-                        offer to exchange it to other products with the same value or higher value,
-                        CASH REFUND is not accepted/applied.
+                        If an item requested for replacement is not available, BKFurniture will
+                        instead offer to exchange it to other products with the same value or higher
+                        value, CASH REFUND is not accepted/applied.
                     </li>
                 </ul>
                 <h5>PROCEDURES for RETURNING DEFECTIVE / DAMAGED ITEMS</h5>
@@ -147,8 +147,8 @@ const ExchangePolicy = () => {
                     </li>
                     <li>
                         Items returned described as damaged or defective will be tested and
-                        inspected. If found damaged or defective, Casanhà will replace the item and
-                        shoulder shipping costs.
+                        inspected. If found damaged or defective, BKFurniture will replace the item
+                        and shoulder shipping costs.
                     </li>
                     <li>
                         If item/s returned are found not to be damaged or defective, item/s will be
@@ -174,13 +174,13 @@ const ExchangePolicy = () => {
                     </li>
                     <li>
                         If the situation reaches further than any of the involved parties control,
-                        Casanhà would work with the customer and the delivery agency to come up with
-                        the resolution that works best for all parties.
+                        BKFurniture would work with the customer and the delivery agency to come up
+                        with the resolution that works best for all parties.
                     </li>
                 </ul>
                 <h5>PURCHASES FROM UNAUTHORISED OR THIRD-PARTY SELLING PLATFORMS </h5>
                 <p>
-                    Casanha.com expressly disclaims any guarantees or warranties as to the quality,
+                    We expressly disclaims any guarantees or warranties as to the quality,
                     authenticity, originality, and correctness of prices of products and/or
                     merchandise purchased from unauthorized or third-party selling platforms, and
                     shall not be liable to replace or refund such products and/or merchandise.
