@@ -16,7 +16,6 @@ function ImportDesign() {
     }
     function handleImportDesign(e) {
         divAlert.style.display = "block";
-        console.log(name, email);
         e.preventDefault();
         setTimeout(() => {
             axios
@@ -24,8 +23,8 @@ function ImportDesign() {
                     user: {
                         name: name ? name : "Lam Duong",
                         email: email ? email : "lamduong11201@gmail.com",
-                        login: email ? email : "lamduong11201@gmail.com",
-                    },
+                        login: email ? email : "lamduong11201@gmail.com"
+                    }
                 })
                 .then(function (response) {
                     console.log(response);
@@ -33,7 +32,7 @@ function ImportDesign() {
                 .catch(function (error) {
                     console.log(error);
                 });
-            window.location.href = "/import-design";
+            // window.location.href = "/import-design";
         }, 3000);
     }
 
