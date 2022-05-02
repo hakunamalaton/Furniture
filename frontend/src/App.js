@@ -8,10 +8,15 @@ import Mapbox from "./Component/Address/Js/Mapbox";
 import Rating from "./Component/Rating/js/rating";
 import ImportDesign from "./Component/ImportDesign/js/importDesign";
 import Menu from "./Component/Menu/menu";
-import TransactionHistory from "./Component/TransactionHistory/js/transactionHistory"
+import TransactionHistory from "./Component/TransactionHistory/js/transactionHistory";
 import Login from "./Component/Account/Login";
 import Register from "./Component/Account/Register";
 import LoginRoute from "./Component/auth/LoginRoute";
+import ExchangePolicy from "./Component/Policy/ExchangePolicy";
+import Privacy from "./Component/Policy/Privacy";
+import DeliveryPolicy from "./Component/Policy/DeliveryPolicy";
+import TermOfService from "./Component/Policy/TermOfService";
+import WarrantyPolicy from "./Component/Policy/WarrantyPolicy";
 
 function App() {
     return (
@@ -29,6 +34,11 @@ function App() {
                     <Route exact path="/address" component={Address} />
                     <Route exact path="/menu" component={Menu} />
                     <Route exact path="/transaction-history" component={TransactionHistory} />
+                    <Route exact path="/exchange-policy" component={ExchangePolicy} />
+                    <Route exact path="/privacy-policy" component={Privacy} />
+                    <Route exact path="/delivery-policy" component={DeliveryPolicy} />
+                    <Route exact path="/warranty-policy" component={WarrantyPolicy} />
+                    <Route exact path="/term-of-service" component={TermOfService} />
                     <LoginRoute exact path="/login" component={Login} />
                     <LoginRoute exact path="/register" component={Register} />
                 </Switch>
