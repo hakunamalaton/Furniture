@@ -1,13 +1,20 @@
 .transHisComponent {
     background-color: #e5e5e5;
 }
+<<<<<<< HEAD
 
+=======
+.filterOrder {
+    border-bottom: 1px solid #007bff;
+}
+>>>>>>> long
 .order {
     background-color: rgba(54, 181, 255, 0.127);
 }
 .order:last-child {
     margin-bottom: 0!important;
 }
+<<<<<<< HEAD
 
 @media only screen and (max-width: 768px) {
     .transHisComponent h5,.transHisComponent h4, .transHisComponent h6, .statusOrder{
@@ -30,3 +37,8 @@
 }
 
 
+=======
+.transBody_infoProduct, .transBody_titleOrder {
+    border-bottom: 1px solid #007bff;
+}
+>>>>>>> long

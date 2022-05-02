@@ -1,3 +1,7 @@
 [
+<<<<<<< HEAD
     "All", "Payed", "Shipped", "Cancel"
+=======
+    "All", "Paid", "Shipped", "Canceled"
+>>>>>>> long
 ]

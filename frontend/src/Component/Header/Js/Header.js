@@ -8,7 +8,7 @@ import SearchBar from "./SearchBar";
 const Header = () => {
     return (
         <div className="header">
-            <div className="container pt-2">
+            <div className="container pt-2 pb-2">
                 {/* <div className="row sign_in_header justify-content-end mr-1">
                     <div className="d-flex text-light">
                         <p className="pr-3 border-right border-light">Sign Up</p>
@@ -28,10 +28,12 @@ const Header = () => {
                             className="text-light icon-cart-shopping mr-4"
                             icon={faUser}
                         />
-                        <a href="/order"><FontAwesomeIcon
-                            className="text-light icon-cart-shopping"
-                            icon={faShoppingCart}
-                        /></a>
+                        <a href="/order">
+                            <FontAwesomeIcon
+                                className="text-light icon-cart-shopping"
+                                icon={faShoppingCart}
+                            />
+                        </a>
                     </div>
 
                     <button
