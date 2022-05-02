@@ -34,6 +34,7 @@ const Header = () => {
                 {
                     AccountState.status === 'member' &&
                     (<div className="row sign_in_header justify-content-end mr-1"><div onClick={() => handleLogout()} className="d-flex text-light">
+                        <Link to="/transaction-history"><p className="pr-3 border-right border-light">{AccountState.email}</p></Link>
                         <p className="pl-3">Log Out</p>
                     </div></div>)
                 }
