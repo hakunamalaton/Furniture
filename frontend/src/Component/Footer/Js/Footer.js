@@ -17,10 +17,10 @@ const Footer = () => {
                         <div>
                             <h6>CONTACT US</h6>
                             <div>
-                                <img src={telephone} width="25px" alt="telephone" /> 012 345 6789
+                                <img src={telephone} width="25px" alt="telephone" /> 0942 826 536
                             </div>
                             <div className="mt-2">
-                                <img src={mail} width="25px" alt="mail" /> nhom4@gmail.com
+                                <img src={mail} width="25px" alt="mail" /> bk.furniture.hcmut@gmail.com
                             </div>
                         </div>
 

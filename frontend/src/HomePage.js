@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./Component/Header/Js/Header";
+import Footer from "./Component/Footer/Js/Footer";
 import './homepage.css'
 
 const HomePage = () => {
@@ -28,6 +29,7 @@ const HomePage = () => {
                 <h1 className="font font3">Phòng ngủ</h1>
             </div>
         </div>
+        <Footer />
         </>
     );
 };
