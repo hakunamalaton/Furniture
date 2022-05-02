@@ -3,6 +3,7 @@ import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import axios from "axios";
 import "../mapbox.css";
 import React, { useState, useRef, useCallback, useEffect } from "react";
+import Geocoder from "react-map-gl-geocoder";
 import MapGL, {
     FullscreenControl,
     GeolocateControl,
@@ -10,7 +11,6 @@ import MapGL, {
     NavigationControl,
     Popup,
 } from "react-map-gl";
-import Geocoder from "react-map-gl-geocoder";
 import location from "../Image/location.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStreetView } from "@fortawesome/fontawesome-free-solid";
@@ -29,17 +29,14 @@ function Mapbox(props) {
     const mapRef = useRef();
     const handleViewportChange = useCallback((newViewport) => setViewport(newViewport), []);
 
-    const handleGeocoderViewportChange = useCallback(
-        (newViewport) => {
-            const geocoderDefaultOverrides = { transitionDuration: 2000 };
+    const handleGeocoderViewportChange = useCallback((newViewport) => {
+        const geocoderDefaultOverrides = { transitionDuration: 1000 };
 
-            return handleViewportChange({
-                ...newViewport,
-                ...geocoderDefaultOverrides,
-            });
-        },
-        [handleViewportChange]
-    );
+        return handleViewportChange({
+            ...newViewport,
+            ...geocoderDefaultOverrides,
+        });
+    }, []);
     //---------------------------------------------------------------------------------------------
 
     const [locateb, setLocateb] = useState();
@@ -135,12 +132,12 @@ function Mapbox(props) {
                 transitionDuration={20}
             >
                 <Geocoder
-                    position="top-left"
                     mapRef={mapRef}
                     onViewportChange={handleGeocoderViewportChange}
                     mapboxApiAccessToken={MAPBOXACCESSTOKEN}
+                    position="top-left"
                     reverseGeocode={true}
-                    limit={10}
+                    country="vn"
                 />
                 <Marker
                     longitude={106.80618697610669}
