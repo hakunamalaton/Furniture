@@ -24,8 +24,8 @@ const Menu = () => {
         <div className="menu-component">
             <Header />
 
-            <div className="qrcode qrcode-more m-4 px-3 py-1" style={{display: "block"}}>
-                <div className="row justify-content-end" onClick = {handleCloseQR}>
+            <div className="qrcode qrcode-more m-4 px-3 py-1" style={{ display: "block" }}>
+                <div className="row justify-content-end" onClick={handleCloseQR}>
                     <FontAwesomeIcon icon={faCircleXmark} className="pr-1" />
                 </div>
                 <div className="row">
@@ -42,8 +42,8 @@ const Menu = () => {
                     </div>
                 </div>
             </div>
-            <div className="qrcode qrcode-less m-4 px-3 py-1" style={{display: "none"}}>
-                <div className="row" onClick = {handleOpenQR}>
+            <div className="qrcode qrcode-less m-4 px-3 py-1" style={{ display: "none" }}>
+                <div className="row" onClick={handleOpenQR}>
                     <img
                         className="qrcode-img"
                         src="https://i.imgur.com/uuK0UWC.png"

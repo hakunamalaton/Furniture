@@ -4,36 +4,30 @@ import axios from "axios";
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const initialState = {
-    fullname: "maiduclong2001",
-    email: "maiduclong@gmail.com",
-    phoneNum: "(+84)1231231231",
+    fullname: "",
+    email: "",
+    phoneNum: "",
     token: "",
     status: "guest",
     addressList: [
         {
             "fullName": "Mai Duc Long",
-            "phoneNum": "(+84)1231231231",
-            "city": "Binh Duong Province",
-            "district": "Di An City",
-            "town": "Dong Hoa Sub-district",
+            "phone_number": "1231231231",
+            "location": "Dong Hoa Sub-district, Di An City, Binh Duong Province",
             "description": "KTX Khu A, DHQG HCM",
             "price": 19.99
         },
         {
             "fullName": "Mai Duc Long",
-            "phoneNum": "(+84)1231231231",
-            "city": "Ho Chi Minh",
-            "district": "District 10",
-            "town": "Sub-district 14",
+            "phone_number": "1231231231",
+            "location": "Sub-district 14, District 10, Ho Chi Minh",
             "description": "268 Ly Thuong Kiet",
             "price": 29.99
         },
         {
             "fullName": "Mai Duc Long",
-            "phoneNum": "(+84)1231231231",
-            "city": "Thua Thien Hue Province",
-            "district": "Huong Tra District",
-            "town": "Tu Ha Town",
+            "phone_number": "1231231231",
+            "location": "Tu Ha Town, Huong Tra District, Thua Thien Hue Province",
             "description": "20 Tran Quoc Tuan",
             "price": 59.99
         }
@@ -57,7 +51,15 @@ const accountSlice = createSlice({
         }
     },
     extraReducers: builder => {
-        // builder
+        builder
+            .addCase(getUserAddresses.fulfilled, (state, action) => {
+                const newAddressesList = action.payload;
+                state.addressList += newAddressesList;
+            })
+            .addCase(addNewUserAddress.fulfilled, (state, action) => {
+                const { location, description, price, phone_number } = action.payload;
+                state.addressList.push({ location, description, price, phone_number });
+            })
         //     .addCase(loginAccount.fulfilled, (state, action) => {
         //         const { token, email, success } = action.payload;
         //         console.log("action.payload", action.payload);
@@ -87,3 +89,24 @@ export default accountSlice.reducer;
 //         return { token: null, email: null, success: false };
 //     }
 // })
+
+export const getUserAddresses = createAsyncThunk('account/getUserAddresses', async ({ token }, thunkAPI) => {
+    try {
+        const getUserAddressesResponse = await axios.get(`http://localhost:8000/users/${token}/address`);
+        return getUserAddressesResponse.data.address;
+    } catch (err) {
+        console.log("[ERROR!]: " + err);
+        return thunkAPI.rejectWithValue({ messages: 'Get Address Error' });
+    }
+})
+
+export const addNewUserAddress = createAsyncThunk('account/addNewUserAddress', async (data, thunkAPI) => {
+    try {
+        const addAddressResponse = await axios.post(`http://localhost:8000/users/${data.userId}/address`, data);
+        console.log("In addNewUserAddress thunk data", data);
+        return data;
+    } catch (err) {
+        return thunkAPI.rejectWithValue({ message: "Add Address Error" });
+    }
+
+})

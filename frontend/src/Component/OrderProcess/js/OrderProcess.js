@@ -4,10 +4,9 @@ import Footer from "../../Footer/Js/Footer";
 import "../css/OrderProcess.css";
 
 import OrderData from "./fakeOrderData.json";
-import AddressData from "./fakeAddressData.json";
 
 import MultiStepProgressBar from "./MultiStepProgressBar";
-import AddressOnly from "./AddressOnly";
+import Address from "../../Address/Js/Address";
 import DateTime from "./DateTime";
 import Payment from "./Payment";
 import CurrentCart from "./CurrentCart";
@@ -54,7 +53,7 @@ const OrderProcess = () => {
                     <button onClick={toNextPage} type="button" className="btn btn-primary">Next</button>
                 </div>
                 <CurrentCart step={step} cartState={cartState} setCartState={setCartState} buyerState={buyerState} setBuyerState={setBuyerState} statusState={statusState} setStatusState={setStatusState} priceState={priceState} setPriceState={setPriceState} />
-                <AddressOnly step={step} AddressData={AddressData} buyerState={buyerState} setBuyerState={setBuyerState} priceState={priceState} setPriceState={setPriceState} />
+                <Address step={step} buyerState={buyerState} setBuyerState={setBuyerState} priceState={priceState} setPriceState={setPriceState} />
                 <DateTime step={step} cartState={cartState} setCartState={setCartState} buyerState={buyerState} setBuyerState={setBuyerState} statusState={statusState} setStatusState={setStatusState} priceState={priceState} setPriceState={setPriceState} />
                 <Payment step={step} cartState={cartState} setCartState={setCartState} buyerState={buyerState} setBuyerState={setBuyerState} statusState={statusState} setStatusState={setStatusState} priceState={priceState} setPriceState={setPriceState} />
             </div>

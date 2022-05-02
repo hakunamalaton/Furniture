@@ -67,7 +67,7 @@ const Header = () => {
                     </div>
 
                     <div className="col-4 col-md-2 align-self-center d-flex justify-content-end">
-                        <Link to="/address">
+                        <Link to="/transaction-history">
                             <FontAwesomeIcon
                                 className="text-light icon-cart-shopping mr-4"
                                 icon={faUser}
@@ -104,20 +104,20 @@ const Header = () => {
                                 </div>
                                 <ul className="navbar-nav pl-3 pl-md-0 w-100 d-flex justify-content-around ">
                                     <li className="nav-item active">
-                                        <a
+                                        <Link
                                             className="nav-link text-light"
-                                            href="/menu"
+                                            to="/menu"
                                         >
                                             FACTORY DESIGN
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className="nav-item active">
-                                        <a
+                                        <Link
                                             className="nav-link text-light"
-                                            href="/import-design"
+                                            to="/import-design"
                                         >
                                             CUSTOM DESIGN
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>

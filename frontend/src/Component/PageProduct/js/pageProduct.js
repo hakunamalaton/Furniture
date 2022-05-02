@@ -1,7 +1,8 @@
 import { React, useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { insertItem } from "../../OrderProcess/slice/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "../../Header/Js/Header";
 import Footer from "../../Footer/Js/Footer";
 import Rating from "../../Rating/js/rating";
@@ -16,15 +17,17 @@ import {
 const axios = require("axios");
 function PageProduct({ match }) {
     const dispatch = useDispatch();
+    const history = useHistory();
     const idProduct = match.params.id;
     const [dataProductDetail, setDataProductDetail] = useState([]);
     const [dataProductCart, setDataProductCart] = useState([]);
+    const [quantity, setQuantity] = useState(1);
     useEffect(() => {
         axios
             .get(`http://localhost:8000/products/${idProduct}`)
             .then((res) => {
                 setDataProductDetail(res.data)
-                setDataProductCart(res.data)
+                setDataProductCart({ ...res.data, color: "", size: "" })
             })
             .catch((err) => console.error("Đây là lỗi: " + err));
     }, [idProduct]);
@@ -53,18 +56,15 @@ function PageProduct({ match }) {
         setPickSize(index);
     };
     const handleAddToCart = () => {
-        dispatch(insertItem(dataProductCart))
+        const addToCartData = { ...dataProductCart, quantity };
+        dispatch(insertItem(addToCartData));
+        history.push('/menu');
     };
     const handleNum = (props) => {
-        const quantity = document.querySelector(
-            "#product-input-quantity"
-        ).value;
         if (props === "minus" && quantity > 1) {
-            document.querySelector("#product-input-quantity").value =
-                parseInt(quantity) - 1;
+            setQuantity(quantity - 1);
         } else if (props === "add") {
-            document.querySelector("#product-input-quantity").value =
-                parseInt(quantity) + 1;
+            setQuantity(quantity + 1);
         }
     };
     function starAvgScore(props) {
@@ -117,10 +117,10 @@ function PageProduct({ match }) {
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
                             <li className="breadcrumb-item">
-                                <a href="/">BK Furniture</a>
+                                <Link to="/">BK Furniture</Link>
                             </li>
                             <li className="breadcrumb-item">
-                                <a href="/menu">Products</a>
+                                <Link to="/menu">Products</Link>
                             </li>
                             <li
                                 className="breadcrumb-item active"
@@ -280,7 +280,7 @@ function PageProduct({ match }) {
                                                             // border: "3px solid white",
                                                             outline:
                                                                 pickColor ===
-                                                                index
+                                                                    index
                                                                     ? "solid black"
                                                                     : "none",
                                                         }}
@@ -347,7 +347,7 @@ function PageProduct({ match }) {
                                                         style={{
                                                             outline:
                                                                 pickSize ===
-                                                                index
+                                                                    index
                                                                     ? "solid black"
                                                                     : "none",
                                                         }}
@@ -379,7 +379,7 @@ function PageProduct({ match }) {
                                                         style={{
                                                             outline:
                                                                 pickSize ===
-                                                                index
+                                                                    index
                                                                     ? "solid black"
                                                                     : "none",
                                                         }}
@@ -415,9 +415,10 @@ function PageProduct({ match }) {
                                     type="text"
                                     className="form-control"
                                     id="product-input-quantity"
-                                    defaultValue={1}
+                                    value={quantity}
                                     onChange={() => handleNum("")}
                                 />
+                                <div style={{ display: 'none' }}>{quantity}</div>
                                 <button
                                     type="button"
                                     className="btn product-btn-increase-number"
