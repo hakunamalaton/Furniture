@@ -97,13 +97,6 @@ function PageProduct({ match }) {
             <div className="text-warning font-weight-bold">No have review.</div>
         );
     }
-    function breadcrumbCategory(category) {
-        console.log(category)
-        // let urlCategory = category.toLowerCase();
-        return (
-            <a href={`/menu/${category.toLowerCase()}`}>{category}</a>
-        );
-    }
     return (
         <div className="page-product-component">
             <Header />
@@ -117,14 +110,11 @@ function PageProduct({ match }) {
                             <li className="breadcrumb-item">
                                 <a href="/menu">Products</a>
                             </li>
-                            <li className="breadcrumb-item">
-                                {dataProductDetail.category && breadcrumbCategory(dataProductDetail.category)}
-                            </li>
                             <li
                                 className="breadcrumb-item active"
                                 aria-current="page"
                             >
-                                {dataProductDetail.name}
+                                {`${dataProductDetail.category} - ${dataProductDetail.name}`}
                             </li>
                         </ol>
                     </nav>
