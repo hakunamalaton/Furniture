@@ -39,13 +39,13 @@ function TransactionHistory() {
     useEffect(() => {
         axios
             .get(
-                `${process.env.REACT_APP_SERVER_URL}/users/3/orders${category}`
+                `${process.env.REACT_APP_SERVER_URL}/users/${idUser ? idUser : 3}/orders${category}`
             )
             .then((res) => {
                 setDataOrderList(res.data.orders.map((item) => item.id));
             })
             .catch((err) => console.error("Đây là lỗi: " + err));
-    }, [category]);
+    }, [idUser, category]);
     useEffect(() => {
         setDataOrderDetailList([]);
         for (const key in dataOrderList) {
@@ -129,7 +129,8 @@ function TransactionHistory() {
                         showListProduct(
                             item.detail_information,
                             item.order.status,
-                            item.order.id
+                            item.order.id,
+                            emailUser
                         )}
                 </div>
                 <div className={`d-flex justify-content-end align-items-center py-2`}>
@@ -150,7 +151,7 @@ function TransactionHistory() {
             </div>
         );
     };
-    function infoProduct(idOrder, status, item, index) {
+    function infoProduct(idOrder, status, item, index, emailUser) {
         return (
             <div
                 key={index}
@@ -186,6 +187,7 @@ function TransactionHistory() {
                                 image={item.image}
                                 name={item.name}
                                 category={`${item.color}, ${item.size}`}
+                                emailUser = {emailUser ? emailUser : "duong@gmail.com"}
                             />
                         </div>
                     </div>
@@ -219,7 +221,7 @@ function TransactionHistory() {
             return array.map(infoOrder);
         }
     }
-    function showListProduct(array, status, idOrder) {
+    function showListProduct(array, status, idOrder, emailUser) {
         if (array.length === 0) {
             return (
                 <div className="d-flex justify-content-center">
@@ -228,7 +230,7 @@ function TransactionHistory() {
             );
         } else {
             return array.map((product, index) => {
-                return infoProduct(idOrder, status, product, index);
+                return infoProduct(idOrder, status, product, index, emailUser);
             });
         }
     }

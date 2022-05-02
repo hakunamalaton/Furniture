@@ -1,10 +1,42 @@
 import { React } from "react";
+import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "../../Header/Js/Header";
 import Footer from "../../Footer/Js/Footer";
 import "../css/importDesign.css";
 import { faPaperPlane, faCamera } from "@fortawesome/free-solid-svg-icons";
+const axios = require("axios");
+
 function ImportDesign() {
+    const name = useSelector((state) => state.name);
+    const email = useSelector((state) => state.email);
+    const divAlert = document.querySelector("#alert-import-design");
+    if (divAlert) {
+        divAlert.style.display = "none";
+    }
+    function handleImportDesign(e) {
+        divAlert.style.display = "block";
+        console.log(name, email);
+        e.preventDefault();
+        setTimeout(() => {
+            axios
+                .post("https://rails-gmail.herokuapp.com/users", {
+                    user: {
+                        name: name ? name : "Lam Duong",
+                        email: email ? email : "lamduong11201@gmail.com",
+                        login: email ? email : "lamduong11201@gmail.com",
+                    },
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            window.location.href = "/import-design";
+        }, 3000);
+    }
+
     function clearImgPreview() {
         const listFilePrev = document.querySelectorAll(".preview-img-import");
         listFilePrev.forEach(resetPreviewImg);
@@ -39,39 +71,28 @@ function ImportDesign() {
     }
     return (
         <div className="import-design-component">
+            <div
+                className="alert m-0 alert-primary alert-dismissible fade show"
+                id="alert-import-design"
+                role="alert"
+            >
+                <strong>Send your design successfully!</strong> We'll get in
+                touch with you to confirm the details. Check your gmail inbox as
+                well as your spam folder.
+                <button
+                    type="button"
+                    className="close"
+                    data-dismiss="alert"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
             <Header />
             <div className="container import-ds-form">
                 <div className="bg-white p-3">
                     <div className="row import-ds-form-header p-2">
                         <h5>IMPORT YOUR DESIGN</h5>
-                    </div>
-                    <div className="row justify-content-center">
-                        <div className="col-10 frame-import border border-secondary">
-                            <h5
-                                id="preview-content-import"
-                                className="justify-content-center"
-                                style={{ display: "flex" }}
-                            >
-                                Your design...
-                            </h5>
-                            <div className="row box-import m-1">
-                                {Array(100)
-                                    .fill(0)
-                                    .map((_, index) => (
-                                        <div
-                                            key={index}
-                                            className={"m-1 preview-img-import"}
-                                            id={
-                                                "img-import-upload" +
-                                                (index + 1)
-                                            }
-                                            style={{
-                                                display: "none",
-                                            }}
-                                        ></div>
-                                    ))}
-                            </div>
-                        </div>
                     </div>
                     <div className="import-ds-form-body">
                         <form>
@@ -112,7 +133,8 @@ function ImportDesign() {
                             <div className="row justify-content-center">
                                 <button
                                     type="submit"
-                                    className="btn col-6 col-sm-4 col-md-3 col-lg-2 mt-2 btn-primary"
+                                    className="btn col-6 col-sm-4 col-md-3 col-lg-2 mb-2 btn-primary"
+                                    onClick={handleImportDesign}
                                 >
                                     <FontAwesomeIcon
                                         className="text-white"
@@ -122,6 +144,34 @@ function ImportDesign() {
                                 </button>
                             </div>
                         </form>
+                    </div>
+                    <div className="row justify-content-center">
+                        <div className="col-10 frame-import border border-secondary">
+                            <h5
+                                id="preview-content-import"
+                                className="justify-content-center"
+                                style={{ display: "flex" }}
+                            >
+                                Your design...
+                            </h5>
+                            <div className="row box-import m-1">
+                                {Array(100)
+                                    .fill(0)
+                                    .map((_, index) => (
+                                        <div
+                                            key={index}
+                                            className={"m-1 preview-img-import"}
+                                            id={
+                                                "img-import-upload" +
+                                                (index + 1)
+                                            }
+                                            style={{
+                                                display: "none",
+                                            }}
+                                        ></div>
+                                    ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
