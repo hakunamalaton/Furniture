@@ -116,7 +116,6 @@
 }
 
 .cart{
-    margin-top: 10vw;
     margin-left: 3vw;
 }
 
@@ -157,12 +156,16 @@
 }
 
 .image-menu{
-    width: 85%;
+    width: 360px;
+    height: 435px;
+    background-repeat: no-repeat;
+    background-size:  300px 300px;
+    background-position: center;
 }
 
 .img-container-menu {
     float: left;
-    width: 25%;
+    background-color: #C9ECFF;
 }
 .clearfix-menu{
     margin-top: 4vw;
@@ -509,8 +512,8 @@
     border-radius: 50%;
     border: white;
     position: absolute;
-    margin-left: 16vw;
-    margin-top: 1.5vw;
+    margin-left: 18.5vw;
+    margin-top: 0.8vw;
     float: left;
 }
 
@@ -518,6 +521,8 @@
     position: absolute;
     margin-top: 1.5vw;
     margin-left: 1.5vw;
+    height: 100px;
+    width: 300px;
 }
 
 .data1{
@@ -559,9 +564,38 @@
 
 .animation {
     transition: transform .3s; 
+
   }
   
 .animation:hover {
     transform: scale(1.055); 
 }
 
+.qrcode {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 600;
+    background-color: #ffffff;
+}
+.qrcode-more {
+    width: 400px;
+}
+.qrcode-less {
+    width: 100px;
+}
+.qrcode-more .qrcode-img{
+    height: 80px;
+    width: 80px;
+}
+.qrcode-less .qrcode-img{
+    height: 40px;
+    width: 40px;
+}
+.qrcode-more .intro-app-ar{
+    font-size: 14px;
+}
+.qrcode-less .intro-app-ar{
+    font-size: 16px;
+}

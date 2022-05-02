@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import clock from "../Image/clock.png";
 import facebook from "../Image/facebook.png";
 import instagram from "../Image/instagram.png";
@@ -9,20 +10,34 @@ import twitter from "../Image/twitter.png";
 
 const Footer = () => {
     return (
-        <div className="border-top bg-white border-dark">
+        <div className="border-top bg-white border-dark mt-5">
             <div className="container ">
                 <div className="footer d-flex justify-content-around pt-2 pb-1 row">
                     <div className="col-xl">
                         <div>
                             <h6>CONTACT US</h6>
                             <div>
-                                <img src={telephone} width="25px" alt="telephone" /> 012 345 6789
+                                <img src={telephone} width="25px" alt="telephone" /> +84 914 851 501
                             </div>
                             <div className="mt-2">
-                                <img src={mail} width="25px" alt="mail" /> nhom4@gmail.com
+                                <img src={mail} width="25px" alt="mail" /> bk.furniture.hcmut@gmail.com
                             </div>
                         </div>
-                        <div className="mt-2">
+
+                        <div className="mt-2 mt-xl-4">
+                            <h6>POLICY</h6>
+                            <Link to={"/term-of-service"}>Term Of Service</Link> <br />
+                            <Link to={"/exchange-policy"}>Exchange Policy</Link>
+                            <br />
+                            <Link to={"/delivery-policy"}>Delivery Policy</Link>
+                            <br />
+                            <Link to={"/warranty-policy"}>Warranty Policy</Link>
+                            <br />
+                            <Link to={"/privacy-policy"}>Privacy Polity</Link>
+                        </div>
+                    </div>
+                    <div className="col-xl">
+                        <div>
                             <h6>VISIT OUR STORE</h6>
                             <div>
                                 <img src={location} width="25px" alt="location" /> 246 Ly Thuong
@@ -36,9 +51,7 @@ const Footer = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-xl">
-                        <div>
+                        <div className="mt-2 mt-xl-4">
                             <h6>FILL EMAIL FOR DEALS OR YOUR DESIGN</h6>
                             <form className="form-inline my-2 justify-content-end mt-2">
                                 <input

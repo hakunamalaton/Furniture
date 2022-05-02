@@ -5,7 +5,7 @@ import "../css/popUpRating.css";
 import { faCamera, faStar } from "@fortawesome/free-solid-svg-icons";
 const axios = require("axios");
 
-function PopUpRating({ idOrder, id, image, name, category }) {
+function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
     const [currentScore, setCurrentScore] = useState(0);
     const [hoverScore, setHoverScore] = useState(undefined);
     const [popUp, setPopUp] = useState(false);
@@ -43,7 +43,7 @@ function PopUpRating({ idOrder, id, image, name, category }) {
         e.preventDefault();
         axios
             .post(`http://localhost:8000/products/${id}/ratings`, {
-                email: "duong@gmail.com",
+                email: emailUser,
                 description,
                 image: images,
                 category,
