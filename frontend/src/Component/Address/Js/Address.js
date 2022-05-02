@@ -1,9 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Header from "../../Header/Js/Header";
 import NewAddressModal from "./NewAddressModal";
-import Footer from "../../Footer/Js/Footer";
 
 const Address = () => {
     const size = { fontSize: "1.1rem" };
