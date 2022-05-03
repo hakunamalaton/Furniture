@@ -133,14 +133,14 @@ const cartSlice = createSlice({
             state.payment.paymentOption = action.payload;
         },
         updateFinalPrice: (state, action) => {
-            state.price.final_price = state.price.total * (1 + state.price.tax_percent / 100) + state.price.shipping * state.price.shippingScale;
-        }
+            state.price.final_price =
+                state.price.total * (1 + state.price.tax_percent / 100) +
+                state.price.shipping * state.price.shippingScale;
+        },
     },
-    extraReducers: builder => {
-        builder.addCase(createOrder.fulfilled, (state, action) => {
-
-        })
-    }
+    extraReducers: (builder) => {
+        builder.addCase(createOrder.fulfilled, (state, action) => {});
+    },
 });
 
 export default cartSlice.reducer;
@@ -157,7 +157,7 @@ export const {
     updateFinalPrice,
 } = cartSlice.actions;
 
-export const createOrder = createAsyncThunk('cart/createOrder', async (orderState, thunkAPI) => {
+export const createOrder = createAsyncThunk("cart/createOrder", async (orderState, thunkAPI) => {
     try {
         const state = thunkAPI.getState();
         /**
@@ -169,25 +169,30 @@ export const createOrder = createAsyncThunk('cart/createOrder', async (orderStat
             console.log("createOrder final", cartState);
             const processedOrderData = {};
             processedOrderData["order"] = {
-                "status": "Created",
-                "user_id": state.account.token,
-                "address": state.cart.buyer.address.location,
-                "total_price": state.cart.price.final_price,
-                "description": "Smth",
-            }
-            processedOrderData["quantity"] = state.cart.cart.map(cartItem => cartItem.quantity);
-            processedOrderData["color"] = state.cart.cart.map(cartItem => cartItem.color);
-            processedOrderData["size"] = state.cart.cart.map(cartItem => cartItem.size);
+                status: "Created",
+                user_id: state.account.token,
+                address: state.cart.buyer.address.location,
+                total_price: state.cart.price.final_price,
+                description: "Smth",
+            };
+            processedOrderData["products"] = state.cart.cart.map((cartItem) => cartItem.id);
+            processedOrderData["quantity"] = state.cart.cart.map((cartItem) => cartItem.quantity);
+            processedOrderData["color"] = state.cart.cart.map((cartItem) => cartItem.color);
+            processedOrderData["size"] = state.cart.cart.map((cartItem) => cartItem.size);
             console.log("Processed Order Data", processedOrderData);
-            const createOrderResponse = await axios.post(`${SERVER_URL}/users/${state.account.token}/orders`, processedOrderData);
+            const createOrderResponse = await axios.post(
+                `${SERVER_URL}/users/${state.account.token}/orders`,
+                processedOrderData
+            );
+
             return {};
         } catch (err) {
-            console.log('Create Order Error', err);
+            console.log("Create Order Error", err);
         }
     } catch (err) {
         console.log("Payment API Error", err);
     }
-})
+});
 
 const selectCartItemById = createSelector(
     (state) => state.cart,

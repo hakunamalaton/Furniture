@@ -3,25 +3,32 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  post "/sign-up", to: "users#create"
+  
+  post "/sign-up", to: "users#create" #email #password #password_confirmation
   post "/sign-in", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  get "/address/:id", to: "addresses#show"
-  post "/address/:id", to: "addresses#create"
+
+  get "users/:id/address", to: "addresses#show"
+  post "users/:id/address", to: "addresses#create"
   
-  get "/product/:id", to: "products#show"
-  get "/product/:id/rating", to: "products#show_ratings" # ?type=
-  post "/product/:id/rating", to: "products#create_ratings"
+  get "/products/:id", to: "products#show"
+  get "/products/:id/ratings", to: "products#show_ratings" # ?type=
+  post "/products/:id/ratings", to: "products#create_ratings"
+  delete "/products/:id/ratings/:rating_id", to: "products#destroy_ratings"
 
-  post "product/create", to: "products#create"
+  
+  get "products", to: "products#display_product" # ?type= & page=1 & limit=10
+  post "products", to: "products#create"
+  patch "products/:id", to: "products#update"
+  delete "products/:id", to: "products#destroy"
+  # get "/products", to: "products#search" #?name=
 
-  get "/displayproduct", to: "products#display_product" # ?type= & page=1 & limit=10
-  get "/search", to: "products#search" #?name=
 
-
-  get "/orders", to: "orders#show"  #?id & status
-  patch "/orders/update/:id", to: "orders#update"
-  post "/orders/:user_id/create", to: "orders#create" # quantity
+  get "orders", to: "orders#index"  #status 
+  patch "/orders/:id", to: "orders#update"
+  get "/orders/:id", to: "orders#show"
+  post "/users/:id/orders", to: "orders#create" # quantity
+  get "/users/:id/orders", to: "users#show_order" # quantity
 
   ####
 
