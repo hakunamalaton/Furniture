@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Account.css'
 import { FaUserAlt } from "react-icons/fa";
@@ -27,6 +27,13 @@ export default function FakeLogin() {
 
     const dispatch = useDispatch();
     const history = useHistory();
+
+    useEffect(() => {
+        if (accountState.status === "member") {
+            history.push("/")
+        }
+    }, []);
+
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -58,9 +65,17 @@ export default function FakeLogin() {
             }
         }
 
-        dispatch(loginAccount({ requestBody, headers }));
-        if (accountState.status === "member") {
-            history.push("/")
+        // const loginResponse = await dispatch(loginAccount({ requestBody, headers }));
+        // console.log("FakeLogin loginResponse", loginResponse);
+
+        const loginResponse = await axios.post(`${SERVER_URL}/sign-in`, requestBody, headers);
+        console.log("loginResponse", loginResponse);
+        if (loginResponse.data.code === 0) {
+            const token = loginResponse.data.token;
+            const email = requestBody["user"]["email"];
+            console.log("{token, email}", { token, email });
+            dispatch(loginAccount({ token, email }));
+            history.push("/");
         } else {
             setLoginFailedModal(true);
         }

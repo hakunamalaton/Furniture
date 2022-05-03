@@ -112,7 +112,7 @@ const FakeRegister = () => {
                                 <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Register Success! Would you like to proceed to login?</h2>
                                 <div className="modal-btns">
                                     <button className="close-modal-btn" onClick={closeModal}>Close</button>
-                                    <button className="close-modal-btn"><Link to="/fakelogin">Proceed To Login</Link></button>
+                                    <button className="close-modal-btn"><Link to="/login">Proceed To Login</Link></button>
                                 </div>
                             </Modal>
                         </div>

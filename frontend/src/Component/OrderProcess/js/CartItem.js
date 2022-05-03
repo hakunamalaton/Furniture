@@ -83,7 +83,7 @@ const CartItem = (props) => {
                         <div className="col-6">
                             <ul className="pagination justify-content-end set_quantity">
                                 <li className="page-item">
-                                    <button onClick={() => dispatch(decrementItemQuantity(itemInfo.id))} className="page-link ">
+                                    <button onClick={() => dispatch(decrementItemQuantity(itemInfo.appendIndex))} className="page-link ">
                                         <FaMinusCircle />
                                     </button>
                                 </li>
@@ -98,7 +98,7 @@ const CartItem = (props) => {
                                     />
                                 </li>
                                 <li className="page-item">
-                                    <button onClick={() => dispatch(incrementItemQuantity(itemInfo.id))} className="page-link">
+                                    <button onClick={() => dispatch(incrementItemQuantity(itemInfo.appendIndex))} className="page-link">
                                         <FaPlusCircle />
                                     </button>
                                 </li>
@@ -107,7 +107,7 @@ const CartItem = (props) => {
                     </div>
 
                     <div className="row">
-                        <div onClick={() => { dispatch(removeItem(itemInfo.id)) }} className="col-8 d-flex justify-content-between remove_wish pt-4">
+                        <div onClick={() => { dispatch(removeItem(itemInfo.appendIndex)) }} className="col-8 d-flex justify-content-between remove_wish pt-4">
                             <p>
                                 <FaTrashAlt /> REMOVE ITEM
                             </p>
