@@ -10,11 +10,9 @@ const axios = require("axios");
 function ImportDesign() {
     const name = useSelector((state) => state.name);
     const email = useSelector((state) => state.email);
-    const divAlert = document.querySelector("#alert-import-design");
-    if (divAlert) {
-        divAlert.style.display = "none";
-    }
     function handleImportDesign(e) {
+        const divAlert = document.querySelector("#alert-import-design");
+
         divAlert.style.display = "block";
         e.preventDefault();
         setTimeout(() => {
@@ -23,8 +21,8 @@ function ImportDesign() {
                     user: {
                         name: name ? name : "Lam Duong",
                         email: email ? email : "lamduong11201@gmail.com",
-                        login: email ? email : "lamduong11201@gmail.com"
-                    }
+                        login: email ? email : "lamduong11201@gmail.com",
+                    },
                 })
                 .then(function (response) {
                     console.log(response);
@@ -73,6 +71,7 @@ function ImportDesign() {
             <div
                 className="alert m-0 alert-primary alert-dismissible fade show"
                 id="alert-import-design"
+                style={{display: "none"}}
                 role="alert"
             >
                 <strong>Send your design successfully!</strong> We'll get in
