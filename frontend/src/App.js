@@ -19,7 +19,7 @@ import Privacy from "./Component/Policy/Privacy";
 import DeliveryPolicy from "./Component/Policy/DeliveryPolicy";
 import TermOfService from "./Component/Policy/TermOfService";
 import WarrantyPolicy from "./Component/Policy/WarrantyPolicy";
-
+import QrCode from "./Component/qrcode/qrcode";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -31,6 +31,7 @@ function App() {
     return (
         <Router>
             <div className="App">
+                <QrCode />
                 <Switch>
                     <Route exact path="/" component={HomePage} />
                     <Route exact path="/import-design" component={ImportDesign} />
