@@ -15,7 +15,7 @@ function ImportDesign() {
 
         divAlert.style.display = "block";
         e.preventDefault();
-        setTimeout(() => {
+        // setTimeout(() => {
             axios
                 .post("https://rails-gmail.herokuapp.com/users", {
                     user: {
@@ -30,8 +30,11 @@ function ImportDesign() {
                 .catch(function (error) {
                     console.log(error);
                 });
-            // window.location.href = "/import-design";
-        }, 3000);
+            setTimeout(() => {
+                
+                window.location.href = "/import-design";
+            }, 2000);
+        // }, 3000);
     }
 
     function clearImgPreview() {
@@ -71,7 +74,7 @@ function ImportDesign() {
             <div
                 className="alert m-0 alert-primary alert-dismissible fade show"
                 id="alert-import-design"
-                style={{display: "none"}}
+                style={{ display: "none" }}
                 role="alert"
             >
                 <strong>Send your design successfully!</strong> We'll get in
