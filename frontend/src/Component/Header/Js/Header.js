@@ -21,7 +21,7 @@ const Header = () => {
 
     const handleLogout = () => {
         dispatch(logoutAccount());
-        history.push("/fakeLogin");
+        history.push("/login");
     };
 
     return (
