@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUp, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import React from "react";
 import Header from "../Header/Js/Header";
@@ -8,56 +6,12 @@ import "./menu.css";
 import CartButton from "./CartButton/CartButton";
 
 const Menu = () => {
-    const handleCloseQR = () => {
-        const divQrBig = document.querySelector(".qrcode-more");
-        divQrBig.style.display = "none";
-        const divQrSmall = document.querySelector(".qrcode-less");
-        divQrSmall.style.display = "block";
-    };
-    const handleOpenQR = () => {
-        const divQrBig = document.querySelector(".qrcode-more");
-        divQrBig.style.display = "block";
-        const divQrSmall = document.querySelector(".qrcode-less");
-        divQrSmall.style.display = "none";
-    };
     return (
         <div className="menu-component">
             <Header />
 
-            <div className="qrcode qrcode-more m-4 px-3 py-1" style={{ display: "block" }}>
-                <div className="row justify-content-end" onClick={handleCloseQR}>
-                    <FontAwesomeIcon icon={faCircleXmark} className="pr-1" />
-                </div>
-                <div className="row">
-                    <img
-                        className="qrcode-img"
-                        src="https://i.imgur.com/uuK0UWC.png"
-                        alt=""
-                    />
-                    <div className="intro-app-ar">
-                        This is our augmented reality app, which you can use
-                        along with the website. It assists you in determining
-                        where the item should be placed in your home. Scan the
-                        QR code to get started!
-                    </div>
-                </div>
-            </div>
-            <div className="qrcode qrcode-less m-4 px-3 py-1" style={{ display: "none" }}>
-                <div className="row" onClick={handleOpenQR}>
-                    <img
-                        className="qrcode-img"
-                        src="https://i.imgur.com/uuK0UWC.png"
-                        alt=""
-                    />
-                    <div className="intro-app-ar">
-                        <FontAwesomeIcon icon={faArrowUp} className="pr-1" />
-                        Scan me!
-                    </div>
-                </div>
-            </div>
-
             <div className="cart">
-                <div className="tieude">
+                <div className="tieude pt-2">
                     <div className="tieude1">
                         <h1 className="fonts3 tab"> Product</h1>
                     </div>

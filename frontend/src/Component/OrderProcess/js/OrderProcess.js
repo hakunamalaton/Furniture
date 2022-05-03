@@ -11,8 +11,8 @@ import DateTime from "./DateTime";
 import Payment from "./Payment";
 import CurrentCart from "./CurrentCart";
 
-import { useSelector, useDispatch } from "react-redux";
-import { incrementItemQuantity, decrementItemQuantity } from "../slice/cartSlice";
+// import { useSelector, useDispatch } from "react-redux";
+// import { incrementItemQuantity, decrementItemQuantity } from "../slice/cartSlice";
 
 const OrderProcess = () => {
 

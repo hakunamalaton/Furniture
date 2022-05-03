@@ -570,32 +570,3 @@
 .animation:hover {
     transform: scale(1.055); 
 }
-
-.qrcode {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 600;
-    background-color: #ffffff;
-}
-.qrcode-more {
-    width: 400px;
-}
-.qrcode-less {
-    width: 100px;
-}
-.qrcode-more .qrcode-img{
-    height: 80px;
-    width: 80px;
-}
-.qrcode-less .qrcode-img{
-    height: 40px;
-    width: 40px;
-}
-.qrcode-more .intro-app-ar{
-    font-size: 14px;
-}
-.qrcode-less .intro-app-ar{
-    font-size: 16px;
-}

@@ -10,29 +10,28 @@ const axios = require("axios");
 function ImportDesign() {
     const name = useSelector((state) => state.name);
     const email = useSelector((state) => state.email);
-    const divAlert = document.querySelector("#alert-import-design");
-    if (divAlert) {
-        divAlert.style.display = "none";
-    }
     function handleImportDesign(e) {
+        const divAlert = document.querySelector("#alert-import-design");
+
         divAlert.style.display = "block";
         e.preventDefault();
+        let users = {
+            user: {
+                name: name,
+                email: email,
+                login: email,
+            },
+        };
         setTimeout(() => {
             axios
-                .post("https://rails-gmail.herokuapp.com/users", {
-                    user: {
-                        name: name ? name : "Lam Duong",
-                        email: email ? email : "lamduong11201@gmail.com",
-                        login: email ? email : "lamduong11201@gmail.com"
-                    }
-                })
+                .post("https://rails-gmail.herokuapp.com/users", users)
                 .then(function (response) {
                     console.log(response);
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
-            // window.location.href = "/import-design";
+            window.location.href = "/import-design";
         }, 3000);
     }
 
@@ -50,9 +49,7 @@ function ImportDesign() {
         if (file.length === 0) {
             return;
         }
-        const previewContent = document.querySelector(
-            "#preview-content-import"
-        );
+        const previewContent = document.querySelector("#preview-content-import");
         previewContent.style.display = "none";
         for (let i = 0; i < file.length; i++) {
             previewImg(i);
@@ -60,9 +57,7 @@ function ImportDesign() {
     }
 
     function previewImg(index) {
-        const preview = document.querySelector(
-            "#img-import-upload" + (index + 1)
-        );
+        const preview = document.querySelector("#img-import-upload" + (index + 1));
         var file = document.querySelector("#input-img-import").files[index];
         let blobURL = URL.createObjectURL(file);
         preview.style.display = "block";
@@ -73,17 +68,12 @@ function ImportDesign() {
             <div
                 className="alert m-0 alert-primary alert-dismissible fade show"
                 id="alert-import-design"
+                style={{ display: "none" }}
                 role="alert"
             >
-                <strong>Send your design successfully!</strong> We'll get in
-                touch with you to confirm the details. Check your gmail inbox as
-                well as your spam folder.
-                <button
-                    type="button"
-                    className="close"
-                    data-dismiss="alert"
-                    aria-label="Close"
-                >
+                <strong>Send your design successfully!</strong> We'll get in touch with you to
+                confirm the details. Check your gmail inbox as well as your spam folder.
+                <button type="button" className="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -121,8 +111,7 @@ function ImportDesign() {
                                             </div>
                                             <div className="d-flex col-md-7 mx-auto mx-md-0  align-items-center">
                                                 <div className="row mx-auto mx-md-0">
-                                                    (You can import more than 1
-                                                    file.)
+                                                    (You can import more than 1 file.)
                                                 </div>
                                             </div>
                                         </div>
@@ -135,10 +124,7 @@ function ImportDesign() {
                                     className="btn col-6 col-sm-4 col-md-3 col-lg-2 mb-2 btn-primary"
                                     onClick={handleImportDesign}
                                 >
-                                    <FontAwesomeIcon
-                                        className="text-white"
-                                        icon={faPaperPlane}
-                                    />{" "}
+                                    <FontAwesomeIcon className="text-white" icon={faPaperPlane} />{" "}
                                     Send
                                 </button>
                             </div>
@@ -160,10 +146,7 @@ function ImportDesign() {
                                         <div
                                             key={index}
                                             className={"m-1 preview-img-import"}
-                                            id={
-                                                "img-import-upload" +
-                                                (index + 1)
-                                            }
+                                            id={"img-import-upload" + (index + 1)}
                                             style={{
                                                 display: "none",
                                             }}

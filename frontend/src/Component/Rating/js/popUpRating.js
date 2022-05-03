@@ -142,7 +142,10 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
         <div className="popup-rating-component">
             <div className="row">
                 <div className="col-12">
-                    <button className="btn btn-primary btnRating" onClick={handlePopUp}>
+                    <button
+                        className="btn btn-primary btnRating"
+                        onClick={handlePopUp}
+                    >
                         RATING
                     </button>
                 </div>
@@ -244,13 +247,15 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
                                             CANCEL
                                         </button>
                                     </Link>
-                                    <button
-                                        type="submit"
-                                        className="btn btn-primary m-2 btnSubmit"
-                                        onClick={(e) => handleAddRating(e)}
-                                    >
-                                        COMPLETE
-                                    </button>
+                                    
+                                        <button
+                                            type="submit"
+                                            className="btn btn-primary m-2 btnSubmit"
+                                            onClick={(e) => handleAddRating(e)}
+                                        >
+                                            COMPLETE
+                                        </button>
+                                    
                                 </div>
                             </form>
                         </div>
