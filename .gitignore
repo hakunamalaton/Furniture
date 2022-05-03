@@ -1,3 +1,4 @@
 node_modules
 /backend/tmp/cache/
 /backend/tmp/cache/bootsnap/
+/backend/log/development.log

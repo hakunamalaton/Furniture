@@ -19,7 +19,7 @@ function QrCode() {
         <>
             <div
                 className="qrcode qrcode-more m-4 px-3 py-1"
-                style={{ display: "block" }}
+                style={{ display: "none" }}
             >
                 <div
                     className="row justify-content-end"
@@ -46,7 +46,7 @@ function QrCode() {
             </div>
             <div
                 className="qrcode qrcode-less m-4 px-3 py-1"
-                style={{ display: "none" }}
+                style={{ display: "block" }}
             >
                 <div className="row" onClick={handleOpenQR}>
                     <img

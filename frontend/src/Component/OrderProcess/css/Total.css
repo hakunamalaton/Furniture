@@ -1,0 +1,19 @@
+.momo-btn-div p {
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+
+.paypal-btn-div {
+    background-color: lightyellow;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.paypal-btn-div p {
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}

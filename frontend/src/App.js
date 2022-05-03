@@ -9,24 +9,17 @@ import Rating from "./Component/Rating/js/rating";
 import ImportDesign from "./Component/ImportDesign/js/importDesign";
 import Menu from "./Component/Menu/menu";
 import TransactionHistory from "./Component/TransactionHistory/js/transactionHistory";
-import Login from "./Component/Account/Login";
 import FakeLogin from "./Component/Account/FakeLogin";
 import FakeRegister from "./Component/Account/FakeRegister";
-import Register from "./Component/Account/Register";
-import LoginRoute from "./Component/auth/LoginRoute";
 import ExchangePolicy from "./Component/Policy/ExchangePolicy";
 import Privacy from "./Component/Policy/Privacy";
 import DeliveryPolicy from "./Component/Policy/DeliveryPolicy";
 import TermOfService from "./Component/Policy/TermOfService";
 import WarrantyPolicy from "./Component/Policy/WarrantyPolicy";
 import QrCode from "./Component/qrcode/qrcode";
-import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
+
 
 function App() {
-    const history = useHistory();
-    const accountState = useSelector(state => state.account);
 
     return (
         <Router>
