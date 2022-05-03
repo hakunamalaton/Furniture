@@ -6,9 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { addNewUserAddress } from "../../Account/slice/accountSlice";
 
 function NewAddressModal() {
-
     const dispatch = useDispatch();
-    const AccountState = useSelector(state => state.account);
+    const AccountState = useSelector((state) => state.account);
 
     const [childProp, setChildProp] = useState();
     const [address, setAddress] = useState();
@@ -70,13 +69,15 @@ function NewAddressModal() {
                 phone_number: phoneNumber,
                 userId: AccountState.token,
             });
-            dispatch(addNewUserAddress({
-                location: submitAddress,
-                description: description,
-                price: price,
-                phone_number: phoneNumber,
-                userId: AccountState.token,
-            }))
+            dispatch(
+                addNewUserAddress({
+                    location: submitAddress,
+                    description: description,
+                    price: price,
+                    phone_number: phoneNumber,
+                    userId: AccountState.token,
+                })
+            );
         }
         // axios.post(`http://localhost:8000/users/${id}/address`, {
         //     location: submitAddress,
@@ -99,7 +100,6 @@ function NewAddressModal() {
 
                     <div className="modal-body">
                         <div className="row justify-content-center">
-                            *
                             <input
                                 className="col-11"
                                 type="text"

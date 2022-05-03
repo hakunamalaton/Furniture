@@ -12,17 +12,14 @@ const Address = ({ step, buyerState, setBuyerState, priceState, setPriceState })
     const dispatch = useDispatch();
     const size = { fontSize: "1.1rem" };
 
-
-    const AccountState = useSelector(state => state.account);
-    const OrderPriceState = useSelector(state => state.cart.price);
-    const OrderBuyerState = useSelector(state => state.cart.buyer);
+    const AccountState = useSelector((state) => state.account);
+    const OrderPriceState = useSelector((state) => state.cart.price);
+    const OrderBuyerState = useSelector((state) => state.cart.buyer);
     const [totalPrice, setTotalPrice] = useState("");
-
 
     useEffect(() => {
         dispatch(getUserAddresses(AccountState.token));
     }, []);
-
 
     if (step !== 2) {
         return null;
@@ -58,7 +55,10 @@ const Address = ({ step, buyerState, setBuyerState, priceState, setPriceState })
                                 <div className="mt-3">
                                     {AccountState.addressList.map((addressItem, index) => {
                                         return (
-                                            <div key={index} className="form-check row list-group-item-action">
+                                            <div
+                                                key={index}
+                                                className="form-check row list-group-item-action"
+                                            >
                                                 <label className="form-check-label d-flex justify-content-md-between row border border-left-0 border-right-0 border-top-0 mr-0">
                                                     <input
                                                         type="radio"
@@ -66,7 +66,9 @@ const Address = ({ step, buyerState, setBuyerState, priceState, setPriceState })
                                                         name="optradio"
                                                         id="address"
                                                         value={addressItem.price}
-                                                        onChange={() => dispatch(updateAddress(addressItem))}
+                                                        onChange={() =>
+                                                            dispatch(updateAddress(addressItem))
+                                                        }
                                                     />
                                                     <div className="mb-3 mt-3 ml-4 col-md">
                                                         <p className="mb-0" style={size}>
@@ -95,15 +97,6 @@ const Address = ({ step, buyerState, setBuyerState, priceState, setPriceState })
                                         >
                                             {`Total ship cost: ${OrderPriceState.shipping}`}
                                         </p>
-                                    </div>
-                                    <div className="d-flex justify-content-end align-items-center mb-5">
-                                        <button
-                                            type="button"
-                                            className="col-2 btn text-light"
-                                            style={{ backgroundColor: "#054c73" }}
-                                        >
-                                            OK
-                                        </button>
                                     </div>
                                 </div>
                             </div>

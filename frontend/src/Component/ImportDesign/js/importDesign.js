@@ -8,33 +8,31 @@ import { faPaperPlane, faCamera } from "@fortawesome/free-solid-svg-icons";
 const axios = require("axios");
 
 function ImportDesign() {
-    const name = useSelector((state) => state.name);
-    const email = useSelector((state) => state.email);
+    const name = useSelector((state) => state.account.name);
+    const email = useSelector((state) => state.account.email);
+    console.log(name, email)
     function handleImportDesign(e) {
         const divAlert = document.querySelector("#alert-import-design");
 
         divAlert.style.display = "block";
         e.preventDefault();
-        // setTimeout(() => {
-            axios
-                .post("https://rails-gmail.herokuapp.com/users", {
-                    user: {
-                        name: name ? name : "Lam Duong",
-                        email: email ? email : "lamduong11201@gmail.com",
-                        login: email ? email : "lamduong11201@gmail.com",
-                    },
-                })
-                .then(function (response) {
-                    console.log(response);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-            setTimeout(() => {
-                
-                window.location.href = "/import-design";
-            }, 2000);
-        // }, 3000);
+        axios
+            .post("https://rails-gmail.herokuapp.com/users", {
+                user: {
+                    name: "Gap toan la met",
+                    email: email,
+                    login: email,
+                },
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        setTimeout(() => {
+            window.location.href = "/import-design";
+        }, 2000);
     }
 
     function clearImgPreview() {
