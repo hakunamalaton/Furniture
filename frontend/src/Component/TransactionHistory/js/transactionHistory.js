@@ -59,6 +59,7 @@ function TransactionHistory() {
                 )
                 .then((res) => {
                     setDataOrderDetailList((prev) => [...prev, res.data]);
+                    console.log(res.data);
                 })
                 .catch((err) => console.error("Đây là lỗi: " + err));
         }
@@ -186,7 +187,7 @@ function TransactionHistory() {
                                 image={item.image}
                                 name={item.name}
                                 category={`${item.color}, ${item.size}`}
-                                emailUser = {emailUser ? emailUser : "duong@gmail.com"}
+                                emailUser={emailUser ? emailUser : "duong@gmail.com"}
                             />
                         </div>
                     </div>
