@@ -1,53 +1,51 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Serif');
-@import url('https://fonts.googleapis.com/css?family=Poppins');
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif");
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans");
 
-.column{
+.column {
     display: flex;
     margin-top: 4vw;
 }
 
-.columnsmall{
+.columnsmall {
     width: 25%;
     margin-left: 5vw;
 }
 
-.columnbig{
+.columnbig {
     width: 75%;
     display: flex;
     flex-wrap: wrap;
     margin-left: 50px;
 }
 
-.column1{
+.column1 {
     display: flex;
     width: 50%;
 }
 
-.fonts{
+.fonts {
     font-family: Noto Serif;
-    color: #141F1F;
+    color: #141f1f;
     font-style: normal;
     font-weight: bold;
     text-align: left;
     font-size: 2.5vw;
     word-wrap: break-word;
-
 }
 
-.fonts1{
+.fonts1 {
     font-family: Poppins;
-    color: #141F1F;
+    color: #141f1f;
     font-style: normal;
     font-weight: 400;
     text-align: left;
     font-size: 1.5vw;
     word-wrap: break-word;
-
 }
 
-.fonts2{
+.fonts2 {
     font-family: Poppins;
     color: white;
     font-style: normal;
@@ -57,106 +55,107 @@
     word-wrap: break-word;
 }
 
-.fonts3{
+.fonts3 {
     font-family: Roboto;
-    color: #054C73;
+    color: #054c73;
     font-style: normal;
     font-weight: 700;
     font-size: 2.3vw;
     word-wrap: break-word;
 }
 
-.fonts4{
+.fonts4 {
     font-size: 1.3vw;
 }
 
-.fonts5{
+.fonts5 {
     font-weight: 400;
     font-size: 1.3vw;
-
 }
 
-.fonts6{
-    color:rgba(75, 75, 75, 0.69);
+.fonts6 {
+    color: rgba(75, 75, 75, 0.69);
 }
 
-.pa{
+.pa {
     padding-right: 10px;
 }
 
-.buton{
-  background-color: #054C73;
-  border-radius: 50px;
-  color: white;
-  width: 20vw;
-  height: 3.9vw;
-  padding: 1vw 2vw;
-  display: inline-block;
-  margin: 2vw 1vw;
+.kindProduct {
+    background-color: #054c73;
+    background-image: url(./image/listItem.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50px;
+    color: white;
+    width: 20vw;
+    height: 3.9vw;
+    padding: 1vw 2vw;
+    display: inline-block;
+    margin: 2vw 1vw;
 }
 
-.lienket a{
+.lienket a {
     text-decoration: none;
     margin-top: 1.5vw;
 }
-.square{
-    background-color: #054C73;
+.square {
+    background-color: #054c73;
     border: none;
     width: 3vw;
     height: 3vw;
 }
 
-.content{
+.content {
     width: 90%;
     margin-left: 2vw;
 }
 
-.ad{
+.ad {
     padding-top: 30px;
 }
 
-.cart{
+.cart {
     margin-top: 10vw;
     margin-left: 3vw;
 }
 
-.tieude{
+.tieude {
     display: flex;
 }
 
-.tieude1{
+.tieude1 {
     display: flex;
     width: 88%;
 }
 
-.tieude2{
+.tieude2 {
     width: 12%;
     margin: auto;
 }
 
-.list{
+.list {
     padding-top: 2vw;
 }
 
-.list a{
+.list a {
     text-decoration: none;
 }
 
-.a1{
+.a1 {
     padding-left: 5vw;
-    
 }
 
-.list a:hover{
-    color: #054C73;
+.list a:hover {
+    color: #054c73;
 }
 
-.listsmall{
+.listsmall {
     float: left;
     width: 85%;
 }
 
-.image-menu{
+.image-menu {
     width: 85%;
 }
 
@@ -164,7 +163,7 @@
     float: left;
     width: 25%;
 }
-.clearfix-menu{
+.clearfix-menu {
     margin-top: 4vw;
 }
 
@@ -174,7 +173,7 @@
     display: table;
 }
 
-.pagination{
+.pagination {
     font-family: IBM Plex Sans;
     font-weight: 600;
     margin-top: 2vw;
@@ -184,14 +183,14 @@
 }
 
 .pagination a {
-    color: #054C73;
+    color: #054c73;
     float: left;
-    padding:  1vw 1.5vw;
+    padding: 1vw 1.5vw;
     text-decoration: none;
-  }
- 
+}
+
 .pagination a.active {
-    background-color: #054C73;
+    background-color: #054c73;
     color: white;
     border-radius: 50%;
 }
@@ -201,11 +200,11 @@
     border-radius: 50%;
 }
 
-.mail{
+.mail {
     margin-top: 8vw;
 }
 
-.fonts7{
+.fonts7 {
     font-family: Montserrat;
     font-style: normal;
     text-align: center;
@@ -215,7 +214,7 @@
     font-size: 2vw;
 }
 
-.fonts8{
+.fonts8 {
     font-family: Montserrat;
     font-style: normal;
     text-align: center;
@@ -225,26 +224,26 @@
     font-size: 1.3vw;
 }
 
-.add{
+.add {
     width: 25%;
     height: 50px;
 }
 
-.form-add{
+.form-add {
     height: 50px;
-    border: 1px solid #011C42;
+    border: 1px solid #011c42;
     border-radius: 3px;
 }
 
-.btn1{
-    background-color: #054C73;
+.btn1 {
+    background-color: #054c73;
 }
 
-.btn-outline-secondary{
+.btn-outline-secondary {
     color: white;
 }
 
-.add-the-center{
+.add-the-center {
     margin-top: 25px;
     display: flex;
     justify-content: center;
@@ -252,253 +251,253 @@
     height: auto;
 }
 
-.add1{
+.add1 {
     color: white;
     font-size: 0.9vw;
     font-weight: bolder;
 }
 
-.mobile{
+.mobile {
     display: none;
 }
 
-#rep1{
+#rep1 {
     display: block;
 }
 
-#rep2{
+#rep2 {
     display: none;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1024px){
-    .columnsmall{
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .columnsmall {
         margin: auto;
         width: 30%;
     }
-    .column{
+    .column {
         display: block;
     }
-    .columnsmall .fonts{
+    .columnsmall .fonts {
         text-align: center;
         font-size: 3.5vw;
     }
-    .columnsmall .fonts1{
+    .columnsmall .fonts1 {
         text-align: center;
         font-size: 2.5vw;
     }
-    .tieude1{
+    .tieude1 {
         width: 75%;
     }
-    .tieude2{
-        width: 25%;  
+    .tieude2 {
+        width: 25%;
     }
-    .lienket{
+    .lienket {
         padding-left: 1.5vw;
     }
-    .columnbig{
+    .columnbig {
         width: 60%;
         display: flex;
         margin: auto;
     }
-    .column1{
+    .column1 {
         width: 50%;
         padding: 1.5vw;
     }
-    .fonts2{
+    .fonts2 {
         font-size: 2.5vw;
     }
-    .content .fonts{
+    .content .fonts {
         font-size: 3vw;
     }
-    .content .fonts1{
+    .content .fonts1 {
         font-size: 1.9vw;
     }
-    .buton{
+    .buton {
         width: 25vw;
         height: 5vw;
     }
-    .cart{
+    .cart {
         margin: auto;
         width: 70%;
     }
-    .tab{
+    .tab {
         font-size: 3vw;
         margin-top: 2vw;
     }
-    .fonts4{
+    .fonts4 {
         font-size: 2vw;
     }
-    .fonts5{
+    .fonts5 {
         font-size: 2vw;
     }
-    .a1{
+    .a1 {
         padding-left: 1.6vw;
     }
-    .listsmall{
+    .listsmall {
         width: 80%;
     }
-    .img-container-menu{
+    .img-container-menu {
         width: 50%;
     }
-    .image-menu{
+    .image-menu {
         width: 92%;
     }
-    .image3{
+    .image3 {
         margin-bottom: 4vw;
     }
-    .pagination{
+    .pagination {
         font-size: 2vw;
         margin-top: 0;
     }
     .pagination a {
-        padding:  1vw 2vw;
+        padding: 1vw 2vw;
     }
-    .fonts7{
+    .fonts7 {
         font-size: 2.6vw;
     }
-    .fonts8{
+    .fonts8 {
         font-size: 2vw;
     }
-    .add{
+    .add {
         width: 55%;
     }
-    .clearfix-menu{
+    .clearfix-menu {
         margin-top: 0;
     }
-    .padd{
+    .padd {
         margin-top: 7vw;
     }
 }
 
-@media only screen and (max-width: 767px){
-    .columnsmall{
+@media only screen and (max-width: 767px) {
+    .columnsmall {
         margin: auto;
         width: 60%;
     }
-    .column{
+    .column {
         display: block;
     }
-    .columnsmall .fonts{
+    .columnsmall .fonts {
         text-align: center;
         font-size: 5vw;
     }
-    .columnsmall .fonts1{
+    .columnsmall .fonts1 {
         text-align: center;
         font-size: 3.5vw;
     }
-    .lienket{
+    .lienket {
         padding-left: 5vw;
     }
-    .columnbig{
+    .columnbig {
         width: 55%;
         display: flex;
         margin: auto;
     }
-    .column1{
+    .column1 {
         width: 100%;
         padding: 1.5vw;
     }
-    .fonts2{
+    .fonts2 {
         font-size: 3.5vw;
     }
-    .content .fonts{
+    .content .fonts {
         font-size: 5vw;
     }
-    .content .fonts1{
+    .content .fonts1 {
         font-size: 3vw;
     }
-    .buton{
+    .buton {
         height: 7vw;
         padding: 3vw 2vw;
         width: 50vw;
         height: 10vw;
     }
-    .tieude{
+    .tieude {
         margin-top: 8vw;
     }
-    .tieude1{
+    .tieude1 {
         width: 70%;
     }
-    .tieude2{
-        width: 35%;  
+    .tieude2 {
+        width: 35%;
     }
-    .ad{
+    .ad {
         display: none;
     }
-    .square{
+    .square {
         width: 5vw;
         height: 5vw;
     }
-    .mobile{
+    .mobile {
         display: block;
         width: 100%;
         margin-left: 35vw;
     }
-    .cart{
+    .cart {
         margin: auto;
         width: 60%;
     }
-    .tab{
+    .tab {
         font-size: 5vw;
         margin-top: 3vw;
     }
-    .fonts4{
+    .fonts4 {
         font-size: 3vw;
     }
-    .fonts5{
+    .fonts5 {
         font-size: 3vw;
     }
-    .a1{
+    .a1 {
         padding-left: 3vw;
     }
-    .listsmall{
+    .listsmall {
         width: 80%;
     }
-    .img-container-menu{
+    .img-container-menu {
         width: 100%;
     }
-    .image-menu{
+    .image-menu {
         width: 100%;
     }
-    .image3{
+    .image3 {
         margin-bottom: 10vw;
     }
-    .y{
+    .y {
         margin-bottom: 5vw;
     }
-    .pagination{
+    .pagination {
         font-size: 3vw;
         margin-top: 0;
     }
     .pagination a {
-        padding:  1vw 2vw;
+        padding: 1vw 2vw;
     }
-    #rep1{
+    #rep1 {
         display: none;
     }
-    #rep2{
+    #rep2 {
         display: block;
     }
-    .fonts7{
+    .fonts7 {
         font-size: 4.5vw;
     }
-    .fonts8{
+    .fonts8 {
         font-size: 3vw;
     }
-    .add{
+    .add {
         width: 100%;
         height: auto;
     }
-    .clearfix-menu{
+    .clearfix-menu {
         margin-top: 0;
     }
-    .padd{
+    .padd {
         margin-top: 10vw;
     }
-    .x{
+    .x {
         display: none;
     }
-    .mail{
+    .mail {
         margin-top: 15vw;
     }
 }

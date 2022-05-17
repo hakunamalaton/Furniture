@@ -1,6 +1,6 @@
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import "./App.css";
-import HomePage from "./HomePage";
+import HomePage from "./Component/HomePage/HomePage";
 import Address from "./Component/Address/Js/Address";
 import OrderProcess from "./Component/OrderProcess/js/OrderProcess";
 import PageProduct from "./Component/PageProduct/js/pageProduct";
@@ -8,7 +8,6 @@ import Mapbox from "./Component/Address/Js/Mapbox";
 import Rating from "./Component/Rating/js/rating";
 import ImportDesign from "./Component/ImportDesign/js/importDesign";
 import Menu from "./Component/Menu/menu";
-import FakeMenu from "./Component/Menu/fakemenu";
 import TransactionHistory from "./Component/TransactionHistory/js/transactionHistory";
 import FakeLogin from "./Component/Account/FakeLogin";
 import FakeRegister from "./Component/Account/FakeRegister";
@@ -27,8 +26,7 @@ function App() {
             <div className="App">
                 <QrCode />
                 <Switch>
-                    {/* <Route exact path="/" component={HomePage} /> */}
-                    <Route exact path="/" component={FakeMenu} />
+                    <Route exact path="/" component={HomePage} />
                     <Route exact path="/import-design" component={ImportDesign} />
                     <Route exact path="/product-detail/:id" component={PageProduct} />
                     <Route exact path="/rating" component={Rating} />
@@ -36,7 +34,7 @@ function App() {
                     <Route exact path="/address" component={Address} />
                     <Route exact path="/mapbox" component={Mapbox} />
                     <Route exact path="/address" component={Address} />
-                    <Route exact path="/menu" component={Menu} />
+                    <Route exact path="/menu/:type" component={Menu} />
                     <Route exact path="/transaction-history" component={TransactionHistory} />
                     <Route exact path="/exchange-policy" component={ExchangePolicy} />
                     <Route exact path="/privacy-policy" component={Privacy} />

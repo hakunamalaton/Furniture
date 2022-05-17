@@ -91,3 +91,19 @@
 .zoom img:hover {
   transform: scale(1.06); 
 }
+.top-homepage .carousel-caption.carousel-1{
+    bottom: 100px !important;
+}
+.top-homepage .carousel-caption.carousel-2{
+    bottom: 120px !important;
+}
+.top-homepage .carousel-caption.carousel-5{
+    bottom: 140px !important;
+}
+.top-homepage .carousel-caption.carousel-6{
+    bottom: 100px !important;
+}
+.top-homepage .title-carousel-1{
+    font-size: 90px;
+    font-weight: 1000 !important;
+}

@@ -1,487 +1,266 @@
-import { Link } from "react-router-dom";
-import React from "react";
+import { Link} from "react-router-dom";
+import { React, useState, useEffect } from "react";
 import Header from "../Header/Js/Header";
 import Footer from "../Footer/Js/Footer";
 import "./menu.css";
 import CartButton from "./CartButton/CartButton";
+import { useLayoutEffect } from "react";
+const axios = require("axios");
+const listBtn = ["All", "Bedding", "Chair", "Lamp", "Sofas"];
+const Menu = ({match}) => {
+    const typeItem = match.params.type;
+    const [totalPageProduct, setTotalPageProduct] = useState(0);
+    const [category, setCategory] = useState(`${typeItem === "all" ? "" : "&type=" + typeItem}`);
+    const [categoryPage, setCategoryPage] = useState("");
+    const [titleCategory, setTitleCategory] = useState("LIST OF PRODUCTS");
+    const [page, setPage] = useState(1);
+    const handleSwitchPage = (data) => {
+        console.log(data)
+        if (data === "prev" && page > 1) {
+            setPage(prev => prev - 1);
+        }
+        else if (data === "next" && page < totalPageProduct) {
+            setPage(prev => prev + 1);
+        }
+        else if (typeof data !== "string") {
+            setPage(data)
+        }
+    }
+    console.log(listBtn.indexOf(typeItem))
+    const [pick, setPick] = useState(0);
+    const [list1, setList1] = useState([]);
+    const [list2, setList2] = useState([]);
+    const [list3, setList3] = useState([]);
+    const handleFilter = (index) => {
+        setPick(index);
+        switch (index) {
+            case 0:
+                setCategory("");
+                setCategoryPage("");
+                setTitleCategory("LIST OF PRODUCTS");
+                break;
+            case 1:
+                setCategory("&type=Bedding");
+                setCategoryPage("?type=Bedding");
+                setTitleCategory("LIST OF BEDDINGS");
+                break;
+            case 2:
+                setCategory("&type=Chair");
+                setCategoryPage("?type=Chair");
+                setTitleCategory("LIST OF CHAIRS");
+                break;
+            case 3:
+                setCategory("&type=Light");
+                setCategoryPage("?type=Light");
+                setTitleCategory("LIST OF LAMPS");
+                break;
+            case 4:
+                setCategory("&type=Sofas");
+                setCategoryPage("?type=Sofas");
+                setTitleCategory("LIST OF SOFAS");
+                break;
+            default:
+                break;
+        }
+    };
+    useLayoutEffect(() => {
+        handleFilter(listBtn.indexOf(typeItem));
+    }, [typeItem]);
+    useEffect(() => {
+        axios
+            .get(`http://localhost:8000/products${categoryPage}`)
+            .then((res) => setTotalPageProduct(Math.ceil(res.data.total / 12)))
+            .catch((err) => console.error("Đây là lỗi: " + err));
+        axios
+            .get(
+                `http://localhost:8000/products?page=${page}&limit=12${category}`
+            )
+            .then((res) => {
+                setList1([])
+                setList2([])
+                setList3([])
+                if (res.data.data.length <= 4) {
+                    setList1(res.data.data.slice(0, res.data.data.length));
+                } else if (res.data.data.length <= 8) {
+                    setList1(res.data.data.slice(0, 4));
+                    setList2(res.data.data.slice(4, res.data.data.length));
+                } else {
+                    setList1(res.data.data.slice(0, 4));
+                    setList2(res.data.data.slice(4, 8));
+                    setList3(res.data.data.slice(8, res.data.data.length));
+                }
+            })
+            .catch((err) => console.error("Đây là lỗi: " + err));
+        
+    }, [page, category, categoryPage]);
+    let listPage  = []
+    for (let i = 0; i < totalPageProduct; i++) {
+        listPage.push(1);
+    }
+    const categories = (item, index) => {
+        return (
+            <div
+                key={index}
+                className={`col-2 btn m-2 rounded-0 btnCategoryRating d-flex justify-content-center align-items-center ${
+                    pick === index ? "btn-primary" : "btn-outline-primary"
+                }`}
+                onClick={() => handleFilter(index)}
+            >
+                {item}
+            </div>
+        );
+    };
 
-const Menu = () => {
     return (
         <div className="menu-component">
             <Header />
 
-            <div className="cart">
-                <div className="tieude pt-2">
-                    <div className="tieude1">
-                        <h1 className="fonts3 tab"> Product</h1>
+            <div className="cart d-block pt-2">
+                <div className="tieude pt-2 rol-12 d-flex justify-content-center">
+                    <div className="tieude1 rol-12 d-flex justify-content-center">
+                        <h1 className="fonts3 tab">{titleCategory}</h1>
                     </div>
                 </div>
-                <div className="list">
-                    <div className="listsmall">
-                        <a className="fonts3 fonts4" href="#">
-                            All
-                        </a>
-                        <a className="a1 fonts3 fonts5" href="#">
-                            Bedding
-                        </a>
-                        <a className="a1 fonts3 fonts5" href="#">
-                            Chair
-                        </a>
-                        <a className="a1 fonts3 fonts5" href="#">
-                            Lamp
-                        </a>
-                        <a className="a1 fonts3 fonts5" href="#">
-                            Sofas
-                        </a>
+                <div className="list rol-12 d-flex justify-content-center">
+                    <div className="listsmall d-flex justify-content-around">
+                        {listBtn.map(categories)}
                     </div>
                 </div>
-                <div>
-                    <div className="clearfix-menu padd  d-flex justify-content-around">
-                        <Link to="/product-detail/8">
-                            <div className="animation">
-                                <div className="img-container-menu">
-                                    <div className="ml-3">
-                                        <CartButton />
-                                    </div>
-                                    <div className="dt">
-                                        <span className="data1">Bedding</span>
-                                        <br />
-                                        <span className="data2">
-                                            Miami bed 1m8 upholstered with Dolce
-                                            fabric 160
-                                        </span>
-                                    </div>
-                                    <div className="money">
-                                        <span className="money1">1500 USD</span>
-                                    </div>
-                                    <div
-                                        className="image-menu image3"
-                                        style={{
-                                            backgroundImage: `url("https://i.imgur.com/PYFD5NI.png")`,
-                                        }}
-                                    ></div>
+                <div className="row">
+                    <div className="clearfix-menu padd  d-flex justify-content-start">
+                        {list1 && list1.map((item, index) => {
+                            return (
+                                <div
+                                    className="clearfix-menu padd m-1"
+                                    key={index}
+                                >
+                                    <Link to={`/product-detail/${item.id}`}>
+                                        <div className="animation">
+                                            <div className="img-container-menu">
+                                                <div className="ml-3">
+                                                    <CartButton />
+                                                </div>
+                                                <div className="dt">
+                                                    <span className="data1">
+                                                        {item.category}
+                                                    </span>
+                                                    <br />
+                                                    <span className="data2">
+                                                        {item.name}
+                                                    </span>
+                                                </div>
+                                                <div className="money">
+                                                    <span className="money1">
+                                                        {item.price} USD
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    className="image-menu image3"
+                                                    style={{
+                                                        backgroundImage: `url(${item.image[0]})`,
+                                                    }}
+                                                ></div>
+                                            </div>
+                                        </div>
+                                    </Link>
                                 </div>
-                            </div>
-                        </Link>
-
-                        <Link to="/product-detail/9">
-                            <div className="animation">
-                                <div className="img-container-menu">
-                                    <div className="ml-3">
-                                        <CartButton />
-                                    </div>
-                                    <div className="dt">
-                                        <span className="data1">Bedding</span>
-                                        <br />
-                                        <span className="data2">
-                                            Maxine wooden bed
-                                        </span>
-                                    </div>
-                                    <div className="money">
-                                        <span className="money1">2500 USD</span>
-                                    </div>
-                                    <div
-                                        className="image-menu image3"
-                                        style={{
-                                            backgroundImage: `url("https://i.imgur.com/wnIV4bA.png")`,
-                                        }}
-                                    ></div>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link to="/product-detail/10">
-                            <div className="animation">
-                                <div className="img-container-menu">
-                                    <div className="ml-3">
-                                        <CartButton />
-                                    </div>
-                                    <div className="dt">
-                                        <span className="data1">Bedding</span>
-                                        <br />
-                                        <span className="data2">
-                                            Mushroom Rattan Leather Bed
-                                        </span>
-                                    </div>
-                                    <div className="money">
-                                        <span className="money1">2000 USD</span>
-                                    </div>
-                                    <div
-                                        className="image-menu image3"
-                                        style={{
-                                            backgroundImage: `url("https://i.imgur.com/0Uw40Ni.png")`,
-                                        }}
-                                    ></div>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link to="/product-detail/7">
-                            <div className="animation">
-                                <div className="img-container-menu">
-                                    <div className="ml-3">
-                                        <CartButton />
-                                    </div>
-                                    <div className="dt">
-                                        <span className="data1">Bedding</span>
-                                        <br />
-                                        <span className="data2">
-                                            Modern Pio fabric bed 1m6 color
-                                            10/WV094
-                                        </span>
-                                    </div>
-                                    <div className="money">
-                                        <span className="money1">1200 USD</span>
-                                    </div>
-                                    <div
-                                        className="image-menu image3"
-                                        style={{
-                                            backgroundImage: `url("https://i.imgur.com/wPaj0Us.png")`,
-                                        }}
-                                    ></div>
-                                </div>
-                            </div>
-                        </Link>
+                            );
+                        })}
                     </div>
 
-                    <div className="clearfix-menu padd  d-flex justify-content-around">
-                        <Link to="/product-detail/16">
-                            <div className="animation">
-                                <div className="img-container-menu">
-                                    <div className="ml-3">
-                                        <CartButton />
-                                    </div>
-                                    <div className="dt">
-                                        <span className="data1">Chair</span>
-                                        <br />
-                                        <span className="data2">
-                                            Armchair String Gold
-                                        </span>
-                                    </div>
-                                    <div className="money">
-                                        <span className="money1">450 USD</span>
-                                    </div>
-                                    <div
-                                        className="image-menu image3"
-                                        style={{
-                                            backgroundImage: `url("https://i.imgur.com/Twk2AbY.png")`,
-                                        }}
-                                    ></div>
+                    <div className="clearfix-menu padd  d-flex justify-content-start">
+                        {list2 && list2.map((item, index) => {
+                            return (
+                                <div
+                                    className="clearfix-menu padd m-1 d-flex justify-content-start"
+                                    key={index}
+                                >
+                                    <Link to={`/product-detail/${item.id}`}>
+                                        <div className="animation">
+                                            <div className="img-container-menu">
+                                                <div className="ml-3">
+                                                    <CartButton />
+                                                </div>
+                                                <div className="dt">
+                                                    <span className="data1">
+                                                        {item.category}
+                                                    </span>
+                                                    <br />
+                                                    <span className="data2">
+                                                        {item.name}
+                                                    </span>
+                                                </div>
+                                                <div className="money">
+                                                    <span className="money1">
+                                                        {item.price} USD
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    className="image-menu image3"
+                                                    style={{
+                                                        backgroundImage: `url(${item.image[0]})`,
+                                                    }}
+                                                ></div>
+                                            </div>
+                                        </div>
+                                    </Link>
                                 </div>
-                            </div>
-                        </Link>
-
-                        <Link to="/product-detail/17">
-                            <div className="animation">
-                                <div className="img-container-menu">
-                                    <div className="ml-3">
-                                        <CartButton />
-                                    </div>
-                                    <div className="dt">
-                                        <span className="data1">Chair</span>
-                                        <br />
-                                        <span className="data2">
-                                            Relax Hailey FABRIC/METAL Chair
-                                        </span>
-                                    </div>
-                                    <div className="money">
-                                        <span className="money1">550 USD</span>
-                                    </div>
-                                    <div
-                                        className="image-menu image3"
-                                        style={{
-                                            backgroundImage: `url("https://i.imgur.com/LpQSDJo.png")`,
-                                        }}
-                                    ></div>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link to="/product-detail/18">
-                            <div className="animation">
-                                <div className="img-container-menu">
-                                    <div className="ml-3">
-                                        <CartButton />
-                                    </div>
-                                    <div className="dt">
-                                        <span className="data1">Chair</span>
-                                        <br />
-                                        <span className="data2">
-                                            Armchair Paradise L
-                                        </span>
-                                    </div>
-                                    <div className="money">
-                                        <span className="money1">750 USD</span>
-                                    </div>
-                                    <div
-                                        className="image-menu image3"
-                                        style={{
-                                            backgroundImage: `url("https://i.imgur.com/xgIEhWR.png")`,
-                                        }}
-                                    ></div>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link to="/product-detail/19">
-                            <div className="animation">
-                                <div className="img-container-menu">
-                                    <div className="ml-3">
-                                        <CartButton />
-                                    </div>
-                                    <div className="dt">
-                                        <span className="data1">Chair</span>
-                                        <br />
-                                        <span className="data2">
-                                            Armchair Rattan Fango
-                                        </span>
-                                    </div>
-                                    <div className="money">
-                                        <span className="money1">350 USD</span>
-                                    </div>
-                                    <div
-                                        className="image-menu image3"
-                                        style={{
-                                            backgroundImage: `url("https://i.imgur.com/Vtg6Rsz.png")`,
-                                        }}
-                                    ></div>
-                                </div>
-                            </div>
-                        </Link>
+                            );
+                        })}
                     </div>
 
-                    <div className="clearfix-menu padd  d-flex justify-content-around">
-                        <Link to="/product-detail/22">
-                            <div className="animation">
-                                <div className="img-container-menu">
-                                    <div className="ml-3">
-                                        <CartButton />
-                                    </div>
-                                    <div className="dt">
-                                        <span className="data1">Lamp</span>
-                                        <br />
-                                        <span className="data2">
-                                            Ginkgo Stand Lamp
-                                        </span>
-                                    </div>
-                                    <div className="money">
-                                        <span className="money1">550 USD</span>
-                                    </div>
-                                    <div
-                                        className="image-menu image3"
-                                        style={{
-                                            backgroundImage: `url("https://i.imgur.com/8RUKQ5F.png")`,
-                                        }}
-                                    ></div>
+                    <div className="clearfix-menu padd  d-flex justify-content-start">
+                        {list3 && list3.map((item, index) => {
+                            return (
+                                <div
+                                    className="clearfix-menu padd m-1 d-flex justify-content-start"
+                                    key={index}
+                                >
+                                    <Link to={`/product-detail/${item.id}`}>
+                                        <div className="animation">
+                                            <div className="img-container-menu">
+                                                <div className="ml-3">
+                                                    <CartButton />
+                                                </div>
+                                                <div className="dt">
+                                                    <span className="data1">
+                                                        {item.category}
+                                                    </span>
+                                                    <br />
+                                                    <span className="data2">
+                                                        {item.name}
+                                                    </span>
+                                                </div>
+                                                <div className="money">
+                                                    <span className="money1">
+                                                        {item.price} USD
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    className="image-menu image3"
+                                                    style={{
+                                                        backgroundImage: `url(${item.image[0]})`,
+                                                    }}
+                                                ></div>
+                                            </div>
+                                        </div>
+                                    </Link>
                                 </div>
-                            </div>
-                        </Link>
-
-                        <Link to="/product-detail/23">
-                            <div className="animation">
-                                <div className="img-container-menu">
-                                    <div className="ml-3">
-                                        <CartButton />
-                                    </div>
-                                    <div className="dt">
-                                        <span className="data1">Lamp</span>
-                                        <br />
-                                        <span className="data2">
-                                            Amber Table Lamp
-                                        </span>
-                                    </div>
-                                    <div className="money">
-                                        <span className="money1">350 USD</span>
-                                    </div>
-                                    <div
-                                        className="image-menu image3"
-                                        style={{
-                                            backgroundImage: `url("https://i.imgur.com/BFjIZtb.png")`,
-                                        }}
-                                    ></div>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link to="/product-detail/24">
-                            <div className="animation">
-                                <div className="img-container-menu">
-                                    <div className="ml-3">
-                                        <CartButton />
-                                    </div>
-                                    <div className="dt">
-                                        <span className="data1">Lamp</span>
-                                        <br />
-                                        <span className="data2">
-                                            Yuks Table Lamp
-                                        </span>
-                                    </div>
-                                    <div className="money">
-                                        <span className="money1">400 USD</span>
-                                    </div>
-                                    <div
-                                        className="image-menu image3"
-                                        style={{
-                                            backgroundImage: `url("https://i.imgur.com/9lVzDez.png")`,
-                                        }}
-                                    ></div>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link to="/product-detail/25">
-                            <div className="animation">
-                                <div className="img-container-menu">
-                                    <div className="ml-3">
-                                        <CartButton />
-                                    </div>
-                                    <div className="dt">
-                                        <span className="data1">Lamp</span>
-                                        <br />
-                                        <span className="data2">
-                                            Suzette Table Lamp
-                                        </span>
-                                    </div>
-                                    <div className="money">
-                                        <span className="money1">400 USD</span>
-                                    </div>
-                                    <div
-                                        className="image-menu image3"
-                                        style={{
-                                            backgroundImage: `url("https://i.imgur.com/V9Uy8Of.png")`,
-                                        }}
-                                    ></div>
-                                </div>
-                            </div>
-                        </Link>
-                    </div>
-
-                    <div className="clearfix-menu padd  d-flex justify-content-around">
-                        <Link to="/product-detail/12">
-                            <div className="animation">
-                                <div className="img-container-menu">
-                                    <div className="ml-3">
-                                        <CartButton />
-                                    </div>
-                                    <div className="dt">
-                                        <span className="data1">Sofas</span>
-                                        <br />
-                                        <span className="data2">
-                                            3 seater sofa PENNY
-                                        </span>
-                                    </div>
-                                    <div className="money">
-                                        <span className="money1">600 USD</span>
-                                    </div>
-                                    <div
-                                        className="image-menu image3"
-                                        style={{
-                                            backgroundImage: `url("https://i.imgur.com/BUmuFdN.png")`,
-                                        }}
-                                    ></div>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link to="/product-detail/13">
-                            <div className="animation">
-                                <div className="img-container-menu">
-                                    <div className="ml-3">
-                                        <CartButton />
-                                    </div>
-                                    <div className="dt">
-                                        <span className="data1">Sofas</span>
-                                        <br />
-                                        <span className="data2">
-                                            OSAKA 3-seat sofa
-                                        </span>
-                                    </div>
-                                    <div className="money">
-                                        <span className="money1">1000 USD</span>
-                                    </div>
-                                    <div
-                                        className="image-menu image3"
-                                        style={{
-                                            backgroundImage: `url("https://i.imgur.com/r0GBskt.png")`,
-                                        }}
-                                    ></div>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link to="/product-detail/14">
-                            <div className="animation">
-                                <div className="img-container-menu">
-                                    <div className="ml-3">
-                                        <CartButton />
-                                    </div>
-                                    <div className="dt">
-                                        <span className="data1">Sofas</span>
-                                        <br />
-                                        <span className="data2">
-                                            Modern 3-seat Bridge Sofa
-                                        </span>
-                                    </div>
-                                    <div className="money">
-                                        <span className="money1">900 USD</span>
-                                    </div>
-                                    <div
-                                        className="image-menu image3"
-                                        style={{
-                                            backgroundImage: `url("https://i.imgur.com/OZB8fIn.png")`,
-                                        }}
-                                    ></div>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link to="/product-detail/15">
-                            <div className="animation">
-                                <div className="img-container-menu">
-                                    <div className="ml-3">
-                                        <CartButton />
-                                    </div>
-                                    <div className="dt">
-                                        <span className="data1">Sofas</span>
-                                        <br />
-                                        <span className="data2">
-                                            Elegance 3-seater sofa in natural
-                                            color
-                                        </span>
-                                    </div>
-                                    <div className="money">
-                                        <span className="money1">850 USD</span>
-                                    </div>
-                                    <div
-                                        className="image-menu image3"
-                                        style={{
-                                            backgroundImage: `url("https://i.imgur.com/9IyaQIs.png")`,
-                                        }}
-                                    ></div>
-                                </div>
-                            </div>
-                        </Link>
+                            );
+                        })}
                     </div>
                 </div>
                 <div>
                     <div className="pagination" id="rep1">
-                        <a href="#">Prev</a>
-                        <a className="active" href="#">
-                            1
-                        </a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">Next</a>
-                    </div>
-                    <div className="pagination" id="rep2">
-                        <a href="#">Prev</a>
-                        <a href="#">1</a>
-                        <a href="#">...</a>
-                        <a href="#">6</a>
-                        <a href="#">Next</a>
+                        <div onClick={() => {handleSwitchPage("prev")}}>Prev</div>
+                        {listPage.map((item, index) => {
+                            return (
+                                <div className={`${index + 1 === page ? "active" : ""} page-${index + 1}`} key={index} onClick={() => {handleSwitchPage(index + 1)}}>
+                                    {index + 1}
+                                </div>
+                            );
+                        })}
+                        <div onClick={() => {handleSwitchPage("next")}}>Next</div>
                     </div>
                 </div>
             </div>

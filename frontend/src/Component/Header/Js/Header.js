@@ -106,7 +106,7 @@ const Header = () => {
                                     <li className="nav-item active">
                                         <Link
                                             className="nav-link text-light"
-                                            to="/menu"
+                                            to="/menu/All"
                                         >
                                             FACTORY DESIGN
                                         </Link>

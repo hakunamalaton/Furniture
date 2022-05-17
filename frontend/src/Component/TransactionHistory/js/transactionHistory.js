@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import style from "../css/transactionHistory.module.css";
 import Header from "../../Header/Js/Header";
 import Footer from "../../Footer/Js/Footer";
@@ -151,18 +152,20 @@ function TransactionHistory() {
                                 : "d-none"
                         } justify-content-end pr-2`}
                     >
-                        <div
-                            className={`btn ${
-                                style.btnBuyAgain
-                            } btn-outline-primary ${
-                                item.order.status === "Evaluated" ||
-                                item.order.status === "Shipped"
-                                    ? "d-flex"
-                                    : "d-none"
-                            }`}
-                        >
-                            BUY AGAIN
-                        </div>
+                        <Link to="/menu/All">
+                            <div
+                                className={`btn ${
+                                    style.btnBuyAgain
+                                } btn-outline-primary ${
+                                    item.order.status === "Evaluated" ||
+                                    item.order.status === "Shipped"
+                                        ? "d-flex"
+                                        : "d-none"
+                                }`}
+                            >
+                                BUY AGAIN
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -204,8 +207,8 @@ function TransactionHistory() {
                                 image={item.image}
                                 name={item.name}
                                 category={`${item.color}, ${item.size}`}
-                                emailUser = {emailUser}
-                                last = {last}
+                                emailUser={emailUser}
+                                last={last}
                             />
                         </div>
                     </div>
@@ -249,7 +252,14 @@ function TransactionHistory() {
         } else {
             var last = array.length;
             return array.map((product, index) => {
-                return infoProduct(idOrder, status, product, index, emailUser, last);
+                return infoProduct(
+                    idOrder,
+                    status,
+                    product,
+                    index,
+                    emailUser,
+                    last
+                );
             });
         }
     }
