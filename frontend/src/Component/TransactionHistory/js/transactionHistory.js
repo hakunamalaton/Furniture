@@ -12,8 +12,8 @@ function TransactionHistory() {
     /**
      * Backend return token = user's id
      */
-    const idUser = useSelector(state => state.account.token);
-    const emailUser = useSelector(state => state.account.email);
+    const idUser = useSelector((state) => state.account.token);
+    const emailUser = useSelector((state) => state.account.email);
     const [pick, setPick] = useState(0);
     const [category, setCategory] = useState("");
     const handleFilter = (index) => {
@@ -48,7 +48,7 @@ function TransactionHistory() {
                 setDataOrderList(res.data.orders.map((item) => item.id));
             })
             .catch((err) => console.error("Đây là lỗi: " + err));
-    }, [category]);
+    }, [category, idUser]);
 
     useEffect(() => {
         setDataOrderDetailList([]);
@@ -94,11 +94,12 @@ function TransactionHistory() {
                             <h6>{`Purchase date: ${item.order.created_at}`}</h6>
                         </div>
                         <div
-                            className={`row ${item.order.status === "Shipped" ||
+                            className={`row ${
+                                item.order.status === "Shipped" ||
                                 item.order.status === "Evaluated"
-                                ? "d-flex"
-                                : "d-none"
-                                }`}
+                                    ? "d-flex"
+                                    : "d-none"
+                            }`}
                         >
                             <h6>{`Received date: ${item.order.updated_at}`}</h6>
                         </div>
@@ -111,15 +112,17 @@ function TransactionHistory() {
                     </div>
                     <div className="col-4 col-md-3 col-lg-2 d-flex align-items-center justify-content-center">
                         <div
-                            className={`${style.statusOrder
-                                } text-white rounded col-10 d-flex align-items-center justify-content-center p-1 ${item.order.status === "Shipped"
+                            className={`${
+                                style.statusOrder
+                            } text-white rounded col-10 d-flex align-items-center justify-content-center p-1 ${
+                                item.order.status === "Shipped"
                                     ? "bg-success"
                                     : item.order.status === "Payed"
-                                        ? "bg-warning"
-                                        : item.order.status === "Evaluated"
-                                            ? "bg-info"
-                                            : "bg-danger"
-                                }`}
+                                    ? "bg-warning"
+                                    : item.order.status === "Evaluated"
+                                    ? "bg-info"
+                                    : "bg-danger"
+                            }`}
                         >
                             {item.order.status}
                         </div>
@@ -134,24 +137,38 @@ function TransactionHistory() {
                             emailUser
                         )}
                 </div>
-                <div className={`d-flex justify-content-end align-items-center py-2`}>
+                <div
+                    className={`d-flex justify-content-end align-items-center py-2`}
+                >
                     <div className="col-6 d-flex justify-content-end">
                         <h5 className="m-0">{`Total price: ${item.order.total_price} USD`}</h5>
                     </div>
                     <div
-                        className={`${item.order.status === "Evaluated" ||
+                        className={`${
+                            item.order.status === "Evaluated" ||
                             item.order.status === "Shipped"
-                            ? "d-flex"
-                            : "d-none"
-                            } justify-content-end pr-2`}
+                                ? "d-flex"
+                                : "d-none"
+                        } justify-content-end pr-2`}
                     >
-                        <div className={`btn ${style.btnBuyAgain} btn-outline-primary`}>BUY AGAIN</div>
+                        <div
+                            className={`btn ${
+                                style.btnBuyAgain
+                            } btn-outline-primary ${
+                                item.order.status === "Evaluated" ||
+                                item.order.status === "Shipped"
+                                    ? "d-flex"
+                                    : "d-none"
+                            }`}
+                        >
+                            BUY AGAIN
+                        </div>
                     </div>
                 </div>
             </div>
         );
     };
-    function infoProduct(idOrder, status, item, index, emailUser) {
+    function infoProduct(idOrder, status, item, index, emailUser, last) {
         return (
             <div
                 key={index}
@@ -177,8 +194,9 @@ function TransactionHistory() {
                             {`${item.price} USD`}
                         </div>
                         <div
-                            className={`justify-content-center ${status === "Shipped" ? "d-flex" : "d-none"
-                                }`}
+                            className={`justify-content-center ${
+                                status === "Shipped" ? "d-flex" : "d-none"
+                            }`}
                         >
                             <PopUpRating
                                 id={item.product_id}
@@ -186,7 +204,8 @@ function TransactionHistory() {
                                 image={item.image}
                                 name={item.name}
                                 category={`${item.color}, ${item.size}`}
-                                emailUser = {emailUser ? emailUser : "duong@gmail.com"}
+                                emailUser = {emailUser}
+                                last = {last}
                             />
                         </div>
                     </div>
@@ -198,9 +217,11 @@ function TransactionHistory() {
         return (
             <div
                 key={index}
-                className={`col-2 btn m-2 rounded-0 ${style.btnCategoryRating
-                    } d-flex justify-content-center align-items-center ${pick === index ? "btn-primary" : "btn-outline-primary"
-                    }`}
+                className={`col-2 btn m-2 rounded-0 ${
+                    style.btnCategoryRating
+                } d-flex justify-content-center align-items-center ${
+                    pick === index ? "btn-primary" : "btn-outline-primary"
+                }`}
                 onClick={() => handleFilter(index)}
             >
                 {item}
@@ -226,8 +247,9 @@ function TransactionHistory() {
                 </div>
             );
         } else {
+            var last = array.length;
             return array.map((product, index) => {
-                return infoProduct(idOrder, status, product, index, emailUser);
+                return infoProduct(idOrder, status, product, index, emailUser, last);
             });
         }
     }

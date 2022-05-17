@@ -8,6 +8,7 @@ import Mapbox from "./Component/Address/Js/Mapbox";
 import Rating from "./Component/Rating/js/rating";
 import ImportDesign from "./Component/ImportDesign/js/importDesign";
 import Menu from "./Component/Menu/menu";
+import FakeMenu from "./Component/Menu/fakemenu";
 import TransactionHistory from "./Component/TransactionHistory/js/transactionHistory";
 import FakeLogin from "./Component/Account/FakeLogin";
 import FakeRegister from "./Component/Account/FakeRegister";
@@ -26,7 +27,8 @@ function App() {
             <div className="App">
                 <QrCode />
                 <Switch>
-                    <Route exact path="/" component={HomePage} />
+                    {/* <Route exact path="/" component={HomePage} /> */}
+                    <Route exact path="/" component={FakeMenu} />
                     <Route exact path="/import-design" component={ImportDesign} />
                     <Route exact path="/product-detail/:id" component={PageProduct} />
                     <Route exact path="/rating" component={Rating} />

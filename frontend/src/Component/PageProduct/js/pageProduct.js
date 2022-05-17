@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { insertItem } from "../../OrderProcess/slice/cartSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "../../Header/Js/Header";
@@ -14,6 +14,8 @@ import {
     faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
 const axios = require("axios");
 function PageProduct({ match }) {
     const dispatch = useDispatch();
@@ -24,7 +26,7 @@ function PageProduct({ match }) {
     const [quantity, setQuantity] = useState(1);
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/products/${idProduct}`)
+            .get(`${SERVER_URL}/products/${idProduct}`)
             .then((res) => {
                 setDataProductDetail(res.data)
                 setDataProductCart({ ...res.data, color: "", size: "" })

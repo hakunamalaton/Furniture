@@ -133,9 +133,6 @@
     margin: auto;
 }
 
-.list{
-    padding-top: 2vw;
-}
 
 .list a{
     text-decoration: none;
@@ -151,7 +148,6 @@
 }
 
 .listsmall{
-    float: left;
     width: 85%;
 }
 
@@ -168,7 +164,7 @@
     background-color: #C9ECFF;
 }
 .clearfix-menu{
-    margin-top: 4vw;
+    margin-top: 2vw;
 }
 
 .clearfix-menu::after {
@@ -187,20 +183,19 @@
     width: 98%;
 }
 
-.pagination a {
+.pagination div {
     color: #054C73;
     float: left;
     padding:  1vw 1.5vw;
-    text-decoration: none;
   }
  
-.pagination a.active {
+.pagination div.active {
     background-color: #054C73;
     color: white;
     border-radius: 50%;
 }
 
-.pagination a:hover:not(.active) {
+.pagination div:hover:not(.active) {
     background-color: #ddd;
     border-radius: 50%;
 }
@@ -474,12 +469,6 @@
     .pagination a {
         padding:  1vw 2vw;
     }
-    #rep1{
-        display: none;
-    }
-    #rep2{
-        display: block;
-    }
     .fonts7{
         font-size: 4.5vw;
     }
@@ -568,5 +557,5 @@
   }
   
 .animation:hover {
-    transform: scale(1.055); 
+    transform: scale(1.035); 
 }

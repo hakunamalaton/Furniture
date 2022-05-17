@@ -19,7 +19,7 @@ function ImportDesign() {
         axios
             .post("https://rails-gmail.herokuapp.com/users", {
                 user: {
-                    name: "Gap toan la met",
+                    name: "New Customer",
                     email: email,
                     login: email,
                 },

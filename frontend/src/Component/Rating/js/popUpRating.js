@@ -4,11 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../css/popUpRating.css";
 import { faCamera, faStar } from "@fortawesome/free-solid-svg-icons";
 const axios = require("axios");
-
-function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+function PopUpRating({ idOrder, id, image, name, category, emailUser, last}) {
     const [currentScore, setCurrentScore] = useState(0);
     const [hoverScore, setHoverScore] = useState(undefined);
     const [popUp, setPopUp] = useState(false);
+    // const [isRating, setIsRating] = useState(false);
     let images = [];
 
     function handleAddRating(e) {
@@ -33,7 +34,7 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
             default:
                 break;
         }
-        let description = document.getElementById("content-cmt").value;
+        let description = document.getElementById(`content-cmt-product-${id}`).value;
         if (description) {
             category.push("comment");
         }
@@ -42,7 +43,7 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
         }
         e.preventDefault();
         axios
-            .post(`http://localhost:8000/products/${id}/ratings`, {
+            .post(`${SERVER_URL}/products/${id}/ratings`, {
                 email: emailUser,
                 description,
                 image: images,
@@ -55,17 +56,20 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
             .catch(function (error) {
                 console.log(error);
             });
+        // setIsRating(!isRating);
+
         axios
-            .patch(`http://localhost:8000/orders/${idOrder}`, {
-                status: "Evaluated"
-            })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        window.location.href = "/transaction-history";
+        .patch(`${SERVER_URL}/orders/${idOrder}`, {
+            status: "Evaluated"
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+        
+        setPopUp(!popUp);
     }
 
     function pickStarScore() {
@@ -96,6 +100,7 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
         setCurrentScore(props);
     };
     const handlePopUp = (e) => {
+        clearImgPreview();
         setPopUp(!popUp);
     };
     const handleMouseOver = (props) => {
@@ -106,7 +111,8 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
     };
 
     function clearImgPreview() {
-        const listFilePrev = document.querySelectorAll(".preview-img-rating");
+        images = []
+        const listFilePrev = document.querySelectorAll(`.preview-img-rating-order-${idOrder}`);
         listFilePrev.forEach(resetPreviewImg);
     }
     function resetPreviewImg(item, index) {
@@ -115,7 +121,7 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
     }
     function previewListImg() {
         clearImgPreview();
-        const file = document.querySelector("#input-img-rating").files;
+        const file = document.querySelector(`#input-img-rating-order-${idOrder}`).files;
         if (file.length === 0) {
             return;
         }
@@ -125,10 +131,16 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
     }
     function previewImg(index) {
         const preview = document.querySelector(
-            "#img-rating-upload-" + (index + 1)
+            `#order-${idOrder}-img-rating-upload-${index + 1}`
         );
-
-        var file = document.querySelector("#input-img-rating").files[index];
+        console.log(preview)
+        var file = document.querySelector(`#input-img-rating-order-${idOrder}`).files[index];
+        if (file.size > 51000) {
+            document.getElementById(`submit-rating-order-${idOrder}`).disabled = true;
+        }
+        else {
+            document.getElementById(`submit-rating-order-${idOrder}`).disabled = false;
+        }
         let blobURL = URL.createObjectURL(file);
         preview.style.display = "block";
         preview.style.backgroundImage = "url(" + blobURL.toString() + ")";
@@ -139,11 +151,11 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
         reader.readAsDataURL(file);
     }
     return (
-        <div className="popup-rating-component">
+        <div className={`popup-rating-component`}>
             <div className="row">
                 <div className="col-12">
                     <button
-                        className="btn btn-primary btnRating"
+                        className={`btn btn-primary btnRating`}
                         onClick={handlePopUp}
                     >
                         RATING
@@ -183,7 +195,7 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
                                     <textarea
                                         type="content-cmt"
                                         className="form-control"
-                                        id="content-cmt"
+                                        id={`content-cmt-product-${id}`}
                                         rows="3"
                                         placeholder="Please share more things you like about this product"
                                     />
@@ -195,14 +207,14 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
                                                 <input
                                                     type="file"
                                                     className="custom-file-input"
-                                                    id="input-img-rating"
+                                                    id={`input-img-rating-order-${idOrder}`}
                                                     accept="image/png, image/jpeg, image/jpg"
                                                     multiple
                                                     onChange={previewListImg}
                                                 />
                                                 <label
                                                     className="custom-file-label text-primary border-primary rounded-0 d-flex justify-content-center align-items-center"
-                                                    htmlFor="input-img-rating"
+                                                    htmlFor={`input-img-rating-order-${idOrder}`}
                                                 >
                                                     <FontAwesomeIcon
                                                         icon={faCamera}
@@ -213,7 +225,7 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
                                             </div>
                                             <div className="ml-2 col-12 col-sm-4 d-flex align-items-center">
                                                 <div className="row">
-                                                    (Max is 6 images.)
+                                                    (Max is 6 images. The maximum size of each image is 50KB.)
                                                 </div>
                                             </div>
                                         </div>
@@ -222,9 +234,9 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
                                                 (_, index) => {
                                                     return (
                                                         <div
-                                                            className="m-1 preview-img-rating"
+                                                            className={`m-1 preview-img-rating preview-img-rating-order-${idOrder}`}
                                                             id={
-                                                                "img-rating-upload-" +
+                                                                `order-${idOrder}-img-rating-upload-` +
                                                                 (index + 1)
                                                             }
                                                             key={index}
@@ -251,6 +263,7 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser }) {
                                         <button
                                             type="submit"
                                             className="btn btn-primary m-2 btnSubmit"
+                                            id={`submit-rating-order-${idOrder}`}
                                             onClick={(e) => handleAddRating(e)}
                                         >
                                             COMPLETE

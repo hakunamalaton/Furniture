@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Account.css";
-import { FaUserAlt } from "react-icons/fa";
 import Bg from "./bg.jpg";
 
 import axios from "axios";
