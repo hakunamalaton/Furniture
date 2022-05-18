@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaMinusCircle } from 'react-icons/fa';
 import { FaPlusCircle } from 'react-icons/fa';
 import { FaTrashAlt } from 'react-icons/fa';
@@ -15,7 +15,7 @@ const CartItem = (props) => {
      */
     const cartItemList = useSelector(state => state.cart.cart);
 
-    const { id, priceState, setPriceState, cartState, setCartState } = props;
+    const { id} = props;
     let itemInfo = null;
     cartItemList.forEach(cartItem => {
         if (cartItem.id === id) {
@@ -53,35 +53,37 @@ const CartItem = (props) => {
     //     });
     //     setCartState(newCartState);
     // }
-    const RemoveItem = () => {
-        console.log("id", id);
-        let newCartState = cartState.filter(cartItem => {
-            if (id === cartItem.id) {
-                setPriceState({ ...priceState, total: priceState.total - cartItem.price * cartItem.quantity }); return false;
-            }
-            return true;
-        })
-        console.log(newCartState);
-        setCartState(newCartState);
-    }
+    // const RemoveItem = () => {
+    //     console.log("id", id);
+    //     let newCartState = cartState.filter(cartItem => {
+    //         if (id === cartItem.id) {
+    //             setPriceState({ ...priceState, total: priceState.total - cartItem.price * cartItem.quantity }); return false;
+    //         }
+    //         return true;
+    //     })
+    //     console.log(newCartState);
+    //     setCartState(newCartState);
+    // }
     return (
-        <div className="card p-4">
+        <div className="card p-4 border border-primary my-1">
             <div className="row">
-                <div className="col-md-4 col-9 bg-light d-flex justify-content-center align-items-center shadow product_img">
-                    <img src={itemInfo.image} className="img-fluid" alt="cart img" />
+                <div className="col-md-5 col-9 d-flex justify-content-center align-items-start product_img">
+                    <div style={{backgroundColor: "#C9ECFF"}}>
+                    <img src={itemInfo.image} className="d-block w-100" alt="cart img" />
+                    </div>
                 </div>
 
-                <div className="col-md-7 col-11 px-4 mt-2">
+                <div className="col-md-7 col-11 pl-4 mt-2">
                     <div className="row">
-                        <div className="col-6 card-title">
-                            <h1 className="mb-4 product_name">{itemInfo.name}</h1>
+                        <div className="col-12 card-title">
+                            <h3 className="mb-4 product_name">{itemInfo.name}</h3>
                             <p className="mb-2">ID: {itemInfo.id}</p>
                             <p className="mb-2">TYPE: {(itemInfo.type === 'factory') ? "Factory Design" : "Custom Design"}</p>
                             <p className="mb-2">UNIT PRICE: {itemInfo.price} $</p>
-                        </div>
+                        
 
-                        <div className="col-6">
-                            <ul className="pagination justify-content-end set_quantity">
+                        <div className="col-12 pl-0">
+                            <ul className="pagination justify-content-start set_quantity">
                                 <li className="page-item">
                                     <button onClick={() => dispatch(decrementItemQuantity(itemInfo.appendIndex))} className="page-link ">
                                         <FaMinusCircle />
@@ -104,15 +106,16 @@ const CartItem = (props) => {
                                 </li>
                             </ul>
                         </div>
+                        </div>
                     </div>
 
-                    <div className="row">
-                        <div onClick={() => { dispatch(removeItem(itemInfo.appendIndex)) }} className="col-8 d-flex justify-content-between remove_wish pt-4">
+                    <div className="row mt-1">
+                        <div onClick={() => { dispatch(removeItem(itemInfo.appendIndex)) }} className="col-8 d-flex justify-content-between remove_wish">
                             <p>
                                 <FaTrashAlt /> REMOVE ITEM
                             </p>
                         </div>
-                        <div className="col-4 d-flex justify-content-end price_money pt-4">
+                        <div className="col-4 d-flex justify-content-end price_money">
                             <h3>$<span id="itemval">{itemInfo.price * itemInfo.quantity} </span></h3>
                         </div>
                     </div>

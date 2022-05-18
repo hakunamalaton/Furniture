@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import CartItem from "./CartItem";
 import Total from "./Total";
 import { useSelector } from "react-redux";
@@ -18,7 +18,7 @@ const CurrentCart = ({ step, cartState, setCartState, buyerState, setBuyerState,
       <div className="row">
         <div className="col-md-10 col-11 mx-auto">
           <div className="row mt-5 gx-3">
-            <div className="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5 shadow">
+            <div className="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5">
               {CartSliceState.cart.map(cartItem => {
                 return (
                   <CartItem key={cartItem.id} id={cartItem.id} priceState={priceState} setPriceState={setPriceState} cartState={cartState} setCartState={setCartState} />

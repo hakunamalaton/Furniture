@@ -169,7 +169,7 @@ export const createOrder = createAsyncThunk("cart/createOrder", async (orderStat
             console.log("createOrder final", cartState);
             const processedOrderData = {};
             processedOrderData["order"] = {
-                status: "Created",
+                status: "Payed",
                 user_id: state.account.token,
                 address: state.cart.buyer.address.location,
                 total_price: state.cart.price.final_price,

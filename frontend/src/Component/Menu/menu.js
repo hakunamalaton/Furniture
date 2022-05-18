@@ -1,32 +1,31 @@
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { React, useState, useEffect } from "react";
 import Header from "../Header/Js/Header";
 import Footer from "../Footer/Js/Footer";
 import "./menu.css";
-import CartButton from "./CartButton/CartButton";
 import { useLayoutEffect } from "react";
 const axios = require("axios");
 const listBtn = ["All", "Bedding", "Chair", "Lamp", "Sofas"];
-const Menu = ({match}) => {
+const Menu = ({ match }) => {
     const typeItem = match.params.type;
     const [totalPageProduct, setTotalPageProduct] = useState(0);
-    const [category, setCategory] = useState(`${typeItem === "all" ? "" : "&type=" + typeItem}`);
+    const [category, setCategory] = useState(
+        `${typeItem === "all" ? "" : "&type=" + typeItem}`
+    );
     const [categoryPage, setCategoryPage] = useState("");
     const [titleCategory, setTitleCategory] = useState("LIST OF PRODUCTS");
     const [page, setPage] = useState(1);
     const handleSwitchPage = (data) => {
-        console.log(data)
+        console.log(data);
         if (data === "prev" && page > 1) {
-            setPage(prev => prev - 1);
+            setPage((prev) => prev - 1);
+        } else if (data === "next" && page < totalPageProduct) {
+            setPage((prev) => prev + 1);
+        } else if (typeof data !== "string") {
+            setPage(data);
         }
-        else if (data === "next" && page < totalPageProduct) {
-            setPage(prev => prev + 1);
-        }
-        else if (typeof data !== "string") {
-            setPage(data)
-        }
-    }
-    console.log(listBtn.indexOf(typeItem))
+    };
+    console.log(listBtn.indexOf(typeItem));
     const [pick, setPick] = useState(0);
     const [list1, setList1] = useState([]);
     const [list2, setList2] = useState([]);
@@ -76,9 +75,9 @@ const Menu = ({match}) => {
                 `http://localhost:8000/products?page=${page}&limit=12${category}`
             )
             .then((res) => {
-                setList1([])
-                setList2([])
-                setList3([])
+                setList1([]);
+                setList2([]);
+                setList3([]);
                 if (res.data.data.length <= 4) {
                     setList1(res.data.data.slice(0, res.data.data.length));
                 } else if (res.data.data.length <= 8) {
@@ -91,9 +90,8 @@ const Menu = ({match}) => {
                 }
             })
             .catch((err) => console.error("Đây là lỗi: " + err));
-        
     }, [page, category, categoryPage]);
-    let listPage  = []
+    let listPage = [];
     for (let i = 0; i < totalPageProduct; i++) {
         listPage.push(1);
     }
@@ -127,140 +125,204 @@ const Menu = ({match}) => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="clearfix-menu padd  d-flex justify-content-start">
-                        {list1 && list1.map((item, index) => {
-                            return (
-                                <div
-                                    className="clearfix-menu padd m-1"
-                                    key={index}
-                                >
-                                    <Link to={`/product-detail/${item.id}`}>
-                                        <div className="animation">
-                                            <div className="img-container-menu">
-                                                <div className="ml-3">
-                                                    <CartButton />
+                    <div className="clearfix-menu padd col-12 d-flex justify-content-start">
+                        {list1 &&
+                            list1.map((item, index) => {
+                                return (
+                                    <div
+                                        className="clearfix-menu padd col-3"
+                                        key={index}
+                                    >
+                                        <Link
+                                            to={`/product-detail/${item.id}`}
+                                            className="text-decoration-none"
+                                        >
+                                            <div className="animation">
+                                                <div className="img-container-menu">
+                                                    <div className="mr-3 pt-2 d-flex justify-content-end">
+                                                        <img
+                                                            src={require("./Image/AddToCartButton.png")}
+                                                            style={{
+                                                                width: "45px",
+                                                                height: "45px",
+                                                            }}
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div className="name-category">
+                                                        <span className="item-category">
+                                                            {item.category}
+                                                        </span>
+                                                        <br />
+                                                        <span className="item-name col-12 d-flex justify-content-start">
+                                                            <h4>{item.name}</h4>
+                                                        </span>
+                                                    </div>
+
+                                                    <div className="item-image mt-5 pt-3">
+                                                        <img
+                                                            src={item.image[0]}
+                                                            className="d-block w-100"
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div className="item-price">
+                                                        <div className="col-6 ml-2 mb-2 rounded-pill price p-2 d-flex justify-content-center">
+                                                        <b>
+                                                            {item.price} USD
+                                                        </b>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div className="dt">
-                                                    <span className="data1">
-                                                        {item.category}
-                                                    </span>
-                                                    <br />
-                                                    <span className="data2">
-                                                        {item.name}
-                                                    </span>
-                                                </div>
-                                                <div className="money">
-                                                    <span className="money1">
-                                                        {item.price} USD
-                                                    </span>
-                                                </div>
-                                                <div
-                                                    className="image-menu image3"
-                                                    style={{
-                                                        backgroundImage: `url(${item.image[0]})`,
-                                                    }}
-                                                ></div>
                                             </div>
-                                        </div>
-                                    </Link>
-                                </div>
-                            );
-                        })}
+                                        </Link>
+                                    </div>
+                                );
+                            })}
                     </div>
 
-                    <div className="clearfix-menu padd  d-flex justify-content-start">
-                        {list2 && list2.map((item, index) => {
-                            return (
-                                <div
-                                    className="clearfix-menu padd m-1 d-flex justify-content-start"
-                                    key={index}
-                                >
-                                    <Link to={`/product-detail/${item.id}`}>
-                                        <div className="animation">
-                                            <div className="img-container-menu">
-                                                <div className="ml-3">
-                                                    <CartButton />
-                                                </div>
-                                                <div className="dt">
-                                                    <span className="data1">
-                                                        {item.category}
-                                                    </span>
-                                                    <br />
-                                                    <span className="data2">
-                                                        {item.name}
-                                                    </span>
-                                                </div>
-                                                <div className="money">
-                                                    <span className="money1">
-                                                        {item.price} USD
-                                                    </span>
-                                                </div>
-                                                <div
-                                                    className="image-menu image3"
-                                                    style={{
-                                                        backgroundImage: `url(${item.image[0]})`,
-                                                    }}
-                                                ></div>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                </div>
-                            );
-                        })}
-                    </div>
+                    <div className="clearfix-menu padd col-12 d-flex justify-content-start">
+                        {list2 &&
+                            list2.map((item, index) => {
+                                return (
+                                    <div
+                                        className="clearfix-menu padd col-3"
+                                        key={index}
+                                    >
+                                        <Link
+                                            to={`/product-detail/${item.id}`}
+                                            className="text-decoration-none"
+                                        >
+                                            <div className="animation">
+                                                <div className="img-container-menu">
+                                                    <div className="mr-3 pt-2 d-flex justify-content-end">
+                                                        <img
+                                                            src={require("./Image/AddToCartButton.png")}
+                                                            style={{
+                                                                width: "45px",
+                                                                height: "45px",
+                                                            }}
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div className="name-category">
+                                                        <span className="item-category">
+                                                            {item.category}
+                                                        </span>
+                                                        <br />
+                                                        <span className="item-name col-12 d-flex justify-content-start">
+                                                            <h4>{item.name}</h4>
+                                                        </span>
+                                                    </div>
 
-                    <div className="clearfix-menu padd  d-flex justify-content-start">
-                        {list3 && list3.map((item, index) => {
-                            return (
-                                <div
-                                    className="clearfix-menu padd m-1 d-flex justify-content-start"
-                                    key={index}
-                                >
-                                    <Link to={`/product-detail/${item.id}`}>
-                                        <div className="animation">
-                                            <div className="img-container-menu">
-                                                <div className="ml-3">
-                                                    <CartButton />
+                                                    <div className="item-image mt-5 pt-3">
+                                                        <img
+                                                            src={item.image[0]}
+                                                            className="d-block w-100"
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div className="item-price">
+                                                        <div className="col-6 ml-2 mb-2 rounded-pill price p-2 d-flex justify-content-center">
+                                                        <b>
+                                                            {item.price} USD
+                                                        </b>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div className="dt">
-                                                    <span className="data1">
-                                                        {item.category}
-                                                    </span>
-                                                    <br />
-                                                    <span className="data2">
-                                                        {item.name}
-                                                    </span>
-                                                </div>
-                                                <div className="money">
-                                                    <span className="money1">
-                                                        {item.price} USD
-                                                    </span>
-                                                </div>
-                                                <div
-                                                    className="image-menu image3"
-                                                    style={{
-                                                        backgroundImage: `url(${item.image[0]})`,
-                                                    }}
-                                                ></div>
                                             </div>
-                                        </div>
-                                    </Link>
-                                </div>
-                            );
-                        })}
+                                        </Link>
+                                    </div>
+                                );
+                            })}
+                    </div>
+                    <div className="clearfix-menu padd col-12 d-flex justify-content-start">
+                        {list3 &&
+                            list3.map((item, index) => {
+                                return (
+                                    <div
+                                        className="clearfix-menu padd col-3"
+                                        key={index}
+                                    >
+                                        <Link
+                                            to={`/product-detail/${item.id}`}
+                                            className="text-decoration-none"
+                                        >
+                                            <div className="animation">
+                                                <div className="img-container-menu">
+                                                    <div className="mr-3 pt-2 d-flex justify-content-end">
+                                                        <img
+                                                            src={require("./Image/AddToCartButton.png")}
+                                                            style={{
+                                                                width: "45px",
+                                                                height: "45px",
+                                                            }}
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div className="name-category">
+                                                        <span className="item-category">
+                                                            {item.category}
+                                                        </span>
+                                                        <br />
+                                                        <span className="item-name col-12 d-flex justify-content-start">
+                                                            <h4>{item.name}</h4>
+                                                        </span>
+                                                    </div>
+
+                                                    <div className="item-image mt-5 pt-3">
+                                                        <img
+                                                            src={item.image[0]}
+                                                            className="d-block w-100"
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div className="item-price">
+                                                        <div className="col-6 ml-2 mb-2 rounded-pill price p-2 d-flex justify-content-center">
+                                                        <b>
+                                                            {item.price} USD
+                                                        </b>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                );
+                            })}
                     </div>
                 </div>
                 <div>
                     <div className="pagination" id="rep1">
-                        <div onClick={() => {handleSwitchPage("prev")}}>Prev</div>
+                        <div
+                            onClick={() => {
+                                handleSwitchPage("prev");
+                            }}
+                        >
+                            Prev
+                        </div>
                         {listPage.map((item, index) => {
                             return (
-                                <div className={`${index + 1 === page ? "active" : ""} page-${index + 1}`} key={index} onClick={() => {handleSwitchPage(index + 1)}}>
+                                <div
+                                    className={`${
+                                        index + 1 === page ? "active" : ""
+                                    } page-${index + 1}`}
+                                    key={index}
+                                    onClick={() => {
+                                        handleSwitchPage(index + 1);
+                                    }}
+                                >
                                     {index + 1}
                                 </div>
                             );
                         })}
-                        <div onClick={() => {handleSwitchPage("next")}}>Next</div>
+                        <div
+                            onClick={() => {
+                                handleSwitchPage("next");
+                            }}
+                        >
+                            Next
+                        </div>
                     </div>
                 </div>
             </div>

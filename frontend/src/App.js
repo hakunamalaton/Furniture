@@ -17,7 +17,10 @@ import DeliveryPolicy from "./Component/Policy/DeliveryPolicy";
 import TermOfService from "./Component/Policy/TermOfService";
 import WarrantyPolicy from "./Component/Policy/WarrantyPolicy";
 import QrCode from "./Component/qrcode/qrcode";
-
+import Blog1 from "./Component/HomePage/blog1";
+import Blog2 from "./Component/HomePage/blog2";
+import Blog3 from "./Component/HomePage/blog3";
+import Blog4 from "./Component/HomePage/blog4";
 
 function App() {
 
@@ -41,6 +44,10 @@ function App() {
                     <Route exact path="/delivery-policy" component={DeliveryPolicy} />
                     <Route exact path="/warranty-policy" component={WarrantyPolicy} />
                     <Route exact path="/term-of-service" component={TermOfService} />
+                    <Route exact path="/blogs/save-apartment-space-in-a-smart-way" component={Blog1} />
+                    <Route exact path="/blogs/3-ideas-to-fill-in-the-gaps-in-your-room" component={Blog2} />
+                    <Route exact path="/blogs/5-bedroom-models-that-bring-comfort-to-your-sleep" component={Blog3} />
+                    <Route exact path="/blogs/decorate-the-living-room-for-the-new-season" component={Blog4} />
                     <Route exact path="/login" component={FakeLogin} />
                     <Route exact path="/register" component={FakeRegister} />
                     {/* <LoginRoute exact path="/login" component={Login} />

@@ -12,59 +12,51 @@ const DeliveryPolicy = () => {
             >
                 <h1>DELIVERY POLICIES</h1>
                 <p>
-                    Khi một đơn hàng được đặt, nhân viên của chúng tôi sẽ liên lạc để xác nhận đơn
-                    hàng qua điện thoại hoặc email.
+                Once an order is placed, our staff will contact you to confirm the order by phone or email.
                 </p>
                 <p>
-                    Thời gian giao hàng được bắt đầu tính từ lúc đơn hàng của bạn được xác nhận
-                    thành công.
+                Delivery time starts from the time your order is successfully confirmed.
                 </p>
                 <p>
                     <span style={{ fontWeight: "bold" }}>
-                        Thời gian vận chuyển đối với các tỉnh thành khác của Việt Nam{" "}
+                    Shipping time for other provinces of Vietnam{" "}
                     </span>
-                    (ngoại trừ Thành phố Hồ Chí Minh) cụ thể như sau:
+                    (except Ho Chi Minh City) specifically as follows:
                 </p>
                 <div className="row mt-4 mb-2">
                     <div className="col-2" style={{ fontWeight: "bold" }}></div>
-                    <div style={{ fontWeight: "bold" }}>Thời gian</div>
+                    <div style={{ fontWeight: "bold" }}>Time</div>
                 </div>
                 <div className="row">
                     <div className="col-2" style={{ fontWeight: "bold" }}>
-                        Miền Nam
+                    South
                     </div>
-                    <div>4 – 7 ngày làm việc</div>
+                    <div>4 - 7 working days</div>
                 </div>
                 <div className="row">
                     <div className="col-2" style={{ fontWeight: "bold" }}>
-                        Miền Trung
+                    Central
                     </div>
-                    <div>5 – 9 ngày làm việc</div>
+                    <div>5 – 9 working days</div>
                 </div>
                 <div className="row">
                     <div className="col-2" style={{ fontWeight: "bold" }}>
-                        Miền Bắc
+                    Northern
                     </div>
-                    <div>6 – 10 ngày làm việc</div>
+                    <div>6 – 10 working days</div>
                 </div>
 
                 <p className="mt-5">
-                    <span style={{ fontWeight: "bold" }}>Miền Nam: </span>
-                    Bình Dương, Đồng Nai, Bà Rịa – Vũng Tàu, An Giang, Bạc Liêu, Bến Tre, Bình
-                    Thuận, Bình Phước, Cà Mau, Cần Thơ, Đồng Tháp, Hậu Giang, Kiên Giang, Lâm Đồng,
-                    Long An, Ninh Thuận, Tây Ninh, Tiền Giang, Trà Vinh, Sóc Trăng, Vĩnh Long.
+                    <span style={{ fontWeight: "bold" }}>South: </span>
+                    Binh Duong, Dong Nai, Ba Ria - Vung Tau, An Giang, Bac Lieu, Ben Tre, Binh Thuan, Binh Phuoc, Ca Mau, Can Tho, Dong Thap, Hau Giang, Kien Giang, Lam Dong, Long An, Ninh Thuan , Tay Ninh, Tien Giang, Tra Vinh, Soc Trang, Vinh Long.
                 </p>
                 <p>
-                    <span style={{ fontWeight: "bold" }}>Miền Trung: </span>
-                    Đà Nẵng, Bình Định, Đắk Lắk, Đắk Nông, Gia Lai, Thừa Thiên Huế, Kon Tum, Khánh
-                    Hòa, Phú Yên, Quảng Nam, Quảng Ngãi, Quảng Trị, Quảng Bình.
+                    <span style={{ fontWeight: "bold" }}>Central: </span>
+                    Da Nang, Binh Dinh, Dak Lak, Dak Nong, Gia Lai, Thua Thien Hue, Kon Tum, Khanh Hoa, Phu Yen, Quang Nam, Quang Ngai, Quang Tri, Quang Binh.
                 </p>
                 <p>
-                    <span style={{ fontWeight: "bold" }}>Miền Bắc: </span>
-                    Hà Nội, Bắc Ninh, Hà Nam, Hà Tĩnh, Hải Dương, Hải Phòng, Nam Định, Ninh Bình,
-                    Nghệ An, Quảng Ninh, Thanh Hóa, Vĩnh Phúc, Bắc Cạn, Bắc Giang, Cao Bằng, Điện
-                    Biên, Hà Giang, Hưng Yên, Hòa Bình, Lào Cai, Lai Châu, Lạng Sơn, Phú Thọ, Sơn
-                    La, Thái Bình, Thái Nguyên, Tuyên Quang, Yên Bái.
+                    <span style={{ fontWeight: "bold" }}>Northern: </span>
+                    Hanoi, Bac Ninh, Ha Nam, Ha Tinh, Hai Duong, Hai Phong, Nam Dinh, Ninh Binh, Nghe An, Quang Ninh, Thanh Hoa, Vinh Phuc, Bac Can, Bac Giang, Cao Bang, Dien Bien, Ha Giang , Hung Yen, Hoa Binh, Lao Cai, Lai Chau, Lang Son, Phu Tho, Son La, Thai Binh, Thai Nguyen, Tuyen Quang, Yen Bai.
                 </p>
             </div>
             <Footer />
