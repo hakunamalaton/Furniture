@@ -18,7 +18,7 @@ const Banner = () => {
                             Let's explore the rich models of each product type.{" "}
                         </h1>
                     </div>
-                    <div class="list-kind-product">
+                    <div className="list-kind-product">
                         <div className={classes.kindProduct}></div>
                     </div>
                 </div>

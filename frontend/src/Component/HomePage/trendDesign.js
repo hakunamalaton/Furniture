@@ -11,70 +11,70 @@ const TrendDesign = () => {
                         <div className="col-9">
                             <div
                                 id="carouselExampleControls-trend-design-1"
-                                class="carousel slide"
+                                className="carousel slide"
                                 data-ride="carousel"
                             >
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
+                                <div className="carousel-inner">
+                                    <div className="carousel-item active">
                                         <img
                                             src={
                                                 "https://i.imgur.com/j6VZaeL.png"
                                             }
-                                            class="d-block w-100"
+                                            className="d-block w-100"
                                             alt="..."
                                         />
                                     </div>
-                                    <div class="carousel-item">
+                                    <div className="carousel-item">
                                         <img
                                             src={
                                                 "https://i.imgur.com/pJSrHzJ.png"
                                             }
-                                            class="d-block w-100"
+                                            className="d-block w-100"
                                             alt="..."
                                         />
                                     </div>
-                                    <div class="carousel-item">
+                                    <div className="carousel-item">
                                         <img
                                             src={
                                                 "https://i.imgur.com/gF9QCht.png"
                                             }
-                                            class="d-block w-100"
+                                            className="d-block w-100"
                                             alt="..."
                                         />
                                     </div>
-                                    <div class="carousel-item">
+                                    <div className="carousel-item">
                                         <img
                                             src={
                                                 "https://i.imgur.com/4tOhfir.png"
                                             }
-                                            class="d-block w-100"
+                                            className="d-block w-100"
                                             alt="..."
                                         />
                                     </div>
                                 </div>
                                 <button
-                                    class="carousel-control-prev"
+                                    className="carousel-control-prev"
                                     type="button"
                                     data-target="#carouselExampleControls-trend-design-1"
                                     data-slide="prev"
                                 >
                                     <span
-                                        class="carousel-control-prev-icon"
+                                        className="carousel-control-prev-icon"
                                         aria-hidden="true"
                                     ></span>
-                                    <span class="sr-only">Previous</span>
+                                    <span className="sr-only">Previous</span>
                                 </button>
                                 <button
-                                    class="carousel-control-next"
+                                    className="carousel-control-next"
                                     type="button"
                                     data-target="#carouselExampleControls-trend-design-1"
                                     data-slide="next"
                                 >
                                     <span
-                                        class="carousel-control-next-icon"
+                                        className="carousel-control-next-icon"
                                         aria-hidden="true"
                                     ></span>
-                                    <span class="sr-only">Next</span>
+                                    <span className="sr-only">Next</span>
                                 </button>
                             </div>
                         </div>
@@ -128,71 +128,71 @@ const TrendDesign = () => {
                         </div>
                         <div className="col-6">
                             <div
-                                id="carouselExampleControls-trend-design-1"
-                                class="carousel slide"
+                                id="carouselExampleControls-trend-design-2"
+                                className="carousel slide"
                                 data-ride="carousel"
                             >
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
+                                <div className="carousel-inner">
+                                    <div className="carousel-item active">
                                         <img
                                             src={
                                                 "https://i.imgur.com/K0cz3l0.png"
                                             }
-                                            class="d-block w-100"
+                                            className="d-block w-100"
                                             alt="..."
                                         />
                                     </div>
-                                    <div class="carousel-item">
+                                    <div className="carousel-item">
                                         <img
                                             src={
                                                 "https://i.imgur.com/PwOvqnL.png"
                                             }
-                                            class="d-block w-100"
+                                            className="d-block w-100"
                                             alt="..."
                                         />
                                     </div>
-                                    <div class="carousel-item">
+                                    <div className="carousel-item">
                                         <img
                                             src={
                                                 "https://i.imgur.com/u2eMxp9.png"
                                             }
-                                            class="d-block w-100"
+                                            className="d-block w-100"
                                             alt="..."
                                         />
                                     </div>
-                                    <div class="carousel-item">
+                                    <div className="carousel-item">
                                         <img
                                             src={
                                                 "https://i.imgur.com/v0amMHU.png"
                                             }
-                                            class="d-block w-100"
+                                            className="d-block w-100"
                                             alt="..."
                                         />
                                     </div>
                                 </div>
                                 <button
-                                    class="carousel-control-prev"
+                                    className="carousel-control-prev"
                                     type="button"
-                                    data-target="#carouselExampleControls-trend-design-1"
+                                    data-target="#carouselExampleControls-trend-design-2"
                                     data-slide="prev"
                                 >
                                     <span
-                                        class="carousel-control-prev-icon"
+                                        className="carousel-control-prev-icon"
                                         aria-hidden="true"
                                     ></span>
-                                    <span class="sr-only">Previous</span>
+                                    <span className="sr-only">Previous</span>
                                 </button>
                                 <button
-                                    class="carousel-control-next"
+                                    className="carousel-control-next"
                                     type="button"
-                                    data-target="#carouselExampleControls-trend-design-1"
+                                    data-target="#carouselExampleControls-trend-design-2"
                                     data-slide="next"
                                 >
                                     <span
-                                        class="carousel-control-next-icon"
+                                        className="carousel-control-next-icon"
                                         aria-hidden="true"
                                     ></span>
-                                    <span class="sr-only">Next</span>
+                                    <span className="sr-only">Next</span>
                                 </button>
                             </div>
                         </div>
@@ -201,70 +201,70 @@ const TrendDesign = () => {
                 <div className="trend2 col-3">
                     <div className="row">
                         <div
-                            id="carouselExampleControls-trend-design-1"
-                            class="carousel slide"
+                            id="carouselExampleControls-trend-design-3"
+                            className="carousel slide"
                             data-ride="carousel"
                         >
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
+                            <div className="carousel-inner">
+                                <div className="carousel-item active">
                                     <img
                                         src={"https://i.imgur.com/G9FSpqg.png"}
-                                        class="d-block w-100"
+                                        className="d-block w-100"
                                         alt="..."
                                     />
                                 </div>
-                                <div class="carousel-item">
+                                <div className="carousel-item">
                                     <img
                                         src={"https://i.imgur.com/P3PSLLj.png"}
-                                        class="d-block w-100"
+                                        className="d-block w-100"
                                         alt="..."
                                     />
                                 </div>
-                                <div class="carousel-item">
+                                <div className="carousel-item">
                                     <img
                                         src={"https://i.imgur.com/7Gyajt9.png"}
-                                        class="d-block w-100"
+                                        className="d-block w-100"
                                         alt="..."
                                     />
                                 </div>
-                                <div class="carousel-item">
+                                <div className="carousel-item">
                                     <img
                                         src={"https://i.imgur.com/pxp7VfR.png"}
-                                        class="d-block w-100"
+                                        className="d-block w-100"
                                         alt="..."
                                     />
                                 </div>
-                                <div class="carousel-item">
+                                <div className="carousel-item">
                                     <img
                                         src={"https://i.imgur.com/VQGjopL.png"}
-                                        class="d-block w-100"
+                                        className="d-block w-100"
                                         alt="..."
                                     />
                                 </div>
                             </div>
                             <button
-                                class="carousel-control-prev"
+                                className="carousel-control-prev"
                                 type="button"
-                                data-target="#carouselExampleControls-trend-design-1"
+                                data-target="#carouselExampleControls-trend-design-3"
                                 data-slide="prev"
                             >
                                 <span
-                                    class="carousel-control-prev-icon"
+                                    className="carousel-control-prev-icon"
                                     aria-hidden="true"
                                 ></span>
-                                <span class="sr-only">Previous</span>
+                                <span className="sr-only">Previous</span>
                             </button>
                             <button
-                                class="carousel-control-next"
+                                className="carousel-control-next"
                                 type="button"
-                                data-target="#carouselExampleControls-trend-design-1"
+                                data-target="#carouselExampleControls-trend-design-3"
                                 data-slide="next"
                             >
                                 <span
-                                    class="carousel-control-next-icon"
+                                    className="carousel-control-next-icon"
                                     aria-hidden="true"
                                 ></span>
-                                <span class="sr-only">Next</span>
+                                <span className="sr-only">Next</span>
                             </button>
                         </div>
                     </div>

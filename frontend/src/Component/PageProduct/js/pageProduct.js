@@ -60,7 +60,7 @@ function PageProduct({ match }) {
     const handleAddToCart = () => {
         const addToCartData = { ...dataProductCart, quantity };
         dispatch(insertItem(addToCartData));
-        history.push('/menu');
+        history.push('/menu/All');
     };
     const handleNum = (props) => {
         if (props === "minus" && quantity > 1) {

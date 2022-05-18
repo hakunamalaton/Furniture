@@ -1,0 +1,13 @@
+.part-import-design-component .animation-hover {
+    transition: transform .3s;
+    
+}
+.part-import-design-component .animation-hover img {
+    object-fit: cover
+}
+.part-import-design-component .animation-hover:hover {
+    transform: scale(1.035);
+}
+.part-import-design-component {
+    background-color: #e5e5e5;
+}

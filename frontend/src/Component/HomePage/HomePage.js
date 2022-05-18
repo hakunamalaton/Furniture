@@ -4,6 +4,8 @@ import Footer from "../Footer/Js/Footer";
 import "./homepage.css";
 import Banner from "./Banner";
 import TrendDesign from "./trendDesign";
+import PartImportDesign from "./partImportDesign";
+import Blogs from "./blogs";
 import { Link } from "react-router-dom"
 const HomePage = () => {
     return (
@@ -119,8 +121,12 @@ const HomePage = () => {
                     </button>
                 </div>
             </div>
+            <div className="container-fluid">
             <Banner />
             <TrendDesign/>
+            </div>
+            <PartImportDesign/>
+            <Blogs/>
             <Footer />
         </>
     );
