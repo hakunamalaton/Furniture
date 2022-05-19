@@ -65,7 +65,7 @@ const CartItem = (props) => {
     //     setCartState(newCartState);
     // }
     return (
-        <div className="card p-4 border border-primary my-1">
+        <div className="card p-4 shadow my-1">
             <div className="row">
                 <div className="col-md-5 col-9 d-flex justify-content-center align-items-start product_img">
                     <div style={{backgroundColor: "#C9ECFF"}}>

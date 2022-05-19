@@ -434,7 +434,7 @@ function PageProduct({ match }) {
                             <div className="">
                                 <button
                                     type="submit"
-                                    className="btn btn-add-to-cart mr-2"
+                                    className={`btn btn-add-to-cart mr-2 ${pickColor !== -1 && pickSize !== -1 ? "" : "disabled"}`}
                                     onClick={handleAddToCart}
                                 >
                                     <FontAwesomeIcon
