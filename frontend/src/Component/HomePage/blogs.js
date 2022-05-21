@@ -3,7 +3,7 @@ import "./blogs.css";
 const Blogs = () => {
     return (
         <div className="blogs-component my-5">
-            <div className="row justify-content-center">
+            <div className="row justify-content-center mx-0">
                 <h1>
                     <strong>INSPIRATION CORNER</strong>
                 </h1>

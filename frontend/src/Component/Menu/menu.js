@@ -10,9 +10,11 @@ const Menu = ({ match }) => {
     const typeItem = match.params.type;
     const [totalPageProduct, setTotalPageProduct] = useState(0);
     const [category, setCategory] = useState(
-        `${typeItem === "all" ? "" : "&type=" + typeItem}`
+        "all"
+        // `${typeItem === "all" ? "" : "&type=" + typeItem}`
     );
     const [categoryPage, setCategoryPage] = useState("");
+    const [bgCategory, setBgCategory] = useState("https://i.imgur.com/p0IVnAG.png");
     const [titleCategory, setTitleCategory] = useState("LIST OF PRODUCTS");
     const [page, setPage] = useState(1);
     const handleSwitchPage = (data) => {
@@ -36,26 +38,31 @@ const Menu = ({ match }) => {
             case 0:
                 setCategory("");
                 setCategoryPage("");
+                setBgCategory("https://i.imgur.com/p0IVnAG.png");
                 setTitleCategory("LIST OF PRODUCTS");
                 break;
             case 1:
                 setCategory("&type=Bedding");
                 setCategoryPage("?type=Bedding");
+                setBgCategory("https://i.imgur.com/XT6fha2.png");
                 setTitleCategory("LIST OF BEDDINGS");
                 break;
             case 2:
                 setCategory("&type=Chair");
                 setCategoryPage("?type=Chair");
+                setBgCategory("https://i.imgur.com/giO40MU.png");
                 setTitleCategory("LIST OF CHAIRS");
                 break;
             case 3:
                 setCategory("&type=Light");
                 setCategoryPage("?type=Light");
+                setBgCategory("https://i.imgur.com/lbU7sym.png");
                 setTitleCategory("LIST OF LAMPS");
                 break;
             case 4:
                 setCategory("&type=Sofas");
                 setCategoryPage("?type=Sofas");
+                setBgCategory("https://i.imgur.com/lf9AzEE.png");
                 setTitleCategory("LIST OF SOFAS");
                 break;
             default:
@@ -112,19 +119,24 @@ const Menu = ({ match }) => {
     return (
         <div className="menu-component">
             <Header />
-
-            <div className="cart d-block pt-2">
-                <div className="tieude pt-2 rol-12 d-flex justify-content-center">
-                    <div className="tieude1 rol-12 d-flex justify-content-center">
-                        <h1 className="fonts3 tab">{titleCategory}</h1>
+            <div className="cart d-block pt-3">
+                <div className = "top-category d-flex justify-content-center">
+                    <div className="tieude pt-2 col-12 d-flex justify-content-center align-items-center title-category"
+                        style={{
+                            backgroundImage: "url(" + bgCategory + ")"
+                        }}
+                    >
+                        <div className="tieude1 col-12 d-flex justify-content-center">
+                            <h1 className="fonts3 tab">{titleCategory}</h1>
+                        </div>
                     </div>
                 </div>
-                <div className="list rol-12 d-flex justify-content-center">
+                <div className="list col-12 d-flex justify-content-center mt-3">
                     <div className="listsmall d-flex justify-content-around">
                         {listBtn.map(categories)}
                     </div>
                 </div>
-                <div className="row">
+                <div className="row mx-0">
                     <div className="clearfix-menu padd col-12 d-flex justify-content-start">
                         {list1 &&
                             list1.map((item, index) => {
@@ -168,9 +180,9 @@ const Menu = ({ match }) => {
                                                     </div>
                                                     <div className="item-price">
                                                         <div className="col-6 ml-2 mb-2 rounded-pill price p-2 d-flex justify-content-center">
-                                                        <b>
-                                                            {item.price} USD
-                                                        </b>
+                                                            <b>
+                                                                {item.price} USD
+                                                            </b>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -224,9 +236,9 @@ const Menu = ({ match }) => {
                                                     </div>
                                                     <div className="item-price">
                                                         <div className="col-6 ml-2 mb-2 rounded-pill price p-2 d-flex justify-content-center">
-                                                        <b>
-                                                            {item.price} USD
-                                                        </b>
+                                                            <b>
+                                                                {item.price} USD
+                                                            </b>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -279,9 +291,9 @@ const Menu = ({ match }) => {
                                                     </div>
                                                     <div className="item-price">
                                                         <div className="col-6 ml-2 mb-2 rounded-pill price p-2 d-flex justify-content-center">
-                                                        <b>
-                                                            {item.price} USD
-                                                        </b>
+                                                            <b>
+                                                                {item.price} USD
+                                                            </b>
                                                         </div>
                                                     </div>
                                                 </div>

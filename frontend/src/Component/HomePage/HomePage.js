@@ -120,6 +120,9 @@ const HomePage = () => {
                         <span class="sr-only">Next</span>
                     </button>
                 </div>
+                <div className= "d-flex justify-content-center">
+                    <img src="https://i.imgur.com/8Of7j86.png" className="d-block w-100" alt="" />
+                </div>
             </div>
             <div className="container-fluid">
             <Banner />

@@ -60,7 +60,7 @@
     color: #054c73;
     font-style: normal;
     font-weight: 700;
-    font-size: 2.3vw;
+    font-size: 2.4vw;
     word-wrap: break-word;
 }
 
@@ -570,4 +570,10 @@
 
 .menu-component .item-price .price {
     background: rgba(255, 255, 255, 0.45);
+}
+
+.menu-component .top-category .title-category {
+    width: 80vw;
+    height: 10vw;
+    background: no-repeat bottom;
 }

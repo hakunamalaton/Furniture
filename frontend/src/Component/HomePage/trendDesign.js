@@ -8,7 +8,7 @@ const TrendDesign = () => {
             <div className="row col-12 justify-content-around">
                 <div className="col-8">
                     <div className="trend1 col-12 d-flex">
-                        <div className="col-9">
+                        <div className="col-8">
                             <div
                                 id="carouselExampleControls-trend-design-1"
                                 className="carousel slide"
@@ -78,7 +78,7 @@ const TrendDesign = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className="col-3 ml-2">
+                        <div className="col-4 ml-2">
                             <h4 className="row">
                                 <strong>MODERN PRODUCT LINE</strong>
                             </h4>
