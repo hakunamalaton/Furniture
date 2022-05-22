@@ -11,7 +11,7 @@ const PartImportDesign = () => {
                         alt=""
                     />
                 </div>
-                <div className="col-3 mt-5 pt-5 d-flex justify-content-center">
+                <div className="col-6 col-xl-3 mt-5 pt-0 d-flex justify-content-center">
                     <div className="col-10">
                         <h3 className="">
                             <strong>YOUR DESIGN</strong>
@@ -23,7 +23,7 @@ const PartImportDesign = () => {
                             staff will guide or advise to help customers fulfill
                             their wishes.
                         </h6>
-                        <div className="mt-5">
+                        <div className="mb-5 mt-xl-5">
                             <a href="/import-design">
                                 <div className="btn btn-dark rounded-0">
                                     SUBMIT NOW!
@@ -32,7 +32,7 @@ const PartImportDesign = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-3 animation-hover d-flex justify-content-end px-0">
+                <div className="col-3 d-none d-xl-block animation-hover justify-content-end px-0">
                     <img
                         src="https://i.imgur.com/xQV8tW6.png"
                         className="d-block w-100"

@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif");
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans");
+
+
+
+.kindProduct {
+    background-color: #054c73;
+    background-image: url(./image/listItem.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50px;
+    color: white;
+    width: 20vw;
+    height: 3.9vw;
+    display: inline-block;
+}
+
+.square {
+    background-color: #054c73;
+    border: none;
+    width: 3vw;
+    height: 3vw;
+}
+
+.content {
+    width: 90%;
+}
+
+.banner-component .title-banner {
+    font-size: 40px;
+    font-weight: bold;
+}
+.banner-component .desc-banner {
+    font-size: 30px;
+}
+
+.banner-component .title-kind {
+    font-size: 30px;
+    font-weight: bold;
+}
+.banner-component .desc-kind {
+    font-size: 24px;
+}
+.banner-component .content a{
+    font-size: 20px;
+}
+
+
+
+
+@media screen and (max-width: 1200px) {
+    .banner-component .kindProduct {
+        width: 40vw;
+        height: 6vw;
+    }
+    .banner-component .title-banner {
+        font-size: 48px;
+        font-weight: bold;
+    }
+    .banner-component .desc-banner {
+        font-size: 36px;
+    }
+
+    .banner-component .title-kind {
+        font-size: 36px;
+        font-weight: bold;
+    }
+    .banner-component .desc-kind {
+        font-size: 24px;
+    }
+    .banner-component .content a{
+        font-size: 20px;
+    }
+    .banner-component .square {
+        height: 5vw;
+        width: 5vw;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .banner-component .kindProduct {
+        width: 40vw;
+        height: 8vw;
+    }
+    .banner-component .title-banner {
+        font-size: 40px;
+        font-weight: bold;
+    }
+    .banner-component .desc-banner {
+        font-size: 30px;
+    }
+
+    .banner-component .title-kind {
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .banner-component .desc-kind {
+        font-size: 20px;
+    }
+    .banner-component .content a{
+        font-size: 18px;
+    }
+    .banner-component .square {
+        height: 5vw;
+        width: 5vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .banner-component .kindProduct {
+        width: 50vw;
+        height: 8vw;
+    }
+    .banner-component .title-banner {
+        font-size: 32px;
+        font-weight: bold;
+    }
+    .banner-component .desc-banner {
+        font-size: 22px;
+    }
+
+    .banner-component .title-kind {
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .banner-component .desc-kind {
+        font-size: 16px;
+    }
+    .banner-component .content a{
+        font-size: 14px;
+    }
+    .banner-component .square {
+        height: 5vw;
+        width: 5vw;
+    }
+}
+
+
+
+
+@media screen and (max-width: 576px) {
+    .banner-component .kindProduct {
+        width: 60vw;
+        height: 10vw;
+    }
+    .banner-component .title-banner {
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .banner-component .desc-banner {
+        font-size: 20px;
+    }
+
+    .banner-component .title-kind {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .banner-component .desc-kind {
+        font-size: 14px;
+    }
+    .banner-component .content a{
+        font-size: 12px;
+    }
+}

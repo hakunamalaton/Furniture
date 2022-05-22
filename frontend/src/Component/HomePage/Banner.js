@@ -1,94 +1,78 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import classes from "./Banner.module.css";
-import { Link } from "react-router-dom";
+import "./Banner.css";
 const Banner = () => {
     return (
-        <section className={classes.summary}>
-            <div className="column">
-                <div className="columnsmall">
-                    <div>
-                        <h1 className="fonts">
+        <section className="banner-component">
+            <div className="column d-block d-lg-flex">
+                <div className="col-12 col-lg-5 col-xl-4">
+                    <div className="d-flex justify-content-center">
+                        <div className="title-banner text-lg-center">
                             We Design World Best Furnitures
-                        </h1>
+                        </div>
                     </div>
-                    <div style={{ marginTop: "1.5vw" }}>
-                        <Link to="/menu"></Link>
-                        <h1 className="fonts1">
+                    <div
+                        style={{ marginTop: "1.5vw" }}
+                        className="d-flex justify-content-center"
+                    >
+                        <div className="font-weight-normal desc-banner text-lg-center">
                             {" "}
                             Let's explore the rich models of each product type.{" "}
-                        </h1>
+                        </div>
                     </div>
-                    <div className="list-kind-product">
-                        <div className={classes.kindProduct}></div>
+                    <div className="list-kind-product d-flex justify-content-center mt-3">
+                        <div className="kindProduct"></div>
                     </div>
                 </div>
-                <div className="columnbig">
-                    <div className="column1">
-                        <div className="square"></div>
-                        <div className="content">
-                            <div>
-                                <h1 className="fonts">BEDDING</h1>
-                            </div>
-                            <div style={{ marginTop: "10px" }}>
-                                <h1 className="fonts1 pa">
+                <div className="d-block col-lg-7 col-xl-8 justify-content-around">
+                    <div className="col-12 d-flex">
+                        <div className="d-flex col-6 m-2">
+                            <div className="square"></div>
+                            <div className="content pl-2">
+                                <div className="title-kind m-0">BEDDING</div>
+                                <div className="desc-kind m-0">
                                     {" "}
                                     The softest beds!
-                                </h1>
+                                </div>
                                 <a href="./menu/Bedding">View more Beds</a>
                             </div>
                         </div>
-                    </div>
-                    <div className="column1">
-                        <div className="square"></div>
-                        <div className="content">
-                            <div>
-                                <h1 className="fonts">SOFAS</h1>
-                            </div>
-                            <div style={{ marginTop: "10px" }}>
-                                <h1 className="fonts1 pa">
+                        <div className="d-flex col-6 m-2">
+                            <div className="square"></div>
+                            <div className="content pl-2">
+                                <div className="title-kind m-0">SOFAS</div>
+                                <div className="desc-kind m-0">
                                     {" "}
-                                    The comfortable sofas!{" "}
-                                </h1>
-                                <a href="./menu/Sofas">View more Sofas</a>
+                                    The softest beds!
+                                </div>
+                                <a href="./menu/Bedding">View more Sofas</a>
                             </div>
                         </div>
                     </div>
-                    <div className="column1 ad">
-                        <div className="square"></div>
-                        <div className="content">
-                            <div>
-                                <h1 className="fonts">LAMP</h1>
-                            </div>
-                            <div style={{ marginTop: "10px" }}>
-                                <h1 className="fonts1 pa">
+                    <div className="col-12 d-flex">
+                        <div className="d-flex col-6 m-2">
+                            <div className="square"></div>
+                            <div className="content pl-2">
+                                <div className="title-kind m-0">LAMP</div>
+
+                                <div className="desc-kind m-0">
+                                    {" "}
                                     Modern and elegant lamps.
-                                </h1>
-                                <a href="./menu/Light">View more Lamps</a>
+                                </div>
+                                <a href="./menu/Bedding">View more Lamps</a>
                             </div>
                         </div>
-                    </div>
-                    <div className="column1 ad">
-                        <div className="square"></div>
-                        <div className="content">
-                            <div>
-                                <h1 className="fonts">CHAIR</h1>
-                            </div>
-                            <div style={{ marginTop: "10px" }}>
-                                <h1 className="fonts1 pa">
+                        <div className="d-flex col-6 m-2">
+                            <div className="square"></div>
+                            <div className="content pl-2">
+                                <div className="title-kind m-0">CHAIR</div>
+
+                                <div className="desc-kind m-0">
+                                    {" "}
                                     The chairs are simple but sustainable.
-                                </h1>
-                                <a href="./menu/Chair">View more Chairs</a>
+                                </div>
+                                <a href="./menu/Bedding">View more Chairs</a>
                             </div>
                         </div>
-                    </div>
-                    <div className="mobile">
-                        <a
-                            style={{ textDecoration: "none" }}
-                            className="fonts3 fonts5 fonts6"
-                            href="#"
-                        >
-                            Xem thêm...
-                        </a>
                     </div>
                 </div>
             </div>

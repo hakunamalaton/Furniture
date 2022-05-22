@@ -19,7 +19,7 @@ const Blog3 = () => {
                         <div className="d-flex justify-content-center">
                             <h6>INSPIRATION CORNER</h6>
                         </div>
-                        <h1>
+                        <h1 className="text-center">
                             Five bedroom models that bring comfort to your sleep
                         </h1>
                         <div className="d-flex justify-content-center mt-3">
@@ -47,8 +47,8 @@ const Blog3 = () => {
                         designs that are suitable for this 2022.
                     </p>
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-3 pl-0">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-3 col-12 pl-0">
                         <div>
                             <h2>1. Victorian bedroom</h2>
                             <p>
@@ -65,7 +65,7 @@ const Blog3 = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="col-8 pr-0">
+                    <div className="col-lg-8 col-12 pr-0">
                         <img
                             src="https://i.imgur.com/GP3tDqU.jpg"
                             className="d-block w-100"
@@ -73,15 +73,15 @@ const Blog3 = () => {
                         />
                     </div>
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-7 pl-0">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-7 col-12 pl-0">
                         <img
                             src="https://i.imgur.com/y6RY2Xc.jpg"
                             className="d-block w-100"
                             alt=""
                         />
                     </div>
-                    <div className="col-4 pr-0">
+                    <div className="col-lg-4 col-12 pr-0">
                         <div>
                             <h2>2. Rattan leather bedroom</h2>
                             <p>
@@ -103,8 +103,8 @@ const Blog3 = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-4 pl-0">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-4 col-12 pl-0">
                         <div>
                             <h2>3. Modern bedroom with upholstered bed</h2>
                             <p>
@@ -115,7 +115,7 @@ const Blog3 = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="col-7 pr-0">
+                    <div className="col-lg-7 col-12 pr-0">
                         <img
                             src="https://i.imgur.com/JNgFSwr.jpg"
                             className="d-block w-100"
@@ -123,15 +123,15 @@ const Blog3 = () => {
                         />
                     </div>
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-6 pl-0">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-6 col-12 pl-0">
                         <img
                             src="https://i.imgur.com/FUVqJVI.jpg"
                             className="d-block w-100"
                             alt=""
                         />
                     </div>
-                    <div className="col-5 pr-0">
+                    <div className="col-lg-5 col-12 pr-0">
                         <div>
                             <h2>4. Bedroom with a pull-out bed</h2>
                             <p>

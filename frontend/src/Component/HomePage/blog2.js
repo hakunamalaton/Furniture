@@ -19,7 +19,7 @@ const Blog2 = () => {
                         <div className="d-flex justify-content-center">
                             <h6>INSPIRATION CORNER</h6>
                         </div>
-                        <h1>Three ideas to fill in the gaps in your room</h1>
+                        <h1 className="text-center">Three ideas to fill in the gaps in your room</h1>
                         <div className="d-flex justify-content-center mt-3">
                             <div class="separation">
                                 <div
@@ -44,8 +44,8 @@ const Blog2 = () => {
                         level, expressing your own personality and nature.
                     </p>
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-4 pl-0">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-4 col-12 pl-0">
                         <div>
                             <h2>1. Living room</h2>
                             <p>
@@ -60,7 +60,7 @@ const Blog2 = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="col-7 pr-0">
+                    <div className="col-lg-7 col-12 pr-0">
                         <img
                             src="https://i.imgur.com/YnLb8jR.jpg"
                             className="d-block w-100"
@@ -68,15 +68,15 @@ const Blog2 = () => {
                         />
                     </div>
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-8 pr-0">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-8 col-12 pr-0">
                         <img
                             src="https://i.imgur.com/gJ3LvyA.jpg"
                             className="d-block w-100"
                             alt=""
                         />
                     </div>
-                    <div className="col-3 pl-0">
+                    <div className="col-lg-3 col-12 pl-0">
                         <div>
                             <h3>Televisio cabinet</h3>
                             <p>
@@ -94,15 +94,15 @@ const Blog2 = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-4 pr-0">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-4 col-12 pr-0">
                         <img
                             src="https://i.imgur.com/tCrCdwJ.png"
                             className="d-block w-100"
                             alt=""
                         />
                     </div>
-                    <div className="col-3 pl-0">
+                    <div className="col-lg-3 col-12 pl-0">
                         <div>
                             <h3>Shelves</h3>
                             <p>
@@ -116,7 +116,7 @@ const Blog2 = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="col-4 pr-0">
+                    <div className="col-lg-4 col-12 pr-0">
                         <img
                             src="https://i.imgur.com/FqLhl3v.png"
                             className="d-block w-100"
@@ -124,15 +124,15 @@ const Blog2 = () => {
                         />
                     </div>
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-7 pr-0">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-7 col-12 pr-0">
                         <img
                             src="https://i.imgur.com/Mpzwaua.jpg"
                             className="d-block w-100"
                             alt=""
                         />
                     </div>
-                    <div className="col-4 pl-0">
+                    <div className="col-lg-4 col-12 pl-0">
                         <div>
                             <h2>2. Kitchen/ Dining room</h2>
                             <p>
@@ -147,8 +147,8 @@ const Blog2 = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-4 pr-0">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-4 col-12 pr-0">
                         <div>
                             <p>
                                 With a luxurious and modern space, taking
@@ -163,7 +163,7 @@ const Blog2 = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="col-7 pl-0">
+                    <div className="col-lg-7 col-12 pl-0">
                         <img
                             src="https://i.imgur.com/40G4Zg9.jpg"
                             className="d-block w-100"
@@ -190,15 +190,15 @@ const Blog2 = () => {
                         alt=""
                     />
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-8 pr-0">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-8 col-12 pr-0">
                         <img
                             src="https://i.imgur.com/zCM4t6U.jpg"
                             className="d-block w-100"
                             alt=""
                         />
                     </div>
-                    <div className="col-3 pl-0">
+                    <div className="col-lg-3 col-12 pl-0">
                         <div>
                             <h3>Drawers</h3>
                             <p>
@@ -207,15 +207,15 @@ const Blog2 = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-4 pr-0">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-4 col-12 pr-0">
                         <div>
                             <p>
                             Often used to store clothes and other personal items, drawers also help fill in the gaps in the bedroom, while increasing the surface area to place decorative objects. It is no exaggeration to say that this is a necessity, playing an important role in both aesthetics and function.
                             </p>
                         </div>
                     </div>
-                    <div className="col-6 pl-0">
+                    <div className="col-lg-6 col-12 pl-0">
                         <img
                             src="https://i.imgur.com/AiIrUx9.jpg"
                             className="d-block w-100"
@@ -223,15 +223,15 @@ const Blog2 = () => {
                         />
                     </div>
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-8 pr-0">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-8 col-12 pr-0">
                         <img
                             src="https://i.imgur.com/u4wMr4F.jpg"
                             className="d-block w-100"
                             alt=""
                         />
                     </div>
-                    <div className="col-3 pl-0">
+                    <div className="col-lg-3 col-12 pl-0">
                         <div>
                             <h3>Bookshelf</h3>
                             <p>

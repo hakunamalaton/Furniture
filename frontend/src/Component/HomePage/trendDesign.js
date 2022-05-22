@@ -4,11 +4,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookOpen, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 const TrendDesign = () => {
     return (
-        <div className="trend-design-component d-flex py-5">
-            <div className="row col-12 justify-content-around">
-                <div className="col-8">
-                    <div className="trend1 col-12 d-flex">
-                        <div className="col-8">
+        <div className="trend-design-component d-block py-5">
+            <div className="d-flex justify-content-center mb-3 title-trend-design">
+                <h1>
+                    <strong>TREND DESIGN</strong>
+                </h1>
+            </div>
+            <div className="d-block d-lg-flex col-12 justify-content-around">
+                <div className="col-12 col-lg-7">
+                    <div className="trend1 col-12 d-block d-xl-flex">
+                        <div className="col-12 col-xl-7 px-lg-0">
                             <div
                                 id="carouselExampleControls-trend-design-1"
                                 className="carousel slide"
@@ -78,10 +83,12 @@ const TrendDesign = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className="col-4 ml-2">
-                            <h4 className="row">
-                                <strong>MODERN PRODUCT LINE</strong>
-                            </h4>
+                        <div className="col-11 col-xl-4 col-lg-12 m-auto">
+                            <div className="row justify-content-lg-start justify-content-center">
+                                <h4>
+                                    <strong>MODERN PRODUCT LINE</strong>
+                                </h4>
+                            </div>
                             <div className="row">
                                 With the current trend, the use of furniture and
                                 cumbersome patterns has become outdated, but
@@ -90,10 +97,10 @@ const TrendDesign = () => {
                             </div>
                             <a
                                 href="/menu/all"
-                                className="row align-items-center text-decoration-none"
+                                className="row justify-content-center justify-content-lg-start align-items-center text-decoration-none"
                             >
                                 <div className="btn btn-primary mt-2">
-                                    EXPLORE NOW!{" "}
+                                    EXPLORE{" "}
                                     <FontAwesomeIcon
                                         icon={faBookOpen}
                                         className="pl-1"
@@ -102,21 +109,24 @@ const TrendDesign = () => {
                             </a>
                         </div>
                     </div>
-                    <div className="trend1 col-12 d-flex justify-content-end mt-5">
-                        <div className="col-6 mr-2">
-                            <h4 className="row">
+                    <div className="trend1 col-12 d-block d-xl-flex justify-content-xl-start justify-content-end mt-5">
+                        <div className="col-12 col-lg-5 mr-2">
+                            <h4 className="row justify-content-lg-start justify-content-center">
                                 <strong>MINIMALIST STYLE PRODUCT LINE</strong>
                             </h4>
                             <div className="row">
-                            Minimalist style is the most prominent design trend in the past year because of the simplicity and neatness of the interior layout. Characteristic colors such as beige, white, nude create a cozy and relaxing feeling in your own home.
+                                Minimalist style is the most prominent design
+                                trend in the past year because of the simplicity
+                                and neatness of the interior layout.
+                                Characteristic colors such as beige, white, nude
+                                create a cozy and relaxing feeling in your own
+                                home.
                             </div>
                             <a
                                 href="/menu/all"
-                                className="row align-items-center text-dark text-decoration-none"
+                                className="row justify-content-lg-start justify-content-center mb-2 align-items-center text-dark text-decoration-none"
                             >
-                                <strong>
-                                What are you waiting for?
-                                </strong>
+                                <strong>What are you waiting for?</strong>
                                 <div className="btn btn-primary ml-2 mt-2">
                                     BUY IT NOW{" "}
                                     <FontAwesomeIcon
@@ -126,7 +136,7 @@ const TrendDesign = () => {
                                 </div>
                             </a>
                         </div>
-                        <div className="col-6">
+                        <div className="col-12 col-xl-6 px-lg-0">
                             <div
                                 id="carouselExampleControls-trend-design-2"
                                 className="carousel slide"
@@ -198,8 +208,8 @@ const TrendDesign = () => {
                         </div>
                     </div>
                 </div>
-                <div className="trend2 col-3">
-                    <div className="row">
+                <div className="trend2 col-12 col-lg-5 d-flex d-lg-block d-xl-flex mt-5 mt-lg-0">
+                    <div className="row col-6 col-lg-12 col-xl-7">
                         <div
                             id="carouselExampleControls-trend-design-3"
                             className="carousel slide"
@@ -268,7 +278,7 @@ const TrendDesign = () => {
                             </button>
                         </div>
                     </div>
-                    <div className="mt-3">
+                    <div className="mt-0 col-6 col-lg-12 col-xl-5 ml-2 ml-md-4 ml-lg-0 ml-xl-4">
                         <h4 className="row">
                             <strong>PRODUCT COVERED LINE</strong>
                         </h4>
@@ -282,7 +292,7 @@ const TrendDesign = () => {
                         </div>
                         <a
                             href="/menu/all"
-                            className="row align-items-center text-decoration-none"
+                            className="row justify-content-center justify-content-md-start align-items-center text-decoration-none"
                         >
                             <div className="btn btn-primary mt-2">
                                 BUY NOW!{" "}

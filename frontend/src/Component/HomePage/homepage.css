@@ -107,3 +107,92 @@
     font-size: 90px;
     font-weight: 1000 !important;
 }
+
+@media only screen and (max-width: 1200px) {
+    .top-homepage .carousel-caption.carousel-1{
+        bottom: 50px !important;
+    }
+    .top-homepage .carousel-caption.carousel-2{
+        bottom: 50px !important;
+    }
+    .top-homepage .carousel-caption.carousel-5{
+        bottom: 5px !important;
+        left: 100px !important;
+    }
+    .top-homepage .carousel-caption.carousel-6{
+        bottom: 50px !important;
+    }
+    .top-homepage h1{
+        font-size: 28px !important;
+    }
+    .top-homepage .title-carousel-1{
+        font-weight: 1000 !important;
+        font-size: 70px !important;
+    }
+    .top-homepage .btn{
+        font-size: 16px !important;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .homepage-component{
+        font-size: 16px !important;
+    }
+    .top-homepage .carousel-caption.carousel-1{
+        bottom: 50px !important;
+    }
+    .top-homepage .carousel-caption.carousel-2{
+        bottom: 50px !important;
+    }
+    .top-homepage .carousel-caption.carousel-5{
+        bottom: 45px !important;
+        left: 100px !important;
+    }
+    .top-homepage .carousel-caption.carousel-6{
+        bottom: 50px !important;
+    }
+    .top-homepage h1{
+        font-size: 28px !important;
+    }
+    .top-homepage .title-carousel-1{
+        font-weight: 1000 !important;
+        font-size: 40px !important;
+    }
+    .top-homepage .btn{
+        font-size: 16px !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .homepage-component{
+        font-size: 16px !important;
+    }
+    .top-homepage .carousel-caption.carousel-1{
+        bottom: 50px !important;
+    }
+    .top-homepage .carousel-caption.carousel-2{
+        bottom: 50px !important;
+    }
+    .top-homepage .carousel-caption.carousel-5{
+        bottom: 15px !important;
+        left: 15px !important;
+    }
+    .top-homepage .carousel-caption.carousel-6{
+        bottom: 50px !important;
+    }
+    .top-homepage h1{
+        font-size: 28px !important;
+    }
+    .top-homepage .title-carousel-1{
+        font-weight: 1000 !important;
+        font-size: 40px !important;
+    }
+    .top-homepage .btn{
+        font-size: 16px !important;
+    }
+}
+@media only screen and (max-width: 576px) {
+    .homepage-component{
+        font-size: 14px !important;
+    }
+}

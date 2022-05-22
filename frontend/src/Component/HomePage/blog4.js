@@ -19,7 +19,7 @@ const Blog4 = () => {
                         <div className="d-flex justify-content-center">
                             <h6>INSPIRATION CORNER</h6>
                         </div>
-                        <h1>Decorate the living room for the new season</h1>
+                        <h1 className="text-center">Decorate the living room for the new season</h1>
                         <div className="d-flex justify-content-center mt-3">
                             <div class="separation">
                                 <div
@@ -33,8 +33,8 @@ const Blog4 = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-4 pl-0">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-4 col-12 pl-0">
                         <div>
                             <p>
                                 Rearranging and renewing your living space is
@@ -46,7 +46,7 @@ const Blog4 = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="col-7 pr-0">
+                    <div className="col-lg-7 col-12 pr-0">
                         <img
                             src="https://i.imgur.com/w5IX5hk.jpg"
                             className="d-block w-100"
@@ -54,15 +54,15 @@ const Blog4 = () => {
                         />
                     </div>
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-6 pl-0">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-6 col-12 pl-0">
                         <img
                             src="https://i.imgur.com/SaTK8v9.jpg"
                             className="d-block w-100"
                             alt=""
                         />
                     </div>
-                    <div className="col-5 pr-0">
+                    <div className="col-lg-5 col-12 pr-0">
                         <div>
                             <h2>Full light, bright colors</h2>
                             <p>
@@ -84,8 +84,8 @@ const Blog4 = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-5">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-5 col-12">
                         <div>
                             <h2>
                                 Caring for every detail, creating a luxurious
@@ -110,7 +110,7 @@ const Blog4 = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="col-7 pl-0">
+                    <div className="col-lg-7 col-12 pl-0">
                         <img
                             src="https://i.imgur.com/8es9dXS.jpg"
                             className="d-block w-100"
@@ -125,8 +125,8 @@ const Blog4 = () => {
                         alt=""
                     />
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-6">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-6 col-12">
                         <div>
                             <h2>
                             Natural elements, flowers and grass
@@ -139,7 +139,7 @@ const Blog4 = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="col-6 pl-0">
+                    <div className="col-lg-6 col-12 pl-0">
                         <img
                             src="https://i.imgur.com/dztpREV.jpg"
                             className="d-block w-100"
@@ -147,15 +147,15 @@ const Blog4 = () => {
                         />
                     </div>
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-8 pl-0">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-8 col-12 pl-0">
                         <img
                             src="https://i.imgur.com/sfY515H.jpg"
                             className="d-block w-100"
                             alt=""
                         />
                     </div>
-                    <div className="col-3 pr-0">
+                    <div className="col-lg-3 col-12 pr-0">
                         <div>
                             <h2>Creativity, Breakthrough</h2>
                             <p>
@@ -164,15 +164,15 @@ const Blog4 = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row justify-content-between mt-5">
-                    <div className="col-6 pl-0">
+                <div className="row d-block d-lg-flex justify-content-between mt-5">
+                    <div className="col-lg-6 col-12 pl-0">
                         <img
                             src="https://i.imgur.com/OEu4ZgL.jpg"
                             className="d-block w-100"
                             alt=""
                         />
                     </div>
-                    <div className="col-6 pr-0">
+                    <div className="col-lg-6 col-12 pr-0">
                         <div>
                             <p>
                             You can also put more pictures on the empty walls, both increasing the color and showing the high aesthetic taste of the homeowner. The subject of the painting can be inspired by movies, nature, people... according to your preferences but must match the overall space in terms of both color and style.

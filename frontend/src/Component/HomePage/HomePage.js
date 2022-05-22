@@ -9,7 +9,7 @@ import Blogs from "./blogs";
 import { Link } from "react-router-dom"
 const HomePage = () => {
     return (
-        <>
+        <div className="homepage-component">
             <Header />
             <div className="top-homepage">
                 <div
@@ -72,7 +72,7 @@ const HomePage = () => {
                         </div>
                         <div class="carousel-item">
                             <img src={'https://i.imgur.com/Tmdqek5.png'} class="d-block w-100" alt="..." />
-                            <div class="carousel-caption carousel-5 text-right d-none d-md-block">
+                            <div class="carousel-caption carousel-5 text-left d-none d-md-block">
                                 <h1 className="text-dark title-carousel-1">
                                     LUXURY
                                 </h1>
@@ -108,7 +108,7 @@ const HomePage = () => {
                         <span class="sr-only">Previous</span>
                     </button>
                     <button
-                        class="carousel-control-next d-none"
+                        class="carousel-control-next"
                         type="button"
                         data-target="#carouselExampleControls-top-homepage"
                         data-slide="next"
@@ -131,7 +131,7 @@ const HomePage = () => {
             <PartImportDesign/>
             <Blogs/>
             <Footer />
-        </>
+        </div>
     );
 };
 
