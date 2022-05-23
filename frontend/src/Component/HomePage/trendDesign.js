@@ -110,7 +110,7 @@ const TrendDesign = () => {
                         </div>
                     </div>
                     <div className="trend1 col-12 d-block d-xl-flex justify-content-xl-start justify-content-end mt-5">
-                        <div className="col-12 col-lg-5 mr-2">
+                        <div className="col-12 col-xl-5 mr-2">
                             <h4 className="row justify-content-lg-start justify-content-center">
                                 <strong>MINIMALIST STYLE PRODUCT LINE</strong>
                             </h4>
