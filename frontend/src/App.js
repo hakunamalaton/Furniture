@@ -22,7 +22,24 @@ import Blog2 from "./Component/HomePage/blog2";
 import Blog3 from "./Component/HomePage/blog3";
 import Blog4 from "./Component/HomePage/blog4";
 
+import { useEffect } from "react";
+import { useCookies } from "react-cookie";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+
+import { initAccountWithCookies } from "./Component/Account/slice/accountSlice";
+
 function App() {
+    const dispatch = useDispatch();
+
+    const [cookies, setCookies] = useCookies(['email', 'token']);
+
+    useEffect(() => {
+        if (cookies["token"] !== undefined) {
+            dispatch(initAccountWithCookies(cookies));
+        }
+    }, []);
+
 
     return (
         <Router>

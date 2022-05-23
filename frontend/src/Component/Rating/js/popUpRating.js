@@ -56,7 +56,6 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, last}) {
             .catch(function (error) {
                 console.log(error);
             });
-        // setIsRating(!isRating);
 
         axios
         .patch(`${SERVER_URL}/orders/${idOrder}`, {
@@ -70,6 +69,9 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, last}) {
         });
         
         setPopUp(!popUp);
+        setTimeout(() => {
+            window.location.href = "/transaction-history";
+        }, 1500);
     }
 
     function pickStarScore() {

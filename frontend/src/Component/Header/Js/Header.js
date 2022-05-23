@@ -12,14 +12,21 @@ import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { useCookies } from "react-cookie";
+
 import { logoutAccount } from "../../Account/slice/accountSlice";
 
 const Header = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+
+    const [cookies, setCookies, removeCookies] = useCookies(['email', 'token']);
+
     const AccountState = useSelector((state) => state.account);
 
     const handleLogout = () => {
+        removeCookies('email');
+        removeCookies('token');
         dispatch(logoutAccount());
         history.push("/login");
     };

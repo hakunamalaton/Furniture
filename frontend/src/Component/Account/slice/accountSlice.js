@@ -38,6 +38,13 @@ const accountSlice = createSlice({
     name: 'account',
     initialState,
     reducers: {
+        initAccountWithCookies(state, action) {
+            console.log("Reducer's initAccountWithCookies action payload", action.payload);
+            const { email, token, addressList } = action.payload;
+            state.email = email;
+            state.token = token;
+            state.status = "member";
+        },
         loginAccount(state, action) {
             const { token, email } = action.payload;
             state.email = email;
@@ -60,35 +67,12 @@ const accountSlice = createSlice({
                 const { location, description, price, phone_number } = action.payload;
                 state.addressList.push({ location, description, price, phone_number });
             })
-        //     .addCase(loginAccount.fulfilled, (state, action) => {
-        //         const { token, email, success } = action.payload;
-        //         console.log("action.payload", action.payload);
-        //         if (success) {
-        //             state.email = email;
-        //             state.token = token;
-        //             state.status = 'member';
-        //         }
-        //     })
-
     }
 })
 
-export const { loginAccount, logoutAccount } = accountSlice.actions;
+export const { loginAccount, logoutAccount, initAccountWithCookies } = accountSlice.actions;
 
 export default accountSlice.reducer;
-
-// export const loginAccount = createAsyncThunk('account/loginAccount', async ({ requestBody, headers }, thunkAPI) => {
-//     const loginResponse = await axios.post(`${SERVER_URL}/sign-in`, requestBody, headers);
-//     console.log("loginResponse", loginResponse);
-//     if (loginResponse.data.code === 0) {
-//         const token = loginResponse.data.token;
-//         const email = requestBody["user"]["email"];
-//         console.log("{token, email}", { token, email });
-//         return { token, email, success: true };
-//     } else {
-//         return { token: null, email: null, success: false };
-//     }
-// })
 
 export const getUserAddresses = createAsyncThunk('account/getUserAddresses', async (token, thunkAPI) => {
     try {

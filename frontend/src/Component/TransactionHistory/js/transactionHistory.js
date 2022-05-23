@@ -60,6 +60,7 @@ function TransactionHistory() {
                 )
                 .then((res) => {
                     setDataOrderDetailList((prev) => [...prev, res.data]);
+                    console.log(res.data);
                 })
                 .catch((err) => console.error("Đây là lỗi: " + err));
         }

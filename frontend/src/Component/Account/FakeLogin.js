@@ -7,6 +7,8 @@ import axios from "axios";
 import Modal from "react-modal";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useCookies } from "react-cookie";
+
 import { loginAccount } from "./slice/accountSlice";
 
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
@@ -25,6 +27,8 @@ const customStyles = {
 export default function FakeLogin() {
     const dispatch = useDispatch();
     const history = useHistory();
+
+    const [cookies, setCookies] = useCookies(['email', 'token']);
 
     useEffect(() => {
         if (accountState.status === "member") {
@@ -71,6 +75,9 @@ export default function FakeLogin() {
             const token = loginResponse.data.token;
             const email = requestBody["user"]["email"];
             console.log("{token, email}", { token, email });
+
+            setCookies('email', email, { path: '/' });
+            setCookies('token', token, { path: '/ ' });
             dispatch(loginAccount({ token, email }));
             history.push("/");
         } else {
