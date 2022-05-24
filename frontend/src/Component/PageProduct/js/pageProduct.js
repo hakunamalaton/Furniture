@@ -279,7 +279,6 @@ function PageProduct({ match }) {
                                                         style={{
                                                             backgroundColor:
                                                                 codeColor,
-                                                            // border: "3px solid white",
                                                             outline:
                                                                 pickColor ===
                                                                     index

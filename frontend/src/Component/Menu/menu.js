@@ -4,6 +4,8 @@ import Header from "../Header/Js/Header";
 import Footer from "../Footer/Js/Footer";
 import "./menu.css";
 import { useLayoutEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
 const axios = require("axios");
 const listBtn = ["All", "Bedding", "Chair", "Lamp", "Sofas"];
 const Menu = ({ match }) => {
@@ -11,7 +13,10 @@ const Menu = ({ match }) => {
     const [totalPageProduct, setTotalPageProduct] = useState(0);
     const [category, setCategory] = useState("");
     const [categoryPage, setCategoryPage] = useState("");
-    const [bgCategory, setBgCategory] = useState("https://i.imgur.com/T7b69BX.png");
+    const [filterOption, setFilterOption] = useState(0);
+    const [bgCategory, setBgCategory] = useState(
+        "https://i.imgur.com/PvYsFQu.png"
+    );
     const [titleCategory, setTitleCategory] = useState("LIST OF PRODUCTS");
     const [page, setPage] = useState(1);
     const handleSwitchPage = (data) => {
@@ -24,7 +29,6 @@ const Menu = ({ match }) => {
             setPage(data);
         }
     };
-    console.log(listBtn.indexOf(typeItem));
     const [pick, setPick] = useState(0);
     const [dataMenu, setDataMenu] = useState([]);
     const handleFilter = (index) => {
@@ -33,7 +37,7 @@ const Menu = ({ match }) => {
             case 0:
                 setCategory("");
                 setCategoryPage("");
-                setBgCategory("https://i.imgur.com/T7b69BX.png");
+                setBgCategory("https://i.imgur.com/PvYsFQu.png");
                 setTitleCategory("LIST OF PRODUCTS");
                 break;
             case 1:
@@ -67,6 +71,7 @@ const Menu = ({ match }) => {
     useLayoutEffect(() => {
         handleFilter(listBtn.indexOf(typeItem));
     }, [typeItem]);
+
     useEffect(() => {
         axios
             .get(`http://localhost:8000/products${categoryPage}`)
@@ -77,10 +82,28 @@ const Menu = ({ match }) => {
                 `http://localhost:8000/products?page=${page}&limit=12${category}`
             )
             .then((res) => {
-                setDataMenu(res.data.data);
+                if (filterOption === 0) {
+                    setDataMenu(res.data.data)
+                }
+                if (filterOption === 1) {
+                    setDataMenu(res.data.data.sort(function (a, b) {
+                        return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+                    }))
+                }
+                else if (filterOption === 2) {
+                    setDataMenu(res.data.data.sort(function (a, b) {
+                        return a.name.toLowerCase() > b.name.toLowerCase() ? -1 : 1}))
+                }
+                else if (filterOption === 3) {
+                    setDataMenu(res.data.data.sort(function (a, b) {return a.price - b.price}))
+                }
+                else if (filterOption === 4) {
+                    setDataMenu(res.data.data.sort(function (a, b) {return b.price - a.price}))
+                }
             })
             .catch((err) => console.error("Đây là lỗi: " + err));
-    }, [page, category, categoryPage]);
+        
+    }, [page, category, categoryPage, filterOption]);
     let listPage = [];
     for (let i = 0; i < totalPageProduct; i++) {
         listPage.push(1);
@@ -98,27 +121,62 @@ const Menu = ({ match }) => {
             </div>
         );
     };
+    const handleFilterProduct = (opt) => {
+        setFilterOption(opt);
+    };
 
     return (
         <div className="menu-component">
             <Header />
             <div className="cart d-block pt-0">
-                <div className = "top-category d-flex justify-content-center"
+                <div
+                    className="top-category d-flex justify-content-center"
                     style={{
-                        backgroundImage: "url(" +bgCategory + ")"
+                        backgroundImage: "url(" + bgCategory + ")",
                     }}
                 >
                     <div className="tieude pt-2 col-12 d-flex justify-content-center align-items-center title-category">
                         <div className="tieude1 col-12 d-flex justify-content-center">
-                            <h1 className="fonts3 title-menu">{titleCategory}</h1>
+                            <h1 className="fonts3 title-menu">
+                                {titleCategory}
+                            </h1>
                         </div>
                     </div>
                 </div>
-                <div className="list col-12 d-flex justify-content-around mt-3">
-                    <div className="listsmall d-flex justify-content-around">
+                <div className="col-12 px-0">
+                    <nav aria-label="breadcrumb">
+                        <ol className="breadcrumb rounded-0">
+                            <li className="breadcrumb-item">
+                                <Link to="/">BK Furniture</Link>
+                            </li>
+                            <li
+                                className="breadcrumb-item active"
+                                aria-current="page"
+                            >
+                                Products
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+                <div className="list col-12 d-block d-md-flex justify-content-around mt-3">
+                    <div className="listsmall col-12 col-md-10 d-flex justify-content-around">
                         {listBtn.map(categories)}
                     </div>
+                    <div className="dropdown-filter col-md-2 px-0 d-flex justify-content-start align-items-center">
+                        <div className="filter-btn d-flex justify-content-between">
+                            <span className="">Filter</span>
+                            <span><FontAwesomeIcon icon={faFilter} className="icon-filter" /></span>
+                        </div>
+                        <div className="filter-content">
+                            <div onClick={() => {handleFilterProduct(0)}}>All</div>
+                            <div onClick={() => {handleFilterProduct(1)}}>By name: A - Z</div>
+                            <div onClick={() => {handleFilterProduct(2)}}>By name: Z - A</div>
+                            <div onClick={() => {handleFilterProduct(3)}}>By price: Low - High</div>
+                            <div onClick={() => {handleFilterProduct(4)}}>By price: High - Low</div>
+                        </div>
+                    </div>
                 </div>
+
                 <div className="row mx-0">
                     <div className="row-card-menu col-12 d-block d-md-flex justify-content-start">
                         {dataMenu &&
@@ -145,8 +203,11 @@ const Menu = ({ match }) => {
                                                         />
                                                     </div>
                                                     <div className="name-category">
-                                                        <span className="item-category">
-                                                            {item.category}
+                                                        <span className="col-12 item-category">
+                                                            {item.category ===
+                                                            "Light"
+                                                                ? "Lamp"
+                                                                : item.category}
                                                         </span>
                                                         <br />
                                                         <span className="item-name col-12 d-flex justify-content-start">
@@ -175,12 +236,11 @@ const Menu = ({ match }) => {
                                 );
                             })}
                     </div>
-
-                    
                 </div>
                 <div>
                     <div className="pagination d-flex justify-content-lg-end justify-content-center">
-                        <div className="next-prev"
+                        <div
+                            className="next-prev"
                             onClick={() => {
                                 handleSwitchPage("prev");
                             }}
@@ -202,7 +262,8 @@ const Menu = ({ match }) => {
                                 </div>
                             );
                         })}
-                        <div className="next-prev"
+                        <div
+                            className="next-prev"
                             onClick={() => {
                                 handleSwitchPage("next");
                             }}

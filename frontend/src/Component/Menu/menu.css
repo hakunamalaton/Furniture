@@ -57,7 +57,7 @@
 
 .fonts3 {
     font-family: Roboto;
-    color: #054c73;
+    color: white;
     font-style: normal;
     font-weight: bold;
     font-size: 2.4vw;
@@ -315,12 +315,16 @@
 }
 .menu-component .name-category .item-category {
     color: #333333;
+    opacity: 0.5;
 }
 .menu-component .name-category .item-name {
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     display: -webkit-box;
+}
+.menu-component .name-category .item-name h4 {
+    font-size: 1.7vw;
 }
 
 .menu-component .item-price .price {
@@ -346,6 +350,65 @@
     flex-wrap: wrap;
 }
 
+.menu-component .title-category {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 27vw;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.menu-component .filter-btn {
+    background-color: white;
+    color: #007bff;
+    font-size: 1rem;
+    padding: 0.375rem 0.75rem;
+    border: solid 1px #007bff;
+    cursor: pointer;
+    min-width: 13.5vw;
+}
+
+.menu-component .dropdown-filter {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-component .filter-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 13.5vw;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.menu-component .filter-content div {
+    color: black;
+    padding: 0.375rem 0.75rem;
+    display: block;
+}
+
+.menu-component .filter-content div:hover {
+    background-color: #f1f1f1;
+}
+
+.menu-component .dropdown-filter:hover .filter-content {
+    display: block;
+}
+
+.menu-component .dropdown-filter:hover .filter-btn {
+    background-color: #007bff;
+    color: white;
+}
+.menu-component .dropdown-filter .filter-btn .icon-filter{
+    transition: transform 0.5s;
+}
+.menu-component .dropdown-filter:hover .filter-btn .icon-filter{
+    transform: rotate(179deg);
+}
+
 @media screen and (max-width: 992px) {
     .menu-component .title-menu {
         font-size: 5vw;
@@ -361,7 +424,7 @@
         font-size: 2vw;
         width: 100%;
     }
-    .menu-component .name-category .item-name h4{
+    .menu-component .name-category .item-name h4 {
         font-size: 2vw;
     }
 }
@@ -410,6 +473,9 @@
         text-align: center;
         justify-content: center;
     }
+    .menu-component .name-category .item-name h4 {
+        font-size: 3.5vw;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -456,5 +522,8 @@
         height: 8vw;
         text-align: center;
         justify-content: center;
+    }
+    .menu-component .name-category .item-name h4 {
+        font-size: 5vw;
     }
 }

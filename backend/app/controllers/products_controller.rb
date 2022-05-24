@@ -55,12 +55,12 @@ class ProductsController < ApplicationController
 
       if type != "all"
         total = Product.where(category: type).count
-        @products = page == 0 ? Product.where(category: type).select(:id, :name, :image, :price) : \
-        Product.where(category: type).select(:id, :name, :image, :price).limit(limit).offset((page-1)*limit)
+        @products = page == 0 ? Product.where(category: type).select(:id, :name, :image, :price, :category) : \
+        Product.where(category: type).select(:id, :name, :image, :price, :category).limit(limit).offset((page-1)*limit)
       else
         total = Product.count
-        @products = page == 0 ? Product.select(:id, :name, :image, :price) : \
-        Product.select(:id, :name, :image, :price).limit(limit).offset((page-1)*limit)
+        @products = page == 0 ? Product.select(:id, :name, :image, :price, :category) : \
+        Product.select(:id, :name, :image, :price, :category).limit(limit).offset((page-1)*limit)
       end 
       
       render json: {

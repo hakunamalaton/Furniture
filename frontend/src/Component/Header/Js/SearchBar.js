@@ -7,7 +7,7 @@ const SearchBar = () => {
                 <input
                     className="form-control mr-sm-2 w-100"
                     type="search"
-                    placeholder="Input"
+                    placeholder="Search ..."
                     aria-label="Search"
                 />
                 <button
