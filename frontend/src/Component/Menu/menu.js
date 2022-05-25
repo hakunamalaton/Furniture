@@ -11,12 +11,17 @@ const listBtn = ["All", "Bedding", "Chair", "Lamp", "Sofas"];
 const Menu = ({ match }) => {
     let typeItem = match.params.type;
     let nameItem = ""
+    let nameItemPage = ""
     if (typeItem !== "All" && typeItem !== "Bedding" && typeItem !== "Chair" && typeItem !== "Sofas" && typeItem !== "Lamp") {
        nameItem = `&name=${typeItem}` 
+       nameItemPage = `&name=${typeItem}` 
     }
     const [totalPageProduct, setTotalPageProduct] = useState(0);
     const [category, setCategory] = useState(typeItem === "Lamp" ? "&type=Light" : typeItem === "Bedding" ? "&type=Bedding" : typeItem === "Chair" ? "&type=Chair" : typeItem === "Sofas" ? "&type=Sofas" : "");
     const [categoryPage, setCategoryPage] = useState(typeItem === "Lamp" ? "?type=Light" : typeItem === "Bedding" ? "?type=Bedding" : typeItem === "Chair" ? "?type=Chair" : typeItem === "Sofas" ? "?type=Sofas" : "");
+    if (categoryPage === "") {
+        nameItemPage = `?name=${typeItem}`
+    }
     const [filterOption, setFilterOption] = useState(0);
     const [bgCategory, setBgCategory] = useState(
         "https://i.imgur.com/PvYsFQu.png"
@@ -78,7 +83,7 @@ const Menu = ({ match }) => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/products${categoryPage}`)
+            .get(`http://localhost:8000/products${categoryPage}${nameItemPage}`)
             .then((res) => setTotalPageProduct(Math.ceil(res.data.total / 12)))
             .catch((err) => console.error("Đây là lỗi: " + err));
         axios
@@ -107,7 +112,7 @@ const Menu = ({ match }) => {
             })
             .catch((err) => console.error("Đây là lỗi: " + err));
         
-    }, [page, category, categoryPage, filterOption, nameItem]);
+    }, [page, category, categoryPage, filterOption, nameItem, nameItemPage]);
     let listPage = [];
     for (let i = 0; i < totalPageProduct; i++) {
         listPage.push(1);
