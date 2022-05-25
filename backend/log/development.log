@@ -4945,3 +4945,964 @@ Processing by OrdersController#show as */*
 Completed 200 OK in 342ms (Views: 1.8ms | ActiveRecord: 26.5ms | Allocations: 22775)
 
 
+Started POST "/users/1/orders" for ::1 at 2022-04-29 17:35:02 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"order"=>{"status"=>"Evaluated", "total_price"=>50, "description"=>"Normal Shipping"}, "products"=>[1, 2, 3], "quantity"=>[1, 9, 5], "size"=>["a", "a", "a"], "color"=>["red", "blue", "green"], "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mOrder Create (19.9ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "status", "total_price", "description", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["status", "Evaluated"], ["total_price", 50], ["description", "Normal Shipping"], ["address", nil], ["created_at", "2022-04-29 10:35:03.536576"], ["updated_at", "2022-04-29 10:35:03.536576"]]
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mProduct Load (4.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:93:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Create (11.0ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 27], ["product_id", 1], ["created_at", "2022-04-29 10:35:03.747929"], ["updated_at", "2022-04-29 10:35:03.747929"], ["quantity", nil], ["size", nil], ["color", nil]]
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Create (1.0ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 27], ["product_id", 2], ["created_at", "2022-04-29 10:35:03.766768"], ["updated_at", "2022-04-29 10:35:03.766768"], ["quantity", nil], ["size", nil], ["color", nil]]
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 27], ["product_id", 3], ["created_at", "2022-04-29 10:35:03.774319"], ["updated_at", "2022-04-29 10:35:03.774319"], ["quantity", nil], ["size", nil], ["color", nil]]
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Load (1.6ms)[0m  [1m[34mSELECT "orders_products".* FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 27]]
+  ↳ app/controllers/orders_controller.rb:100:in `each_with_index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrdersProduct Update (2.6ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:03.808725"], ["quantity", 1], ["id", 32]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:03.819558"], ["size", "a"], ["id", 32]]
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mOrdersProduct Update (0.8ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:03.831713"], ["color", "red"], ["id", 32]]
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrdersProduct Update (1.9ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:03.858829"], ["quantity", 9], ["id", 33]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mOrdersProduct Update (0.8ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:03.868060"], ["size", "a"], ["id", 33]]
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:03.881138"], ["color", "blue"], ["id", 33]]
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrdersProduct Update (0.6ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:03.907147"], ["quantity", 5], ["id", 34]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:03.915840"], ["size", "a"], ["id", 34]]
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mOrdersProduct Update (1.5ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:03.930429"], ["color", "green"], ["id", 34]]
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mProduct Load (4.1ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "orders_products" ON "products"."id" = "orders_products"."product_id" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 27]]
+  ↳ app/controllers/orders_controller.rb:106:in `create'
+Completed 200 OK in 688ms (Views: 49.1ms | ActiveRecord: 120.6ms | Allocations: 86072)
+
+
+Started POST "/users/1/orders" for ::1 at 2022-04-29 17:35:26 +0700
+Processing by OrdersController#create as */*
+  Parameters: {"order"=>{"status"=>"Shipped", "total_price"=>50, "description"=>"Normal Shipping"}, "products"=>[1, 2, 3], "quantity"=>[1, 9, 5], "size"=>["a", "a", "a"], "color"=>["red", "blue", "green"], "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "status", "total_price", "description", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["status", "Shipped"], ["total_price", 50], ["description", "Normal Shipping"], ["address", nil], ["created_at", "2022-04-29 10:35:26.167925"], ["updated_at", "2022-04-29 10:35:26.167925"]]
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:93:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 28], ["product_id", 1], ["created_at", "2022-04-29 10:35:26.208385"], ["updated_at", "2022-04-29 10:35:26.208385"], ["quantity", nil], ["size", nil], ["color", nil]]
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 28], ["product_id", 2], ["created_at", "2022-04-29 10:35:26.222082"], ["updated_at", "2022-04-29 10:35:26.222082"], ["quantity", nil], ["size", nil], ["color", nil]]
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Create (1.0ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 28], ["product_id", 3], ["created_at", "2022-04-29 10:35:26.229684"], ["updated_at", "2022-04-29 10:35:26.229684"], ["quantity", nil], ["size", nil], ["color", nil]]
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Load (0.6ms)[0m  [1m[34mSELECT "orders_products".* FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 28]]
+  ↳ app/controllers/orders_controller.rb:100:in `each_with_index'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrdersProduct Update (0.8ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:26.259565"], ["quantity", 1], ["id", 35]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mOrdersProduct Update (1.1ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:26.272323"], ["size", "a"], ["id", 35]]
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mOrdersProduct Update (0.8ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:26.283845"], ["color", "red"], ["id", 35]]
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:26.309047"], ["quantity", 9], ["id", 36]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mOrdersProduct Update (0.8ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:26.318608"], ["size", "a"], ["id", 36]]
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:26.331853"], ["color", "blue"], ["id", 36]]
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrdersProduct Update (0.8ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:26.357801"], ["quantity", 5], ["id", 37]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mOrdersProduct Update (0.6ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:26.366185"], ["size", "a"], ["id", 37]]
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:35:26.379867"], ["color", "green"], ["id", 37]]
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "orders_products" ON "products"."id" = "orders_products"."product_id" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 28]]
+  ↳ app/controllers/orders_controller.rb:106:in `create'
+Completed 200 OK in 246ms (Views: 9.3ms | ActiveRecord: 28.2ms | Allocations: 35870)
+
+
+Started GET "/users/1/orders?status=Evaluated" for ::1 at 2022-04-29 17:36:11 +0700
+Processing by UsersController#show_order as */*
+  Parameters: {"status"=>"Evaluated", "id"=>"1"}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders"."id", "orders"."status", "orders"."total_price", "orders"."description", "orders"."address" FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2[0m  [["user_id", 1], ["status", "Evaluated"]]
+  ↳ app/controllers/users_controller.rb:37:in `show_order'
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 1273)
+
+
+Started GET "/users/1/orders?status=Shipped" for ::1 at 2022-04-29 17:36:16 +0700
+Processing by UsersController#show_order as */*
+  Parameters: {"status"=>"Shipped", "id"=>"1"}
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders"."id", "orders"."status", "orders"."total_price", "orders"."description", "orders"."address" FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" IN ($2, $3)[0m  [["user_id", 1], ["status", "Shipped"], ["status", "Evaluated"]]
+  ↳ app/controllers/users_controller.rb:37:in `show_order'
+Completed 200 OK in 16ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 1009)
+
+
+Started POST "/users/1/orders" for ::1 at 2022-04-29 17:41:28 +0700
+Processing by OrdersController#create as */*
+  Parameters: {"order"=>{"status"=>"Shipped", "total_price"=>50, "description"=>"Normal Shipping"}, "products"=>[1, 2, 3], "quantity"=>[1, 9, 5], "size"=>["a", "a", "a"], "color"=>["red", "blue", "green"], "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mOrder Create (0.9ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "status", "total_price", "description", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["status", "Shipped"], ["total_price", 50], ["description", "Normal Shipping"], ["address", nil], ["created_at", "2022-04-29 10:41:29.367175"], ["updated_at", "2022-04-29 10:41:29.367175"]]
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:93:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 29], ["product_id", 1], ["created_at", "2022-04-29 10:41:29.470535"], ["updated_at", "2022-04-29 10:41:29.470535"], ["quantity", nil], ["size", nil], ["color", nil]]
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 29], ["product_id", 2], ["created_at", "2022-04-29 10:41:29.478912"], ["updated_at", "2022-04-29 10:41:29.478912"], ["quantity", nil], ["size", nil], ["color", nil]]
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 29], ["product_id", 3], ["created_at", "2022-04-29 10:41:29.485753"], ["updated_at", "2022-04-29 10:41:29.485753"], ["quantity", nil], ["size", nil], ["color", nil]]
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Load (0.6ms)[0m  [1m[34mSELECT "orders_products".* FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 29]]
+  ↳ app/controllers/orders_controller.rb:100:in `each_with_index'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrdersProduct Update (0.6ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:41:29.518255"], ["quantity", 1], ["id", 38]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mOrdersProduct Update (0.6ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:41:29.526957"], ["size", "a"], ["id", 38]]
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mOrdersProduct Update (0.8ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:41:29.539284"], ["color", "red"], ["id", 38]]
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrdersProduct Update (0.6ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:41:29.567423"], ["quantity", 9], ["id", 39]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:41:29.577225"], ["size", "a"], ["id", 39]]
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mOrdersProduct Update (1.0ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:41:29.587816"], ["color", "blue"], ["id", 39]]
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:41:29.615928"], ["quantity", 5], ["id", 40]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:41:29.624314"], ["size", "a"], ["id", 40]]
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mOrdersProduct Update (2.0ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-04-29 10:41:29.636484"], ["color", "green"], ["id", 40]]
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mProduct Pluck (0.7ms)[0m  [1m[34mSELECT "products"."id" FROM "products" INNER JOIN "orders_products" ON "products"."id" = "orders_products"."product_id" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 29]]
+  ↳ app/controllers/orders_controller.rb:110:in `create'
+Completed 200 OK in 352ms (Views: 1.9ms | ActiveRecord: 55.8ms | Allocations: 59874)
+
+
+  [1m[36mProduct Load (28.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mProduct Load (2.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IS NULL[0m
+Started POST "/sign-up" for ::1 at 2022-05-06 13:26:47 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (7.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"lamduong11201@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"Lam Thanh Duong"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamduong11201@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Create (9.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "lamduong11201@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2022-05-06 06:26:51.379024"], ["updated_at", "2022-05-06 06:26:51.379024"], ["name", "Lam Thanh Duong"]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+Completed 200 OK in 688ms (Views: 2.6ms | ActiveRecord: 48.6ms | Allocations: 13799)
+
+
+Started POST "/sign-in" for ::1 at 2022-05-06 13:27:07 +0700
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"lamduong11201@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"lamduong11201@gmail.com", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lamduong11201@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Completed 200 OK in 461ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1192)
+
+
+Started GET "/users/1/orders?status=Shipped" for ::1 at 2022-05-24 16:00:28 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (12.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show_order as */*
+  Parameters: {"status"=>"Shipped", "id"=>"1"}
+  [1m[36mOrder Load (9.3ms)[0m  [1m[34mSELECT "orders"."id", "orders"."status", "orders"."total_price", "orders"."description", "orders"."address" FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" IN ($2, $3)[0m  [["user_id", 1], ["status", "Shipped"], ["status", "Evaluated"]]
+  ↳ app/controllers/users_controller.rb:37:in `show_order'
+Completed 200 OK in 346ms (Views: 1.5ms | ActiveRecord: 39.1ms | Allocations: 15951)
+
+
+Started GET "/orders/16" for ::1 at 2022-05-24 16:00:41 +0700
+Processing by OrdersController#show as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:124:in `set_order'
+  [1m[36mOrdersProduct Pluck (7.9ms)[0m  [1m[34mSELECT "orders_products"."product_id", "orders_products"."quantity", "orders_products"."size", "orders_products"."color" FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/controllers/orders_controller.rb:20:in `show'
+Completed 200 OK in 204ms (Views: 2.8ms | ActiveRecord: 13.0ms | Allocations: 10188)
+
+
+Started GET "/orders/16" for ::1 at 2022-05-24 16:00:56 +0700
+Processing by OrdersController#show as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:124:in `set_order'
+  [1m[36mOrdersProduct Pluck (0.6ms)[0m  [1m[34mSELECT "orders_products"."product_id", "orders_products"."quantity", "orders_products"."size", "orders_products"."color" FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/controllers/orders_controller.rb:20:in `show'
+Completed 200 OK in 17ms (Views: 1.4ms | ActiveRecord: 1.1ms | Allocations: 1539)
+
+
+Started GET "/orders/1" for ::1 at 2022-05-24 16:01:04 +0700
+Processing by OrdersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:124:in `set_order'
+  [1m[36mOrdersProduct Pluck (0.6ms)[0m  [1m[34mSELECT "orders_products"."product_id", "orders_products"."quantity", "orders_products"."size", "orders_products"."color" FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/controllers/orders_controller.rb:20:in `show'
+Completed 200 OK in 18ms (Views: 1.7ms | ActiveRecord: 1.4ms | Allocations: 1498)
+
+
+Started GET "/orders/2" for ::1 at 2022-05-24 16:01:08 +0700
+Processing by OrdersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:124:in `set_order'
+  [1m[36mOrdersProduct Pluck (1.0ms)[0m  [1m[34mSELECT "orders_products"."product_id", "orders_products"."quantity", "orders_products"."size", "orders_products"."color" FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 2]]
+  ↳ app/controllers/orders_controller.rb:20:in `show'
+Completed 200 OK in 15ms (Views: 1.1ms | ActiveRecord: 1.4ms | Allocations: 1498)
+
+
+Started GET "/orders/10" for ::1 at 2022-05-24 16:01:12 +0700
+Processing by OrdersController#show as */*
+  Parameters: {"id"=>"10"}
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:124:in `set_order'
+  [1m[36mOrdersProduct Pluck (0.7ms)[0m  [1m[34mSELECT "orders_products"."product_id", "orders_products"."quantity", "orders_products"."size", "orders_products"."color" FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 10]]
+  ↳ app/controllers/orders_controller.rb:20:in `show'
+Completed 200 OK in 21ms (Views: 1.2ms | ActiveRecord: 1.5ms | Allocations: 1484)
+
+
+Started GET "/orders/14" for ::1 at 2022-05-24 16:01:18 +0700
+Processing by OrdersController#show as */*
+  Parameters: {"id"=>"14"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:124:in `set_order'
+  [1m[36mOrdersProduct Pluck (0.5ms)[0m  [1m[34mSELECT "orders_products"."product_id", "orders_products"."quantity", "orders_products"."size", "orders_products"."color" FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 14]]
+  ↳ app/controllers/orders_controller.rb:20:in `show'
+Completed 200 OK in 17ms (Views: 1.5ms | ActiveRecord: 0.9ms | Allocations: 1481)
+
+
+Started POST "/users/1/orders" for ::1 at 2022-05-24 16:01:31 +0700
+Processing by OrdersController#create as */*
+  Parameters: {"order"=>{"status"=>"Shipped", "total_price"=>50, "description"=>"Normal Shipping"}, "products"=>[1, 2, 3], "quantity"=>[1, 9, 5], "size"=>["a", "a", "a"], "color"=>["red", "blue", "green"], "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mOrder Create (16.2ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "status", "total_price", "description", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["status", "Shipped"], ["total_price", 50], ["description", "Normal Shipping"], ["address", nil], ["created_at", "2022-05-24 09:01:32.378786"], ["updated_at", "2022-05-24 09:01:32.378786"]]
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mProduct Load (9.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:93:in `create'
+Completed 500 Internal Server Error in 348ms (ActiveRecord: 44.6ms | Allocations: 23270)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Product(#25300) expected, got nil which is an instance of NilClass(#40)):
+  
+app/controllers/orders_controller.rb:96:in `create'
+Started GET "/products" for ::1 at 2022-05-24 16:01:54 +0700
+Processing by ProductsController#display_product as */*
+  [1m[36mProduct Count (8.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:61:in `display_product'
+  [1m[36mProduct Load (3.8ms)[0m  [1m[34mSELECT "products"."id", "products"."name", "products"."image", "products"."price" FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:66:in `display_product'
+Completed 200 OK in 93ms (Views: 42.7ms | ActiveRecord: 17.0ms | Allocations: 9369)
+
+
+Started POST "/users/1/orders" for ::1 at 2022-05-24 16:02:10 +0700
+Processing by OrdersController#create as */*
+  Parameters: {"order"=>{"status"=>"Shipped", "total_price"=>50, "description"=>"Normal Shipping"}, "products"=>[8, 9, 10], "quantity"=>[1, 9, 5], "size"=>["a", "a", "a"], "color"=>["red", "blue", "green"], "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mOrder Create (1.2ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "status", "total_price", "description", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["status", "Shipped"], ["total_price", 50], ["description", "Normal Shipping"], ["address", nil], ["created_at", "2022-05-24 09:02:11.029704"], ["updated_at", "2022-05-24 09:02:11.029704"]]
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:93:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Create (8.4ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 31], ["product_id", 8], ["created_at", "2022-05-24 09:02:11.095581"], ["updated_at", "2022-05-24 09:02:11.095581"], ["quantity", nil], ["size", nil], ["color", nil]]
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Create (1.0ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 31], ["product_id", 9], ["created_at", "2022-05-24 09:02:11.115199"], ["updated_at", "2022-05-24 09:02:11.115199"], ["quantity", nil], ["size", nil], ["color", nil]]
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Create (1.1ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_id", 31], ["product_id", 10], ["created_at", "2022-05-24 09:02:11.130048"], ["updated_at", "2022-05-24 09:02:11.130048"], ["quantity", nil], ["size", nil], ["color", nil]]
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Load (0.5ms)[0m  [1m[34mSELECT "orders_products".* FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 31]]
+  ↳ app/controllers/orders_controller.rb:100:in `each_with_index'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrdersProduct Update (1.6ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-24 09:02:11.177350"], ["quantity", 1], ["id", 41]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mOrdersProduct Update (1.1ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-24 09:02:11.199923"], ["size", "a"], ["id", 41]]
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mOrdersProduct Update (0.9ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-24 09:02:11.233528"], ["color", "red"], ["id", 41]]
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrdersProduct Update (0.9ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-24 09:02:11.266565"], ["quantity", 9], ["id", 42]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mOrdersProduct Update (1.9ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-24 09:02:11.282323"], ["size", "a"], ["id", 42]]
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mOrdersProduct Update (4.1ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-24 09:02:11.301131"], ["color", "blue"], ["id", 42]]
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrdersProduct Update (0.8ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-24 09:02:11.339430"], ["quantity", 5], ["id", 43]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mOrdersProduct Update (1.3ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-24 09:02:11.351500"], ["size", "a"], ["id", 43]]
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mOrdersProduct Update (0.8ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-24 09:02:11.369895"], ["color", "green"], ["id", 43]]
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mProduct Pluck (3.5ms)[0m  [1m[34mSELECT "products"."id" FROM "products" INNER JOIN "orders_products" ON "products"."id" = "orders_products"."product_id" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 31]]
+  ↳ app/controllers/orders_controller.rb:110:in `create'
+Completed 200 OK in 740ms (Views: 1.8ms | ActiveRecord: 63.3ms | Allocations: 49972)
+
+
+Started GET "/orders/31" for ::1 at 2022-05-24 16:02:25 +0700
+Processing by OrdersController#show as */*
+  Parameters: {"id"=>"31"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:124:in `set_order'
+  [1m[36mOrdersProduct Pluck (0.4ms)[0m  [1m[34mSELECT "orders_products"."product_id", "orders_products"."quantity", "orders_products"."size", "orders_products"."color" FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 31]]
+  ↳ app/controllers/orders_controller.rb:20:in `show'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `block in show'
+  [1m[36mCACHE Product Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `block in show'
+  [1m[36mCACHE Product Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `block in show'
+  [1m[36mCACHE Product Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+Completed 200 OK in 88ms (Views: 1.8ms | ActiveRecord: 3.7ms | Allocations: 7417)
+
+
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddForeignKeyFromRatingsToOrders (20220524093803)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (22.1ms)[0m  [1m[35mALTER TABLE "ratings" ADD "order_id" integer[0m
+  [1m[35m (34.2ms)[0m  [1m[35mALTER TABLE "ratings" ADD CONSTRAINT "fk_rails_f846e598a7"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddForeignKeyFromRatingsToOrders (20220524093803)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "ratings" ADD "order_id" integer[0m
+  [1m[35m (45.9ms)[0m  [1m[35mALTER TABLE "ratings" ADD CONSTRAINT "fk_rails_7ff45885fc"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220524093803"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (7.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mRating Load (3.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" ORDER BY "ratings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/products/5/ratings" for ::1 at 2022-05-25 10:55:17 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (7.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"ltt@gmail.com", "description"=>"The product is not like the picture", "image"=>["a", "b"], "category"=>["4-star", "media"], "star"=>3, "id"=>"5", "product"=>{"image"=>["a", "b"], "description"=>"The product is not like the picture", "category"=>["4-star", "media"]}}
+  [1m[36mProduct Load (10.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Filter chain halted as :set_product rendered or redirected
+Completed 404 Not Found in 211ms (Views: 1.6ms | ActiveRecord: 20.8ms | Allocations: 5875)
+
+
+Started GET "/products" for ::1 at 2022-05-25 10:56:02 +0700
+Processing by ProductsController#display_product as */*
+  [1m[36mProduct Count (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:61:in `display_product'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products"."id", "products"."name", "products"."image", "products"."price" FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:66:in `display_product'
+Completed 200 OK in 98ms (Views: 77.9ms | ActiveRecord: 10.7ms | Allocations: 10860)
+
+
+Started POST "/products/8/ratings" for ::1 at 2022-05-25 10:56:11 +0700
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"ltt@gmail.com", "description"=>"The product is not like the picture", "image"=>["a", "b"], "category"=>["4-star", "media"], "star"=>3, "id"=>"8", "product"=>{"image"=>["a", "b"], "description"=>"The product is not like the picture", "category"=>["4-star", "media"]}}
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:163:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ltt@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:115:in `create_ratings'
+  [1m[36mRating Count (4.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 8]]
+  ↳ app/controllers/products_controller.rb:118:in `create_ratings'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:120:in `create_ratings'
+  [1m[36mProduct Update (9.2ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1, "avg_star" = $2 WHERE "products"."id" = $3[0m  [["updated_at", "2022-05-25 03:56:12.183954"], ["avg_star", 3.0], ["id", 8]]
+  ↳ app/controllers/products_controller.rb:120:in `create_ratings'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:120:in `create_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mRating Create (11.2ms)[0m  [1m[32mINSERT INTO "ratings" ("user_id", "product_id", "description", "image", "star", "created_at", "updated_at", "category", "order_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 4], ["product_id", 8], ["description", "The product is not like the picture"], ["image", "{a,b}"], ["star", 3], ["created_at", "2022-05-25 03:56:12.325923"], ["updated_at", "2022-05-25 03:56:12.325923"], ["category", "{4-star,media}"], ["order_id", nil]]
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:123:in `create_ratings'
+Completed 200 OK in 508ms (Views: 1.1ms | ActiveRecord: 48.5ms | Allocations: 32377)
+
+
+  [1m[36mRating Load (3.8ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" ORDER BY "ratings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRating Load (0.9ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" ORDER BY "ratings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (13.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY "orders"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProduct Load (4.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRating Update (2.5ms)[0m  [1m[33mUPDATE "ratings" SET "updated_at" = $1, "order_id" = $2 WHERE "ratings"."id" = $3[0m  [["updated_at", "2022-05-25 04:10:40.674591"], ["order_id", 1], ["id", 25]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRating Load (1.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."order_id" = $1[0m  [["order_id", 1]]
+Started GET "/users/1/orders/1" for ::1 at 2022-05-25 11:20:45 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/users/1/orders/1"):
+  
+Started GET "/orders/1" for ::1 at 2022-05-25 11:20:57 +0700
+Processing by OrdersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (2.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:124:in `set_order'
+  [1m[36mOrdersProduct Pluck (11.3ms)[0m  [1m[34mSELECT "orders_products"."product_id", "orders_products"."quantity", "orders_products"."size", "orders_products"."color" FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/controllers/orders_controller.rb:20:in `show'
+Completed 200 OK in 590ms (Views: 1.6ms | ActiveRecord: 60.6ms | Allocations: 16661)
+
+
+  [1m[36mProduct Load (8.8ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "orders_products" ON "products"."id" = "orders_products"."product_id" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 1]]
+Started GET "/orders/31" for ::1 at 2022-05-25 11:23:38 +0700
+Processing by OrdersController#show as */*
+  Parameters: {"id"=>"31"}
+  [1m[36mOrder Load (2.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:124:in `set_order'
+  [1m[36mOrdersProduct Pluck (0.6ms)[0m  [1m[34mSELECT "orders_products"."product_id", "orders_products"."quantity", "orders_products"."size", "orders_products"."color" FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 31]]
+  ↳ app/controllers/orders_controller.rb:20:in `show'
+  [1m[36mProduct Load (4.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mCACHE Product Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+Completed 200 OK in 859ms (Views: 2.2ms | ActiveRecord: 9.2ms | Allocations: 20730)
+
+
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "orders_products" ON "products"."id" = "orders_products"."product_id" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 31]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (8.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRatedToOrderProducts (20220525042632)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.0ms)[0m  [1m[35mALTER TABLE "orders_products" ADD "rated" boolean[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220525042632"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (5.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeRatedDefaultOrderProducts (20220525043203)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.0ms)[0m  [1m[35mALTER TABLE "orders_products" ALTER COLUMN "rated" SET DEFAULT FALSE[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220525043203"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(3526672260389256615)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (6.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/products/9/ratings" for ::1 at 2022-05-25 11:33:55 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"ltt@gmail.com", "description"=>"The product is not like the picture", "image"=>["a", "b"], "category"=>["4-star", "media"], "star"=>3, "id"=>"9", "product"=>{"image"=>["a", "b"], "description"=>"The product is not like the picture", "category"=>["4-star", "media"]}}
+  [1m[36mProduct Load (2.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:170:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ltt@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:115:in `create_ratings'
+  [1m[36mRating Count (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 9]]
+  ↳ app/controllers/products_controller.rb:118:in `create_ratings'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:120:in `create_ratings'
+  [1m[36mProduct Update (0.9ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1, "avg_star" = $2 WHERE "products"."id" = $3[0m  [["updated_at", "2022-05-25 04:33:57.159316"], ["avg_star", 3.0], ["id", 9]]
+  ↳ app/controllers/products_controller.rb:120:in `create_ratings'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:120:in `create_ratings'
+  [1m[36mOrder Load (3.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:124:in `create_ratings'
+Completed 500 Internal Server Error in 335ms (ActiveRecord: 38.1ms | Allocations: 38680)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/products_controller.rb:133:in `create_ratings'
+Started POST "/products/9/ratings" for ::1 at 2022-05-25 11:34:25 +0700
+Processing by ProductsController#create_ratings as */*
+  Parameters: {"email"=>"ltt@gmail.com", "description"=>"The product is not like the picture", "image"=>["a", "b"], "category"=>["4-star", "media"], "star"=>3, "order_id"=>31, "id"=>"9", "product"=>{"image"=>["a", "b"], "description"=>"The product is not like the picture", "category"=>["4-star", "media"]}}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:170:in `set_product'
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ltt@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:115:in `create_ratings'
+  [1m[36mRating Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "ratings" WHERE "ratings"."product_id" = $1[0m  [["product_id", 9]]
+  ↳ app/controllers/products_controller.rb:118:in `create_ratings'
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:124:in `create_ratings'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:126:in `create_ratings'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:126:in `create_ratings'
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:126:in `create_ratings'
+  [1m[36mRating Create (2.7ms)[0m  [1m[32mINSERT INTO "ratings" ("user_id", "product_id", "description", "image", "star", "created_at", "updated_at", "category", "order_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 4], ["product_id", 9], ["description", "The product is not like the picture"], ["image", "{a,b}"], ["star", 3], ["created_at", "2022-05-25 04:34:27.010336"], ["updated_at", "2022-05-25 04:34:27.010336"], ["category", "{4-star,media}"], ["order_id", 31]]
+  ↳ app/controllers/products_controller.rb:126:in `create_ratings'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:126:in `create_ratings'
+Completed 200 OK in 1044ms (Views: 1.8ms | ActiveRecord: 19.1ms | Allocations: 27227)
+
+
+Started GET "/orders/31" for ::1 at 2022-05-25 11:34:44 +0700
+Processing by OrdersController#show as */*
+  Parameters: {"id"=>"31"}
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:124:in `set_order'
+  [1m[36mOrdersProduct Pluck (7.2ms)[0m  [1m[34mSELECT "orders_products"."product_id", "orders_products"."quantity", "orders_products"."size", "orders_products"."color" FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 31]]
+  ↳ app/controllers/orders_controller.rb:20:in `show'
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `block in show'
+  [1m[36mCACHE Product Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `block in show'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+  [1m[36mCACHE Product Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `block in show'
+Completed 200 OK in 142ms (Views: 1.8ms | ActiveRecord: 16.1ms | Allocations: 11225)
+
+
+Started POST "/users/1/orders" for ::1 at 2022-05-25 11:35:38 +0700
+Processing by OrdersController#create as */*
+  Parameters: {"order"=>{"status"=>"Shipped", "total_price"=>50, "description"=>"Normal Shipping"}, "products"=>[8, 9, 10], "quantity"=>[1, 9, 5], "size"=>["a", "a", "a"], "color"=>["red", "blue", "green"], "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mOrder Create (4.5ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "status", "total_price", "description", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["status", "Shipped"], ["total_price", 50], ["description", "Normal Shipping"], ["address", nil], ["created_at", "2022-05-25 04:35:38.170228"], ["updated_at", "2022-05-25 04:35:38.170228"]]
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:85:in `create'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:90:in `block in create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:93:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Create (8.6ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color", "rated") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["order_id", 32], ["product_id", 8], ["created_at", "2022-05-25 04:35:40.102504"], ["updated_at", "2022-05-25 04:35:40.102504"], ["quantity", nil], ["size", nil], ["color", nil], ["rated", false]]
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Create (2.7ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color", "rated") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["order_id", 32], ["product_id", 9], ["created_at", "2022-05-25 04:35:40.120601"], ["updated_at", "2022-05-25 04:35:40.120601"], ["quantity", nil], ["size", nil], ["color", nil], ["rated", false]]
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Create (1.0ms)[0m  [1m[32mINSERT INTO "orders_products" ("order_id", "product_id", "created_at", "updated_at", "quantity", "size", "color", "rated") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["order_id", 32], ["product_id", 10], ["created_at", "2022-05-25 04:35:40.131676"], ["updated_at", "2022-05-25 04:35:40.131676"], ["quantity", nil], ["size", nil], ["color", nil], ["rated", false]]
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:96:in `create'
+  [1m[36mOrdersProduct Load (0.6ms)[0m  [1m[34mSELECT "orders_products".* FROM "orders_products" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 32]]
+  ↳ app/controllers/orders_controller.rb:100:in `each_with_index'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrdersProduct Update (0.6ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-25 04:35:40.167608"], ["quantity", 1], ["id", 44]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-25 04:35:40.181160"], ["size", "a"], ["id", 44]]
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mOrdersProduct Update (0.9ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-25 04:35:40.195631"], ["color", "red"], ["id", 44]]
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrdersProduct Update (1.0ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-25 04:35:40.226563"], ["quantity", 9], ["id", 45]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mOrdersProduct Update (0.9ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-25 04:35:40.235323"], ["size", "a"], ["id", 45]]
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mOrdersProduct Update (0.8ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-25 04:35:40.249845"], ["color", "blue"], ["id", 45]]
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mOrdersProduct Update (0.7ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "quantity" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-25 04:35:40.282263"], ["quantity", 5], ["id", 46]]
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:101:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mOrdersProduct Update (1.2ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "size" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-25 04:35:40.291822"], ["size", "a"], ["id", 46]]
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:102:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mOrdersProduct Update (0.8ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "color" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-25 04:35:40.305626"], ["color", "green"], ["id", 46]]
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:103:in `block in create'
+  [1m[36mProduct Pluck (1.2ms)[0m  [1m[34mSELECT "products"."id" FROM "products" INNER JOIN "orders_products" ON "products"."id" = "orders_products"."product_id" WHERE "orders_products"."order_id" = $1[0m  [["order_id", 32]]
+  ↳ app/controllers/orders_controller.rb:110:in `create'
+Completed 200 OK in 2181ms (Views: 1.3ms | ActiveRecord: 49.8ms | Allocations: 53588)
+
+
+  [1m[36mOrdersProduct Load (2.9ms)[0m  [1m[34mSELECT "orders_products".* FROM "orders_products" WHERE "orders_products"."order_id" = $1 AND "orders_products"."product_id" = $2 LIMIT $3[0m  [["order_id", 44], ["product_id", 8], ["LIMIT", 1]]
+  [1m[36mOrdersProduct Load (0.8ms)[0m  [1m[34mSELECT "orders_products".* FROM "orders_products" WHERE "orders_products"."order_id" = $1 AND "orders_products"."product_id" = $2 LIMIT $3[0m  [["order_id", 32], ["product_id", 8], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mOrdersProduct Update (2.5ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1 WHERE "orders_products"."id" = $2[0m  [["updated_at", "2022-05-25 05:10:30.492968"], ["id", 44]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOrdersProduct Load (4.8ms)[0m  [1m[34mSELECT "orders_products".* FROM "orders_products" WHERE "orders_products"."order_id" = $1 AND "orders_products"."product_id" = $2 LIMIT $3[0m  [["order_id", 32], ["product_id", 8], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Load (4.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mProduct Load (2.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mOrdersProduct Update (3.3ms)[0m  [1m[33mUPDATE "orders_products" SET "updated_at" = $1, "rated" = $2 WHERE "orders_products"."id" = $3[0m  [["updated_at", "2022-05-25 05:12:54.579487"], ["rated", true], ["id", 44]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m

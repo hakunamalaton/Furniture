@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: user_params[:email])
 
     if @user.present? && @user.authenticate(user_params[:password])
+
       cookies[@user.email.to_sym] = {
           :value => @user.id,
           :expires => Time.now + 1.hour,
@@ -13,6 +14,7 @@ class SessionsController < ApplicationController
       render json: {
           code: 0,
           message: "Login successfully!",
+          name: @user.name,
           token: cookies[@user.email.to_sym]
       }
     else

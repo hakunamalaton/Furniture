@@ -55,12 +55,12 @@ class ProductsController < ApplicationController
 
       if type != "all"
         total = Product.where(category: type).count
-        @products = page == 0 ? Product.where(category: type).select(:id, :name, :image, :price) : \
-        Product.where(category: type).select(:id, :name, :image, :price).limit(limit).offset((page-1)*limit)
+        @products = page == 0 ? Product.where(category: type).select(:id, :name, :image, :price, :category) : \
+        Product.where(category: type).select(:id, :name, :image, :price, :category).limit(limit).offset((page-1)*limit)
       else
         total = Product.count
-        @products = page == 0 ? Product.select(:id, :name, :image, :price) : \
-        Product.select(:id, :name, :image, :price).limit(limit).offset((page-1)*limit)
+        @products = page == 0 ? Product.select(:id, :name, :image, :price, :category) : \
+        Product.select(:id, :name, :image, :price, :category).limit(limit).offset((page-1)*limit)
       end 
       
       render json: {
@@ -120,6 +120,12 @@ class ProductsController < ApplicationController
     product.update(avg_star: new_avg_star)
     product.save
 
+    #finding order id
+    order = Order.find_by(id: params[:order_id])
+    # update rated for this item
+    item = OrdersProduct.find_by(order_id: params[:order_id], product_id: @product.id)
+    item.update(rated: true)
+
     rating = Rating.create(
         title: params[:title],
         user_id: user.id,
@@ -127,8 +133,12 @@ class ProductsController < ApplicationController
         description: params[:description],
         image: params[:image],
         category: params[:category],
-        star: params[:star]
+        star: params[:star],
+        order_id: order.id
     )
+    # binding the rating to this order
+    order.ratings << rating
+
     render json: {
         code: 0,
         rating: rating
