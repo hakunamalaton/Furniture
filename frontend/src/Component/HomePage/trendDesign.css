@@ -1,0 +1,47 @@
+
+
+@media screen and (max-width: 1200px) {
+    .trend-design-component h4 {
+        font-size: 30px;
+    }
+    .trend-design-component .btn{
+        font-size: 20px;
+    }
+    .title-trend-design h1{
+        font-size: 60px !important;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .trend-design-component h4 {
+        font-size: 24px;
+    }
+    .trend-design-component .btn{
+        font-size: 16px;
+    }
+    .title-trend-design h1{
+        font-size: 45px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .trend-design-component h4 {
+        font-size: 24px;
+    }
+    .trend-design-component .btn{
+        font-size: 16px;
+    }
+    .title-trend-design h1{
+        font-size: 45px;
+    }
+}
+@media screen and (max-width: 576px) {
+    .trend-design-component h4 {
+        font-size: 20px;
+    }
+    .trend-design-component .btn{
+        font-size: 14px;
+    }
+    .title-trend-design h1{
+        font-size: 30px;
+    }
+}

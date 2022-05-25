@@ -1,0 +1,61 @@
+.part-import-design-component .animation-hover {
+    transition: transform .3s;
+    
+}
+.part-import-design-component .animation-hover img {
+    object-fit: cover
+}
+.part-import-design-component .animation-hover:hover {
+    transform: scale(1.035);
+}
+.part-import-design-component {
+    background-color: #e5e5e5;
+}
+
+@media screen and (max-width: 1200px){
+    .part-import-design-component h3{
+        font-size: 60px;
+    }
+    .part-import-design-component h6{
+        font-size: 30px;
+    }
+    .part-import-design-component .btn{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .part-import-design-component h3{
+        font-size: 45px;
+    }
+    .part-import-design-component h6{
+        font-size: 20px;
+    }
+    .part-import-design-component .btn{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .part-import-design-component h3{
+        font-size: 45px;
+    }
+    .part-import-design-component h6{
+        font-size: 16px;
+    }
+    .part-import-design-component .btn{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .part-import-design-component h3{
+        font-size: 20px;
+    }
+    .part-import-design-component h6{
+        font-size: 14px;
+    }
+    .part-import-design-component .btn{
+        font-size: 14px;
+    }
+}

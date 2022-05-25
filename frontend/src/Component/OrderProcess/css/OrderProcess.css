@@ -1,0 +1,32 @@
+.progress-bar {
+    padding: 20px;
+    width: 70%;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+.progress-bar-content {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.progress-bar-item {
+    width: 25%;
+}
+
+.order-page-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px;
+}
+
+.next-prev-button-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 70%;
+}

@@ -1,0 +1,529 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif");
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans");
+
+.column {
+    display: flex;
+    margin-top: 4vw;
+}
+
+.columnsmall {
+    width: 25%;
+    margin-left: 5vw;
+}
+
+.columnbig {
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 50px;
+}
+
+.column1 {
+    display: flex;
+    width: 50%;
+}
+
+.fonts {
+    font-family: Noto Serif;
+    color: #141f1f;
+    font-style: normal;
+    font-weight: bold;
+    text-align: left;
+    font-size: 2.5vw;
+    word-wrap: break-word;
+}
+
+.fonts1 {
+    font-family: Poppins;
+    color: #141f1f;
+    font-style: normal;
+    font-weight: 400;
+    text-align: left;
+    font-size: 1.5vw;
+    word-wrap: break-word;
+}
+
+.fonts2 {
+    font-family: Poppins;
+    color: white;
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.5vw;
+    word-wrap: break-word;
+}
+
+.fonts3 {
+    font-family: Roboto;
+    color: white;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.4vw;
+    word-wrap: break-word;
+}
+
+.fonts4 {
+    font-size: 1.3vw;
+}
+
+.fonts5 {
+    font-weight: 400;
+    font-size: 1.3vw;
+}
+
+.fonts6 {
+    color: rgba(75, 75, 75, 0.69);
+}
+
+.pa {
+    padding-right: 10px;
+}
+
+.buton {
+    background-color: #054c73;
+    border-radius: 50px;
+    color: white;
+    width: 20vw;
+    height: 3.9vw;
+    padding: 1vw 2vw;
+    display: inline-block;
+    margin: 2vw 1vw;
+}
+
+.lienket a {
+    text-decoration: none;
+    margin-top: 1.5vw;
+}
+.square {
+    background-color: #054c73;
+    border: none;
+    width: 3vw;
+    height: 3vw;
+}
+
+.content {
+    width: 90%;
+    margin-left: 2vw;
+}
+
+.ad {
+    padding-top: 30px;
+}
+
+.cart {
+    margin-left: 0vw;
+}
+
+.tieude {
+    display: flex;
+}
+
+.tieude1 {
+    display: flex;
+    width: 82%;
+}
+
+.tieude2 {
+    width: 18%;
+    margin: auto;
+}
+
+.list a {
+    text-decoration: none;
+}
+
+.a1 {
+    padding-left: 5vw;
+}
+
+.list a:hover {
+    color: #054c73;
+}
+
+.listsmall {
+    width: 85%;
+}
+
+.image-menu {
+    width: 360px;
+    height: 435px;
+    background-repeat: no-repeat;
+    background-size: 300px 300px;
+    background-position: center;
+}
+
+.img-container-menu {
+    float: left;
+    background-color: #c9ecff;
+    color: #054c73;
+}
+
+.pagination {
+    font-family: IBM Plex Sans;
+    font-weight: 600;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    font-size: 1.3vw;
+    justify-content: right;
+    width: 98%;
+}
+
+.pagination div {
+    color: #054c73;
+    float: left;
+    padding: 1vw 1.5vw;
+}
+
+.pagination div.active {
+    background-color: #054c73;
+    color: white;
+    border-radius: 50%;
+}
+
+.pagination div:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 50%;
+}
+
+.mail {
+    margin-top: 8vw;
+}
+
+.fonts7 {
+    font-family: Montserrat;
+    font-style: normal;
+    text-align: center;
+    color: #333333;
+    word-wrap: break-word;
+    font-weight: 700;
+    font-size: 2vw;
+}
+
+.fonts8 {
+    font-family: Montserrat;
+    font-style: normal;
+    text-align: center;
+    color: #666666;
+    word-wrap: break-word;
+    font-weight: 400;
+    font-size: 1.3vw;
+}
+
+.add {
+    width: 25%;
+    height: 50px;
+}
+
+.form-add {
+    height: 50px;
+    border: 1px solid #011c42;
+    border-radius: 3px;
+}
+
+.btn1 {
+    background-color: #054c73;
+}
+
+.btn-outline-secondary {
+    color: white;
+}
+
+.add-the-center {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.add1 {
+    color: white;
+    font-size: 0.9vw;
+    font-weight: bolder;
+}
+
+.addtocart button {
+    background-image: url("./Image/AddToCartButton.png");
+    background-size: cover;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: white;
+    position: absolute;
+    /* margin-left: 18.5vw; */
+    margin-top: 0.8vw;
+    float: right;
+}
+
+.dt {
+    position: absolute;
+    margin-top: 0.5vw;
+    margin-left: 1.5vw;
+    height: 100px;
+    width: 300px;
+}
+
+.data1 {
+    color: rgba(51, 51, 51, 0.3);
+    font-family: "Roboto";
+    font-weight: bolder;
+    font-size: 1vw;
+}
+
+.data2 {
+    color: #054c73;
+    font-family: "Roboto";
+    font-weight: bolder;
+    font-size: 1.5vw;
+}
+
+.money {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1vw 2px;
+    position: absolute;
+    width: 10vw;
+    height: 3vw;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(4px);
+    border-radius: 36px;
+    margin-top: 20vw;
+    margin-left: 1.5vw;
+}
+
+.money1 {
+    font-family: "Roboto";
+    font-weight: bolder;
+    font-size: 0.93vw;
+    color: #054c73;
+}
+
+.animation {
+    transition: transform 0.3s;
+}
+
+.animation:hover {
+    transform: scale(1.035);
+}
+
+.menu-component .name-category {
+    height: 20px;
+}
+.menu-component .name-category .item-category {
+    color: #333333;
+    opacity: 0.5;
+}
+.menu-component .name-category .item-name {
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+}
+.menu-component .name-category .item-name h4 {
+    font-size: 1.7vw;
+}
+
+.menu-component .item-price .price {
+    background: rgba(255, 255, 255, 0.45);
+}
+.menu-component .top-category {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 27vw;
+}
+
+.menu-component .row-card-menu {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.menu-component .title-category {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 27vw;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.menu-component .filter-btn {
+    background-color: white;
+    color: #007bff;
+    font-size: 1rem;
+    padding: 0.375rem 0.75rem;
+    border: solid 1px #007bff;
+    cursor: pointer;
+    min-width: 13.5vw;
+}
+
+.menu-component .dropdown-filter {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-component .filter-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 13.5vw;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.menu-component .filter-content div {
+    color: black;
+    padding: 0.375rem 0.75rem;
+    display: block;
+}
+
+.menu-component .filter-content div:hover {
+    background-color: #f1f1f1;
+}
+
+.menu-component .dropdown-filter:hover .filter-content {
+    display: block;
+}
+
+.menu-component .dropdown-filter:hover .filter-btn {
+    background-color: #007bff;
+    color: white;
+}
+.menu-component .dropdown-filter .filter-btn .icon-filter{
+    transition: transform 0.5s;
+}
+.menu-component .dropdown-filter:hover .filter-btn .icon-filter{
+    transform: rotate(179deg);
+}
+
+@media screen and (max-width: 992px) {
+    .menu-component .title-menu {
+        font-size: 5vw;
+    }
+    .menu-component .listsmall {
+        width: 100%;
+    }
+    .menu-component .pagination {
+        font-family: IBM Plex Sans;
+        font-weight: 600;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+        font-size: 2vw;
+        width: 100%;
+    }
+    .menu-component .name-category .item-name h4 {
+        font-size: 2vw;
+    }
+}
+@media screen and (max-width: 768px) {
+    .menu-component .title-menu {
+        font-size: 4.5vw;
+    }
+    .menu-component .listsmall {
+        width: 100%;
+    }
+    .menu-component .pagination {
+        font-family: IBM Plex Sans;
+        font-weight: 600;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+        font-size: 3vw;
+        width: 100%;
+    }
+    .menu-component .pagination div {
+        color: #054c73;
+        float: left;
+        padding: 1vw 1.5vw;
+    }
+    .menu-component .pagination .next-prev:hover {
+        width: 10vw;
+        height: 6vw;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .menu-component .pagination div.active {
+        background-color: #054c73;
+        color: white;
+        border-radius: 50%;
+        width: 6vw;
+        height: 6vw;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .menu-component .pagination .page:hover:not(.active) {
+        background-color: #ddd;
+        border-radius: 50%;
+        width: 6vw;
+        height: 6vw;
+        text-align: center;
+        justify-content: center;
+    }
+    .menu-component .name-category .item-name h4 {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .menu-component .title-menu {
+        font-size: 24px;
+    }
+    .menu-component .listsmall {
+        width: 100%;
+    }
+    .menu-component .pagination {
+        font-family: IBM Plex Sans;
+        font-weight: 600;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+        font-size: 4vw;
+        width: 100%;
+    }
+    .menu-component .pagination div {
+        color: #054c73;
+        float: left;
+        padding: 1vw 1.5vw;
+    }
+    .menu-component .pagination .next-prev:hover {
+        width: 12vw;
+        height: 8vw;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .menu-component .pagination div.active {
+        background-color: #054c73;
+        color: white;
+        border-radius: 50%;
+        width: 8vw;
+        height: 8vw;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .menu-component .pagination .page:hover:not(.active) {
+        background-color: #ddd;
+        border-radius: 50%;
+        width: 8vw;
+        height: 8vw;
+        text-align: center;
+        justify-content: center;
+    }
+    .menu-component .name-category .item-name h4 {
+        font-size: 5vw;
+    }
+}

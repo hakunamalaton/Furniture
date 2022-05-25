@@ -1,0 +1,110 @@
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} */
+
+.search-control {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 213, 59, 1);
+}
+
+.search-control input {
+  width: 100%;
+  height: 35px;
+  padding: 3px;
+  font-size: 17px;
+  border: 1px solid #211931;
+  border-radius: 10px 0 0 10px;
+}
+
+.searchBut {
+  border-radius: 0 10px 10px 0;
+}
+
+.searchBarLoc {
+  width: 60%;
+  margin: 0 3%;
+}
+
+.searchBarCo {
+  background-color: rgba(255, 213, 59, 1);
+}
+
+.loginBut {
+  margin: 2.5%;
+}
+
+.regisBut {
+  float: right;
+  margin-right: 2%;
+}
+
+.addPad {
+  padding: 6px 15px;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 600px;
+  min-height: 300px;
+  margin: auto;
+  padding-top: 10%;
+  border: 0px solid black;
+
+}
+
+.inContainer {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.center {
+  text-align: center;
+}
+
+
+.headerFont {
+  font-family: 'Poppins', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.inputBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+.inputBlock input {
+  width: 100%;
+  height: 40px;
+  padding: 3px;
+  border: 1px solid #211931;
+  border-radius: 5px;
+}
+
+.addMargin {
+  margin-top: 20px;
+}
+
+.close-modal-btn {
+  background-color: blue;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid white;
+  padding: 10px;
+}
+
+.close-modal-btn a {
+  color: white;
+}
+
+.modal-btns {
+  display: flex;
+  justify-content: space-evenly;
+}

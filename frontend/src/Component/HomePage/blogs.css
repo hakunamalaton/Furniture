@@ -1,0 +1,19 @@
+.blogs-component .carousel-indicators {
+    bottom: -10%;
+}
+@media screen and (max-width: 768px) {
+    .blogs-component h1 {
+        font-size: 45px;
+    }
+    .blogs-component h3 {
+        font-size: 24px;
+    }
+}
+@media screen and (max-width: 576px) {
+    .blogs-component h1 {
+        font-size: 30px;
+    }
+    .blogs-component h3 {
+        font-size: 20px;
+    }
+}

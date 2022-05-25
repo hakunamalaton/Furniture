@@ -1,0 +1,30 @@
+.qrcode {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 600;
+    background-color: #ffffff;
+}
+.qrcode-more {
+    width: 400px;
+}
+.qrcode-less {
+    width: 200px;
+}
+.qrcode-more, .qrcode-less{
+    box-shadow: 5px 5px gray;
+}
+.qrcode-more .qrcode-img{
+    height: auto;
+}
+/* .qrcode-less .qrcode-img{
+    height: 40px;
+    width: 40px;
+} */
+.qrcode-more .intro-app-ar{
+    font-size: 14px;
+}
+.qrcode-less .intro-app-ar{
+    font-size: 16px;
+}

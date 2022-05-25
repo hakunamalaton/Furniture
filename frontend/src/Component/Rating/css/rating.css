@@ -1,0 +1,56 @@
+
+.rating-head{
+    color: #0795DF;
+}
+
+.rating-overview{
+    background-color: #DCF3FF;
+}
+
+.rating-overview .rating-star{
+    font-size: 1.5rem;
+}
+.rating-overview .rating-score{
+    font-size: 1.875rem;
+}
+.rating-overview .rating-score-out-of{
+    font-size: 1.125rem;
+}
+
+.categories{
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+}
+.categories #pick{
+    color: #0795DF;
+    border: solid 1px #0795DF;
+}
+.categories #nonPick{
+    color: #000;
+    border: solid 1px #000;
+}
+.rating-cmt-list .rating{
+    border-top: solid 1px #adb5bd;
+}
+
+.pagination-product-rating #change{
+    color: white;
+    background-color:#0795DF;
+}
+@media only screen and (max-width: 767.5px) {
+    .avatar-author {
+        height: auto;
+        width: 120px;
+    }
+}
+@media only screen and (max-width: 425.5px) {
+    .avatar-author {
+        height: auto;
+        width: 90px;
+    }
+}

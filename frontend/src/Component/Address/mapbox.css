@@ -1,0 +1,20 @@
+.mapboxgl-ctrl-bottom-right,
+.mapboxgl-ctrl-bottom-left {
+    display: none;
+}
+
+.animationMarker {
+    animation: upanddown 1s alternate infinite;
+}
+
+@keyframes upanddown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
