@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    product_id = @order.orders_products.pluck(:product_id, :quantity, :size, :color).map do |information|
+    product_id = @order.orders_products.pluck(:product_id, :quantity, :size, :color, :rated).map do |information|
       {
         product_id: information[0],
         name: Product.find_by(id: information[0]).name,
@@ -25,7 +25,8 @@ class OrdersController < ApplicationController
         image: Product.find_by(id: information[0]).image ? Product.find_by(id: information[0]).image[0] : nil ,
         quantity: information[1],
         size: information[2],
-        color: information[3]
+        color: information[3],
+        rated: information[4]
       }
     end
     # quantity = @order.orders_products.pluck(:quantity)    
