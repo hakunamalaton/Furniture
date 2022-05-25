@@ -39,3 +39,4 @@ tmp
 /config/credentials/development.key
 
 /log/development.log
+config/database.yml

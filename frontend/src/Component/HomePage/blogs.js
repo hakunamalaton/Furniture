@@ -48,7 +48,7 @@ const Blogs = () => {
                                                     smart way
                                                 </h3>
                                             </div>
-                                            <div class="separation">
+                                            <div className="separation">
                                                 <div
                                                     style={{
                                                         width: "50px",
@@ -87,7 +87,7 @@ const Blogs = () => {
                                                     in your room
                                                 </h3>
                                             </div>
-                                            <div class="separation">
+                                            <div className="separation">
                                                 <div
                                                     style={{
                                                         width: "50px",
@@ -130,7 +130,7 @@ const Blogs = () => {
                                                     comfort to your sleep
                                                 </h3>
                                             </div>
-                                            <div class="separation">
+                                            <div className="separation">
                                                 <div
                                                     style={{
                                                         width: "50px",
@@ -167,7 +167,7 @@ const Blogs = () => {
                                                     Decorate the living room for the new season
                                                 </h3>
                                             </div>
-                                            <div class="separation">
+                                            <div className="separation">
                                                 <div
                                                     style={{
                                                         width: "50px",

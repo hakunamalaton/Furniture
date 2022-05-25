@@ -60,7 +60,6 @@ function TransactionHistory() {
                 )
                 .then((res) => {
                     setDataOrderDetailList((prev) => [...prev, res.data]);
-                    console.log(res.data);
                 })
                 .catch((err) => console.error("Đây là lỗi: " + err));
         }
@@ -209,7 +208,7 @@ function TransactionHistory() {
                                 name={item.name}
                                 category={`${item.color}, ${item.size}`}
                                 emailUser={emailUser}
-                                last={last}
+                                rated={item.rated}
                             />
                         </div>
                     </div>

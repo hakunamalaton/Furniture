@@ -120,14 +120,24 @@ class ProductsController < ApplicationController
     @product.update(avg_star: new_avg_star)
     @product.save
 
+    #finding order id
+    order = Order.find_by(id: params[:order_id])
+    # update rated for this item
+    item = OrdersProduct.find_by(order_id: params[:order_id], product_id: @product.id)
+    item.update(rated: true)
+
     rating = Rating.create(
         user_id: user.id,
         product_id: @product.id,
         description: params[:description],
         image: params[:image],
         category: params[:category],
-        star: params[:star]
+        star: params[:star],
+        order_id: order.id
     )
+    # binding the rating to this order
+    order.ratings << rating
+
     render json: {
         code: 0,
         rating: rating

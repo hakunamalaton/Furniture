@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_28_085814) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_25_043203) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_28_085814) do
     t.integer "quantity"
     t.string "size"
     t.string "color"
+    t.boolean "rated", default: false
     t.index ["order_id"], name: "index_orders_products_on_order_id"
     t.index ["product_id"], name: "index_orders_products_on_product_id"
   end
@@ -74,6 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_28_085814) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "category", array: true
+    t.integer "order_id"
     t.index ["product_id"], name: "index_ratings_on_product_id"
     t.index ["user_id"], name: "index_ratings_on_user_id"
   end
@@ -90,6 +92,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_28_085814) do
   add_foreign_key "orders", "users"
   add_foreign_key "orders_products", "orders"
   add_foreign_key "orders_products", "products"
+  add_foreign_key "ratings", "orders"
   add_foreign_key "ratings", "products"
   add_foreign_key "ratings", "users"
 end

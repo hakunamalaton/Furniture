@@ -1,16 +1,36 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../css/popUpRating.css";
 import { faCamera, faStar } from "@fortawesome/free-solid-svg-icons";
 const axios = require("axios");
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
-function PopUpRating({ idOrder, id, image, name, category, emailUser, last}) {
+function PopUpRating({ idOrder, id, image, name, category, emailUser, rated }) {
     const [currentScore, setCurrentScore] = useState(0);
     const [hoverScore, setHoverScore] = useState(undefined);
     const [popUp, setPopUp] = useState(false);
-    // const [isRating, setIsRating] = useState(false);
     let images = [];
+    const [listRate, setListRate] = useState([]);
+
+    useEffect(() => {
+        axios.get(`${SERVER_URL}/orders/${idOrder}`).then((res) => {
+            setListRate(res.data.detail_information.map((a) => {
+                return {
+                    product_id: a.product_id,
+                    rated: a.rated,
+                };
+            }));
+        });
+    })
+
+    function checkListRate(arr, id) {
+        let temp_arr = arr.filter((a) => a.rated === false);
+        if (temp_arr.length > 1) {
+            return false;
+        } else {
+            return temp_arr[0].product_id === id;
+        }
+    }
 
     function handleAddRating(e) {
         let score = currentScore;
@@ -34,7 +54,9 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, last}) {
             default:
                 break;
         }
-        let description = document.getElementById(`content-cmt-product-${id}`).value;
+        let description = document.getElementById(
+            `content-cmt-product-${id}`
+        ).value;
         if (description) {
             category.push("comment");
         }
@@ -42,36 +64,30 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, last}) {
             category.push("media");
         }
         e.preventDefault();
-        axios
-            .post(`${SERVER_URL}/products/${id}/ratings`, {
-                email: emailUser,
-                description,
-                image: images,
-                category,
-                star: score,
-            })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-
-        axios
-        .patch(`${SERVER_URL}/orders/${idOrder}`, {
-            status: "Evaluated"
-        })
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
+        axios.post(`${SERVER_URL}/products/${id}/ratings`, {
+            email: emailUser,
+            description,
+            image: images,
+            category,
+            star: score,
+            order_id: idOrder,
         });
-        
+        if (checkListRate(listRate, id) === true) {
+            axios
+                .patch(`${SERVER_URL}/orders/${idOrder}`, {
+                    status: "Evaluated",
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
         setPopUp(!popUp);
         setTimeout(() => {
             window.location.href = "/transaction-history";
-        }, 1500);
+        }, 1600);
     }
 
     function pickStarScore() {
@@ -113,8 +129,10 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, last}) {
     };
 
     function clearImgPreview() {
-        images = []
-        const listFilePrev = document.querySelectorAll(`.preview-img-rating-order-${idOrder}`);
+        images = [];
+        const listFilePrev = document.querySelectorAll(
+            `.preview-img-rating-order-${idOrder}`
+        );
         listFilePrev.forEach(resetPreviewImg);
     }
     function resetPreviewImg(item, index) {
@@ -123,7 +141,9 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, last}) {
     }
     function previewListImg() {
         clearImgPreview();
-        const file = document.querySelector(`#input-img-rating-order-${idOrder}`).files;
+        const file = document.querySelector(
+            `#input-img-rating-order-${idOrder}`
+        ).files;
         if (file.length === 0) {
             return;
         }
@@ -135,13 +155,17 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, last}) {
         const preview = document.querySelector(
             `#order-${idOrder}-img-rating-upload-${index + 1}`
         );
-        console.log(preview)
-        var file = document.querySelector(`#input-img-rating-order-${idOrder}`).files[index];
+        console.log(preview);
+        var file = document.querySelector(`#input-img-rating-order-${idOrder}`)
+            .files[index];
         if (file.size > 51000) {
-            document.getElementById(`submit-rating-order-${idOrder}`).disabled = true;
-        }
-        else {
-            document.getElementById(`submit-rating-order-${idOrder}`).disabled = false;
+            document.getElementById(
+                `submit-rating-order-${idOrder}`
+            ).disabled = true;
+        } else {
+            document.getElementById(
+                `submit-rating-order-${idOrder}`
+            ).disabled = false;
         }
         let blobURL = URL.createObjectURL(file);
         preview.style.display = "block";
@@ -157,7 +181,9 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, last}) {
             <div className="row">
                 <div className="col-12">
                     <button
-                        className={`btn btn-primary btnRating`}
+                        className={`btn btn-primary btnRating ${
+                            rated === false ? "d-block" : "d-none"
+                        }`}
                         onClick={handlePopUp}
                     >
                         RATING
@@ -227,7 +253,9 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, last}) {
                                             </div>
                                             <div className="ml-2 col-12 col-sm-4 d-flex align-items-center">
                                                 <div className="row">
-                                                    (Max is 6 images. The maximum size of each image is 50KB.)
+                                                    (Max is 6 images. The
+                                                    maximum size of each image
+                                                    is 50KB.)
                                                 </div>
                                             </div>
                                         </div>
@@ -261,16 +289,15 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, last}) {
                                             CANCEL
                                         </button>
                                     </Link>
-                                    
-                                        <button
-                                            type="submit"
-                                            className="btn btn-primary m-2 btnSubmit"
-                                            id={`submit-rating-order-${idOrder}`}
-                                            onClick={(e) => handleAddRating(e)}
-                                        >
-                                            COMPLETE
-                                        </button>
-                                    
+
+                                    <button
+                                        type="submit"
+                                        className="btn btn-primary m-2 btnSubmit"
+                                        id={`submit-rating-order-${idOrder}`}
+                                        onClick={(e) => handleAddRating(e)}
+                                    >
+                                        COMPLETE
+                                    </button>
                                 </div>
                             </form>
                         </div>

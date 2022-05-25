@@ -9,10 +9,14 @@ import { faFilter } from "@fortawesome/free-solid-svg-icons";
 const axios = require("axios");
 const listBtn = ["All", "Bedding", "Chair", "Lamp", "Sofas"];
 const Menu = ({ match }) => {
-    const typeItem = match.params.type;
+    let typeItem = match.params.type;
+    let nameItem = ""
+    if (typeItem !== "All" && typeItem !== "Bedding" && typeItem !== "Chair" && typeItem !== "Sofas" && typeItem !== "Lamp") {
+       nameItem = `&name=${typeItem}` 
+    }
     const [totalPageProduct, setTotalPageProduct] = useState(0);
-    const [category, setCategory] = useState("");
-    const [categoryPage, setCategoryPage] = useState("");
+    const [category, setCategory] = useState(typeItem === "Lamp" ? "&type=Light" : typeItem === "Bedding" ? "&type=Bedding" : typeItem === "Chair" ? "&type=Chair" : typeItem === "Sofas" ? "&type=Sofas" : "");
+    const [categoryPage, setCategoryPage] = useState(typeItem === "Lamp" ? "?type=Light" : typeItem === "Bedding" ? "?type=Bedding" : typeItem === "Chair" ? "?type=Chair" : typeItem === "Sofas" ? "?type=Sofas" : "");
     const [filterOption, setFilterOption] = useState(0);
     const [bgCategory, setBgCategory] = useState(
         "https://i.imgur.com/PvYsFQu.png"
@@ -79,7 +83,7 @@ const Menu = ({ match }) => {
             .catch((err) => console.error("Đây là lỗi: " + err));
         axios
             .get(
-                `http://localhost:8000/products?page=${page}&limit=12${category}`
+                `http://localhost:8000/products?page=${page}&limit=12${category}${nameItem}`
             )
             .then((res) => {
                 if (filterOption === 0) {
@@ -103,7 +107,7 @@ const Menu = ({ match }) => {
             })
             .catch((err) => console.error("Đây là lỗi: " + err));
         
-    }, [page, category, categoryPage, filterOption]);
+    }, [page, category, categoryPage, filterOption, nameItem]);
     let listPage = [];
     for (let i = 0; i < totalPageProduct; i++) {
         listPage.push(1);

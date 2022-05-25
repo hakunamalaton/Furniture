@@ -23,10 +23,7 @@ const Total = ({ priceState, paymentOption }) => {
                 ? 0
                 : OrderPriceState.shipping * OrderPriceState.shippingScale)
         ).toFixed(2);
-        window.open(
-            `https://furniture-payment.herokuapp.com/payment-paypal?total=${total}`,
-            "_blank"
-        );
+        window.location.href = `https://furniture-payment.herokuapp.com/payment-paypal?total=${total}`
     }
     const handlePayWithMomo = () => {
         dispatch(updateFinalPrice());

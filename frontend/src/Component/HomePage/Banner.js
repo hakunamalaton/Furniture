@@ -44,7 +44,7 @@ const Banner = () => {
                                     {" "}
                                     The softest beds!
                                 </div>
-                                <a href="./menu/Bedding">View more Sofas</a>
+                                <a href="./menu/Sofas">View more Sofas</a>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@ const Banner = () => {
                                     {" "}
                                     Modern and elegant lamps.
                                 </div>
-                                <a href="./menu/Bedding">View more Lamps</a>
+                                <a href="./menu/Lamp">View more Lamps</a>
                             </div>
                         </div>
                         <div className="d-flex col-6 m-2">
@@ -70,7 +70,7 @@ const Banner = () => {
                                     {" "}
                                     The chairs are simple but sustainable.
                                 </div>
-                                <a href="./menu/Bedding">View more Chairs</a>
+                                <a href="./menu/Chair">View more Chairs</a>
                             </div>
                         </div>
                     </div>

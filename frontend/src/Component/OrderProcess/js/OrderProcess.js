@@ -48,9 +48,9 @@ const OrderProcess = () => {
                     <div className="progress-bar-item"> Shipping Time </div>
                     <div className="progress-bar-item"> Proceed Payment </div>
                 </div>
-                <div className="next-prev-button-bar">
-                    <button onClick={toPrevPage} type="button" className="btn btn-primary">Prev</button>
-                    <button onClick={toNextPage} type="button" className="btn btn-primary">Next</button>
+                <div className={`next-prev-button-bar ${step === 1 ? "justify-content-end" : step === 4 ? "justify-content-star" : "justify-content-between"}`}>
+                    <button onClick={toPrevPage} type="button" className={`btn btn-primary ${step === 1 ? "d-none" : "d-block"}`}>Prev</button>
+                    <button onClick={toNextPage} type="button" className={`btn btn-primary ${step === 4 ? "d-none" : "d-block"}`}>Next</button>
                 </div>
                 <CurrentCart step={step} cartState={cartState} setCartState={setCartState} buyerState={buyerState} setBuyerState={setBuyerState} statusState={statusState} setStatusState={setStatusState} priceState={priceState} setPriceState={setPriceState} />
                 <Address step={step} buyerState={buyerState} setBuyerState={setBuyerState} priceState={priceState} setPriceState={setPriceState} />
