@@ -30,7 +30,7 @@ const HomePage = () => {
                                 </h1>
                                 <h1 className="text-dark">YOUR HOME</h1>
                                 <Link to="/menu/All">
-                                    <button type="button" className="btn btn-warning text-dark">SHOP NOW</button>
+                                    <button type="button" className="btn btn-warning text-dark rounded-0">SHOP NOW</button>
                                 </Link>
                             </div>
                         </div>
@@ -42,7 +42,7 @@ const HomePage = () => {
                                 </h1>
                                 <h1 className="text-dark">TREND DESIGN</h1>
                                 <Link to="/menu/All">
-                                    <button type="button" className="btn btn-warning text-dark">EXPLORE</button>
+                                    <button type="button" className="btn btn-warning text-dark rounded-0">EXPLORE</button>
                                 </Link>
                             </div>
                         </div>
@@ -54,7 +54,7 @@ const HomePage = () => {
                                 </h1>
                                 <h1 className="text-white">TREND DESIGN</h1>
                                 <Link to="/menu/All">
-                                    <button type="button" className="btn btn-warning text-dark">EXPLORE</button>
+                                    <button type="button" className="btn btn-warning text-dark rounded-0">EXPLORE</button>
                                 </Link>
                             </div>
                         </div>
@@ -66,7 +66,7 @@ const HomePage = () => {
                                 </h1>
                                 <h1 className="text-white">TREND DESIGN</h1>
                                 <Link to="/menu/All">
-                                    <button type="button" className="btn btn-warning text-dark">EXPLORE</button>
+                                    <button type="button" className="btn btn-warning text-dark rounded-0">EXPLORE</button>
                                 </Link>
                             </div>
                         </div>
@@ -78,7 +78,7 @@ const HomePage = () => {
                                 </h1>
                                 <h1 className="text-dark">TREND DESIGN</h1>
                                 <Link to="/menu/All">
-                                    <button type="button" className="btn btn-warning text-dark">EXPLORE</button>
+                                    <button type="button" className="btn btn-warning text-dark rounded-0">EXPLORE</button>
                                 </Link>
                             </div>
                         </div>
@@ -90,7 +90,7 @@ const HomePage = () => {
                                 </h1>
                                 <h1 className="text-dark">TREND DESIGN</h1>
                                 <Link to="/menu/All">
-                                    <button type="button" className="btn btn-warning text-dark">EXPLORE</button>
+                                    <button type="button" className="btn btn-warning text-dark rounded-0">EXPLORE</button>
                                 </Link>
                             </div>
                         </div>
