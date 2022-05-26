@@ -122,7 +122,7 @@ function PageProduct({ match }) {
                                 <Link to="/">BK Furniture</Link>
                             </li>
                             <li className="breadcrumb-item">
-                                <Link to="/menu">Products</Link>
+                                <Link to="/menu/All">Products</Link>
                             </li>
                             <li
                                 className="breadcrumb-item active"
@@ -338,7 +338,7 @@ function PageProduct({ match }) {
                                                         }
                                                         onClick={() =>
                                                             handleSize(
-                                                                size,
+                                                                nameSize,
                                                                 index
                                                             )
                                                         }
