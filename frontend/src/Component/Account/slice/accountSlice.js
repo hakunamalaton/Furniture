@@ -76,7 +76,7 @@ export default accountSlice.reducer;
 
 export const getUserAddresses = createAsyncThunk('account/getUserAddresses', async (token, thunkAPI) => {
     try {
-        const getUserAddressesResponse = await axios.get(`http://localhost:8000/users/${token}/address`);
+        const getUserAddressesResponse = await axios.get(`${SERVER_URL}/users/${token}/address`);
         console.log("getUserAddresses data", getUserAddressesResponse.data);
         return getUserAddressesResponse.data.address;
     } catch (err) {
@@ -87,7 +87,7 @@ export const getUserAddresses = createAsyncThunk('account/getUserAddresses', asy
 
 export const addNewUserAddress = createAsyncThunk('account/addNewUserAddress', async (data, thunkAPI) => {
     try {
-        const addAddressResponse = await axios.post(`http://localhost:8000/users/${data.userId}/address`, data);
+        const addAddressResponse = await axios.post(`${SERVER_URL}/users/${data.userId}/address`, data);
         console.log("In addNewUserAddress thunk data", data);
         return data;
     } catch (err) {
