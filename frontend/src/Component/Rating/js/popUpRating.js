@@ -43,7 +43,7 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, rated, lis
                 break;
         }
         let description = document.getElementById(
-            `content-cmt-product-${id}`
+            `content-cmt-order-${idOrder}-product-${id}`
         ).value;
         if (description) {
             category.push("comment");
@@ -119,7 +119,7 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, rated, lis
     function clearImgPreview() {
         images = [];
         const listFilePrev = document.querySelectorAll(
-            `.preview-img-rating-order-${idOrder}`
+            `.preview-img-rating-order-${idOrder}-product-${id}`
         );
         listFilePrev.forEach(resetPreviewImg);
     }
@@ -130,7 +130,7 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, rated, lis
     function previewListImg() {
         clearImgPreview();
         const file = document.querySelector(
-            `#input-img-rating-order-${idOrder}`
+            `#input-img-rating-order-${idOrder}-product-${id}`
         ).files;
         if (file.length === 0) {
             return;
@@ -141,10 +141,10 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, rated, lis
     }
     function previewImg(index) {
         const preview = document.querySelector(
-            `#order-${idOrder}-img-rating-upload-${index + 1}`
+            `#order-${idOrder}-product-${id}-img-rating-upload-${index + 1}`
         );
         console.log(preview);
-        var file = document.querySelector(`#input-img-rating-order-${idOrder}`)
+        var file = document.querySelector(`#input-img-rating-order-${idOrder}-product-${id}`)
             .files[index];
         if (file.size > 51000) {
             document.getElementById(
@@ -158,6 +158,7 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, rated, lis
         let blobURL = URL.createObjectURL(file);
         preview.style.display = "block";
         preview.style.backgroundImage = "url(" + blobURL.toString() + ")";
+        console.log(preview);
         const reader = new FileReader();
         reader.onload = function () {
             images.push(reader.result);
@@ -211,7 +212,7 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, rated, lis
                                     <textarea
                                         type="content-cmt"
                                         className="form-control"
-                                        id={`content-cmt-product-${id}`}
+                                        id={`content-cmt-order-${idOrder}-product-${id}`}
                                         rows="3"
                                         placeholder="Please share more things you like about this product"
                                     />
@@ -223,14 +224,14 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, rated, lis
                                                 <input
                                                     type="file"
                                                     className="custom-file-input"
-                                                    id={`input-img-rating-order-${idOrder}`}
+                                                    id={`input-img-rating-order-${idOrder}-product-${id}`}
                                                     accept="image/png, image/jpeg, image/jpg"
                                                     multiple
                                                     onChange={previewListImg}
                                                 />
                                                 <label
                                                     className="custom-file-label text-primary border-primary rounded-0 d-flex justify-content-center align-items-center"
-                                                    htmlFor={`input-img-rating-order-${idOrder}`}
+                                                    htmlFor={`input-img-rating-order-${idOrder}-product-${id}`}
                                                 >
                                                     <FontAwesomeIcon
                                                         icon={faCamera}
@@ -252,9 +253,9 @@ function PopUpRating({ idOrder, id, image, name, category, emailUser, rated, lis
                                                 (_, index) => {
                                                     return (
                                                         <div
-                                                            className={`m-1 preview-img-rating preview-img-rating-order-${idOrder}`}
+                                                            className={`m-1 preview-img-rating preview-img-rating-order-${idOrder}-product-${id}`}
                                                             id={
-                                                                `order-${idOrder}-img-rating-upload-` +
+                                                                `order-${idOrder}-product-${id}-img-rating-upload-` +
                                                                 (index + 1)
                                                             }
                                                             key={index}

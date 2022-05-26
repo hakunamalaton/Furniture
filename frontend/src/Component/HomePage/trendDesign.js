@@ -96,7 +96,7 @@ const TrendDesign = () => {
                                 elegant modernity for the room.
                             </div>
                             <a
-                                href="/menu/all"
+                                href="/menu/All"
                                 className="row justify-content-center justify-content-lg-start align-items-center text-decoration-none"
                             >
                                 <div className="btn btn-primary mt-2 rounded-0">
@@ -123,7 +123,7 @@ const TrendDesign = () => {
                                 home.
                             </div>
                             <a
-                                href="/menu/all"
+                                href="/menu/All"
                                 className="row justify-content-lg-start justify-content-center mb-2 align-items-center text-dark text-decoration-none"
                             >
                                 <strong>What are you waiting for?</strong>
@@ -291,7 +291,7 @@ const TrendDesign = () => {
                             etc.
                         </div>
                         <a
-                            href="/menu/all"
+                            href="/menu/All"
                             className="row justify-content-center justify-content-md-start align-items-center text-decoration-none"
                         >
                             <div className="btn btn-primary mt-2 rounded-0">
