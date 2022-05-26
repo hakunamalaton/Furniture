@@ -10,12 +10,17 @@ import twitter from "../Image/twitter.png";
 
 const Footer = () => {
     return (
-        <div className="border-top bg-white border-dark mt-5">
+        <div className="border-top text-white border-dark pt-2" style={{backgroundColor: "#252531"}}>
             <div className="container ">
+                <div className="d-flex justify-content-start py-2">
+                    <div className="col-3 px-0">
+                        <img src="https://i.imgur.com/jYv5ijC.png" alt="" className="d-block w-100" />
+                    </div>
+                </div>
                 <div className="footer d-flex justify-content-around pt-2 pb-1 row">
                     <div className="col-xl">
                         <div>
-                            <h6>CONTACT US</h6>
+                            <h6> <strong>CONTACT US</strong> </h6>
                             <div>
                                 <img src={telephone} width="25px" alt="telephone" /> +84 914 851 501
                             </div>
@@ -25,20 +30,20 @@ const Footer = () => {
                         </div>
 
                         <div className="mt-2 mt-xl-4">
-                            <h6>POLICY</h6>
-                            <Link to={"/term-of-service"}>Term Of Service</Link> <br />
-                            <Link to={"/exchange-policy"}>Exchange Policy</Link>
+                            <h6> <strong> POLICY</strong></h6>
+                            <Link to={"/term-of-service"} className="text-white">Term Of Service</Link> <br />
+                            <Link to={"/exchange-policy"} className="text-white">Exchange Policy</Link>
                             <br />
-                            <Link to={"/delivery-policy"}>Delivery Policy</Link>
+                            <Link to={"/delivery-policy"} className="text-white">Delivery Policy</Link>
                             <br />
-                            <Link to={"/warranty-policy"}>Warranty Policy</Link>
+                            <Link to={"/warranty-policy"} className="text-white">Warranty Policy</Link>
                             <br />
-                            <Link to={"/privacy-policy"}>Privacy Polity</Link>
+                            <Link to={"/privacy-policy"} className="text-white">Privacy Polity</Link>
                         </div>
                     </div>
                     <div className="col-xl">
                         <div>
-                            <h6>VISIT OUR STORE</h6>
+                            <h6> <strong> VISIT OUR STORE</strong></h6>
                             <div>
                                 <img src={location} width="25px" alt="location" /> 246 Ly Thuong
                                 Kiet, Quan 10, Ho Chi Minh City, Viet Nam
@@ -52,7 +57,7 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className="mt-2 mt-xl-4">
-                            <h6>FILL EMAIL FOR DEALS OR YOUR DESIGN</h6>
+                            <h6> <strong>FILL EMAIL FOR DEALS OR YOUR DESIGN</strong> </h6>
                             <form className="form-inline my-2 justify-content-end mt-2">
                                 <input
                                     className="form-control mr-sm-2 w-100"
@@ -68,8 +73,8 @@ const Footer = () => {
                                 </button>
                             </form>
                         </div>
-                        <div className="mt-2 mt-xl-4 connect">
-                            <h6>CONNECT WITH US</h6>
+                        <div className="mt-2 mt-xl-4 connect pb-5">
+                            <h6> <strong>CONNECT WITH US</strong> </h6>
                             <a href="https://www.facebook.com/">
                                 <img src={facebook} width="30px" alt="facebook" className="mr-3" />
                             </a>

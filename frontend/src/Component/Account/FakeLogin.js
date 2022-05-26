@@ -138,14 +138,15 @@ export default function FakeLogin() {
                                     style={customStyles}
                                     contentLabel="Example Modal"
                                 >
-                                    <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
+                                    <div className="d-flex justify-content-end">
+                                <button className="rounded-0 border-0 bg-white" onClick={closeModal}>
+                                        X
+                                    </button>
+                                </div>
+                                    <h4 ref={(_subtitle) => (subtitle = _subtitle)} className="text-danger">
                                         Login failed, please recheck your email and password
-                                    </h2>
-                                    <div className="modal-btns">
-                                        <button className="close-modal-btn" onClick={closeModal}>
-                                            Close
-                                        </button>
-                                    </div>
+                                    </h4>
+                                    
                                 </Modal>
                             </div>
                         </form>

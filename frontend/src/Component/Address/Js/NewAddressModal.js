@@ -53,7 +53,6 @@ function NewAddressModal() {
         }
     }, [childProp]);
 
-    let id = 1;
 
     function handleAddNewAddress() {
         let submitAddress = "";
@@ -99,6 +98,9 @@ function NewAddressModal() {
                     </div>
 
                     <div className="modal-body">
+                    <div style={{color: "#054C73"}} className="pt-1">
+                                * Required
+                            </div>
                         <div className="row justify-content-center">
                             <input
                                 className="col-11"
@@ -111,6 +113,9 @@ function NewAddressModal() {
                             />
                         </div>{" "}
                         <br></br>
+                        <div style={{color: "#054C73"}} className="pt-1">
+                                * Required
+                            </div>
                         <div className="row justify-content-center">
                             <input
                                 className="col-11"
@@ -123,6 +128,9 @@ function NewAddressModal() {
                             />
                         </div>{" "}
                         <br></br>
+                        <div style={{color: "#054C73"}} className="pt-1">
+                                * Required
+                            </div>
                         <div className="row justify-content-center">
                             <input
                                 className="col-11"
@@ -148,7 +156,7 @@ function NewAddressModal() {
 
                         <button
                             type="button"
-                            className="col-lg-3 col-12 btn btn-success text-light"
+                            className={`col-lg-3 col-12 btn btn-success text-light ${(address || childProp) && phoneNumber ? "" : "disabled"}`}
                             data-dismiss="modal"
                             onClick={handleAddNewAddress}
                         >

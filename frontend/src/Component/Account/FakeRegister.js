@@ -146,15 +146,18 @@ const FakeRegister = () => {
                                 style={customStyles}
                                 contentLabel="Example Modal"
                             >
-                                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
-                                    Register Success! Would you like to proceed to login?
-                                </h2>
-                                <div className="modal-btns">
-                                    <button className="close-modal-btn" onClick={closeModal}>
-                                        Close
+                                <div className="d-flex justify-content-end">
+                                <button className="rounded-0 border-0 bg-white" onClick={closeModal}>
+                                        X
                                     </button>
-                                    <button className="close-modal-btn">
-                                        <Link to="/login">Proceed To Login</Link>
+                                </div>
+                                <h4 ref={(_subtitle) => (subtitle = _subtitle)} className="text-success">
+                                    Register Success! Would you like to proceed to login?
+                                </h4>
+                                <div className="modal-btns mt-4">
+                                    
+                                    <button className="close-modal-btn bg-success">
+                                        <Link to="/login">Login</Link>
                                     </button>
                                 </div>
                             </Modal>
@@ -168,15 +171,15 @@ const FakeRegister = () => {
                                 style={customStyles}
                                 contentLabel="Example Modal"
                             >
-                                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
-                                    Register failed, your email has been taken or password not
-                                    matched
-                                </h2>
-                                <div className="modal-btns">
-                                    <button className="close-modal-btn" onClick={closeModal}>
-                                        Close
+                                <div className="d-flex justify-content-end">
+                                <button className="rounded-0 border-0 bg-white" onClick={closeModal}>
+                                        X
                                     </button>
                                 </div>
+                                <h4 ref={(_subtitle) => (subtitle = _subtitle)} className="text-danger">
+                                    Register failed, your email has been taken or password not
+                                    matched
+                                </h4>
                             </Modal>
                         </div>
 
