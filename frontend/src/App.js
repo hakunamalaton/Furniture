@@ -25,7 +25,6 @@ import Blog4 from "./Component/HomePage/blog4";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
 
 import { initAccountWithCookies } from "./Component/Account/slice/accountSlice";
 
