@@ -13,15 +13,16 @@ const Menu = ({ match }) => {
     let typeItem = match.params.type;
     let nameItem = ""
     let nameItemPage = ""
-    if (typeItem !== "All" && typeItem !== "Bedding" && typeItem !== "Chair" && typeItem !== "Sofas" && typeItem !== "Lamp") {
-       nameItem = `&name=${typeItem}` 
-       nameItemPage = `&name=${typeItem}` 
-    }
+    
     const [totalPageProduct, setTotalPageProduct] = useState(0);
     const [category, setCategory] = useState(typeItem === "Lamp" ? "&type=Light" : typeItem === "Bedding" ? "&type=Bedding" : typeItem === "Chair" ? "&type=Chair" : typeItem === "Sofas" ? "&type=Sofas" : "");
     const [categoryPage, setCategoryPage] = useState(typeItem === "Lamp" ? "?type=Light" : typeItem === "Bedding" ? "?type=Bedding" : typeItem === "Chair" ? "?type=Chair" : typeItem === "Sofas" ? "?type=Sofas" : "");
-    if (categoryPage === "") {
-        nameItemPage = `?name=${typeItem}`
+    if (typeItem !== "All" && typeItem !== "Bedding" && typeItem !== "Chair" && typeItem !== "Sofas" && typeItem !== "Lamp") {
+        nameItem = `&name=${typeItem}` 
+        nameItemPage = `&name=${typeItem}` 
+        if (categoryPage === "") {
+            nameItemPage = `?name=${typeItem}`
+        }
     }
     const [filterOption, setFilterOption] = useState(0);
     const [bgCategory, setBgCategory] = useState(
