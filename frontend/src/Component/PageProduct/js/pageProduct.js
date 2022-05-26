@@ -338,7 +338,7 @@ function PageProduct({ match }) {
                                                         }
                                                         onClick={() =>
                                                             handleSize(
-                                                                size,
+                                                                nameSize,
                                                                 index
                                                             )
                                                         }
