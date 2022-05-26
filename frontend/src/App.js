@@ -48,7 +48,7 @@ function App() {
                 <QrCode />
                 <Switch>
                     <Route exact path="/" component={HomePage} />
-                    {/* <Route exact path="/import-design" component={ImportDesign} />
+                    <Route exact path="/import-design" component={ImportDesign} />
                     <Route exact path="/product-detail/:id" component={PageProduct} />
                     <Route exact path="/rating" component={Rating} />
                     <Route exact path="/order" component={OrderProcess} />
@@ -65,7 +65,7 @@ function App() {
                     <Route exact path="/blogs/save-apartment-space-in-a-smart-way" component={Blog1} />
                     <Route exact path="/blogs/3-ideas-to-fill-in-the-gaps-in-your-room" component={Blog2} />
                     <Route exact path="/blogs/5-bedroom-models-that-bring-comfort-to-your-sleep" component={Blog3} />
-                    <Route exact path="/blogs/decorate-the-living-room-for-the-new-season" component={Blog4} /> */}
+                    <Route exact path="/blogs/decorate-the-living-room-for-the-new-season" component={Blog4} />
                     <Route exact path="/login" component={FakeLogin} />
                     <Route exact path="/register" component={FakeRegister} />
                     {/* <LoginRoute exact path="/login" component={Login} />
