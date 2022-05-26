@@ -22,21 +22,29 @@ Customer can register an account for book orders as well as review the history o
 User should register by an existing email account. If customers import their design, it is easy to discuss together.
 
 ## Filter the menu
-
+In our menu, customers can sort the products order by increasing/descending price as well as by their name.
+Customers also can search the products' name by in search form in header.
 
 ## Detect the location
-
+We use the mapbox API for detecting the address of customer. They can easily to find their home by mapbox UI then we can approximate the price according to the distance.
 
 ## Online payment
-
+Beside the COD payment, we provide two online payment systems ie PayPal and MoMo.
+* With Paypal payment, you must have a Paypal account.
+* With Momo payment, the Momo app must be used to scan the QR code and the limit is not exceed 50.000.000 vnd.
 
 ## Import design
+This is one of the two creative points. Customers can import their design and email will be sent after the submition is successful.
+After, someone of my Sale Team will discuss to go further with this design.
 
 ## History order
+Customers who making the order can track the order. They can be reviewed in some features: total price, fast shipping or normal shipping. If the order is shipped, customer can rate the quality of the product which they purchase.
 
 ## Cart saving
+After adding products to cart, customer can turn off the browser or they are not willing to pay the order at that time. The order still be saved for customer. Therefore, customer continually adding new products or pay the order.
 
 ## Augmented Reality 
+This feature helps customer to make decision to buy the products or not. They must have a device with Android OS to install our app which is placed in left bottom of the application. After installing, customers can easily put the products around their home, change the size as well as rotate the direction.
 
 # Set up
 Just go to the URL: https://ec-furniture-ui.herokuapp.com and get started!
