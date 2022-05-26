@@ -6,7 +6,7 @@ import instagram from "../Image/instagram.png";
 import location from "../Image/location.png";
 import mail from "../Image/mail.png";
 import telephone from "../Image/telephone.png";
-import twitter from "../Image/twitter.png";
+import telegram from "../Image/telegram.png";
 
 const Footer = () => {
     return (
@@ -87,8 +87,8 @@ const Footer = () => {
                                 />
                             </a>
 
-                            <a href="https://twitter.com/">
-                                <img src={twitter} width="30px" alt="twitter" className="ml-3" />
+                            <a href="https://telegram.com/">
+                                <img src={telegram} width="30px" alt="telegram" className="ml-3" />
                             </a>
                         </div>
                     </div>
