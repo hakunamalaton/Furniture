@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 const axios = require("axios");
 const listBtn = ["All", "Bedding", "Chair", "Lamp", "Sofas"];
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 const Menu = ({ match }) => {
     let typeItem = match.params.type;
     let nameItem = ""
@@ -83,12 +84,12 @@ const Menu = ({ match }) => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/products${categoryPage}${nameItemPage}`)
+            .get(`${SERVER_URL}/products${categoryPage}${nameItemPage}`)
             .then((res) => setTotalPageProduct(Math.ceil(res.data.total / 12)))
             .catch((err) => console.error("Đây là lỗi: " + err));
         axios
             .get(
-                `http://localhost:8000/products?page=${page}&limit=12${category}${nameItem}`
+                `${SERVER_URL}/products?page=${page}&limit=12${category}${nameItem}`
             )
             .then((res) => {
                 if (filterOption === 0) {

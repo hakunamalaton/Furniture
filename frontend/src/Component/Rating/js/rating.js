@@ -5,13 +5,13 @@ import listBtn from "../dataRatingFake/dataRatingCategory.json";
 import listImageUser from "../dataRatingFake/imageUser.json";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 const axios = require("axios");
-
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 function Rating({ id, averageScore }) {
     const [dataRating, setDataRating] = useState([]);
     const [category, setCategory] = useState("");
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/products/${id}/ratings${category}`)
+            .get(`${SERVER_URL}/products/${id}/ratings${category}`)
             .then((res) => setDataRating(res.data.ratings))
             .catch((err) => console.error("Đây là lỗi: " + err));
     }, [id,category]);
