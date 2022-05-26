@@ -86,7 +86,7 @@ const Blog1 = () => {
                 <div className="row justify-content-center mt-5">
                     <div className="col-5 d-flex justify-content-center">
                         <Link to="/menu/All">
-                        <div className="btn btn-dark">
+                        <div className="btn btn-dark rounded-0">
                             GO SHOP!
                         </div>
                         </Link>

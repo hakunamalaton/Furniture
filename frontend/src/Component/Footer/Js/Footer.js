@@ -10,7 +10,7 @@ import twitter from "../Image/twitter.png";
 
 const Footer = () => {
     return (
-        <div className="border-top text-white border-dark pt-2" style={{backgroundColor: "#252531"}}>
+        <div className="border-top text-white border-dark pt-2" style={{backgroundColor: "#054c73"}}>
             <div className="container ">
                 <div className="d-flex justify-content-start py-2">
                     <div className="col-3 px-0">
@@ -60,13 +60,13 @@ const Footer = () => {
                             <h6> <strong>FILL EMAIL FOR DEALS OR YOUR DESIGN</strong> </h6>
                             <form className="form-inline my-2 justify-content-end mt-2">
                                 <input
-                                    className="form-control mr-sm-2 w-100"
+                                    className="form-control mr-sm-2 w-100 rounded-0"
                                     type="search"
                                     placeholder="Email Address"
                                     aria-label="Search"
                                 />
                                 <button
-                                    className="btn bg-secondary text-light my-2 my-sm-0 position-absolute mr-sm-2"
+                                    className="btn bg-secondary text-light my-2 my-sm-0 position-absolute mr-sm-2 rounded-0"
                                     type="submit"
                                 >
                                     Send us

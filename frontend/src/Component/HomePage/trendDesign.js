@@ -99,7 +99,7 @@ const TrendDesign = () => {
                                 href="/menu/all"
                                 className="row justify-content-center justify-content-lg-start align-items-center text-decoration-none"
                             >
-                                <div className="btn btn-primary mt-2">
+                                <div className="btn btn-primary mt-2 rounded-0">
                                     EXPLORE{" "}
                                     <FontAwesomeIcon
                                         icon={faBookOpen}
@@ -127,7 +127,7 @@ const TrendDesign = () => {
                                 className="row justify-content-lg-start justify-content-center mb-2 align-items-center text-dark text-decoration-none"
                             >
                                 <strong>What are you waiting for?</strong>
-                                <div className="btn btn-primary ml-2 mt-2">
+                                <div className="btn btn-primary ml-2 mt-2 rounded-0">
                                     BUY IT NOW{" "}
                                     <FontAwesomeIcon
                                         icon={faBookOpen}
@@ -294,7 +294,7 @@ const TrendDesign = () => {
                             href="/menu/all"
                             className="row justify-content-center justify-content-md-start align-items-center text-decoration-none"
                         >
-                            <div className="btn btn-primary mt-2">
+                            <div className="btn btn-primary mt-2 rounded-0">
                                 BUY NOW!{" "}
                                 <FontAwesomeIcon
                                     icon={faCartShopping}
