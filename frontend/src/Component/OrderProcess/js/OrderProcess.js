@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+
 import Header from "../../Header/Js/Header";
 import Footer from "../../Footer/Js/Footer";
 import "../css/OrderProcess.css";
@@ -11,10 +13,13 @@ import DateTime from "./DateTime";
 import Payment from "./Payment";
 import CurrentCart from "./CurrentCart";
 
-// import { useSelector, useDispatch } from "react-redux";
-// import { incrementItemQuantity, decrementItemQuantity } from "../slice/cartSlice";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+
 
 const OrderProcess = () => {
+    const chosenCoupon = useSelector(state => state.cart.chosenCoupon);
+    const isCouponAdded = useSelector(state => state.cart.isCouponAdded);
 
     const { buyer, cart, status, price } = OrderData;
     const [cartState, setCartState] = useState(cart);
@@ -22,6 +27,7 @@ const OrderProcess = () => {
     const [statusState, setStatusState] = useState(status);
     const [priceState, setPriceState] = useState(price);
     const [step, setStep] = useState(1);
+    const [showCouponMessage, setShowCouponMessage] = useState(!isCouponAdded);
 
     const toPrevPage = () => {
         if (step <= 1) return;
@@ -33,11 +39,28 @@ const OrderProcess = () => {
         setStep(step + 1);
     }
 
+
     console.log(buyerState);
 
     return (
         <div className="bg-light">
             <Header />
+            {
+                showCouponMessage && chosenCoupon && (<Modal show={showCouponMessage} onHide={() => setShowCouponMessage(false)}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Coupon Discount !!!</Modal.Title>
+                    </Modal.Header>
+
+                    <Modal.Body>
+                        <p>{`Congratulation, you earns coupon '${chosenCoupon.name}' valued ${chosenCoupon.value}$`}</p>
+                        <p>{`Type your coupon into form at 'Proceed Payment' step to gain discounts.`}</p>
+                    </Modal.Body>
+
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={() => setShowCouponMessage(false)}>Close</Button>
+                    </Modal.Footer>
+                </Modal>)
+            }
             <div className="order-page-wrapper">
                 <div className="progress-bar">
                     <MultiStepProgressBar currentStep={step} />
