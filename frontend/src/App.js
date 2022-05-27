@@ -21,16 +21,17 @@ import Blog1 from "./Component/HomePage/blog1";
 import Blog2 from "./Component/HomePage/blog2";
 import Blog3 from "./Component/HomePage/blog3";
 import Blog4 from "./Component/HomePage/blog4";
+import CategoriesCouponModal from "./Component/OrderProcess/js/CategoriesCouponModal";
 
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { initAccountWithCookies } from "./Component/Account/slice/accountSlice";
 
 function App() {
     const dispatch = useDispatch();
-
+    const categoriesCounter = useSelector(state => state.cart.categoriesCounter);
     const [cookies, setCookies] = useCookies(['email', 'token']);
 
     useEffect(() => {
@@ -44,6 +45,7 @@ function App() {
     return (
         <Router>
             <div className="App">
+                <CategoriesCouponModal />
                 <QrCode />
                 <Switch>
                     <Route exact path="/" component={HomePage} />
@@ -67,8 +69,6 @@ function App() {
                     <Route exact path="/blogs/decorate-the-living-room-for-the-new-season" component={Blog4} />
                     <Route exact path="/login" component={FakeLogin} />
                     <Route exact path="/register" component={FakeRegister} />
-                    {/* <LoginRoute exact path="/login" component={Login} />
-                    <LoginRoute exact path="/register" component={Register} /> */}
                 </Switch>
             </div>
         </Router>

@@ -23,6 +23,7 @@ const initialState = {
     ],
     chosenCoupon: null,
     isCouponAdded: false,
+    isCategoriesCouponChanceAppear: false,
     categoriesCounter: {
         "Sofas": 0,
         "Chair": 0,
@@ -61,6 +62,15 @@ const cartSlice = createSlice({
             state.cart.push({ ...newCartItem, type: "custom", appendIndex: state.appendIndex });
             state.appendIndex = state.appendIndex + 1;
             state.categoriesCounter[newCartItem.category] += 1;
+            let numOfCategoriesAppearInCart = 0;
+            for (const categories in state.categoriesCounter) {
+                if (state.categoriesCounter[categories] !== 0) {
+                    numOfCategoriesAppearInCart += 1;
+                }
+            }
+            if (numOfCategoriesAppearInCart >= 3) {
+                state.isCategoriesCouponChanceAppear = true;
+            }
             if (state.chosenCoupon === null) {
                 state.chosenCoupon = state.someCoupons[Math.floor(Math.random() * state.someCoupons.length)];
             }
@@ -71,6 +81,15 @@ const cartSlice = createSlice({
                 if (cartItem.appendIndex === appendIndex) {
                     state.price.total -= cartItem.price * cartItem.quantity;
                     state.categoriesCounter[cartItem.category] -= 1;
+                    let numOfCategoriesAppearInCart = 0;
+                    for (const categories in state.categoriesCounter) {
+                        if (state.categoriesCounter[categories] !== 0) {
+                            numOfCategoriesAppearInCart += 1;
+                        }
+                    }
+                    if (numOfCategoriesAppearInCart == 3) {
+                        state.isCategoriesCouponChanceAppear = true;
+                    }
                     return;
                 }
             });
@@ -124,6 +143,10 @@ const cartSlice = createSlice({
         updateIsCouponAdded: (state, action) => {
             const newIsCouponAdded = action.payload;
             state.isCouponAdded = newIsCouponAdded;
+        },
+        updateIsCategoriesCouponChanceAppear: (state, action) => {
+            const newIsCategoriesCouponChanceAppear = action.payload;
+            state.isCategoriesCouponChanceAppear = newIsCategoriesCouponChanceAppear;
         }
     },
     extraReducers: (builder) => {
@@ -144,6 +167,7 @@ export const {
     updatePaymentMethod,
     updateFinalPrice,
     updateIsCouponAdded,
+    updateIsCategoriesCouponChanceAppear
 } = cartSlice.actions;
 
 export const createOrder = createAsyncThunk("cart/createOrder", async (orderState, thunkAPI) => {
@@ -169,7 +193,7 @@ export const createOrder = createAsyncThunk("cart/createOrder", async (orderStat
             processedOrderData["color"] = state.cart.cart.map((cartItem) => cartItem.color);
             processedOrderData["size"] = state.cart.cart.map((cartItem) => cartItem.size);
             console.log("Processed Order Data", processedOrderData);
-            const createOrderResponse = await axios.post(
+            await axios.post(
                 `${SERVER_URL}/users/${state.account.token}/orders`,
                 processedOrderData
             );
