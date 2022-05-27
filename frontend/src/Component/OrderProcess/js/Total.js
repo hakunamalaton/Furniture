@@ -13,18 +13,7 @@ const Total = ({ priceState, paymentOption }) => {
     const isCouponAdded = useSelector(state => state.cart.isCouponAdded);
     const chosenCoupon = useSelector(state => state.cart.chosenCoupon);
 
-    const [categoriesCouponFee, setCategoriesCouponFee] = useState(0);
-
-    useEffect(() => {
-        console.log("[Total.js] categoriesCounter", categoriesCounter);
-        console.log("[Total.js] is categoriesCouponFee achieved", categoriesCounter['Light'] && categoriesCounter['Chair'] && categoriesCounter['Sofas'] && categoriesCounter['Bedding']);
-        if ((categoriesCounter['Light'] && categoriesCounter['Chair'] && categoriesCounter['Sofas'] && categoriesCounter['Bedding'])) {
-            setCategoriesCouponFee((OrderPriceState.total * 5) / 100);
-        }
-    }, [])
-
-    console.log("[Total.js] categoriesCouponFee", categoriesCouponFee);
-
+    const categoriesCouponFee = (categoriesCounter['Light'] && categoriesCounter['Chair'] && categoriesCounter['Sofas'] && categoriesCounter['Bedding']) ? (OrderPriceState.total * 5) / 100 : 0;
     const taxFee = (OrderPriceState.total * OrderPriceState.tax_percent) / 100;
 
     function handlePayWithPayPal() {
