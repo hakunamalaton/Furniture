@@ -59,8 +59,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_043203) do
     t.string "size", array: true
     t.text "overview", array: true
     t.string "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean "custom_design", default: false
     t.float "avg_star", default: 0.0
     t.index ["overview"], name: "index_products_on_overview", using: :gin

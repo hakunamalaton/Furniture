@@ -3,15 +3,38 @@ import Total from "./Total";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePaymentMethod } from "../slice/cartSlice";
 
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+
+import { updateIsCouponAdded } from '../slice/cartSlice';
+
 const Payment = ({ step, AddressData, buyerState, setBuyerState, priceState, setPriceState }) => {
     const size = { "font-size": "1.1rem" };
 
+    const [couponInput, setCouponInput] = useState("");
     const OrderPaymentState = useSelector(state => state.cart.payment);
+    const isCouponAdded = useSelector(state => state.cart.isCouponAdded);
+    const chosenCoupon = useSelector(state => state.cart.chosenCoupon);
+
     const dispatch = useDispatch();
-    const [paymentOption, setPaymentOption] = useState("");
 
     if (step !== 4) {
         return null;
+    }
+
+    const handleChangeCouponInput = ({ target: { value } }) => {
+        setCouponInput(value);
+    }
+
+    const handleSubmitCoupon = (event) => {
+        console.log(`handleSubmitCoupon chosenCoupon: ${chosenCoupon} and couponInput: ${couponInput}`);
+        event.preventDefault();
+        if (chosenCoupon !== null && chosenCoupon.name === couponInput) {
+            dispatch(updateIsCouponAdded(true));
+            alert("Add coupon success!");
+        } else {
+            alert("Invalid coupon! Please try again :(");
+        }
     }
 
     return (
@@ -21,6 +44,18 @@ const Payment = ({ step, AddressData, buyerState, setBuyerState, priceState, set
                     <div className="row mt-5 gx-3">
                         <div className="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5 shadow">
                             <h3>Proceed Payment</h3>
+                            {!isCouponAdded &&
+                                (<Form onSubmit={handleSubmitCoupon}>
+                                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                                        <Form.Label>Input Your Voucher to gain discounts !!!</Form.Label>
+                                        <Form.Control onChange={handleChangeCouponInput} value={couponInput} type="text" placeholder="Discount Voucher" />
+                                        <Form.Text className="text-muted">Only one voucher is applied for each order</Form.Text>
+                                        <Button variant="primary" type="submit">
+                                            Submit
+                                        </Button>
+                                    </Form.Group>
+                                </Form>)
+                            }
                             <br></br>
                             <div className="additional-info-onchange-form-wrapper">
                                 <h5>Payment Option:</h5>
@@ -79,7 +114,7 @@ const Payment = ({ step, AddressData, buyerState, setBuyerState, priceState, set
                                             name="optradio"
                                             id="address"
                                             value={"credit"}
-                                            onChange={(event) => setPaymentOption("")}
+                                            onChange={(event) => { }}
                                         />
                                         <div className="mb-3 mt-3 ml-4 col-md">
                                             <p className="mb-0" style={size}>{"Credit Card or Debit Card"}</p>

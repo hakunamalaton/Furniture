@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import momoBtn from "../../../picture/momoBtn.png";
 import paypalBtn from "../../../picture/paypalBtn.jpg";
@@ -8,8 +8,13 @@ const Total = ({ priceState, paymentOption }) => {
     const dispatch = useDispatch();
 
     const OrderState = useSelector((state) => state.cart);
-
     const OrderPriceState = useSelector((state) => state.cart.price);
+    const categoriesCounter = useSelector((state) => state.cart.categoriesCounter);
+    const isCouponAdded = useSelector(state => state.cart.isCouponAdded);
+    const chosenCoupon = useSelector(state => state.cart.chosenCoupon);
+
+    const categoriesCouponFee = (categoriesCounter['Light'] && categoriesCounter['Chair'] && categoriesCounter['Sofas'] && categoriesCounter['Bedding']) ? (OrderPriceState.total * 5) / 100 : 0;
+    const taxFee = (OrderPriceState.total * OrderPriceState.tax_percent) / 100;
 
     function handlePayWithPayPal() {
         dispatch(updateFinalPrice());
@@ -18,10 +23,13 @@ const Total = ({ priceState, paymentOption }) => {
         // history.push("/transaction-history");
         let total = (
             OrderPriceState.total +
-            taxFee +
+            taxFee -
+            categoriesCouponFee +
             (OrderPriceState.shipping === ""
                 ? 0
                 : OrderPriceState.shipping * OrderPriceState.shippingScale)
+            -
+            (isCouponAdded && chosenCoupon ? chosenCoupon.value : 0)
         ).toFixed(2);
         window.location.href = `https://furniture-payment.herokuapp.com/payment-paypal?total=${total}`
     }
@@ -33,11 +41,16 @@ const Total = ({ priceState, paymentOption }) => {
         let total =
             23000 *
             Math.round(
-                OrderPriceState.total +
-                    taxFee +
+                (
+                    OrderPriceState.total +
+                    taxFee -
+                    categoriesCouponFee +
                     (OrderPriceState.shipping === ""
                         ? 0
                         : OrderPriceState.shipping * OrderPriceState.shippingScale)
+                    -
+                    (isCouponAdded && chosenCoupon ? chosenCoupon.value : 0)
+                ).toFixed(2)
             );
         window.open(
             `https://furniture-payment.herokuapp.com/payment-momo?amount=${total}`,
@@ -46,9 +59,8 @@ const Total = ({ priceState, paymentOption }) => {
     };
 
     console.log("Total.js priceState", priceState);
-    const taxFee = (OrderPriceState.total * OrderPriceState.tax_percent) / 100;
     return (
-        <div className="right_side p-3" style={{backgroundColor: "#A6DEFC"}}>
+        <div className="right_side p-3" style={{ backgroundColor: "#A6DEFC" }}>
             <div>
                 <h2 className="product_name mb-5">The Total Amount Of</h2>
                 <div className="price_indiv d-flex justify-content-between">
@@ -64,8 +76,8 @@ const Total = ({ priceState, paymentOption }) => {
                             {OrderPriceState.shipping === ""
                                 ? "Not yet calculated"
                                 : `$${OrderPriceState.shipping.toFixed(
-                                      2
-                                  )} x ${OrderPriceState.shippingScale.toFixed(2)}`}
+                                    2
+                                )} x ${OrderPriceState.shippingScale.toFixed(2)}`}
                         </span>
                     </p>
                 </div>
@@ -76,6 +88,28 @@ const Total = ({ priceState, paymentOption }) => {
                         $<span id="total_cart_amt">{taxFee.toFixed(2)}</span>
                     </p>
                 </div>
+
+                {
+                    (categoriesCouponFee !== 0) && (
+                        <div className="total-amt d-flex justify-content-between">
+                            <p>Categories Combo(5% Discount):</p>
+                            <p>
+                                -$<span id="total_cart_amt">{categoriesCouponFee.toFixed(2)}</span>
+                            </p>
+                        </div>
+                    )
+                }
+
+                {
+                    (isCouponAdded) && (
+                        <div className="total-amt d-flex justify-content-between">
+                            <p>{`Coupon ${chosenCoupon.name}`}</p>
+                            <p>
+                                -$<span id="total_cart_amt">{chosenCoupon.value.toFixed(2)}</span>
+                            </p>
+                        </div>
+                    )
+                }
                 <hr />
                 <div className="total-amt d-flex justify-content-between font-weight-bold">
                     <p>TOTAL PRICE:</p>
@@ -84,10 +118,13 @@ const Total = ({ priceState, paymentOption }) => {
                         <span id="total_cart_amt">
                             {(
                                 OrderPriceState.total +
-                                taxFee +
+                                taxFee -
+                                categoriesCouponFee +
                                 (OrderPriceState.shipping === ""
                                     ? 0
                                     : OrderPriceState.shipping * OrderPriceState.shippingScale)
+                                -
+                                (isCouponAdded && chosenCoupon ? chosenCoupon.value : 0)
                             ).toFixed(2)}
                         </span>
                     </p>
