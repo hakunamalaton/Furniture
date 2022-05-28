@@ -131,14 +131,14 @@ function Mapbox(props) {
                 mapboxApiAccessToken={MAPBOXACCESSTOKEN}
                 transitionDuration={20}
             >
-                {/* <Geocoder
+                <Geocoder
                     mapRef={mapRef}
                     onViewportChange={handleGeocoderViewportChange}
                     mapboxApiAccessToken={MAPBOXACCESSTOKEN}
                     position="top-left"
                     reverseGeocode={true}
                     country="vn"
-                /> */}
+                />
                 <Marker
                     longitude={106.80618697610669}
                     latitude={10.879752117974931}
